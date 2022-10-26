@@ -191,7 +191,7 @@
                                 <a href="./personal-infor-admin.jsp" 
                                    class="dropdown-toggle collapsed">
                                     <div class="">
-                                        <i class="flaticon-user-7"></i>
+                                        <i class="flaticon-user-11"></i>
                                         <span>Thông tin tài khoản</span>
                                     </div>
                                 </a>
