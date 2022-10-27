@@ -47,7 +47,7 @@
 
                     <!-- Brand -->
                     <a class="navbar-brand waves-effect" href="./home.jsp">
-                        <h2 id="logoheader" style="color: #359640;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
+                        <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                     </a>
 
                     <!-- Collapse -->
@@ -63,8 +63,7 @@
                         <!-- Left -->
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active" style="padding-left: 40px;">
-                                <a class="nav-link waves-effect  text-header" href="./index.html">Trang chủ
-
+                                <a class="nav-link waves-effect  text-header" href="./home.jsp">Trang chủ
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -72,7 +71,6 @@
                                 <div class="dropdown">
                                     <a class="nav-link waves-effect text-header dropdown-toggle" href=""
                                        target="_blank">Giới thiệu
-
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
                                          id="dropdown-collection">
@@ -92,6 +90,7 @@
                                         <a class="dropdown-item" href="./hoaqua.html">Trái cây</a>
                                         <a class="dropdown-item" href="./dokho.html">Rau củ sạch</a>
                                         <a class="dropdown-item" href="./dokho.html">Các loại hạt</a>
+                                        <a class="dropdown-item" href="./dokho.html">Tất cả sản phẩm</a>
                                     </div>
                                 </div>
 
@@ -165,7 +164,7 @@
                                     <h6>
                                         Best collections
                                     </h6>
-                                    <a href="./raucusach.html">GHÃ SHOP</a>
+                                    <a href="./raucusach.html">GHÉ SHOP</a>
                                 </div>
                             </div>
                         </div>
@@ -204,52 +203,23 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-3  ">
                         <div class="banner-block banner-hover">
-
                             <img class=" lazyloaded" src="./image/banner2-min.jpg">
-
                             <div class="banner-content text-left">
-
-
                                 <h4 style="color: #232323;">Vegetable Eggplant <br> 100% Fresh food</h4>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-6 col-sm-3  ">
                         <div class="banner-block banner-hover">
-                            <a href="#">
-                                <img class=" lazyloaded" src="./image/banner1.jpg">
-                            </a>
+                            <img class=" lazyloaded" src="./image/banner1.jpg">
                             <div class="banner-content text-left">
-
                                 <h4 style="color: #232323;">Fresh fruit vegetable <br> on our product</h4>
                             </div>
-
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>
-
-        <section class="mt-3 category">
-            <div class="container">
-                <div class="title text-center   ">
-                    <h2>Danh mục sản phẩm</h2>
-                </div>
-
-                <div class="row">
-                    <div class="cate-slider">
-                        <div class="img-cate"><img src="./image/cat3.jpg" alt=""></div>
-                        <div class="img-cate"><img src="./image/cat3.jpg" alt=""></div>
-                        <div class="img-cate"><img src="./image/cat3.jpg" alt=""></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="mt-5 product">
             <div class="container">
                 <div class="title text-center pb-10  ">
@@ -260,32 +230,23 @@
                     <div class="product-slider">
                         <div class="col-md-2">
                             <div class="card">
-                                <img class="card-img-top" src="./image/bơ1.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="./image/nho đen.jpg" alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">Bơ Booth Đăk Lăk</h5>
-                                    <h6> Thịt bơ vàng đậm, thơm dẻo không xơ, hạt nhỏ, độ ngậy cao.</h6>
+                                    <h5 class="card-title">Đu đủ Yên Hòa</h5>
+                                    <h6>Với hàm lượng đường chiếm đến 40% nho có vị ngọt, không quá gắt, màu sắc đẹp</h6>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="card">
-                                <img class="card-img-top" src="./image/đu đủ.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Nho Khánh Hòa</h5>
-                                    <h6>Ngọt lịm tim, ruột vàng, thơm ngon, chứa hàm lượng chất xơ cao với loại khác</h6>
-                                </div>
-                            </div>
-                        </div>
+                        </div> 
                         <div class="col-md-2">
                             <div class="card">
                                 <img class="card-img-top" src="./image/nho đen.jpg" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">Đu đủ Yên Hòa</h5>
                                     <h6>Với hàm lượng đường chiếm đến 40% nho có vị ngọt, không quá gắt, màu sắc đẹp</h6>
+                                </div>
+                            </div>
+                        </div> 
 
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-md-2">
                             <div class="card">
                                 <img class="card-img-top" src="./image/nho đen.jpg" alt="Card image cap">
@@ -294,7 +255,7 @@
                                     <h6>Với hàm lượng đường chiếm đến 40% nho có vị ngọt, không quá gắt, màu sắc đẹp</h6>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                         <div class="col-md-2">
                             <div class="card">
                                 <img class="card-img-top" src="./image/nho đen.jpg" alt="Card image cap">
@@ -303,21 +264,26 @@
                                     <h6>Với hàm lượng đường chiếm đến 40% nho có vị ngọt, không quá gắt, màu sắc đẹp</h6>
                                 </div>
                             </div>
-                        </div>
-
+                        </div> 
+                        <div class="col-md-2">
+                            <div class="card">
+                                <img class="card-img-top" src="./image/nho đen.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Đu đủ Yên Hòa</h5>
+                                    <h6>Với hàm lượng đường chiếm đến 40% nho có vị ngọt, không quá gắt, màu sắc đẹp</h6>
+                                </div>
+                            </div>
+                        </div> 
                     </div>
                 </div>
             </div>
         </section>
-
-        
         <div class="gallery">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="titlepage pt-3 pb-3">
-                            <h2>Khuyến mãi trong tuần</h2>
-                            <span>Cơ hội để gia đình bạn sở hữu những sản phẩm ưu đãi !!!</span>
+                            <h2>Sản phẩm mới nhất</h2>
                         </div>
                     </div>
                 </div>
@@ -368,42 +334,11 @@
                             </div>
                         </div>
                     </div>
-
-
-                </div>
+                   </div>
             </div>
         </div>
 
-        <section class="pt-2 mb-3">
-            <div class="container">
-                <div class="ftlink-li footer-newsletter">
-                    <div class="news-letter">
-                        <div class="title">
 
-                            <h2 class="ft-title">Cơ Hội Săn Mã Giảm Giá Cuối Cùng !!!</h2>
-
-
-                            <p class="pb-2">NHẬN NGAY GIẢM GIÁ 20% CHO LẦN MUA HÀNG ĐẦU TIÊN TẠI SHOP!!</p>
-
-                        </div>
-                        <div class="subscribe-content">
-                            <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8"
-                                  class="contact-form-coupon"><input type="hidden" name="form_type" value="customer"><input type="hidden"
-                                                                                                                      name="utf8" value="✓">
-                                <input type="hidden" name="contact[tags]" value="newsletter">
-                                <div class="subscribe-block ">
-                                    <input type="email" name="contact[email]" class="email form-control mail text-medium" id="E-mail"
-                                           value="" placeholder="Enter Your Email Address" autocapitalize="off">
-                                    <button type="submit" class="btn-style1" name="commit" id="Subscribe"><a href="./createAccount.html"
-                                                                                                             style="text-decoration: none; color: #fff;">Đăng Ký</a></button>
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <!--====== SHOPPING CART PART START ======-->
 
         <div class="amm-shopping-cart-wrapper">
@@ -443,10 +378,9 @@
                     <div class="col-lg-4 col-sm-6 col-xs-12">
                         <div class="text-footer">
                             <h4>Giới thiệu</h4>
-                            <p>OrFarm là trang web bán nông sản sạch của Việt Nam. Nguồn nông sản tươi sạch, nhiều chất dinh dưỡng, giá
-                                cả phải chăng và đặc biệt là được cấp giấy chứng nhận về sản phẩm sạch là nguồn cảm hứng để chúng tôi tiếp
-                                tục đưa sản phẩm
-                                đến với người Việt.
+                            <p>Vietnam Products Exchange (VnProX) là một nền tảng kết nối các nhà cung cấp nông sản Việt với các thương lái, 
+                                siêu thị mini nhằm  kích cầu tiêu dùng hàng Việt đến tất cả người dân.
+                                Chúng tôi luôn đảm bảo mọi thông tin của tất cả mặt hàng nông sản xuất hiện trên sàn là chính xác nhất.
                             </p>
                             <div class="logo-1">
                                 <img class="w-100" src="img/logo_bct_019590229b4c4dfda690236b67f7aff4.jpg" alt="">
@@ -529,7 +463,7 @@
                     <div class="col ">
                         <ul class="ft-bottom container">
                             <li class="copy-right">
-                                <p style="font-size: 14px;">Copyright © 2021 orfarm organic. Powered by OrFarm</p>
+                                <p style="font-size: 14px;">Copyright © 2021 Powered by VnProx. Powered by VnProx</p>
                             </li>
                             <li class="social-media">
                                 <a href="">
