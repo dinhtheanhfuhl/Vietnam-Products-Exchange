@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-        <title>Danh sách sản phẩm chờ duyệt </title>
+        <title>Danh sách đơn hàng</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" .href="./image/578b1438ff0a7fc4704aa5ade7625e89.jpeg" type="image/png">
@@ -42,7 +42,7 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect" >
+                <a class="navbar-brand waves-effect" href="../home.jsp">
                     <h2 id="logoheader" style="color: #359640;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
@@ -190,13 +190,31 @@
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
                             <li class="menu">
-                                <a href="./admin-product-pending.jsp" class="dropdown-toggle collapsed">
+                                <a href="./personal-infor-moderator.jsp" 
+                                   class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-user-11"></i>
+                                        <span>Thông tin tài khoản</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="menu">
+                                <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
                                         <span>D/s sản phẩm</span>
                                     </div>
                                 </a>
                             </li>
+                            <li class="menu">
+                                <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-list2"></i>
+                                        <span>D/s đơn hàng</span>
+                                    </div>
+                                </a>
+                            </li>
+                            
                         </ul>
                     </nav>
 
@@ -239,8 +257,6 @@
                                                                class="form-control">
                                                         <input type="text" name="danh mục" placeholder="Mã Barcode/SKU" value=""
                                                                class="form-control"> 
-                                                        <input type="text" name="danh mục" placeholder="Nhà cung cấp" value=""
-                                                               class="form-control"> 
                                                         <button class="btn btn-info"
                                                                 style="padding: 0 10px; background: none; border: none;"
                                                                 title="Tìm kiếm">
@@ -258,7 +274,6 @@
                                         <table class="table">
                                             <thead>
                                                 <tr class="text-center">
-                                                    <th> </th>
                                                     <th>STT</th>
                                                     <th>Mã yêu 
                                                         cầu duyệt</th>
@@ -267,27 +282,22 @@
                                                     <th>Tên sản phẩm</th>
                                                     <th>Mã Barcode/
                                                         SKU</th>
-                                                    <th>Nhà cung cấp </th>
-                                                    <th>Khu vực 
-                                                        giao hàng</th>
+                                                    <th>Khu vực giao hàng</th>
                                                     <th>Trạng thái</th>
                                                     <th>Chi tiết</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">
                                                 <tr>
-                                                    <td>&nbsp;<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" ></td>
+                                                    <td>1</td>
                                                     <td>#0001</td>
                                                     <td>Cam sành</td>
                                                     <td><span class="badge badge-info badge-pill">Hoa quả</span></td>
                                                     <td>100</td>
                                                     <td>50</td>
                                                     <td>50</td>
-                                                    <td>
-                                                        50.000
-                                                    </td>
-                                                    <td>20.000</td>
-                                                    <td><a href="#">Xem chi tiết</a></td>
+                                                    <td><a href="moderator-detail-order.jsp">Xem chi tiết</a></td>
+                                                    
                                                 </tr>
                                             </tbody>
                                         </table>

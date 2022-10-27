@@ -210,7 +210,7 @@
 
                             </li>
                             <li class="menu">
-                                <a href="./listuser.jsp" 
+                                <a href="admin-list-user.jsp" 
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-user-1"></i>
@@ -242,12 +242,7 @@
                                 <div class="profile-usertitle">
                                     <div class="profile-usertitle-name"> Tên người dùng</div>
                                 </div>
-                                <div class="profile-userbuttons">
-                                    <button type="button" class="btn btn-success btn-sm"> <a href="./index.html">Trang
-                                            chủ</a></button>
-                                    <button type="button" class="btn btn-danger btn-sm" action="action"
-                                            onclick="window.history.go(-1); return false;" type="submit">Thoát ra</button>
-                                </div>
+                                
                             </div>
                         </div>
                         <div class="col-md-9 mt-50 mb-50">
@@ -288,7 +283,7 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Giới tính</label>
+                                                <td><label for="inputpass" style="margin-left: 7px" class="form-label pass-infor">Giới tính</label>
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <select class="form-control" name="gender" id="gender">

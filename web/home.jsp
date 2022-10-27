@@ -310,32 +310,7 @@
             </div>
         </section>
 
-        <section class="banner-bot mt-5">
-            <div id="clockdiv">
-                <h2>CƠ HỘI SĂN MÃ GIẢM GIÁ LÊN ĐẾN 50%</h2>
-                <div>
-                    <span class="days"></span>
-                    <div class="smalltext">Days</div>
-                </div>
-                <div>
-                    <span class="hours"></span>
-                    <div class="smalltext">Hours</div>
-                </div>
-                <div>
-                    <span class="minutes"></span>
-                    <div class="smalltext">Minutes</div>
-                </div>
-                <div>
-                    <span class="seconds"></span>
-                    <div class="smalltext">Seconds</div>
-                </div>
-
-            </div>
-            <button type="button" class="btn btn-warning button-buy-now" style="margin: 0 auto; display: flex;
-                    ">
-                <a href="./hoaqua.jsp" style="text-decoration: none; color: #232323;">MUA NGAY</a></button>
-
-        </section>
+        
         <div class="gallery">
             <div class="container">
                 <div class="row">

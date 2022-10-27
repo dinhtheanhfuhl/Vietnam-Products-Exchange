@@ -43,7 +43,7 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect" href="../home.jsp">
+                <a class="navbar-brand waves-effect">
                     <h2 id="logoheader" style="color: #359640;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
@@ -58,10 +58,6 @@
             </ul>
 
             <ul class="navbar-nav flex-row ml-lg-auto">
-
-
-
-
                 <li class="nav-item dropdown message-dropdown ml-lg-4 mr-lg-4 d-sm-block d-none align-self-center">
 
                     <div class="dropdown-menu  position-absolute p-0 eq-animated eq-fadeInUp"
@@ -204,21 +200,27 @@
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
                             <li class="menu">
-                                <a href="./personal-infor-admin.jsp" 
+                                <a href="./personal-infor-moderator.jsp" 
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-user-11"></i>
                                         <span>Thông tin tài khoản</span>
                                     </div>
                                 </a>
-
                             </li>
                             <li class="menu">
-                                <a href="./listuser.jsp" 
-                                   class="dropdown-toggle collapsed">
+                                <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
-                                        <i class="flaticon-user-1"></i>
-                                        <span>Quản lý tài khoản</span>
+                                        <i class="flaticon-3d-cube"></i>
+                                        <span>D/s sản phẩm</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="menu">
+                                <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-list2"></i>
+                                        <span>D/s đơn hàng</span>
                                     </div>
                                 </a>
                             </li>
@@ -234,7 +236,7 @@
                 <!--  BEGIN CONTENT PART  -->
 
                 <div class="container main-infor" style="margin-top: 10%">
-                    <h1 class="text-center">Thông tin người dùng</h1>
+                    <h1 class="text-center">Thông tin cá nhân</h1>
                     <div class="row profile">
                         <div class="col-md-3 mt-50 mb-50">
                             <div class="profile-sidebars">
@@ -246,7 +248,12 @@
                                 <div class="profile-usertitle">
                                     <div class="profile-usertitle-name"> Tên người dùng</div>
                                 </div>
-                                
+                                <div class="profile-userbuttons">
+                                    <button type="button" class="btn btn-success btn-sm"> <a href="./index.html">Trang
+                                            chủ</a></button>
+                                    <button type="button" class="btn btn-danger btn-sm" action="action"
+                                            onclick="window.history.go(-1); return false;" type="submit">Thoát ra</button>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-9 mt-50 mb-50">
@@ -315,61 +322,34 @@
                                     </table>
 
                                 </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
+                                <div class="col-md-8 col-sm-6 pt-3">
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Số điện thoại</label>
+                                                <td> <label for="formGroupExampleInput" class="name-infor" style="margin-left: -20px;">Số điện thoại</label>
                                                 </td>
-                                                <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
+                                                <td class="display-userName">
+                                                    <input style="margin-left: 22px;" type="text" class="form-control" id="formGroupExampleInput"
                                                            placeholder="số điện thoại">
                                                 </td>
+                                                <td> <button type="submit" id="btn-edit" for="formGroupExampleInput"
+                                                             class="btn btn-warning ml-10">Chỉnh sửa</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Nhà cung cấp</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           placeholder="nhà cung cấp">
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Địa chỉ chính</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           placeholder="địa chỉ chính">
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Giấy phép</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <input type="password" required class="form-control" id="inputpass"
-                                                           placeholder="">
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="hidden-edit pt-3" style="height: 170px;">
+                                        <div class="form-group ">
+                                            <label for="inputName" class="col-sm-6 col-form-label">Số điện thoại mới</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control appear-input mb-3 " id="inputName"
+                                                       placeholder="nhập số điện thoại mới" aria-label="First name">
+
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-secondary updated-infor ml-10 mt-25">Cập
+                                            nhật</button>
+                                        <button type="submit" class="btn btn-secondary exit ml-10 mt-25">Hủy</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -421,10 +401,8 @@
                 <img src="../assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
             </div>
             <p class="user-name mt-4 mb-4">HoÃ ng Thá» Xoan</p>
-
             <div class="user-links text-left">
                 <ul class="list-unstyled">
-
                     <li>
                         <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
                     </li>

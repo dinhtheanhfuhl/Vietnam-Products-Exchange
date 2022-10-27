@@ -189,13 +189,38 @@
                 <div class="">
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
+                            
                             <li class="menu">
-                                <a href="./admin-product-pending.jsp" class="dropdown-toggle collapsed">
+                                <a href="supplier-product-pending.jsp" 
+                                   class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>D/s sp chờ duyệt</span>
+                                        <span>D/s sp cần duyệt</span>
                                     </div>
                                 </a>
+                            </li>
+
+                            <li class="menu">
+                                <a href="./hub.html" 
+                                   class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-list2"></i>
+                                        <span> Quản lý danh mục</span>
+                                    </div>
+                                </a>
+
+                            </li>
+
+
+                            <li class="menu">
+                                <a href="./view-order.jsp" 
+                                   class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-cart-bag-1"></i>
+                                        <span>Xem đơn hàng</span>
+                                    </div>
+                                </a>
+                               
                             </li>
                         </ul>
                     </nav>
@@ -285,10 +310,11 @@
                                                         <button type="button" class="btn btn-warning">Chỉnh sửa</button>
                                                     </td>
                                                     <td><button type="button" class="btn btn-danger">Ẩn</button></td>
-                                                    
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <a href="supplier-add-product.jsp">
+                                            <button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
                                     </div>
                                     <div class="pagination-section">
                                         <ul
