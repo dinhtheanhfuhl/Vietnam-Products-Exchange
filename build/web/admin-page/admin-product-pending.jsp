@@ -42,7 +42,7 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect" href="../home.jsp">
+                <a class="navbar-brand waves-effect" >
                     <h2 id="logoheader" style="color: #359640;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
@@ -193,7 +193,7 @@
                                 <a href="./admin-product-pending.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>D/s sp chờ duyệt</span>
+                                        <span>D/s sản phẩm</span>
                                     </div>
                                 </a>
                             </li>
