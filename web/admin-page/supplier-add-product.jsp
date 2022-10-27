@@ -196,8 +196,8 @@
                                 <a href="./product.html" 
                                    class="dropdown-toggle collapsed">
                                     <div class="">
-                                        <i class="flaticon-home-line"></i>
-                                        <span>Sản phẩm</span>
+                                        <i class="flaticon-3d-cube"></i>
+                                        <span>D/s sp cần duyệt</span>
                                     </div>
                                 </a>
                             </li>
@@ -206,8 +206,8 @@
                                 <a href="./hub.html" 
                                    class="dropdown-toggle collapsed">
                                     <div class="">
-                                        <i class="flaticon-home-line"></i>
-                                        <span>Kho Hàng</span>
+                                        <i class="flaticon-list2"></i>
+                                        <span> Quản lý danh mục</span>
                                     </div>
                                 </a>
 
@@ -215,31 +215,14 @@
 
 
                             <li class="menu">
-                                <a href="#uiAccount" data-toggle="collapse" aria-expanded="false"
+                                <a href="./view-order.jsp" 
                                    class="dropdown-toggle collapsed">
                                     <div class="">
-                                        <i class="flaticon-user-11"></i>
-                                        <span>Tài khoản</span>
+                                        <i class="flaticon-cart-bag-1"></i>
+                                        <span>Xem đơn hàng</span>
                                     </div>
                                 </a>
-                                <div class="submenu list-unstyled collapse eq-animated eq-fadeInUp" id="uiAccount"
-                                     data-parent="#topAccordion">
-                                    <div class="submenu-scroll">
-                                        <ul class="list-unstyled mt-4">
-                                            <li>
-                                                <ul class="list-unstyled sub-submenu collapse show eq-animated eq-fadeInUp"
-                                                    id="ui-features">
-                                                    <li>
-                                                        <a href="./user.html">Khách hàng</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="./staff.html">Nhân viên</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                               
                             </li>
                         </ul>
                     </nav>
@@ -520,7 +503,7 @@
                     <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
                         <ul class="list-inline links ml-sm-5">
                             <li class="list-inline-item">
-                                <a target="_blank" href="#">OrFarm Store</a>
+                                <a target="_blank" href="#">Vietnam Products Exchange</a>
                             </li>
                         </ul>
                     </div>
@@ -528,7 +511,7 @@
                         <ul
                             class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
                             <li class="list-inline-item  mr-3">
-                                <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">OrFarm Store</a></p>
+                                <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
                             </li>
                             <li class="list-inline-item align-self-center">
                                 <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>

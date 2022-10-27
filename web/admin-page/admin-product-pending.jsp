@@ -190,74 +190,13 @@
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
                             <li class="menu">
-                                <a href="./admin.html">
+                                <a href="./admin-product-pending.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
-                                        <i class="flaticon-computer-6"></i>
-                                        <span>Thống kê</span>
+                                        <i class="flaticon-3d-cube"></i>
+                                        <span>D/s sp chờ duyệt</span>
                                     </div>
                                 </a>
                             </li>
-
-                            <li class="menu">
-                                <a href="./order.html" class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-cart-1"></i>
-                                        <span>Đơn hàng</span>
-                                    </div>
-                                </a>
-
-                            </li>
-                            <li class="menu">
-                                <a href="./product.html" class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-home-line"></i>
-                                        <span>Sản phẩm</span>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="menu">
-                                <a href="./hub.html" class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-home-line"></i>
-                                        <span>Kho Hàng</span>
-                                    </div>
-                                </a>
-
-                            </li>
-
-
-                            <li class="menu">
-                                <a href="#uiAccount" data-toggle="collapse" aria-expanded="false"
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-user-7"></i>
-                                        <span>Tài khoản</span>
-                                    </div>
-                                </a>
-                                <div class="submenu list-unstyled collapse eq-animated eq-fadeInUp" id="uiAccount"
-                                     data-parent="#topAccordion">
-                                    <div class="submenu-scroll">
-                                        <ul class="list-unstyled mt-4">
-                                            <li>
-                                                <ul class="list-unstyled sub-submenu collapse show eq-animated eq-fadeInUp"
-                                                    id="ui-features">
-                                                    <li>
-                                                        <a href="./user.html">Khách hàng</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="./staff.html">Nhân viên</a>
-                                                    </li>
-
-
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-
-
                         </ul>
                     </nav>
 
@@ -332,8 +271,6 @@
                                                     <th>Khu vực 
                                                         giao hàng</th>
                                                     <th>Trạng thái</th>
-                                                    <th>Giấy 
-                                                        chứng nhận</th>
                                                     <th>Chi tiết</th>
                                                 </tr>
                                             </thead>
@@ -350,8 +287,7 @@
                                                         50.000
                                                     </td>
                                                     <td>20.000</td>
-                                                    <td>&nbsp;<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" ></td>
-                                                    <td><a>Xem chi tiết</a></td>
+                                                    <td><a href="#">Xem chi tiết</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -396,7 +332,7 @@
                     <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
                         <ul class="list-inline links ml-sm-5">
                             <li class="list-inline-item">
-                                <a target="_blank" href="#">OrFarm Store</a>
+                                <a target="_blank" href="#">Vietnam Products Exchange</a>
                             </li>
                         </ul>
                     </div>
@@ -404,7 +340,7 @@
                         <ul
                             class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
                             <li class="list-inline-item  mr-3">
-                                <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">OrFarm Store</a></p>
+                                <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
                             </li>
                             <li class="list-inline-item align-self-center">
                                 <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
