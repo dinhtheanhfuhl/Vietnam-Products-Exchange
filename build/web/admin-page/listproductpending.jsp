@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-        <title>Danh sách người dùng hệ thống </title>
+        <title>Danh sách sản phẩm chờ duyệt </title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" .href="./image/578b1438ff0a7fc4704aa5ade7625e89.jpeg" type="image/png">
@@ -21,9 +21,11 @@
         <link href="../plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
         <link href="../assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
         <link href="../assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />\
         <link rel="stylesheet" href="../assets/css/style.css">
         <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+
+
     </head>
 
     <body>
@@ -188,64 +190,118 @@
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
                             <li class="menu">
-                                <a href="./personal-infor-admin.jsp" 
-                                   class="dropdown-toggle collapsed">
+                                <a href="./admin.html">
                                     <div class="">
-                                        <i class="flaticon-user-11"></i>
-                                        <span>Thông tin tài khoản</span>
+                                        <i class="flaticon-computer-6"></i>
+                                        <span>Thống kê</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="menu">
+                                <a href="./order.html" class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-cart-1"></i>
+                                        <span>Đơn hàng</span>
                                     </div>
                                 </a>
 
                             </li>
                             <li class="menu">
-                                <a href="./listuser.jsp" 
-                                   class="dropdown-toggle collapsed">
+                                <a href="./product.html" class="dropdown-toggle collapsed">
                                     <div class="">
-                                        <i class="flaticon-user-1"></i>
-                                        <span>Quản lý tài khoản</span>
+                                        <i class="flaticon-home-line"></i>
+                                        <span>Sản phẩm</span>
                                     </div>
                                 </a>
                             </li>
+
+                            <li class="menu">
+                                <a href="./hub.html" class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-home-line"></i>
+                                        <span>Kho Hàng</span>
+                                    </div>
+                                </a>
+
+                            </li>
+
+
+                            <li class="menu">
+                                <a href="#uiAccount" data-toggle="collapse" aria-expanded="false"
+                                   class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-user-7"></i>
+                                        <span>Tài khoản</span>
+                                    </div>
+                                </a>
+                                <div class="submenu list-unstyled collapse eq-animated eq-fadeInUp" id="uiAccount"
+                                     data-parent="#topAccordion">
+                                    <div class="submenu-scroll">
+                                        <ul class="list-unstyled mt-4">
+                                            <li>
+                                                <ul class="list-unstyled sub-submenu collapse show eq-animated eq-fadeInUp"
+                                                    id="ui-features">
+                                                    <li>
+                                                        <a href="./user.html">Khách hàng</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="./staff.html">Nhân viên</a>
+                                                    </li>
+
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+
+
                         </ul>
                     </nav>
 
                 </div>
             </div>
             <!--  END MODERN  -->
+
             <!--  BEGIN CONTENT PART  -->
             <div id="content" class="main-content">
                 <div class="container">
-                    <div class="row ">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-
-                            <div class="statbox widget box box-shadow">
-
-                                <div class="widget-header">
-                                    <div class="page-header ">
-                                        <div class="page-title col-xl-12 col-md-12 col-sm-12 col-12 mb-5">
-                                            <h3>Quản lý người dùng hệ thống</h3>
-                                            <!-- <a href="./add-staff.html" class="btn btn-warning">Thêm nhân viên</a> -->
-                                        </div>
-                                    </div>
-                                    <div class="widget-header mb-5">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                            <div class="statbox widget box">
+                                <div class="widget-content-area">
+                                    <div class="widget-header mb-5 mt-5">
                                         <div class="row">
 
                                             <div class="col-lg-12">
                                                 <form class="top-action" method="GET" action="">
-                                                    <div id="filter">
-                                                        <input type="text" name="id" placeholder="Tên người dùng" value="" class="form-control">
-                                                        <input type="text" name="address" placeholder="Tên nhà cung cấp" value=""
-                                                               class="form-control">
-                                                        <select class="form-control" >
-                                                            <option value="male">Hà Nội</option>
-                                                            <option value="female">Thanh Hoá</option>
-                                                            <option value="other">Hải Dương</option>
-                                                        </select>
-                                                        <input type="text" name="address" placeholder="Số điện thoại" value=""
-                                                               class="form-control">
-                                                        <input type="email" name="address" placeholder="Email" value=""
-                                                               class="form-control">
 
+                                                    <input name="sorts[]" value="" class="sort sort-name" type="hidden">
+                                                    <input name="sorts[]" value="" class="sort sort-type" type="hidden">
+                                                    <input name="sorts[]" value="" class="sort sort-address" type="hidden">
+                                                    <input name="sorts[]" value="" class="sort sort-hotline" type="hidden">
+                                                    <input name="sorts[]" value="" class="sort sort-transport_code"
+                                                           type="hidden">
+                                                    <input name="sorts[]" value="country_code|desc"
+                                                           class="sort sort-country_code" type="hidden">
+                                                    <input name="sorts[]" value="" class="sort sort-bill_in_warehouse"
+                                                           type="hidden">
+                                                    <input name="sorts[]" value="" class="sort sort-view_bill"
+                                                           type="hidden">
+                                                    <input name="sorts[]" value="" class="sort sort-order_in_warehouse"
+                                                           type="hidden">
+
+                                                    <div id="filter">
+                                                        <input type="text" name="id" placeholder="Mã yêu cầu phê duyệt" value=""
+                                                               class="form-control">
+                                                        <input type="text" name="name" placeholder="Tên sản phẩm" value=""
+                                                               class="form-control">
+                                                        <input type="text" name="danh mục" placeholder="Mã Barcode/SKU" value=""
+                                                               class="form-control"> 
+                                                        <input type="text" name="danh mục" placeholder="Nhà cung cấp" value=""
+                                                               class="form-control"> 
                                                         <button class="btn btn-info"
                                                                 style="padding: 0 10px; background: none; border: none;"
                                                                 title="Tìm kiếm">
@@ -258,62 +314,74 @@
                                             </div>
 
                                         </div>
-                                    </div>  
-                                </div>
-
-                                <div class="widget-content widget-content-area">
-                                    <div class="table-responsive mb-4">
-                                        <table id="ecommerce-product-list" class="table  table-bordered">
+                                    </div>
+                                    <div class="table-responsive new-products">
+                                        <table class="table">
                                             <thead>
                                                 <tr class="text-center">
+                                                    <th> </th>
                                                     <th>STT</th>
-                                                    <th>Tên người dùng</th>
-                                                    <th>Tên nhà cung cấp</th>
-                                                    <th>Khu vực</th>
-                                                    <th>SĐT</th>
-                                                    <th>Role</th>
-                                                    <th>Email</th>
+                                                    <th>Mã yêu 
+                                                        cầu duyệt</th>
+                                                    <th>Thời gian 
+                                                        gửi yêu cầu</th>
+                                                    <th>Tên sản phẩm</th>
+                                                    <th>Mã Barcode/
+                                                        SKU</th>
+                                                    <th>Nhà cung cấp </th>
+                                                    <th>Khu vực 
+                                                        giao hàng</th>
+                                                    <th>Trạng thái</th>
+                                                    <th>Giấy 
+                                                        chứng nhận</th>
                                                     <th>Chi tiết</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">
                                                 <tr>
-                                                    <td>001</td>
-                                                    <!-- <td class="text-center">
-                                                        <a class="product-list-img" href="javascript: void(0);"><img src="../assets/img/60x60.jpg" alt="product"></a></td> -->
-                                                    <td>Lan</td>
-                                                    <td>Lan</td>
-                                                    <td>1/1/1990</td>
-                                                    <td>0385647925</td>
-                                                    <td>cb@gmail.com</td>
-                                                    <td>Hà nội</td>
-                                                    <td>2/3/2021</td>
-                                                    <!-- <td class="align-center">
-                                                        <ul class="table-controls">
-                                                            <li>
-                                                                <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                    <i class="flaticon-edit"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                    <i class="flaticon-delete-5"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </td> -->
+                                                    <td>&nbsp;<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" ></td>
+                                                    <td>#0001</td>
+                                                    <td>Cam sành</td>
+                                                    <td><span class="badge badge-info badge-pill">Hoa quả</span></td>
+                                                    <td>100</td>
+                                                    <td>50</td>
+                                                    <td>50</td>
+                                                    <td>
+                                                        50.000
+                                                    </td>
+                                                    <td>20.000</td>
+                                                    <td>&nbsp;<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" ></td>
+                                                    <td><a>Xem chi tiết</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
+                                    </div>
+                                    <div class="pagination-section">
+                                        <ul
+                                            class="pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3">
+                                            <li><a href="javascript:void(0);">«</a></li>
+                                            <li><a href="javascript:void(0);">1</a></li>
+                                            <li><a href="javascript:void(0);">2</a></li>
+                                            <li><a href="javascript:void(0);">3</a></li>
+                                            <li><a href="javascript:void(0);">4</a></li>
+                                            <li><a href="javascript:void(0);">5</a></li>
+                                            <li><a href="javascript:void(0);">»</a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
+
                 </div>
             </div>
             <!--  END CONTENT PART  -->
+
         </div>
+        <!-- END MAIN CONTAINER -->
+        <!-- END MAIN CONTAINER -->
 
         <!--  BEGIN FOOTER  -->
 
@@ -354,7 +422,8 @@
                 <div class="usr-profile">
                     <img src="../assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
                 </div>
-                <p class="user-name mt-4 mb-4">HoÃ ng Thá» Xoan</p>
+                <p class="user-name mt-4 mb-4">Hoàng Thị Xoan</p>
+
                 <div class="user-links text-left">
                     <ul class="list-unstyled">
                         <li>
@@ -364,56 +433,42 @@
                 </div>
             </div>
         </aside>
-
-        <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-        <script src="../assets/js/libs/jquery-3.1.1.min.js"></script>
-        <script src="../assets/js/loader.js"></script>
-        <script src="../assets/js/popper.min.js"></script>
-        <script src="../assets/js/bootstrap.min.js"></script>
-        <script src="../plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script src="../plugins/blockui/jquery.blockUI.min.js"></script>
-        <script src="../assets/js/app.js"></script>
-        <script>
-            $(document).ready(function () {
-                App.init();
-            });
-        </script>
-        <script src="../assets/js/custom.js"></script>
-        <!-- END GLOBAL MANDATORY SCRIPTS -->
-
-        <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-        <script src="../plugins/charts/chartist/chartist.js"></script>
-        <script src="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
-        <script src="../plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
-        <script src="../plugins/calendar/pignose/moment.latest.min.js"></script>
-        <script src="../plugins/calendar/pignose/pignose.calendar.js"></script>
-        <script src="../plugins/progressbar/progressbar.min.js"></script>
-        <script src="../assets/js/default-dashboard/default-custom.js"></script>
-        <script src="../assets/js/ui-kit/timeline/horizontal-main.js"></script>
-        <script src="../plugins/charts/amcharts/amcharts.js"></script>
-        <script src="../plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
-        <script src="../plugins/maps/vector/ammaps/worldLow.js"></script>
-        <script src="../plugins/charts/amcharts/radar.js"></script>
-        <script src="../plugins/charts/amcharts/pie.js"></script>
-        <script src="../plugins/charts/sparklines/jquery.sparkline.min.js"></script>
-        <script src="../plugins/charts/amcharts/serial.js"></script>
-        <script src="../plugins/charts/amcharts/light.js"></script>
-        <script src="../assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
-        <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+        <!--  BEGIN PROFILE SIDEBAR  -->
     </body>
-</html>
-<script>
-            $('#ecommerce-product-list').DataTable({
-                "lengthMenu": [5, 10, 20, 50, 100],
-                "language": {
-                    "paginate": {"previous": "<i class='flaticon-arrow-left-1'></i>", "next": "<i class='flaticon-arrow-right'></i>"},
-                    "info": "Showing page _PAGE_ of _PAGES_"
-                },
-                drawCallback: function (settings) {
-                    $('[data-toggle="tooltip"]').tooltip();
-                }
-            });
-</script>
-<!--  END CUSTOM SCRIPT FILES  -->
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="../assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="../assets/js/loader.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../plugins/blockui/jquery.blockUI.min.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script>
+        $(document).ready(function () {
+            App.init();
+        });
+    </script>
+    <script src="../assets/js/custom.js"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <script src="../plugins/charts/chartist/chartist.js"></script>
+    <script src="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="../plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="../plugins/calendar/pignose/moment.latest.min.js"></script>
+    <script src="../plugins/calendar/pignose/pignose.calendar.js"></script>
+    <script src="../plugins/progressbar/progressbar.min.js"></script>
+    <script src="../assets/js/default-dashboard/default-custom.js"></script>
+    <script src="../assets/js/ui-kit/timeline/horizontal-main.js"></script>
+    <script src="../plugins/charts/amcharts/amcharts.js"></script>
+    <script src="../plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
+    <script src="../plugins/maps/vector/ammaps/worldLow.js"></script>
+    <script src="../plugins/charts/amcharts/radar.js"></script>
+    <script src="../plugins/charts/amcharts/pie.js"></script>
+    <script src="../plugins/charts/sparklines/jquery.sparkline.min.js"></script>
+    <script src="../plugins/charts/amcharts/serial.js"></script>
+    <script src="../plugins/charts/amcharts/light.js"></script>
+    <script src="../assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
+
 
 </html>
