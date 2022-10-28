@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-        <title>Danh sách đơn hàng</title>
+        <title>Thêm danh mục </title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" .href="./image/578b1438ff0a7fc4704aa5ade7625e89.jpeg" type="image/png">
@@ -108,7 +108,7 @@
                                     </div>
                                 </a>
                             </li>
-                            
+
                         </ul>
                     </nav>
 
@@ -122,99 +122,49 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
                             <div class="statbox widget box">
+                                <h3>Thêm danh mục</h3>
                                 <div class="widget-content-area">
-                                    <div class="widget-header mb-5 mt-5">
-                                        <div class="row">
-
-                                            <div class="col-lg-12">
-                                                <form class="top-action" method="GET" action="">
-
-                                                    <input name="sorts[]" value="" class="sort sort-name" type="hidden">
-                                                    <input name="sorts[]" value="" class="sort sort-type" type="hidden">
-                                                    <input name="sorts[]" value="" class="sort sort-address" type="hidden">
-                                                    <input name="sorts[]" value="" class="sort sort-hotline" type="hidden">
-                                                    <input name="sorts[]" value="" class="sort sort-transport_code"
-                                                           type="hidden">
-                                                    <input name="sorts[]" value="country_code|desc"
-                                                           class="sort sort-country_code" type="hidden">
-                                                    <input name="sorts[]" value="" class="sort sort-bill_in_warehouse"
-                                                           type="hidden">
-                                                    <input name="sorts[]" value="" class="sort sort-view_bill"
-                                                           type="hidden">
-                                                    <input name="sorts[]" value="" class="sort sort-order_in_warehouse"
-                                                           type="hidden">
-
-                                                    <div id="filter">
-                                                        <input type="text" name="id" placeholder="Mã yêu cầu phê duyệt" value=""
-                                                               class="form-control">
-                                                        <input type="text" name="name" placeholder="Tên sản phẩm" value=""
-                                                               class="form-control">
-                                                        <input type="text" name="danh mục" placeholder="Mã Barcode/SKU" value=""
-                                                               class="form-control"> 
-                                                        <button class="btn btn-info"
-                                                                style="padding: 0 10px; background: none; border: none;"
-                                                                title="Tìm kiếm">
-                                                            <i class="flaticon-search" aria-hidden="true"
-                                                               style="color:#469408;font-size: 25px;line-height: 42px;"></i>
-                                                        </button>
-
-                                                    </div>
-                                                </form>
-                                            </div>
-
-                                        </div>
-                                    </div>
                                     <div class="table-responsive new-products">
                                         <table class="table">
                                             <thead>
                                                 <tr class="text-center">
-                                                    <th>STT</th>
-                                                    <th>Mã yêu 
-                                                        cầu duyệt</th>
-                                                    <th>Thời gian 
-                                                        gửi yêu cầu</th>
-                                                    <th>Tên sản phẩm</th>
-                                                    <th>Mã Barcode/
-                                                        SKU</th>
-                                                    <th>Khu vực giao hàng</th>
-                                                    <th>Trạng thái</th>
-                                                    <th>Chi tiết</th>
+                                                    <th>Nhập danh mục</th>
+                                                    <th></th>
+
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>#0001</td>
-                                                    <td>Cam sành</td>
-                                                    <td><span class="badge badge-info badge-pill">Hoa quả</span></td>
-                                                    <td>100</td>
-                                                    <td>50</td>
-                                                    <td>50</td>
-                                                    <td><a href="moderator-detail-order.jsp">Xem chi tiết</a></td>
-                                                    
+                                                    <td> <input type="text" placeholder="nhập tên danh mục" required class="form-control" ></td>
+                                                    <td><button class=" btn btn-warning status mb-2" data-toggle="modal" data-target="#exampleModalLong" id="approved">  Thêm danh mục </button>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="pagination-section">
-                                        <ul
-                                            class="pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3">
-                                            <li><a href="javascript:void(0);">«</a></li>
-                                            <li><a href="javascript:void(0);">1</a></li>
-                                            <li><a href="javascript:void(0);">2</a></li>
-                                            <li><a href="javascript:void(0);">3</a></li>
-                                            <li><a href="javascript:void(0);">4</a></li>
-                                            <li><a href="javascript:void(0);">5</a></li>
-                                            <li><a href="javascript:void(0);">»</a></li>
-                                        </ul>
+                                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Thông báo</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Bạn có muốn thêm danh mục này?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger status mb-2" data-dismiss="modal">Không</button>
+                                                    <button type="button" class="btn btn-warning status mb-2">Thêm</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
             <!--  END CONTENT PART  -->
