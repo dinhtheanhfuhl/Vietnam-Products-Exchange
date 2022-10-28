@@ -50,120 +50,6 @@
             </div>
 
             <ul class="navbar-nav flex-row ml-lg-auto">
-                <li class="nav-item dropdown message-dropdown ml-lg-4 mr-lg-4 d-sm-block d-none align-self-center">
-
-                    <div class="dropdown-menu  position-absolute p-0 eq-animated eq-fadeInUp"
-                         aria-labelledby="message-dropdown">
-                        <div class="">
-                            <a class="dropdown-item">
-                                <div class="">
-                                    <div class="media notification-new">
-                                        <div class="usr-img align-self-center mr-3">
-                                            <img class="usr-img rounded-circle" src="assets/img/90x90.jpg" alt="profile">
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="meta-user-name mr-3 mb-0">LÃª VÄn BÃ¬nh</p>
-                                                <p class="meta-time align-self-center mb-0">04.11.21</p>
-                                            </div>
-                                            <p class="message-text mb-0 ">Cháº¥t lÆ°á»£ng sáº£n pháº©m tá»t</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item">
-                                <div class="">
-                                    <div class="media notification-new">
-                                        <div class="notification-icon align-self-center mr-3">
-                                            <i class="flaticon-mailbox"></i>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="meta-title mr-3 mb-0">1 email má»i</p>
-                                                <p class="meta-time align-self-center mb-0">04.10.19</p>
-                                            </div>
-                                            <p class="message-text mb-0 ">Anderson.Daisy@mail.com</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item">
-                                <div class="">
-                                    <div class="media">
-                                        <div class="usr-img align-self-center mr-3">
-                                            <img class="usr-img rounded-circle" src="assets/img/90x90.jpg" alt="profile">
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="meta-user-name mr-3 mb-0">BÃ¬nh An</p>
-                                                <p class="meta-time align-self-center mb-0">04.02.21</p>
-                                            </div>
-                                            <p class="message-text mb-0 ">Cháº¥t lÆ°á»£ng sáº£n pháº©m tá»t </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown notification-dropdown ml-3 mr-lg-4 align-self-center">
-
-                    <div class="dropdown-menu position-absolute eq-animated eq-fadeInUp"
-                         aria-labelledby="notification-dropdown">
-                        <div class="notification-scroll">
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Nguyá»n VÄn A</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Nguyá»n VÄn B</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Äá» Thá» Nga</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>LÃª Ngá»c HÃ </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
                 <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
                         <div class="user-profile d-lg-block d-none">
@@ -216,6 +102,14 @@
                                     </div>
                                 </a>
                             </li>
+                            <li class="menu">
+                                <a href="./moderator-category.jsp" class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-saas"></i>
+                                        <span>Danh mục</span>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
 
@@ -225,49 +119,42 @@
 
             <!--  BEGIN CONTENT PART  -->
             <div id="content" class="main-content container">
-                <a href="moderator-list-order.jsp" class="btn btn-primary btn-order"> Trở về d/s đơn hàng</a>
                 <p>&nbsp;</p>
-                <h4 class="h3-order">Chi tiết sản phẩm</h4>
-                <div class="widget-content widget-content-area view-order-detail">
-                    <div class="table-responsive mb-4">
-                        <table id="ecommerce-product-list" class="table  table-bordered">
-                            <thead>
-                                <tr class="text-center">
-                                    <th>Ảnh</th>
-                                    <th>Tên</th>
-                                    <th>Khoảng giá</th>
-                                    <th>Khu vực giao hàng</th>
-                                    <th>Giấy tờ chứng nhận </th>
-                                </tr>
-                            </thead>
-                            <tbody >
-                                <tr  class="text-center">
-                                    <td class="text-center"><img class="product-list-img" src="assets/img/90x90.jpg"></td>
-                                    <td>Vải thiều siêu ngọt Bắc Giang  - Giống vải không hạt, mọng nước</td>
-                                    <td>
-                                        50 - 500 kg: <b>đ139.000</b><br>
-                                        150 - 600 kg: <b>đ99.000<br></b>
-                                        250 - 700 kg: <b>đ19.000</b>
-                                    </td>
-                                    <td>sd</td>
-                                    <td>ssss</td>
-                                    
-                                </tr>
-                            </tbody>
-
-                        </table>
-                    </div>
-                </div>
+                <h4 class="h3-order">Chi tiết đơn hàng</h4>
+               
                 <div class="view-order">
                     <div class="summary-order">
                         <table >
-                             <tr>
-                                <th>Tổng quan cửa hàng</th>
+                            <tr>
+                                <th>Ảnh</th>
                                 <td>
-                                    Lorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elit
+                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
+                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
+                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
+                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
+                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
                                 </td>
-                            </tr>
-
+                            </tr> 
+                            <tr>
+                                <th>Tên</th>
+                                <td>
+                                    elitLorem ilitLorem ipsum dolorng elit
+                                </td>
+                            </tr> 
+                            <tr>
+                                <th>Khoảng giá</th>
+                                <td>
+                                    50 - 500 kg: <b>đ139.000</b><br>
+                                    150 - 600 kg: <b>đ99.000<br></b>
+                                    250 - 700 kg: <b>đ19.000</b>
+                                </td>
+                            </tr> 
+                            <tr>
+                                <th>Khu vực giao hàng</th>
+                                <td>
+                                    sdádasd
+                                </td>
+                            </tr> 
                             <tr>
                                 <th>Danh mục hàng</th>
                                 <td>02</td>
@@ -322,9 +209,22 @@
                                     Lorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elit
                                 </td>
                             </tr>
+                            <tr>
+                                <th>Giấy tờ chứng nhận</th>
+                                <td>
+                                    tádsa
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Trạng thái</th>
+                                <td>
+                                    <p class=" btn btn-success status mb-2" id="approved">  Đã phê duyệt </p>
+                                    <p class=" btn btn-danger status mb-2" id="approved"> Bị từ chối </p>
+                                </td>
+                            </tr>
                         </table>
                     </div>
-                    
+                  
                 </div>
 
 

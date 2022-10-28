@@ -48,120 +48,6 @@
             </div>
 
             <ul class="navbar-nav flex-row ml-lg-auto">
-                <li class="nav-item dropdown message-dropdown ml-lg-4 mr-lg-4 d-sm-block d-none align-self-center">
-
-                    <div class="dropdown-menu  position-absolute p-0 eq-animated eq-fadeInUp"
-                         aria-labelledby="message-dropdown">
-                        <div class="">
-                            <a class="dropdown-item">
-                                <div class="">
-                                    <div class="media notification-new">
-                                        <div class="usr-img align-self-center mr-3">
-                                            <img class="usr-img rounded-circle" src="assets/img/90x90.jpg" alt="profile">
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="meta-user-name mr-3 mb-0">LÃª VÄn BÃ¬nh</p>
-                                                <p class="meta-time align-self-center mb-0">04.11.21</p>
-                                            </div>
-                                            <p class="message-text mb-0 ">Cháº¥t lÆ°á»£ng sáº£n pháº©m tá»t</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item">
-                                <div class="">
-                                    <div class="media notification-new">
-                                        <div class="notification-icon align-self-center mr-3">
-                                            <i class="flaticon-mailbox"></i>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="meta-title mr-3 mb-0">1 email má»i</p>
-                                                <p class="meta-time align-self-center mb-0">04.10.19</p>
-                                            </div>
-                                            <p class="message-text mb-0 ">Anderson.Daisy@mail.com</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item">
-                                <div class="">
-                                    <div class="media">
-                                        <div class="usr-img align-self-center mr-3">
-                                            <img class="usr-img rounded-circle" src="assets/img/90x90.jpg" alt="profile">
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="meta-user-name mr-3 mb-0">BÃ¬nh An</p>
-                                                <p class="meta-time align-self-center mb-0">04.02.21</p>
-                                            </div>
-                                            <p class="message-text mb-0 ">Cháº¥t lÆ°á»£ng sáº£n pháº©m tá»t </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown notification-dropdown ml-3 mr-lg-4 align-self-center">
-
-                    <div class="dropdown-menu position-absolute eq-animated eq-fadeInUp"
-                         aria-labelledby="notification-dropdown">
-                        <div class="notification-scroll">
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Nguyá»n VÄn A</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Nguyá»n VÄn B</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Äá» Thá» Nga</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>LÃª Ngá»c HÃ </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
                 <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
                         <div class="user-profile d-lg-block d-none">
@@ -214,7 +100,15 @@
                                     </div>
                                 </a>
                             </li>
-                            
+                            <li class="menu">
+                                <a href="./moderator-category.jsp" class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-saas"></i>
+                                        <span>Danh mục</span>
+                                    </div>
+                                </a>
+                            </li>
+
                         </ul>
                     </nav>
 
@@ -297,7 +191,7 @@
                                                     <td>50</td>
                                                     <td>50</td>
                                                     <td><a href="moderator-product-detail.jsp">Xem chi tiết</a></td>
-                                                    
+
                                                 </tr>
                                             </tbody>
                                         </table>
