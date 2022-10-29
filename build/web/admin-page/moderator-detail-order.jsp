@@ -77,15 +77,7 @@
                 <div class="">
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
-                            <li class="menu">
-                                <a href="./personal-infor-moderator.jsp" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-user-11"></i>
-                                        <span>Thông tin tài khoản</span>
-                                    </div>
-                                </a>
-                            </li>
+
                             <li class="menu">
                                 <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
@@ -121,7 +113,7 @@
             <div id="content" class="main-content container">
                 <p>&nbsp;</p>
                 <h4 class="h3-order">Chi tiết đơn hàng</h4>
-               
+
                 <div class="view-order">
                     <div class="summary-order">
                         <table >
@@ -224,7 +216,7 @@
                             </tr>
                         </table>
                     </div>
-                  
+
                 </div>
 
 
@@ -272,6 +264,12 @@
                     <p class="user-name mt-4 mb-4">Hoàng Thị Xoan</p>
                     <div class="user-links text-left">
                         <ul class="list-unstyled">
+                            <li>
+                                <a href="./personal-infor-moderator.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                            </li>
+                            <li>
+                                <a href=""><i class="flaticon-globe"></i> Quản lý</a>
+                            </li>
                             <li>
                                 <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
                             </li>

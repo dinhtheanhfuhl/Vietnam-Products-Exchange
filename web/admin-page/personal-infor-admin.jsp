@@ -58,119 +58,6 @@
             </ul>
 
             <ul class="navbar-nav flex-row ml-lg-auto">
-                <li class="nav-item dropdown message-dropdown ml-lg-4 mr-lg-4 d-sm-block d-none align-self-center">
-
-                    <div class="dropdown-menu  position-absolute p-0 eq-animated eq-fadeInUp"
-                         aria-labelledby="message-dropdown">
-                        <div class="">
-                            <a class="dropdown-item">
-                                <div class="">
-                                    <div class="media notification-new">
-                                        <div class="usr-img align-self-center mr-3">
-                                            <img class="usr-img rounded-circle" src="assets/img/90x90.jpg" alt="profile">
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="meta-user-name mr-3 mb-0">LÃª VÄn BÃ¬nh</p>
-                                                <p class="meta-time align-self-center mb-0">04.11.21</p>
-                                            </div>
-                                            <p class="message-text mb-0 ">Cháº¥t lÆ°á»£ng sáº£n pháº©m tá»t</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item">
-                                <div class="">
-                                    <div class="media notification-new">
-                                        <div class="notification-icon align-self-center mr-3">
-                                            <i class="flaticon-mailbox"></i>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="meta-title mr-3 mb-0">1 email má»i</p>
-                                                <p class="meta-time align-self-center mb-0">04.10.19</p>
-                                            </div>
-                                            <p class="message-text mb-0 ">Anderson.Daisy@mail.com</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item">
-                                <div class="">
-                                    <div class="media">
-                                        <div class="usr-img align-self-center mr-3">
-                                            <img class="usr-img rounded-circle" src="assets/img/90x90.jpg" alt="profile">
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="meta-user-name mr-3 mb-0">BÃ¬nh An</p>
-                                                <p class="meta-time align-self-center mb-0">04.02.21</p>
-                                            </div>
-                                            <p class="message-text mb-0 ">Cháº¥t lÆ°á»£ng sáº£n pháº©m tá»t </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown notification-dropdown ml-3 mr-lg-4 align-self-center">
-
-                    <div class="dropdown-menu position-absolute eq-animated eq-fadeInUp"
-                         aria-labelledby="notification-dropdown">
-                        <div class="notification-scroll">
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Nguyá»n VÄn A</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Nguyá»n VÄn B</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Äá» Thá» Nga</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>LÃª Ngá»c HÃ </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
 
                 <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
@@ -199,16 +86,6 @@
                 <div class="">
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
-                            <li class="menu">
-                                <a href="./personal-infor-admin.jsp" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-user-11"></i>
-                                        <span>Thông tin tài khoản</span>
-                                    </div>
-                                </a>
-
-                            </li>
                             <li class="menu">
                                 <a href="admin-list-user.jsp" 
                                    class="dropdown-toggle collapsed">
@@ -242,7 +119,7 @@
                                 <div class="profile-usertitle">
                                     <div class="profile-usertitle-name"> Tên người dùng</div>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="col-md-9 mt-50 mb-50">
@@ -363,7 +240,7 @@
                 <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
                     <ul class="list-inline links ml-sm-5">
                         <li class="list-inline-item">
-                            <a target="_blank" href="#">OrFarm Store</a>
+                            <a target="_blank" href="#">Vietnam products exchange</a>
                         </li>
                     </ul>
                 </div>
@@ -371,7 +248,7 @@
                     <ul
                         class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
                         <li class="list-inline-item  mr-3">
-                            <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">OrFarm Store</a></p>
+                            <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
                         </li>
                         <li class="list-inline-item align-self-center">
                             <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
@@ -389,9 +266,15 @@
             <div class="usr-profile">
                 <img src="../assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
             </div>
-            <p class="user-name mt-4 mb-4">HoÃ ng Thá» Xoan</p>
+            <p class="user-name mt-4 mb-4">HXoan</p>
             <div class="user-links text-left">
                 <ul class="list-unstyled">
+                    <li>
+                        <a href="./personal-infor-admin.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                    </li>
+                    <li>
+                        <a href=""><i class="flaticon-globe"></i> Quản lý</a>
+                    </li>
                     <li>
                         <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
                     </li>
@@ -409,9 +292,9 @@
     <script src="../plugins/blockui/jquery.blockUI.min.js"></script>
     <script src="../assets/js/app.js"></script>
     <script>
-                                                $(document).ready(function () {
-                                                    App.init();
-                                                });
+        $(document).ready(function () {
+            App.init();
+        });
     </script>
     <script src="../assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
@@ -443,35 +326,35 @@
 </html>
 <script>
 
-                                                document.getElementById("btn-edit").onclick = function () {
+        document.getElementById("btn-edit").onclick = function () {
 
-                                                    document.querySelector(".personal-infor .hidden-edit").style.display = 'block';
-                                                    document.querySelector(".personal-infor .hidden-edit").style.margin = '0 0 0 22%';
-                                                    document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 43%';
-                                                    document.querySelector(".personal-infor table .display-userName").style.display = 'none';
-                                                    document.querySelector(".personal-infor #btn-edit").style.display = 'none';
-                                                };
-                                                document.querySelector(".exit").onclick = function () {
+            document.querySelector(".personal-infor .hidden-edit").style.display = 'block';
+            document.querySelector(".personal-infor .hidden-edit").style.margin = '0 0 0 22%';
+            document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 43%';
+            document.querySelector(".personal-infor table .display-userName").style.display = 'none';
+            document.querySelector(".personal-infor #btn-edit").style.display = 'none';
+        };
+        document.querySelector(".exit").onclick = function () {
 
-                                                    document.querySelector(".personal-infor .hidden-edit").style.display = 'none';
-                                                    document.querySelector(".personal-infor table .display-userName").style.display = 'block';
-                                                    document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 24%';
-                                                    document.querySelector(".personal-infor #btn-edit").style.display = 'block';
-                                                };
-                                                document.getElementById("btn-edit-2").onclick = function () {
+            document.querySelector(".personal-infor .hidden-edit").style.display = 'none';
+            document.querySelector(".personal-infor table .display-userName").style.display = 'block';
+            document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 24%';
+            document.querySelector(".personal-infor #btn-edit").style.display = 'block';
+        };
+        document.getElementById("btn-edit-2").onclick = function () {
 
-                                                    document.querySelector(".personal-infor .hidden-pass").style.display = 'block';
-                                                    document.querySelector(".personal-infor .hidden-pass").style.margin = '0 0 0 22%';
-                                                    document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 43%';
-                                                    document.querySelector(".personal-infor table .display-userName-3").style.display = 'none';
-                                                    document.querySelector(".personal-infor #btn-edit-2").style.display = 'none';
-                                                };
-                                                document.querySelector(".exit-pass").onclick = function () {
-                                                    document.querySelector(".personal-infor .hidden-pass").style.display = 'none';
-                                                    document.querySelector(".personal-infor table .display-userName-3").style.display = 'block';
-                                                    document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 24%';
-                                                    document.querySelector(".personal-infor #btn-edit-2").style.display = 'block';
-                                                };
+            document.querySelector(".personal-infor .hidden-pass").style.display = 'block';
+            document.querySelector(".personal-infor .hidden-pass").style.margin = '0 0 0 22%';
+            document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 43%';
+            document.querySelector(".personal-infor table .display-userName-3").style.display = 'none';
+            document.querySelector(".personal-infor #btn-edit-2").style.display = 'none';
+        };
+        document.querySelector(".exit-pass").onclick = function () {
+            document.querySelector(".personal-infor .hidden-pass").style.display = 'none';
+            document.querySelector(".personal-infor table .display-userName-3").style.display = 'block';
+            document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 24%';
+            document.querySelector(".personal-infor #btn-edit-2").style.display = 'block';
+        };
 </script>
 
 </html>
