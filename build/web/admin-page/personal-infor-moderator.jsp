@@ -58,7 +58,7 @@
             </ul>
 
             <ul class="navbar-nav flex-row ml-lg-auto">
-                
+
 
                 <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
@@ -87,15 +87,7 @@
                 <div class="">
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
-                            <li class="menu">
-                                <a href="./personal-infor-moderator.jsp" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-user-11"></i>
-                                        <span>Thông tin tài khoản</span>
-                                    </div>
-                                </a>
-                            </li>
+
                             <li class="menu">
                                 <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
@@ -112,7 +104,7 @@
                                     </div>
                                 </a>
                             </li>
-                           <li class="menu">
+                            <li class="menu">
                                 <a href="./moderator-category.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-saas"></i>
@@ -291,9 +283,15 @@
             <div class="usr-profile">
                 <img src="../assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
             </div>
-            <p class="user-name mt-4 mb-4">HoÃ ng Thá» Xoan</p>
+            <p class="user-name mt-4 mb-4">HXoan</p>
             <div class="user-links text-left">
                 <ul class="list-unstyled">
+                    <li>
+                        <a href="./personal-infor-moderator.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                    </li>
+                    <li>
+                        <a href=""><i class="flaticon-globe"></i> Quản lý</a>
+                    </li>
                     <li>
                         <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
                     </li>
