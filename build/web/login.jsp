@@ -232,32 +232,7 @@
             </div>
             <div class="overlay"></div>
         </div>
-        <section class="pt-2 mb-3">
-            <div class="container">
-                <div class="ftlink-li footer-newsletter">
-                    <div class="news-letter">
-                        <div class="title">
-
-                            <h2 class="ft-title">Cơ Hội Săn Mã Giảm Giá Cuối Cùng !!!</h2>
-
-
-                            <p class="pb-2">NHẬN NGAY GIẢM GIÁ 20% CHO LẦN MUA HÀNG ĐẦU TIÊN TẠI SHOP!!</p>
-
-                        </div>
-                        <div class="subscribe-content">
-                            <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="contact-form-coupon"><input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="â">
-                                <input type="hidden" name="contact[tags]" value="newsletter">
-                                <div class="subscribe-block ">
-                                    <input type="email" name="contact[email]" class="email form-control mail text-medium" id="E-mail" value="" placeholder="Enter Your Email Address" autocapitalize="off">
-                                    <button type="submit" class="btn-style1" name="commit" id="Subscribe"><a href="./createAccount.html" style="text-decoration: none; color: #fff;">Đăng ký</a></button>
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
         <footer>
             <div class="main-footer container">
                 <div class="row m14 container">

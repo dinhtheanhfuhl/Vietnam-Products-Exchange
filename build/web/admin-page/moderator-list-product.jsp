@@ -80,7 +80,7 @@
                                 <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>D/s sản phẩm</span>
+                                        <span>Danh sách<br> sản phẩm</span>
                                     </div>
                                 </a>
                             </li>
@@ -88,7 +88,7 @@
                                 <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-list2"></i>
-                                        <span>D/s đơn hàng</span>
+                                        <span>Danh sách<br> đơn hàng</span>
                                     </div>
                                 </a>
                             </li>
@@ -139,6 +139,8 @@
                                                     <div id="filter">
                                                         <input type="text" name="id" placeholder="Mã yêu cầu phê duyệt" value=""
                                                                class="form-control">
+                                                        <input type="text" name="id" placeholder="Nhà cung cấp" value=""
+                                                               class="form-control">
                                                         <input type="text" name="name" placeholder="Tên sản phẩm" value=""
                                                                class="form-control">
                                                         <input type="text" name="danh mục" placeholder="Mã Barcode/SKU" value=""
@@ -165,6 +167,7 @@
                                                         cầu duyệt</th>
                                                     <th>Thời gian 
                                                         gửi yêu cầu</th>
+                                                    <th>Nhà cung cấp</th>
                                                     <th>Tên sản phẩm</th>
                                                     <th>Mã Barcode/
                                                         SKU</th>
@@ -179,6 +182,7 @@
                                                     <td>#0001</td>
                                                     <td>Cam sành</td>
                                                     <td><span class="badge badge-info badge-pill">Hoa quả</span></td>
+                                                    <td>100</td>
                                                     <td>100</td>
                                                     <td>50</td>
                                                     <td>50</td>

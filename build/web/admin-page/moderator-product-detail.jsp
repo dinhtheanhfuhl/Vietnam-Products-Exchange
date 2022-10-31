@@ -82,7 +82,7 @@
                                 <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>D/s sản phẩm</span>
+                                        <span>Danh sách<br> sản phẩm</span>
                                     </div>
                                 </a>
                             </li>
@@ -90,7 +90,7 @@
                                 <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-list2"></i>
-                                        <span>D/s đơn hàng</span>
+                                        <span>Danh sách<br> đơn hàng</span>
                                     </div>
                                 </a>
                             </li>
@@ -102,6 +102,7 @@
                                     </div>
                                 </a>
                             </li>
+
                         </ul>
                     </nav>
 
@@ -187,14 +188,7 @@
                                 <th>Xuất xứ</th>
                                 <td>Lorem ipsum dolorng elit.</td>
                             </tr>
-                            <tr>
-                                <th>Ngày sản xuất</th>
-                                <td>icing elit.</td>
-                            </tr>
-                            <tr>
-                                <th>Ngày hết hạn</th>
-                                <td>Loremelit.</td>
-                            </tr>
+                          
                             <tr>
                                 <th>Mô tả sản phẩm</th>
                                 <td>
