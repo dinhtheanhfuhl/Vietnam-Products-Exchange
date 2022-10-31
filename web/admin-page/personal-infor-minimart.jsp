@@ -86,26 +86,23 @@
                 <div class="">
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
-                            
                             <li class="menu">
-                                <a href="supplier-product-pending.jsp" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-3d-cube"></i>
-                                        <span>D/s sp cần duyệt</span>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="menu">
-                                <a href="./supplier-view-order.jsp" 
+                                <a href="./minimart-view-order.jsp" 
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-cart-bag-1"></i>
                                         <span>Xem đơn hàng</span>
                                     </div>
                                 </a>
-                               
+                            </li>
+                            <li class="menu">
+                                <a href="minimart-history-order.jsp" 
+                                   class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-bank-safe-box"></i>
+                                        <span>Lịch sử mua hàng</span>
+                                    </div>
+                                </a>
                             </li>
                         </ul>
                     </nav>
@@ -310,10 +307,7 @@
             <div class="user-links text-left">
                 <ul class="list-unstyled">
                     <li>
-                        <a href="./personal-infor-supplier.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
-                    </li>
-                    <li>
-                        <a href=""><i class="flaticon-globe"></i> Quản lý</a>
+                        <a href="./personal-infor-minimart.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                     </li>
                     <li>
                         <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>

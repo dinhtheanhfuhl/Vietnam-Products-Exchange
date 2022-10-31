@@ -87,7 +87,7 @@
 
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="./hoaqua.html">Trái cây</a>
+                                        <a class="dropdown-item" href="./fruit.jsp">Trái cây</a>
                                         <a class="dropdown-item" href="./dokho.html">Rau củ sạch</a>
                                         <a class="dropdown-item" href="./dokho.html">Các loại hạt</a>
                                         <a class="dropdown-item" href="./dokho.html">Tất cả sản phẩm</a>
@@ -136,7 +136,7 @@
                                     <h6>
                                         Fresh & Healthy
                                     </h6>
-                                    <a href="./raucusach.jsp">GHÉ SHOP</a>
+                                    <a href="./raucusach.jsp">ĐẾN SÀN</a>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +150,7 @@
                                     <h6>
                                         Honey Flat 20% Off
                                     </h6>
-                                    <a href="./raucusach.jsp">GHÉ SHOP</a>
+                                    <a href="./raucusach.jsp">ĐẾN SÀN</a>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +164,7 @@
                                     <h6>
                                         Best collections
                                     </h6>
-                                    <a href="./raucusach.html">GHÉ SHOP</a>
+                                    <a href="./raucusach.html">ĐẾN SÀN</a>
                                 </div>
                             </div>
                         </div>
