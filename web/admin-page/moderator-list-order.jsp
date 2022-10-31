@@ -80,7 +80,7 @@
                                 <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>D/s sản phẩm</span>
+                                        <span>Danh sách<br> sản phẩm</span>
                                     </div>
                                 </a>
                             </li>
@@ -88,7 +88,7 @@
                                 <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-list2"></i>
-                                        <span>D/s đơn hàng</span>
+                                        <span>Danh sách<br> đơn hàng</span>
                                     </div>
                                 </a>
                             </li>
@@ -139,7 +139,7 @@
                                                     <div id="filter">
                                                         <input type="text" name="id" placeholder="Mã yêu cầu phê duyệt" value=""
                                                                class="form-control">
-                                                        <input type="text" name="name" placeholder="Tên sản phẩm" value=""
+                                                        <input type="text" name="name" placeholder="Nhà cung cấp" value=""
                                                                class="form-control">
                                                         <input type="text" name="danh mục" placeholder="Mã Barcode/SKU" value=""
                                                                class="form-control"> 
@@ -161,11 +161,10 @@
                                             <thead>
                                                 <tr class="text-center">
                                                     <th>STT</th>
-                                                    <th>Mã yêu 
-                                                        cầu duyệt</th>
+                                                    <th>Mã đơn hàng</th>
                                                     <th>Thời gian 
                                                         gửi yêu cầu</th>
-                                                    <th>Tên sản phẩm</th>
+                                                    <th>Nhà cung cấp</th>
                                                     <th>Mã Barcode/
                                                         SKU</th>
                                                     <th>Khu vực giao hàng</th>

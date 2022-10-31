@@ -80,7 +80,7 @@
                                 <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>D/s sản phẩm</span>
+                                        <span>Danh sách<br> sản phẩm</span>
                                     </div>
                                 </a>
                             </li>
@@ -88,7 +88,7 @@
                                 <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-list2"></i>
-                                        <span>D/s đơn hàng</span>
+                                        <span>Danh sách<br> đơn hàng</span>
                                     </div>
                                 </a>
                             </li>
@@ -116,6 +116,8 @@
                             <div class="statbox widget box">
                                 <h3>Danh sách danh mục</h3>
                                 <div class="widget-content-area">
+                                    <a href="./moderator-add-cate.jsp"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục </button></a>
+                                        <a href="./moderator-add-subcate.jsp"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục con </button></a>
                                     <div class="table-responsive new-products">
                                         <table class="table">
                                             <thead>
@@ -134,8 +136,6 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <a href="./moderator-add-cate.jsp"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục </button></a>
-                                        <a href="./moderator-add-subcate.jsp"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục con </button></a>
                                     </div>
                                     <div class="pagination-section">
                                         <ul

@@ -75,11 +75,12 @@
                 <div class="">
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
+
                             <li class="menu">
                                 <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>D/s sản phẩm</span>
+                                        <span>Danh sách<br> sản phẩm</span>
                                     </div>
                                 </a>
                             </li>
@@ -87,7 +88,7 @@
                                 <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-list2"></i>
-                                        <span>D/s đơn hàng</span>
+                                        <span>Danh sách<br> đơn hàng</span>
                                     </div>
                                 </a>
                             </li>
