@@ -87,7 +87,7 @@
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>D/s sp cần duyệt</span>
+                                         <span>Danh sách <br> sản phẩm</span>
                                     </div>
                                 </a>
                             </li>
@@ -335,22 +335,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="form-group mb-4">
-                                                            <div class="row">
-                                                                <label class="col-md-4">Ngày thu hoạch</label>
-                                                                <div class="col-md-8">
-                                                                    <input class="form-control" name="discount" type="date">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group mb-4">
-                                                            <div class="row">
-                                                                <label class="col-md-4">Ngày hết hạn</label>
-                                                                <div class="col-md-8">
-                                                                    <input class="form-control" name="discount" type="date">
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     </form>
                                                 </div>
                                             </div>
@@ -414,7 +398,10 @@
                             <a href="./personal-infor-supplier.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                         </li>
                         <li>
-                            <a href=""><i class="flaticon-globe"></i> Quản lý</a>
+                            <a href="../changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                        </li>
+                        <li>
+                            <a href="supplier-product-pending.jsp"><i class="flaticon-globe"></i> Quản lý</a>
                         </li>
                         <li>
                             <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>

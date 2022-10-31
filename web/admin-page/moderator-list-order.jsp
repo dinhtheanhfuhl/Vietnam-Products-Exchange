@@ -261,7 +261,7 @@
                             <a href="./personal-infor-moderator.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                         </li>
                         <li>
-                            <a href=""><i class="flaticon-globe"></i> Quản lý</a>
+                            <a href="moderator-list-product.jsp"><i class="flaticon-globe"></i> Quản lý</a>
                         </li>
                         <li>
                             <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>

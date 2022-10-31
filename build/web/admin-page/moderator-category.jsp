@@ -117,22 +117,25 @@
                                 <h3>Danh sách danh mục</h3>
                                 <div class="widget-content-area">
                                     <a href="./moderator-add-cate.jsp"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục </button></a>
-                                        <a href="./moderator-add-subcate.jsp"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục con </button></a>
+                                    <a href="./moderator-add-subcate.jsp"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục con </button></a>
                                     <div class="table-responsive new-products">
                                         <table class="table">
                                             <thead>
                                                 <tr class="text-center">
                                                     <th>STT</th>
                                                     <th>Tên danh mục</th>
-
+                                                    <th>Danh mục con</th>
+                                                    <th>Xoá</th>
+                                                    <th>Chỉnh sửa</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">
                                                 <tr>
                                                     <td>1</td>
                                                     <td>#0001</td>
-
-
+                                                    <td>0001</td>
+                                                    <td>#0001</td>
+                                                    <td>#0001</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -211,7 +214,7 @@
                             <a href="./personal-infor-moderator.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                         </li>
                         <li>
-                            <a href=""><i class="flaticon-globe"></i> Quản lý</a>
+                            <a href="moderator-list-product.jsp"><i class="flaticon-globe"></i> Quản lý</a>
                         </li>
                         <li>
                             <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
