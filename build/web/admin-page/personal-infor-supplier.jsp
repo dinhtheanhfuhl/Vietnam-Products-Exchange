@@ -86,14 +86,13 @@
                 <div class="">
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
-                            
+
                             <li class="menu">
                                 <a href="supplier-product-pending.jsp" 
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>D/s sp cần duyệt</span>
-                                    </div>
+                                        <span>Danh sách <br> sản phẩm</span>                                    </div>
                                 </a>
                             </li>
 
@@ -105,7 +104,7 @@
                                         <span>Xem đơn hàng</span>
                                     </div>
                                 </a>
-                               
+
                             </li>
                         </ul>
                     </nav>
@@ -313,7 +312,10 @@
                         <a href="./personal-infor-supplier.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                     </li>
                     <li>
-                        <a href=""><i class="flaticon-globe"></i> Quản lý</a>
+                        <a href="../changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                    </li>
+                    <li>
+                        <a href="supplier-product-pending.jsp"><i class="flaticon-globe"></i> Quản lý</a>
                     </li>
                     <li>
                         <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>

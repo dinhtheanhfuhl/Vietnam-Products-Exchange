@@ -85,7 +85,7 @@
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>D/s sp cần duyệt</span>
+                                        <span>Danh sách <br> sản phẩm</span>
                                     </div>
                                 </a>
                             </li>
@@ -156,6 +156,8 @@
                                         </div>
                                     </div>
                                     <div class="table-responsive new-products">
+                                        <a href="supplier-add-product.jsp">
+                                            <button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
                                         <table class="table">
                                             <thead>
                                                 <tr class="text-center">
@@ -183,16 +185,22 @@
                                                     <td>100</td>
                                                     <td>50</td>
                                                     <td>50</td>
-                                                    <td><a href="#">Xem chi tiết</a></td>
+
                                                     <td>
-                                                        <button type="button" class="btn btn-warning">Chỉnh sửa</button>
+                                                        <div class="dropdown dropdown-user">
+                                                            <a href="supplier-product-detail.jsp" target="_blank">
+                                                                Xem chi tiết
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="./supplier-edit-product.jsp"><button type="button" class="btn btn-warning">Chỉnh sửa</button></a>
                                                     </td>
                                                     <td><button type="button" class="btn btn-danger">Ẩn</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <a href="supplier-add-product.jsp">
-                                            <button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
+
                                     </div>
                                     <div class="pagination-section">
                                         <ul
@@ -268,7 +276,10 @@
                             <a href="./personal-infor-supplier.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                         </li>
                         <li>
-                            <a href=""><i class="flaticon-globe"></i> Quản lý</a>
+                            <a href="../changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                        </li>
+                        <li>
+                            <a href="supplier-product-pending.jsp"><i class="flaticon-globe"></i> Quản lý</a>
                         </li>
                         <li>
                             <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>

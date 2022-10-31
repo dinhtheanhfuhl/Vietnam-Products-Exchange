@@ -254,6 +254,9 @@
                                 <a href="./personal-infor-minimart.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                             </li>
                             <li>
+                                <a href="../changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                            </li>
+                            <li>
                                 <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
                             </li>
                         </ul>
