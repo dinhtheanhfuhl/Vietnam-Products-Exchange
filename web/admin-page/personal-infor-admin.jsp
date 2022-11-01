@@ -119,7 +119,9 @@
                                 <div class="profile-usertitle">
                                     <div class="profile-usertitle-name"> Tên người dùng</div>
                                 </div>
-
+                                <div class="profile-userbuttons">
+                                    <button type="button" class="btn btn-success btn-sm"> Upload Image</button>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-9 mt-50 mb-50">

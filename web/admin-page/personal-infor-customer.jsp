@@ -260,7 +260,10 @@
                                                     <input type="text" required class="form-control" id="inputpass"
                                                            value="${customer.customerName}" placeholder="tên người dùng">
                                                 </td>
-                                            </tr>
+                                        <div class="profile-userbuttons">
+                                            <button type="button" class="btn btn-success btn-sm"> Upload Image</button>
+                                        </div>
+                                        </tr>
                                         </tbody>
                                     </table>
 
@@ -378,7 +381,7 @@
                                                         <c:when test="${account.status == true}"><a class="btn btn-success">Đang hoạt động</a></c:when>
                                                         <c:otherwise><a href="DetailCustomerController?action=accept-account&cus-id=${customer.customerId}&acc-id=${account.accId}" class="btn btn-success">Chấp thuận tài khoản</a></c:otherwise>
                                                     </c:choose>
-                                                        
+
                                                 </td>
                                             </tr>
                                         </tbody>

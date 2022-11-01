@@ -6,10 +6,11 @@
             <file>file:/C:/Users/DEKUPAC/Vietnam-Products-Exchange/web/admin-page/admin-list-user.jsp</file>
             <file>file:/C:/Users/DEKUPAC/Vietnam-Products-Exchange/src/java/controller/AdminController.java</file>
             <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/changepass.jsp</file>
-            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/login.jsp</file>
-            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/supplier-add-product.jsp</file>
-            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/supplier-product-pending.jsp</file>
-            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/controller/AdminController.java</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/personal-infor-admin.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/personal-infor-minimart.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/personal-infor-customer.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/personal-infor-moderator.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/personal-infor-supplier.jsp</file>
         </group>
     </open-files>
 </project-private>
