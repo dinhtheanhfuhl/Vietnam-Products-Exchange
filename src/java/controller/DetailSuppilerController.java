@@ -1,14 +1,11 @@
 package controller;
 
 import dao.AccountDAO;
-import dao.CustomerDAO;
 import dao.SupplierDAO;
 import dbconnect.DBConnect;
 import entity.Account;
-import entity.Customer;
 import entity.Supplier;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,7 +34,7 @@ public class DetailSuppilerController extends HttpServlet {
             Account account1 = accountDAO.getAccountById(supplier.getAccId());
             request.setAttribute("supplier", supplier);
             request.setAttribute("account", account1);
-            RequestDispatcher rd = request.getRequestDispatcher("admin-page/personal-infor-supplier_1.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("admin-page/personal-infor-supplier.jsp");
             rd.forward(request, response);
 
         } else {
@@ -48,7 +45,7 @@ public class DetailSuppilerController extends HttpServlet {
 
             request.setAttribute("supplier", supplier);
             request.setAttribute("account", account);
-            RequestDispatcher rd = request.getRequestDispatcher("admin-page/personal-infor-supplier_1.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("admin-page/personal-infor-supplier.jsp");
             rd.forward(request, response);
         }
 
