@@ -239,6 +239,7 @@
                                                         <input type="text" name="shop-name-search" placeholder="Tên nhà cung cấp" value=""
                                                                class="form-control">
                                                         <select name="address-search" class="form-control" >
+                                                            <option value="">Tất cả thành phố</option>
                                                             <c:forEach items="${allCities}" var="city">
                                                                 <option value="${city.cityId}">${city.cityName}</option>
                                                             </c:forEach>
@@ -265,64 +266,68 @@
 
                                 <div class="widget-content widget-content-area">
                                     <div class="table-responsive mb-4">
-                                        <table id="ecommerce-product-list" class="table  table-bordered">
-                                            <thead>
-                                                <tr class="text-center">
-                                                    <th>STT</th>
-                                                    <th>Tên người dùng</th>
-                                                    <th>Tên nhà cung cấp</th>
-                                                    <th>Khu vực</th>
-                                                    <th>SĐT</th>
-                                                    <th>Role</th>
-                                                    <th>Email</th>
-                                                    <th>Chi tiết</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="text-center">
-                                                <c:forEach items="${mapSuppliers.keySet()}" var="key" >
-                                                    <tr>
-                                                        <td>${key.supplierId}</td>
-                                                        <td>${key.supplierName}</td>
-                                                        <td>${key.shopName}</td>
-                                                        <td>${key.mainAddress}</td>
-                                                        <td>${key.phone}</td>
-                                                        <td>${mapSuppliers.get(key)}</td>
-                                                        <td>${key.email}</td>
-                                                        <td><a href="DetailSuppilerController?action=detail-supplier&id=${key.supplierId}">Thông tin chi tiết</a></td>
+                                        <c:if test="${mapSuppliers.keySet().size()!=0}">
+                                            <table id="ecommerce-product-list" class="table  table-bordered">
+                                                <thead>
+                                                    <tr class="text-center">
+                                                        <th>ID</th>
+                                                        <th>Tên người dùng</th>
+                                                        <th>Tên nhà cung cấp</th>
+                                                        <th>Khu vực</th>
+                                                        <th>SĐT</th>
+                                                        <th>Role</th>
+                                                        <th>Email</th>
+                                                        <th>Chi tiết</th>
                                                     </tr>
-                                                </c:forEach>
-                                            </tbody>
-                                        </table>
+                                                </thead>
+                                                <tbody class="text-center">
+                                                    <c:forEach items="${mapSuppliers.keySet()}" var="key" >
+                                                        <tr>
+                                                            <td>#${key.supplierId}</td>
+                                                            <td>${key.supplierName}</td>
+                                                            <td>${key.shopName}</td>
+                                                            <td>${key.mainAddress}</td>
+                                                            <td>${key.phone}</td>
+                                                            <td>${mapSuppliers.get(key)}</td>
+                                                            <td>${key.email}</td>
+                                                            <td><a href="DetailSuppilerController?action=detail-supplier&id=${key.supplierId}">Thông tin chi tiết</a></td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                </tbody>
+                                            </table>
+                                        </c:if>
                                     </div>
                                     <div class="table-responsive mb-4">
-                                        <table id="ecommerce-product-list" class="table  table-bordered">
-                                            <thead>
-                                                <tr class="text-center">
-                                                    <th>STT</th>
-                                                    <th>Tên người dùng</th>
-                                                    <th>Tên nhà cung cấp</th>
-                                                    <th>Khu vực</th>
-                                                    <th>SĐT</th>
-                                                    <th>Role</th>
-                                                    <th>Email</th>
-                                                    <th>Chi tiết</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="text-center">
-                                                <c:forEach items="${mapCustomers.keySet()}" var="key" >
-                                                    <tr>
-                                                        <td>${key.customerId}</td>
-                                                        <td>${key.customerName}</td>
-                                                        <td>${key.shopName}</td>
-                                                        <td>${key.mainAddress}</td>
-                                                        <td>${key.phone}</td>
-                                                        <td>${mapCustomers.get(key)}</td>
-                                                        <td>${key.email}</td>
-                                                        <td><a href="DetailCustomerController?action=detail-customer&id=${key.customerId}">Thông tin chi tiết</a></td>
+                                        <c:if test="${mapCustomers.keySet().size()!=0}">
+                                            <table id="ecommerce-product-list" class="table  table-bordered">
+                                                <thead>
+                                                    <tr class="text-center">
+                                                        <th>ID</th>
+                                                        <th>Tên người dùng</th>
+                                                        <th>Tên nhà cung cấp</th>
+                                                        <th>Khu vực</th>
+                                                        <th>SĐT</th>
+                                                        <th>Role</th>
+                                                        <th>Email</th>
+                                                        <th>Chi tiết</th>
                                                     </tr>
-                                                </c:forEach>
-                                            </tbody>
-                                        </table>
+                                                </thead>
+                                                <tbody class="text-center">
+                                                    <c:forEach items="${mapCustomers.keySet()}" var="key" >
+                                                        <tr>
+                                                            <td>#${key.customerId}</td>
+                                                            <td>${key.customerName}</td>
+                                                            <td>${key.shopName}</td>
+                                                            <td>${key.mainAddress}</td>
+                                                            <td>${key.phone}</td>
+                                                            <td>${mapCustomers.get(key)}</td>
+                                                            <td>${key.email}</td>
+                                                            <td><a href="DetailCustomerController?action=detail-customer&id=${key.customerId}">Thông tin chi tiết</a></td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                </tbody>
+                                            </table>
+                                        </c:if>
                                     </div>
                                 </div>
                             </div>

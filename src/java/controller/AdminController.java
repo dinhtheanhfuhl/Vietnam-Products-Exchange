@@ -45,29 +45,90 @@ public class AdminController extends HttpServlet {
             resultSuppliers = allSuppliers;
             resultCustomers = allCustomers;
 
-            for (Supplier supplier : resultSuppliers) {
-                mapSuppliers.put(supplier, "Nhà cung cấp");
-            }
-            for (Customer customer : resultCustomers) {
-                mapCustomers.put(customer, "Khách hàng");
-            }
-            request.setAttribute("mapSuppliers", mapSuppliers);
-            request.setAttribute("mapCustomers", mapCustomers);
-            request.setAttribute("allCities", allCities);
-
-            RequestDispatcher rd = request.getRequestDispatcher("admin-page/admin-list-user.jsp");
-            rd.forward(request, response);
         } else {
             String nameSearch = request.getParameter("name-search");
             String shopNameSearch = request.getParameter("shop-name-search");
             String addressSearch = request.getParameter("address-search");
             String phoneSearch = request.getParameter("phone-search");
             String emailSearch = request.getParameter("email-search");
-            boolean flagName, flagShopName, flagAddress, flagPhone, flagEmail;
+
             for (Customer customer : allCustomers) {
-                if(nameSearch.isBlank()) flagName = true;
+                boolean flagName = true, flagShopName = true, flagAddress = true, flagPhone = true, flagEmail = true;
+                if (nameSearch.isBlank()) {
+                    flagName = true;
+                } else if (!customer.getCustomerName().contains(nameSearch)) {
+                    flagName = false;
+                }
+                if (shopNameSearch.isBlank()) {
+                    flagShopName = true;
+                } else if (!customer.getShopName().contains(shopNameSearch)) {
+                    flagShopName = false;
+                }
+                if (addressSearch.isBlank()) {
+                    flagAddress = true;
+                } else if (!(customer.getCityId() == Integer.parseInt(addressSearch))) {
+                    flagAddress = false;
+                }
+                if (phoneSearch.isBlank()) {
+                    flagPhone = true;
+                } else if (!customer.getPhone().startsWith(phoneSearch)) {
+                    flagPhone = false;
+                }
+                if (emailSearch.isBlank()) {
+                    flagEmail = true;
+                } else if (!customer.getEmail().equals(emailSearch)) {
+                    flagEmail = false;
+                }
+
+                if (flagName && flagShopName && flagAddress && flagPhone && flagEmail) {
+                    resultCustomers.add(customer);
+                }
+            }
+            for (Supplier supplier : allSuppliers) {
+                boolean flagName = true, flagShopName = true, flagAddress = true, flagPhone = true, flagEmail = true;
+                if (nameSearch.isBlank()) {
+                    flagName = true;
+                } else if (!supplier.getSupplierName().contains(nameSearch)) {
+                    flagName = false;
+                }
+                if (shopNameSearch.isBlank()) {
+                    flagShopName = true;
+                } else if (!supplier.getShopName().contains(shopNameSearch)) {
+                    flagShopName = false;
+                }
+                if (addressSearch.isBlank()) {
+                    flagAddress = true;
+                } else if (!(supplier.getCityId() == Integer.parseInt(addressSearch))) {
+                    flagAddress = false;
+                }
+                if (phoneSearch.isBlank()) {
+                    flagPhone = true;
+                } else if (!supplier.getPhone().startsWith(phoneSearch)) {
+                    flagPhone = false;
+                }
+                if (emailSearch.isBlank()) {
+                    flagEmail = true;
+                } else if (!supplier.getEmail().equals(emailSearch)) {
+                    flagEmail = false;
+                }
+
+                if (flagName && flagShopName && flagAddress && flagPhone && flagEmail) {
+                    resultSuppliers.add(supplier);
+                }
             }
         }
+        for (Supplier supplier : resultSuppliers) {
+            mapSuppliers.put(supplier, "Nhà cung cấp");
+        }
+        for (Customer customer : resultCustomers) {
+            mapCustomers.put(customer, "Khách hàng");
+        }
+        request.setAttribute("mapSuppliers", mapSuppliers);
+        request.setAttribute("mapCustomers", mapCustomers);
+        request.setAttribute("allCities", allCities);
+
+        RequestDispatcher rd = request.getRequestDispatcher("admin-page/admin-list-user.jsp");
+        rd.forward(request, response);
 
     }
 
