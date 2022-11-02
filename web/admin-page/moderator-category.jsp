@@ -126,16 +126,14 @@
                                                     <th>Tên danh mục</th>
                                                     <th>Danh mục con</th>
                                                     <th>Xoá</th>
-                                                    <th>Chỉnh sửa</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">
                                                 <tr>
                                                     <td>1</td>
-                                                    <td>#0001</td>
-                                                    <td>0001</td>
-                                                    <td>#0001</td>
-                                                    <td>#0001</td>
+                                                    <td>Hoa quả</td>
+                                                    <td>ádád</td>
+                                                    <td><a data-toggle="modal" data-target="#exampleModal" href="#"><i class="flaticon-delete"></i></a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -156,74 +154,89 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
-            </div>
-            <!--  END CONTENT PART  -->
-
-        </div>
-        <!-- END MAIN CONTAINER -->
-        <!-- END MAIN CONTAINER -->
-
-        <!--  BEGIN FOOTER  -->
-
-        <footer class="footer-section theme-footer">
-
-            <div class="footer-section-1  sidebar-theme">
+                <!--  END CONTENT PART  -->
 
             </div>
-
-            <div class="footer-section-2 container-fluid">
-                <div class="row">
-                    <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
-                        <ul class="list-inline links ml-sm-5">
-                            <li class="list-inline-item">
-                                <a target="_blank" href="#">Vietnam Products Exchange</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-xl-5 col-md-6 col-sm-6 col-12">
-                        <ul
-                            class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
-                            <li class="list-inline-item  mr-3">
-                                <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
-                            </li>
-                            <li class="list-inline-item align-self-center">
-                                <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
-                            </li>
-                        </ul>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Bạn có muốn xoá danh mục này?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger status mb-2" data-dismiss="modal">Huỷ</button>
+                            <button type="button" class="btn btn-warning status mb-2">Có</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </footer>
-        <!--  END FOOTER  -->
+            <!-- END MAIN CONTAINER -->
+            <!-- END MAIN CONTAINER -->
 
-        <!--  BEGIN PROFILE SIDEBAR  -->
-        <aside class="profile-sidebar text-center">
-            <div class="profile-content profile-content-scroll">
-                <div class="usr-profile">
-                    <img src="../assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
-                </div>
-                <p class="user-name mt-4 mb-4">Hoàng Thị Xoan</p>
+            <!--  BEGIN FOOTER  -->
 
-                <div class="user-links text-left">
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="./personal-infor-moderator.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
-                        </li>
-                        <li>
-                            <a href="moderator-list-product.jsp"><i class="flaticon-globe"></i> Quản lý</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
-                        </li>
-                    </ul>
+            <footer class="footer-section theme-footer">
+
+                <div class="footer-section-1  sidebar-theme">
+
                 </div>
-            </div>
-        </aside>
-        <!--  BEGIN PROFILE SIDEBAR  -->
+
+                <div class="footer-section-2 container-fluid">
+                    <div class="row">
+                        <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
+                            <ul class="list-inline links ml-sm-5">
+                                <li class="list-inline-item">
+                                    <a target="_blank" href="#">Vietnam Products Exchange</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-5 col-md-6 col-sm-6 col-12">
+                            <ul
+                                class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
+                                <li class="list-inline-item  mr-3">
+                                    <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
+                                </li>
+                                <li class="list-inline-item align-self-center">
+                                    <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!--  END FOOTER  -->
+
+            <!--  BEGIN PROFILE SIDEBAR  -->
+            <aside class="profile-sidebar text-center">
+                <div class="profile-content profile-content-scroll">
+                    <div class="usr-profile">
+                        <img src="../assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
+                    </div>
+                    <p class="user-name mt-4 mb-4">Hoàng Thị Xoan</p>
+
+                    <div class="user-links text-left">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="./personal-infor-moderator.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                            </li>
+                            <li>
+                                <a href="moderator-list-product.jsp"><i class="flaticon-globe"></i> Quản lý</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <!--  BEGIN PROFILE SIDEBAR  -->
     </body>
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="../assets/js/libs/jquery-3.1.1.min.js"></script>
@@ -240,7 +253,6 @@
     </script>
     <script src="../assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
-
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     <script src="../plugins/charts/chartist/chartist.js"></script>
     <script src="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
