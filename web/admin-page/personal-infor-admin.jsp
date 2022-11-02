@@ -91,7 +91,7 @@
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-user-1"></i>
-                                        <span>Quản lý tài khoản</span>
+                                        <span>Danh sách <br> người dùng</span>
                                     </div>
                                 </a>
                             </li>
