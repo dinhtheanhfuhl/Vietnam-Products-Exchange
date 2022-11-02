@@ -191,7 +191,7 @@
 
                                             <label for="exampleInputEmail">Email</label>
                                             <br>
-                                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email">
+                                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="nhập email">
 
                                         </li>
 
@@ -229,9 +229,10 @@
                     <div class="col-md-2 col-sm-6 col-xs-12">
                         <div class="text-footer">
                             <h4>Liên kết</h4>
-                            <p><a href="#">Tìm kiếm</a></p>
-                            <p><a href="#">Giới thiệu</a> </p>
-                            <p><a href="#">Chính sách đổi trả</a></p>
+                            <p><a href="./information.jsp">Về chúng tôi</a></p>
+                            <p><a href="./policy.jsp">Chính sách bảo mật</a></p>
+                            <p><a href="./condition.jsp">Điều khoản dịch vụ</a></p>
+                            <p><a href="./contact.jsp">Liên hệ</a></p>
 
                         </div>
                     </div>
