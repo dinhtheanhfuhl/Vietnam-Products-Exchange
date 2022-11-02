@@ -128,7 +128,7 @@
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
-                    <li class="breadcrumb-item"><a href="./home.jsp">Home</a></li>
+                    <li class="breadcrumb-item"><a href="./home.jsp">Trang chủ</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Tài khoản</li>
                 </ol>
             </nav>

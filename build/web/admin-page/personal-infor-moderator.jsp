@@ -137,7 +137,9 @@
                                 <div class="profile-usertitle">
                                     <div class="profile-usertitle-name"> Tên người dùng</div>
                                 </div>
-
+                                <div class="profile-userbuttons">
+                                    <button type="button" class="btn btn-success btn-sm"> Upload Image</button>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-9 mt-50 mb-50">
@@ -291,7 +293,7 @@
                         <a href="./personal-infor-moderator.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                     </li>
                     <li>
-                        <a href=""><i class="flaticon-globe"></i> Quản lý</a>
+                        <a href="moderator-list-product.jsp"><i class="flaticon-globe"></i> Quản lý</a>
                     </li>
                     <li>
                         <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
@@ -310,9 +312,9 @@
     <script src="../plugins/blockui/jquery.blockUI.min.js"></script>
     <script src="../assets/js/app.js"></script>
     <script>
-        $(document).ready(function () {
-            App.init();
-        });
+                                        $(document).ready(function () {
+                                            App.init();
+                                        });
     </script>
     <script src="../assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
@@ -344,35 +346,35 @@
 </html>
 <script>
 
-        document.getElementById("btn-edit").onclick = function () {
+                                        document.getElementById("btn-edit").onclick = function () {
 
-            document.querySelector(".personal-infor .hidden-edit").style.display = 'block';
-            document.querySelector(".personal-infor .hidden-edit").style.margin = '0 0 0 22%';
-            document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 43%';
-            document.querySelector(".personal-infor table .display-userName").style.display = 'none';
-            document.querySelector(".personal-infor #btn-edit").style.display = 'none';
-        };
-        document.querySelector(".exit").onclick = function () {
+                                            document.querySelector(".personal-infor .hidden-edit").style.display = 'block';
+                                            document.querySelector(".personal-infor .hidden-edit").style.margin = '0 0 0 22%';
+                                            document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 43%';
+                                            document.querySelector(".personal-infor table .display-userName").style.display = 'none';
+                                            document.querySelector(".personal-infor #btn-edit").style.display = 'none';
+                                        };
+                                        document.querySelector(".exit").onclick = function () {
 
-            document.querySelector(".personal-infor .hidden-edit").style.display = 'none';
-            document.querySelector(".personal-infor table .display-userName").style.display = 'block';
-            document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 24%';
-            document.querySelector(".personal-infor #btn-edit").style.display = 'block';
-        };
-        document.getElementById("btn-edit-2").onclick = function () {
+                                            document.querySelector(".personal-infor .hidden-edit").style.display = 'none';
+                                            document.querySelector(".personal-infor table .display-userName").style.display = 'block';
+                                            document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 24%';
+                                            document.querySelector(".personal-infor #btn-edit").style.display = 'block';
+                                        };
+                                        document.getElementById("btn-edit-2").onclick = function () {
 
-            document.querySelector(".personal-infor .hidden-pass").style.display = 'block';
-            document.querySelector(".personal-infor .hidden-pass").style.margin = '0 0 0 22%';
-            document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 43%';
-            document.querySelector(".personal-infor table .display-userName-3").style.display = 'none';
-            document.querySelector(".personal-infor #btn-edit-2").style.display = 'none';
-        };
-        document.querySelector(".exit-pass").onclick = function () {
-            document.querySelector(".personal-infor .hidden-pass").style.display = 'none';
-            document.querySelector(".personal-infor table .display-userName-3").style.display = 'block';
-            document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 24%';
-            document.querySelector(".personal-infor #btn-edit-2").style.display = 'block';
-        };
+                                            document.querySelector(".personal-infor .hidden-pass").style.display = 'block';
+                                            document.querySelector(".personal-infor .hidden-pass").style.margin = '0 0 0 22%';
+                                            document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 43%';
+                                            document.querySelector(".personal-infor table .display-userName-3").style.display = 'none';
+                                            document.querySelector(".personal-infor #btn-edit-2").style.display = 'none';
+                                        };
+                                        document.querySelector(".exit-pass").onclick = function () {
+                                            document.querySelector(".personal-infor .hidden-pass").style.display = 'none';
+                                            document.querySelector(".personal-infor table .display-userName-3").style.display = 'block';
+                                            document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 24%';
+                                            document.querySelector(".personal-infor #btn-edit-2").style.display = 'block';
+                                        };
 </script>
 
 </html>
