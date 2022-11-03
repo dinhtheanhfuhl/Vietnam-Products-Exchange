@@ -183,7 +183,7 @@
                                                         <td>${product.barCode}</td>
                                                         <td>${product.barCode}</td>
                                                         <td>${product.statusId}</td>
-                                                        <td><a href="moderator-product-detail.jsp">Xem chi tiết</a></td>
+                                                        <td><a href="ModeratorDetailProductController?id=${product.productId}">Xem chi tiết</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
