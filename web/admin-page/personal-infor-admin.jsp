@@ -87,11 +87,11 @@
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
                             <li class="menu">
-                                <a href="admin-list-user.jsp" 
+                                <a href="../AdminController" 
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-user-1"></i>
-                                        <span>Quản lý tài khoản</span>
+                                        <span>Danh sách <br> người dùng</span>
                                     </div>
                                 </a>
                             </li>
@@ -119,7 +119,9 @@
                                 <div class="profile-usertitle">
                                     <div class="profile-usertitle-name"> Tên người dùng</div>
                                 </div>
-
+                                <div class="profile-userbuttons">
+                                    <button type="button" class="btn btn-success btn-sm"> Upload Image</button>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-9 mt-50 mb-50">
@@ -271,9 +273,6 @@
                 <ul class="list-unstyled">
                     <li>
                         <a href="./personal-infor-admin.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
-                    </li>
-                    <li>
-                        <a href=""><i class="flaticon-globe"></i> Quản lý</a>
                     </li>
                     <li>
                         <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>

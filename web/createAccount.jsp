@@ -128,7 +128,7 @@
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
-                    <li class="breadcrumb-item"><a href="./home.jsp">Home</a></li>
+                    <li class="breadcrumb-item"><a href="./home.jsp">Trang chủ</a></li>
                     <li class="breadcrumb-item active" aria-current="page"> Tạo tài khoản</li>
                 </ol>
             </nav>
@@ -154,6 +154,11 @@
                                             <label for="exampleInputPassword1">Mật khẩu</label>
                                             <input type="password" class="form-control" 
                                                    placeholder="mật khẩu">
+                                        </div> 
+                                        <div class="form-group fill-form log-lastName">
+                                            <label for="exampleInputPassword1">Xác nhận mật khẩu</label>
+                                            <input type="password" class="form-control" 
+                                                   placeholder="xác nhận mật khẩu">
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
                                             <label for="exampleInputPassword1">Ngày sinh</label>
@@ -278,12 +283,10 @@
                     <div class="col-lg-2 col-sm-6 col-xs-12">
                         <div class="text-footer">
                             <h4>Liên kết</h4>
-                            <p><a href="#">Tìm kiếm</a></p>
-                            <p><a href="#">Giới thiệu</a> </p>
-                            <p><a href="#">Chính sách đổi trả</a></p>
-                            <p><a href="#">Chính sách bảo mật</a></p>
-                            <p><a href="#">Điều khoản dịch vụ</a></p>
-                            <p><a href="#">Liên hệ</a></p>
+                            <p><a href="./information.jsp">Về chúng tôi</a></p>
+                            <p><a href="./policy.jsp">Chính sách bảo mật</a></p>
+                            <p><a href="./condition.jsp">Điều khoản dịch vụ</a></p>
+                            <p><a href="./contact.jsp">Liên hệ</a></p>
 
                         </div>
                     </div>

@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-        <title>Đơn hàng</title>
+        <title>Chi tiết sản phẩm</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" .href="./image/578b1438ff0a7fc4704aa5ade7625e89.jpeg" type="image/png">
@@ -44,24 +44,12 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect">
+                <a class="navbar-brand waves-effect" href="../home.jsp">
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
-            <ul class="navbar-nav flex-row mr-auto">
-                <li class="nav-item ml-4 d-lg-none d-sm-block d-none">
-                    <form class="form-inline search-full form-inline search animated-search" role="search">
-                        <i class="flaticon-search-1 d-lg-none d-block"></i>
-                        <input type="text" class="form-control search-form-control ml-lg-auto" placeholder="">
-                    </form>
-                </li>
-
-            </ul>
 
             <ul class="navbar-nav flex-row ml-lg-auto">
-
-
-
                 <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
                         <div class="user-profile d-lg-block d-none">
@@ -95,8 +83,7 @@
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>Danh sách <br> sản phẩm</span>
-                                    </div>
+                                        <span>Danh sách <br> sản phẩm</span>                                    </div>
                                 </a>
                             </li>
 
@@ -119,96 +106,113 @@
 
             <!--  BEGIN CONTENT PART  -->
             <div id="content" class="main-content container">
+                <p>&nbsp;</p>
+                <h4 class="h3-order">Chi tiết sản phẩm</h4>
+
                 <div class="view-order">
                     <div class="summary-order">
                         <table >
                             <tr>
-                                <th>Id Order</th>
+                                <th>Ảnh</th>
+                                <td>
+                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
+                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
+                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
+                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
+                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
+                                </td>
+                            </tr> 
+                            <tr>
+                                <th>Tên</th>
+                                <td>
+                                    elitLorem ilitLorem ipsum dolorng elit
+                                </td>
+                            </tr> 
+                            <tr>
+                                <th>Khoảng giá</th>
+                                <td>
+                                    50 - 500 kg: <b>đ139.000</b><br>
+                                    150 - 600 kg: <b>đ99.000<br></b>
+                                    250 - 700 kg: <b>đ19.000</b>
+                                </td>
+                            </tr> 
+                            <tr>
+                                <th>Khu vực giao hàng</th>
+                                <td>
+                                    sdádasd
+                                </td>
+                            </tr> 
+                            <tr>
+                                <th>Danh mục hàng</th>
                                 <td>02</td>
                             </tr>
                             <tr>
-                                <th>Tên Khách Hàng: </th>
+                                <th>Mã Barcode / SKU</th>
                                 <td>Hoàng Xoan</td>
                             </tr>
                             <tr>
-                                <th>Số Điện Thoại: </th>
+                                <th>Tên loại sản phẩm</th>
                                 <td>0123456789</td>
                             </tr>
                             <tr>
-                                <th>Địa Chỉ: </th>
+                                <th>Thương hiệu</th>
                                 <td>Nam Sách Hải Dương</td>
                             </tr>
                             <tr>
-                                <th>Tổng Tiền Hóa Đơn: </th>
+                                <th>Hương vị</th>
                                 <td>127,000đ</td>
                             </tr>
                             <tr>
-                                <th>Ghi Chú:</th>
+                                <th>Màu sắc</th>
                                 <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</td>
+                            </tr>
+                            <tr>
+                                <th>Trọng lượng</th>
+                                <td>Lodipisiciit.</td>
+                            </tr>
+                            <tr>
+                                <th>Kiểu đóng gói</th>
+                                <td>Lorelit.</td>
+                            </tr>
+                            <tr>
+                                <th>Thành phần</th>
+                                <td>Lorem r adipisicing elit.</td>
+                            </tr>
+                            <tr>
+                                <th>Xuất xứ</th>
+                                <td>Lorem ipsum dolorng elit.</td>
+                            </tr>
+
+                            <tr>
+                                <th>Mô tả sản phẩm</th>
+                                <td>
+                                    Lorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elit
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Giấy tờ chứng nhận</th>
+                                <td>
+                                    tádsa
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Trạng thái</th>
+                                <td>
+                                    <p class=" btn btn-success status mb-2" id="approved">  Đã phê duyệt </p>
+                                    <p class=" btn btn-danger status mb-2" id="approved"> Bị từ chối </p>
+                                </td>
                             </tr>
                         </table>
                     </div>
                     <div class="button-status ">
-                        <h5>Trạng thái đơn hàng</h5>
-                        <button class=" btn btn-success status mb-2 mt-2 " id="processing">  PROCESSING  </button>
-                        <button class=" btn btn-info status mb-2" id="approved">  APPROVED </button>
-                        <button class=" btn btn-secondary status mb-2" id="delivered">  DELIVERED </button>
-                        <button class=" btn btn-danger status mb-2" id="canceled">  CANCELED </button>
+                        <h5>Hành động</h5>
+                        <button class=" btn btn-success status mb-2" id="approved">  Gửi yêu cầu </button>
+                        <button class=" btn btn-danger status mb-2" id="canceled">  Huỷ </button>
 
                     </div>
                 </div>
 
-                <h3 class="h3-order">Chi tiết sản phẩm đơn hàng</h3>
-                <div class="widget-content widget-content-area view-order-detail">
-                    <div class="table-responsive mb-4">
-                        <table id="ecommerce-product-list" class="table  table-bordered">
-                            <thead>
-                                <tr class="text-center">
-                                    <th>ID</th>
-                                    <th>Ảnh</th>
-                                    <th>Tên</th>
-                                    <th>Danh mục</th>
-                                    <th>Giá bán</th>
-                                    <th>Số lượng</th>
 
-                                </tr>
-                            </thead>
-                            <tbody >
-                                <tr  class="text-center">
-                                    <td>15</td>
-                                    <td class="text-center"><img class="product-list-img" src="assets/img/90x90.jpg"></td>
-                                    <td >Tao Xanh</td>
-                                    <td>Hoa Qua Sach</td>
-                                    <td>45000đ</td>
-                                    <td>2</td>
-
-                                </tr>
-                            </tbody>
-                            <tbody >
-                                <tr class="text-center">
-                                    <td>15</td>
-                                    <td class="text-center"><img class="product-list-img" src="assets/img/90x90.jpg"></td>
-                                    <td >Tao Xanh</td>
-                                    <td>Hoa Qua Sach</td>
-                                    <td>45000đ</td>
-                                    <td>2</td>
-
-                                </tr>
-                            </tbody>
-                            <tbody >
-                                <tr class="text-center">
-                                    <td>15</td>
-                                    <td class="text-center"><img class="product-list-img" src="assets/img/90x90.jpg"></td>
-                                    <td >Tao Xanh</td>
-                                    <td>Hoa Qua Sach</td>
-                                    <td>45000đ</td>
-                                    <td>2</td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </div>
 
             <!--  END CONTENT PART  -->
@@ -250,7 +254,8 @@
                     <div class="usr-profile">
                         <img src="../assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
                     </div>
-                    <p class="user-name mt-4 mb-4">Hoàng Thị Xoan</p>
+                    <p class="user-name mt-4 mb-4">Han</p>
+
                     <div class="user-links text-left">
                         <ul class="list-unstyled">
                             <li>

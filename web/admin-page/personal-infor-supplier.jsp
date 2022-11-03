@@ -1,32 +1,32 @@
 <!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
-        <title>Thông tin tài khoản </title>
+        <title>Thông tin tài khoản</title>
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="../assets/css/loader.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/loader.css" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" type="text/css" />
-        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/plugins.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/plugins.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!--  BEGIN CUSTOM STYLE FILE  -->
-        <link rel="stylesheet" type="text/css" href="../plugins/table/datatable/datatables.css" />
-        <link rel="stylesheet" type="text/css" href="../assets/css/ecommerce/order.css" />
-        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/plugins/table/datatable/datatables.css" />
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/ecommerce/order.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
 
         <!--====== Style css ======-->
-        <link rel="stylesheet" href="assets/scss/style.css">
         <!--  END CUSTOM STYLE FILE  -->
         <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-        <link href="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
-        <link href="../plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
-        <link href="../assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/ecommerce/addedit_product.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/ecommerce/addedit_product.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
@@ -43,7 +43,7 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect" href="../home.jsp">
+                <a class="navbar-brand waves-effect" href="${pageContext.request.contextPath}/home.jsp">
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
@@ -58,7 +58,6 @@
             </ul>
 
             <ul class="navbar-nav flex-row ml-lg-auto">
-
                 <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
                         <div class="user-profile d-lg-block d-none">
@@ -86,14 +85,13 @@
                 <div class="">
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
-                            
+
                             <li class="menu">
                                 <a href="supplier-product-pending.jsp" 
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>D/s sp cần duyệt</span>
-                                    </div>
+                                        <span>Danh sách <br> sản phẩm</span>                                    </div>
                                 </a>
                             </li>
 
@@ -105,7 +103,7 @@
                                         <span>Xem đơn hàng</span>
                                     </div>
                                 </a>
-                               
+
                             </li>
                         </ul>
                     </nav>
@@ -129,9 +127,11 @@
 
                                 </div>
                                 <div class="profile-usertitle">
-                                    <div class="profile-usertitle-name"> Tên người dùng</div>
+                                    <div class="profile-usertitle-name">${supplier.supplierName}</div>
                                 </div>
-
+                                <div class="profile-userbuttons">
+                                    <button type="button" class="btn btn-success btn-sm"> Upload Image</button>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-9 mt-50 mb-50">
@@ -144,7 +144,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <input type="text" required class="form-control" id="inputpass"
-                                                           placeholder="tên người dùng">
+                                                           value="${supplier.supplierName}"   placeholder="tên người dùng">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -160,7 +160,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <input type="date" required class="form-control" id="inputpass"
-                                                           placeholder="ngày sinh">
+                                                           value="${supplier.dateBirth}"  placeholder="ngày sinh">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -172,13 +172,11 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Giới tính</label>
+                                                <td><label for="inputpass" style="margin-left: 5px;" class="form-label pass-infor">Giới tính</label>
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <select class="form-control" name="gender" id="gender">
-                                                        <option value="male">Nam</option>
-                                                        <option value="female">Nữ</option>
-                                                        <option value="other">Khác</option>
+                                                        <option value="male">${supplier.gender}</option>
                                                     </select>
                                                 </td>
                                             </tr>
@@ -193,7 +191,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <input type="email" required class="form-control" id="inputpass"
-                                                           placeholder="email">
+                                                           value="${supplier.email}"     placeholder="email">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -208,7 +206,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <input type="text" required class="form-control" id="inputpass"
-                                                           placeholder="số điện thoại">
+                                                           value="${supplier.phone}"   placeholder="số điện thoại">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -222,7 +220,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <input type="text" required class="form-control" id="inputpass"
-                                                           placeholder="nhà cung cấp">
+                                                           value="${supplier.shopName}"   placeholder="nhà cung cấp">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -236,7 +234,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <input type="text" required class="form-control" id="inputpass"
-                                                           placeholder="địa chỉ chính">
+                                                           value="${supplier.mainAddress}"   placeholder="địa chỉ chính">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -249,8 +247,23 @@
                                                 <td><label for="inputpass" class="form-label pass-infor">Giấy phép</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="password" required class="form-control" id="inputpass"
-                                                           placeholder="">
+                                                    <a href="#" class="btn btn-info">Tải về giấy phép</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td><label for="inputpass" class="form-label pass-infor">Trạng thái:</label>
+                                                </td>
+                                                <td class="display-userName-3">
+                                                    <c:choose>
+                                                        <c:when test="${account.status == true}"><a class="btn btn-success">Đang hoạt động</a></c:when>
+                                                        <c:otherwise><a href="DetailSuppilerController?action=accept-account&sup-id=${supplier.supplierId}&acc-id=${account.accId}" class="btn btn-success">Chấp thuận tài khoản</a></c:otherwise>
+                                                    </c:choose>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -279,7 +292,7 @@
                 <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
                     <ul class="list-inline links ml-sm-5">
                         <li class="list-inline-item">
-                            <a target="_blank" href="#">Vietnam Products Exchange</a>
+                            <a target="_blank" href="#">OrFarm Store</a>
                         </li>
                     </ul>
                 </div>
@@ -287,7 +300,7 @@
                     <ul
                         class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
                         <li class="list-inline-item  mr-3">
-                            <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
+                            <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">OrFarm Store</a></p>
                         </li>
                         <li class="list-inline-item align-self-center">
                             <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
@@ -313,7 +326,10 @@
                         <a href="./personal-infor-supplier.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                     </li>
                     <li>
-                        <a href=""><i class="flaticon-globe"></i> Quản lý</a>
+                        <a href="../changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                    </li>
+                    <li>
+                        <a href="supplier-product-pending.jsp"><i class="flaticon-globe"></i> Quản lý</a>
                     </li>
                     <li>
                         <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
@@ -324,42 +340,42 @@
     </aside>
 
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="../assets/js/libs/jquery-3.1.1.min.js"></script>
-    <script src="../assets/js/loader.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="../plugins/blockui/jquery.blockUI.min.js"></script>
-    <script src="../assets/js/app.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/loader.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
     <script>
         $(document).ready(function () {
             App.init();
         });
     </script>
-    <script src="../assets/js/custom.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-    <script src="../plugins/charts/chartist/chartist.js"></script>
-    <script src="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
-    <script src="../plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="../plugins/calendar/pignose/moment.latest.min.js"></script>
-    <script src="../plugins/calendar/pignose/pignose.calendar.js"></script>
-    <script src="../plugins/progressbar/progressbar.min.js"></script>
-    <script src="../assets/js/default-dashboard/default-custom.js"></script>
-    <script src="../assets/js/ui-kit/timeline/horizontal-main.js"></script>
-    <script src="../plugins/charts/amcharts/amcharts.js"></script>
-    <script src="../plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
-    <script src="../plugins/maps/vector/ammaps/worldLow.js"></script>
-    <script src="../plugins/charts/amcharts/radar.js"></script>
-    <script src="../plugins/charts/amcharts/pie.js"></script>
-    <script src="../plugins/charts/sparklines/jquery.sparkline.min.js"></script>
-    <script src="../plugins/charts/amcharts/serial.js"></script>
-    <script src="../plugins/charts/amcharts/light.js"></script>
-    <script src="../assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
-    <script src="../plugins/table/datatable/datatables.js"></script>
-    <script src="../plugins/progressbar/progressbar.min.js"></script>
-    <script src="../assets/js/ecommerce/order.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/chartist/chartist.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/calendar/pignose/moment.latest.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/calendar/pignose/pignose.calendar.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/progressbar/progressbar.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/default-dashboard/default-custom.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/ui-kit/timeline/horizontal-main.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/amcharts.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/worldLow.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/radar.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/pie.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/sparklines/jquery.sparkline.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/serial.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/light.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/table/datatable/datatables.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/progressbar/progressbar.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/ecommerce/order.js"></script>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 </body>
 
