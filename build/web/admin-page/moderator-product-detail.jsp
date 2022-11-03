@@ -222,10 +222,51 @@
                             </tr>
                         </table>
                     </div>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Lý do từ chối</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <textarea class="form-control" placeholder="Nhập lý do từ chối" style="height: 150px;" id="message-text"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger status mb-2" data-dismiss="modal">Huỷ</button>
+                                    <button type="button" class="btn btn-success status mb-2">Gửi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc muốn phê duyệt sản phẩm này không?
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger status mb-2" data-dismiss="modal">Không</button>
+                                    <button type="button" class="btn btn-success status mb-2">Có</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="button-status ">
                         <h5>Hành động</h5>
                         <a href="ModeratorDetailProductController?action=accept&id=${product.productId}" class=" btn btn-success status mb-2" id="approved">  Phê duyệt </a>
                         <a href="ModeratorDetailProductController?action=reject&id=${product.productId}" class=" btn btn-danger status mb-2" id="canceled">  Từ chối </a>
+
                     </div>
                 </div>
 
@@ -278,7 +319,7 @@
                                 <a href="./personal-infor-moderator.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                             </li>
                             <li>
-                                <a href=""><i class="flaticon-globe"></i> Quản lý</a>
+                                <a href="moderator-list-product.jsp"><i class="flaticon-globe"></i> Quản lý</a>
                             </li>
                             <li>
                                 <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
@@ -302,6 +343,8 @@
                 });
             </script>
             <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
+
+
             <!-- END GLOBAL MANDATORY SCRIPTS -->
 
             <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->

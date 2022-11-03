@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-        <title>Tạo sản phẩm mới</title>
+        <title>Chỉnh sửa sản phẩm </title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" .href="./image/578b1438ff0a7fc4704aa5ade7625e89.jpeg" type="image/png">
@@ -118,7 +118,7 @@
                                 <div class="widget-header">
                                     <div class="row">
                                         <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                            <h4>Thêm sản phẩm </h4>
+                                            <h4>Chỉnh sửa sản phẩm </h4>
                                         </div>
                                     </div>
                                 </div>
@@ -340,7 +340,7 @@
                                             </div>
                                             <div class="align-center">
                                                 <input value="Huỷ" class="btn" type="submit">
-                                                <input value="Yêu cầu phê duyệt" class="btn" type="submit">
+                                                <input value="Lưu" class="btn" type="submit">
                                             </div>
                                         </div>
                                     </div>

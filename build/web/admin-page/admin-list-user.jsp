@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-        <title>Danh sách người dùng hệ thống </title>
+        <title>Danh sách người dùng</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" .href="./image/578b1438ff0a7fc4704aa5ade7625e89.jpeg" type="image/png">
@@ -41,8 +41,8 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect" href="${pageContext.request.contextPath}/home.jsp">
-                    <h2 id="logoheader" style="color: #359640;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
+                <a class="navbar-brand waves-effect">
+                    <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
 
@@ -188,22 +188,12 @@
                 <div class="">
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
-                            <li class="menu">
-                                <a href="./personal-infor-admin.jsp" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-user-7"></i>
-                                        <span>Thông tin tài khoản</span>
-                                    </div>
-                                </a>
 
-                            </li>
                             <li class="menu">
-                                <a href="./listuser.jsp" 
-                                   class="dropdown-toggle collapsed">
+                                <a href="AdminController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-user-1"></i>
-                                        <span>Quản lý tài khoản</span>
+                                        <span>Danh sách <br> người dùng</span>
                                     </div>
                                 </a>
                             </li>
@@ -342,33 +332,33 @@
 
         <footer class="footer-section theme-footer">
 
-            <div class="footer-section-1  sidebar-theme">
+                <div class="footer-section-1  sidebar-theme">
 
-            </div>
+                </div>
 
-            <div class="footer-section-2 container-fluid">
-                <div class="row">
-                    <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
-                        <ul class="list-inline links ml-sm-5">
-                            <li class="list-inline-item">
-                                <a target="_blank" href="#">OrFarm Store</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-xl-5 col-md-6 col-sm-6 col-12">
-                        <ul
-                            class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
-                            <li class="list-inline-item  mr-3">
-                                <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">OrFarm Store</a></p>
-                            </li>
-                            <li class="list-inline-item align-self-center">
-                                <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
-                            </li>
-                        </ul>
+                <div class="footer-section-2 container-fluid">
+                    <div class="row">
+                        <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
+                            <ul class="list-inline links ml-sm-5">
+                                <li class="list-inline-item">
+                                    <a target="_blank" href="#">Vietnam Products Exchange</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-5 col-md-6 col-sm-6 col-12">
+                            <ul
+                                class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
+                                <li class="list-inline-item  mr-3">
+                                    <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
+                                </li>
+                                <li class="list-inline-item align-self-center">
+                                    <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
         <!--  END FOOTER  -->
 
         <!--  BEGIN PROFILE SIDEBAR  -->
@@ -377,9 +367,12 @@
                 <div class="usr-profile">
                     <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
                 </div>
-                <p class="user-name mt-4 mb-4">HoÃ ng Thá» Xoan</p>
+                <p class="user-name mt-4 mb-4">Hoan</p>
                 <div class="user-links text-left">
                     <ul class="list-unstyled">
+                        <li>
+                            <a href="./admin-page/personal-infor-admin.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                        </li>
                         <li>
                             <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
                         </li>

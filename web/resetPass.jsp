@@ -169,8 +169,8 @@
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
-                    <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Account</li>
+                    <li class="breadcrumb-item"><a href="./home.jsp">Trang chủ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Quên mật khẩu</li>
                 </ol>
             </nav>
         </section>
@@ -191,7 +191,7 @@
 
                                             <label for="exampleInputEmail">Email</label>
                                             <br>
-                                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email">
+                                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="nhập email">
 
                                         </li>
 
@@ -199,9 +199,9 @@
                                         <li class="form-btn" >
                                             <div class="form-action-btn">
                                                 <!-- <div class="form-action-btn"> -->
-                                                <button style="margin-top: 30px; margin-bottom: 15px;" id="submit" type="button" class="btn btn-warning">Submit</button>
+                                                <button style="margin-top: 30px; margin-bottom: 15px;" id="submit" type="button" class="btn btn-warning">Gửi</button>
                                                 <br>
-                                                <a href="./login.jsp" id="HideRecoverPasswordLink">Cancel</a>
+                                                <a href="./login.jsp" id="HideRecoverPasswordLink">Hủy</a> 
                                             </div>
                                         </li>
                                     </ul>
@@ -229,9 +229,10 @@
                     <div class="col-md-2 col-sm-6 col-xs-12">
                         <div class="text-footer">
                             <h4>Liên kết</h4>
-                            <p><a href="#">Tìm kiếm</a></p>
-                            <p><a href="#">Giới thiệu</a> </p>
-                            <p><a href="#">Chính sách đổi trả</a></p>
+                            <p><a href="./information.jsp">Về chúng tôi</a></p>
+                            <p><a href="./policy.jsp">Chính sách bảo mật</a></p>
+                            <p><a href="./condition.jsp">Điều khoản dịch vụ</a></p>
+                            <p><a href="./contact.jsp">Liên hệ</a></p>
 
                         </div>
                     </div>

@@ -74,9 +74,9 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
                                          id="dropdown-collection">
-                                        <a class="dropdown-item" href="./information.html">Về chúng tôi</a>
-                                        <a class="dropdown-item" href="./policy.html">Chính sách bảo mật</a>
-                                        <a class="dropdown-item" href="./condition.html">Điều khoản dịch vụ</a>
+                                        <a class="dropdown-item" href="./information.jsp">Về chúng tôi</a>
+                                        <a class="dropdown-item" href="./policy.jsp">Chính sách bảo mật</a>
+                                        <a class="dropdown-item" href="./condition.jsp">Điều khoản dịch vụ</a>
                                     </div>
                                 </div>
                             </li>
@@ -97,7 +97,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link waves-effect text-header" href="./contact.html">Liên hệ</a>
+                                <a class="nav-link waves-effect text-header" href="./contact.jsp">Liên hệ</a>
                             </li>
                         </ul>
 
@@ -307,20 +307,15 @@
 
                                         <h3 class="pro-name">
                                             <a href="#">
-                                                <!-- cart-list-icon <ul style="list-style-type: none;">
-                                                                          <li class="shopping-bag"><a href="#"><i class="fal fa-shopping-bag"></i></a></li>
-                                                                          <li><a href="#"><i class="fal fa-heart"></i></a></li>
-                                                                          <li><a href="#"><i class="fal fa-eye"></i></a></li>
-                                                                      </ul> -->
-                                            </a><a href="#">ÄÃ o Má»c ChÃ¢u</a>
+                                            </a><a href="#">Đào tiên</a>
                                         </h3>
                                         <div class="box-pro-prices">
 
                                             <p class="pro-price highlight">
-                                                <span>54,000Ä</span>
+                                                <span>54,000đ</span>
                                                 <span class="pro-price-del">
                                                     <del class="compare-price">
-                                                        65,000Ä
+                                                        65,000đ
                                                     </del>
                                                 </span>
                                             </p>
@@ -334,7 +329,7 @@
                             </div>
                         </div>
                     </div>
-                   </div>
+                </div>
             </div>
         </div>
 
@@ -390,12 +385,10 @@
                     <div class="col-lg-2 col-sm-6 col-xs-12">
                         <div class="text-footer">
                             <h4>Liên kết</h4>
-                            <p><a href="#">Tìm kiếm</a></p>
-                            <p><a href="#">Giới thiệu</a> </p>
-                            <p><a href="#">Chính sách đổi trả</a></p>
-                            <p><a href="#">Chính sách bảo mật</a></p>
-                            <p><a href="#">Điều khoản dịch vụ</a></p>
-                            <p><a href="#">Liên hệ</a></p>
+                            <p><a href="./information.jsp">Về chúng tôi</a></p>
+                            <p><a href="./policy.jsp">Chính sách bảo mật</a></p>
+                            <p><a href="./condition.jsp">Điều khoản dịch vụ</a></p>
+                            <p><a href="./contact.jsp">Liên hệ</a></p>
 
                         </div>
                     </div>
