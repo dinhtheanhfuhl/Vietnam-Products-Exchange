@@ -53,12 +53,12 @@ public class SubCategoryDAO {
         return status;
     }
 
-    public int deleteSubCategory(SubCategory subCategory) {
+    public int deleteSubCategory(int subCategoryId) {
         int status = 0;
         String strDelete = "delete from SubCategory where SubCateID=?";
         try {
             PreparedStatement ps = connection.prepareStatement(strDelete);
-            ps.setInt(1, subCategory.getSubCateId());
+            ps.setInt(1, subCategoryId);
             status = ps.executeUpdate();
         } catch (SQLException e) {
             e.getMessage();
@@ -103,6 +103,26 @@ public class SubCategoryDAO {
             System.out.println(e);
         }
         return subCategory;
+    }
+
+    public List<SubCategory> getSubcategoryByCategoryId(int cateId) {
+        List<SubCategory> subCategorys = new ArrayList<>();
+        String strSelectAll = "select * from SubCategory where cateId =?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setInt(1, cateId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                SubCategory subCategory = new SubCategory();
+                subCategory.setSubCateId(rs.getInt("SubCateID"));
+                subCategory.setSubCateName(rs.getString("SubCateName"));
+                subCategory.setCateId(rs.getInt("CateID"));
+                subCategorys.add(subCategory);
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+        return subCategorys;
     }
 }
 // chưa test dao

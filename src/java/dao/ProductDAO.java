@@ -153,6 +153,37 @@ public class ProductDAO {
         }
         return product;
     }
+
+    public int getProductsBySubCateId(int subCateId) {
+        Product product = null;
+        String strSelectById = "select * from Product where subCateId=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setInt(1, subCateId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                product = new Product();
+                product.setProductId(rs.getInt("ProductID"));
+                product.setSupplierId(rs.getInt("SupplierID"));
+                product.setSubCateId(rs.getInt("SubCateID"));
+                product.setCreatedDate(rs.getString("CreatedDate"));
+                product.setRequestCode(rs.getString("RequestCode"));
+                product.setProductName(rs.getString("ProductName"));
+                product.setBarCode(rs.getString("BarCode"));
+                product.setProductCertificate(rs.getString("ProductCertificate"));
+                product.setTrademark(rs.getString("Trademark"));
+                product.setSmell(rs.getString("Smell"));
+                product.setColor(rs.getString("Color"));
+                product.setWeight(rs.getInt("Weight"));
+                product.setPacking(rs.getString("Packing"));
+                product.setElement(rs.getString("Element"));
+                product.setStatusId(rs.getInt("StatusID"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return product==null ? 0:1;
+    }
 }
 
 // lỗi phần update mãi đéo fixx đc cmnn

@@ -344,7 +344,6 @@
             </script>
             <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
 
-
             <!-- END GLOBAL MANDATORY SCRIPTS -->
 
             <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->

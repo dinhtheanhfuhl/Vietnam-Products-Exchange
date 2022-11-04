@@ -94,7 +94,7 @@
                                 </a>
                             </li>
                             <li class="menu">
-                                <a href="./moderator-category.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorCategoryController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-saas"></i>
                                         <span>Danh mục</span>
