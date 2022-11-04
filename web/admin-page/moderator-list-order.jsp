@@ -137,7 +137,9 @@
                                                            type="hidden">
 
                                                     <div id="filter">
-                                                        <input type="text" name="id" placeholder="Mã yêu cầu phê duyệt" value=""
+                                                        <input type="text" name="id" placeholder="Mã đơn hàng" value=""
+                                                               class="form-control">
+                                                        <input type="text" name="id" placeholder="Tên sản phẩm" value=""
                                                                class="form-control">
                                                         <input type="text" name="name" placeholder="Nhà cung cấp" value=""
                                                                class="form-control">
@@ -161,26 +163,26 @@
                                             <thead>
                                                 <tr class="text-center">
                                                     <th>STT</th>
-                                                    <th>Mã đơn hàng</th>
-                                                    <th>Thời gian 
-                                                        gửi yêu cầu</th>
+                                                    <th>Thời gian đặt hàng</th>
+                                                    <th>Mã đặt đơn hàng</th>
+                                                    <th>Đối tác/Minimart</th>
                                                     <th>Nhà cung cấp</th>
-                                                    <th>Mã Barcode/
-                                                        SKU</th>
-                                                    <th>Khu vực giao hàng</th>
-                                                    <th>Trạng thái</th>
+                                                    <th>Số sản phẩm</th>
+                                                    <th>Giá trị đơn hàng</th>
+                                                    <th>Địa chỉ giao hàng</th>
                                                     <th>Chi tiết</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">
                                                 <tr>
                                                     <td>1</td>
-                                                    <td>#0001</td>
-                                                    <td>Cam sành</td>
-                                                    <td><span class="badge badge-info badge-pill">Hoa quả</span></td>
-                                                    <td>100</td>
-                                                    <td>50</td>
-                                                    <td>50</td>
+                                                    <td>11/01/2000</td>
+                                                    <td>4520001</td>
+                                                    <td>Nong san dung ha</td>
+                                                    <td>Supper market</td>
+                                                    <td>20</td>
+                                                    <td>500đ</td>
+                                                    <td>TP HCM</td>
                                                     <td><a href="moderator-detail-order.jsp">Xem chi tiết</a></td>
 
                                                 </tr>

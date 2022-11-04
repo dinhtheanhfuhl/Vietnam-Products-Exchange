@@ -31,3 +31,6 @@
 .eq-loading.dual-loader {
     border-bottom: 3px solid #1a73e9;
 }
+.status a{
+    color: black;
+}

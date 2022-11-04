@@ -87,7 +87,7 @@
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                         <span>Danh sách <br> sản phẩm</span>
+                                        <span>Danh sách <br> sản phẩm</span>
                                     </div>
                                 </a>
                             </li>
@@ -135,7 +135,15 @@
                                                             <div class="form-group mb-4">
                                                                 <div class="form-group">
                                                                     <div class="row">
-                                                                        <label class="col-md-4">Hình ảnh 1</label>
+                                                                        <label class="col-md-4">Hình ảnh 1
+                                                                            <p id="licennote" >
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                </svg>
+                                                                                <a>Định dạng ảnh chấp nhận: .JPG, .JPEG, .PNG</a>
+                                                                            </p>
+                                                                        </label>
                                                                         <div class="col-md-8">
                                                                             <div class="mb-3">
                                                                                 <div class="custom-file">
@@ -150,7 +158,14 @@
                                                             <div class="form-group mb-4">
                                                                 <div class="form-group">
                                                                     <div class="row">
-                                                                        <label class="col-md-4">Hình ảnh 2</label>
+                                                                        <label class="col-md-4">Hình ảnh 2
+                                                                            <p id="licennote" >
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                </svg>
+                                                                                <a>Định dạng ảnh chấp nhận: .JPG, .JPEG, .PNG</a>
+                                                                            </p></label>
                                                                         <div class="col-md-8">
                                                                             <div class="mb-3">
                                                                                 <div class="custom-file">
@@ -165,7 +180,14 @@
                                                             <div class="form-group mb-4">
                                                                 <div class="form-group">
                                                                     <div class="row">
-                                                                        <label class="col-md-4">Hình ảnh 3</label>
+                                                                        <label class="col-md-4">Hình ảnh 3
+                                                                            <p id="licennote" >
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                </svg>
+                                                                                <a>Định dạng ảnh chấp nhận: .JPG, .JPEG, .PNG</a>
+                                                                            </p></label>
                                                                         <div class="col-md-8">
                                                                             <div class="mb-3">
                                                                                 <div class="custom-file">
@@ -180,7 +202,14 @@
                                                             <div class="form-group mb-4">
                                                                 <div class="form-group">
                                                                     <div class="row">
-                                                                        <label class="col-md-4">Hình ảnh 4</label>
+                                                                        <label class="col-md-4">Hình ảnh 4
+                                                                            <p id="licennote" >
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                </svg>
+                                                                                <a>Định dạng ảnh chấp nhận: .JPG, .JPEG, .PNG</a>
+                                                                            </p></label>
                                                                         <div class="col-md-8">
                                                                             <div class="mb-3">
                                                                                 <div class="custom-file">
@@ -195,7 +224,14 @@
                                                             <div class="form-group mb-4">
                                                                 <div class="form-group">
                                                                     <div class="row">
-                                                                        <label class="col-md-4">Hình ảnh 5</label>
+                                                                        <label class="col-md-4">Hình ảnh 5
+                                                                            <p id="licennote" >
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                </svg>
+                                                                                <a>Định dạng ảnh chấp nhận: .JPG, .JPEG, .PNG</a>
+                                                                            </p></label>
                                                                         <div class="col-md-8">
                                                                             <div class="mb-3">
                                                                                 <div class="custom-file">
@@ -207,21 +243,16 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="form-group mb-4">
-                                                                <div class="row pb-4">
-                                                                    <label class="col-md-4">Tên hiển thị </label>
-                                                                    <div class="col-md-8">
-                                                                        <input class="form-control" placeholder="Ví dụ: Vải thiều Ngọt Bắc Giang Đóng hộp 5kg " name="name" type="text">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+
                                                             <div class="form-group mb-4">
                                                                 <div class="row">
                                                                     <label class="col-md-4">Mô tả sản phẩm</label>
                                                                     <div class="col-md-8">
-                                                                        <textarea placeholder="Nhập mô tả sản phẩm. Có thể nhập các thông tin về tính năng, đặc điểm sản phẩm, công dụng, cách dùng, các giấy tờ chứng nhận, Thương hiệu, Kích thước (dài x rộng x cao), Hạn bảo hành, Loại bảo hành, Ngày sản xuất,  Tình trạng hàng,.... Lưu ý: Không để thông tin liên hệ của doanh nghiệp bán tại đây" rows="4" cols="5" name="description"
+                                                                        <textarea maxlength="5000" style="height: 200px;" placeholder="Nhập mô tả sản phẩm. Có thể nhập các thông tin về tính năng, đặc điểm sản phẩm, công dụng, cách dùng, các giấy tờ chứng nhận, Thương hiệu, Kích thước (dài x rộng x cao), Hạn bảo hành, Loại bảo hành, Ngày sản xuất,  Tình trạng hàng,.. Lưu ý: Không để thông tin liên hệ của doanh nghiệp bán tại đây" rows="4" cols="5" name="description"
                                                                                   class="form-control"></textarea>
+                                                                        <span style="color: red;">Chỉ được phép nhập tối đa 5000 kí tự</span>
                                                                     </div>
+
                                                                 </div>
                                                             </div>
                                                             <div class="form-group mb-4">
@@ -235,7 +266,14 @@
                                                             <div class="form-group mb-4">
                                                                 <div class="form-group">
                                                                     <div class="row">
-                                                                        <label class="col-md-4">Giấy tờ chứng nhận</label>
+                                                                        <label class="col-md-4">Giấy tờ chứng nhận<p id="licennote" >
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                </svg>
+                                                                                <a>Định dạng file: .DOCS, .PDF, .JPG, .JPEG, .PNG</a>
+                                                                            </p></label>
+
                                                                         <div class="col-md-8">
                                                                             <div class="mb-3">
                                                                                 <div class="custom-file">
@@ -249,22 +287,28 @@
                                                             </div>
                                                             <div class="form-group mb-4">
                                                                 <div class="row">
-                                                                    <label class="col-md-4">Danh mục :</label>
+                                                                    <label class="col-md-4">Danh mục</label>
                                                                     <div class="col-md-8">
                                                                         <select class="form-control form-custom mb-4"
                                                                                 name="category">
                                                                             <option value="">Chọn danh mục</option>
-                                                                            <option value="category1">Rau củ</option>
-                                                                            <option value="category2">Đồ khô</option>
-                                                                            <option value="category3">Hoa quả</option>
-                                                                            <option value="category4">Đặc sản vùng miền</option>
-                                                                            <option value="category4">Thực phẩm tươi sống</option>
-                                                                            <option value="category4">Sản phẩm khác</option>
+                                                                            <option value="category1">Danh mục cấp 2</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
-
+                                                            <div class="form-group mb-4">
+                                                                <div class="row">
+                                                                    <label class="col-md-4">Khu vực giao hàng</label>
+                                                                    <div class="col-md-8">
+                                                                        <select class="form-control form-custom mb-4"
+                                                                                name="category">
+                                                                            <option value="">Chọn danh mục</option>
+                                                                            <option value="category1">Hà Nội</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -282,7 +326,7 @@
                                                             <div class="row">
                                                                 <label class="col-md-4">Tên loại sản phẩm</label>
                                                                 <div class="col-md-8">
-                                                                    <input class="form-control" placeholder="Nhập tên loại sản phẩm: vải, nước ngọt,..." name="price" type="text">
+                                                                    <input maxlength="50" class="form-control" placeholder="Nhập tên loại sản phẩm: vải, nước ngọt,..." name="price" type="text">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -291,7 +335,7 @@
                                                             <div class="row">
                                                                 <label class="col-md-4">Thương hiệu</label>
                                                                 <div class="col-md-8">
-                                                                    <input class="form-control" name="discount" placeholder="Nhập tên Thương Hiệu: Kinh Đô,..." type="text">
+                                                                    <input maxlength="50" class="form-control" name="discount" placeholder="Nhập tên Thương Hiệu: Kinh Đô,..." type="text">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -299,7 +343,7 @@
                                                             <div class="row">
                                                                 <label class="col-md-4">Hương vị</label>
                                                                 <div class="col-md-8">
-                                                                    <input class="form-control" name="discount" placeholder="Nhập loại Hương vị: Chocolate, Đào,..." type="text">
+                                                                    <input maxlength="50" class="form-control" name="discount" placeholder="Nhập loại Hương vị: Chocolate, Đào,..." type="text">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -307,7 +351,7 @@
                                                             <div class="row">
                                                                 <label class="col-md-4">Màu sắc</label>
                                                                 <div class="col-md-8">
-                                                                    <input class="form-control" placeholder="Nhập màu sắc sản phẩm: Đỏ, Xanh " name="discount" type="text">
+                                                                    <input maxlength="50" class="form-control" placeholder="Nhập màu sắc sản phẩm: Đỏ, Xanh " name="discount" type="text">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -315,7 +359,7 @@
                                                             <div class="row">
                                                                 <label class="col-md-4">Trọng lượng</label>
                                                                 <div class="col-md-8">
-                                                                    <input class="form-control" placeholder="Ví dụ: 400g, 20kg,..." name="discount" type="text">
+                                                                    <input type="number" class="form-control" placeholder="Ví dụ: 400g, 20kg,..." name="discount" type="text">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -323,7 +367,7 @@
                                                             <div class="row">
                                                                 <label class="col-md-4">Kiểu đóng gói</label>
                                                                 <div class="col-md-8">
-                                                                    <input class="form-control" placeholder="Nhập kiểu đóng gói:đóng hộp, đóng bao,..." name="discount" type="text">
+                                                                    <input maxlength="50" class="form-control" placeholder="Nhập kiểu đóng gói:đóng hộp, đóng bao,..." name="discount" type="text">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -331,7 +375,7 @@
                                                             <div class="row">
                                                                 <label class="col-md-4">Thành phần</label>
                                                                 <div class="col-md-8">
-                                                                    <input class="form-control" placeholder="Nhập tỷ lệ và thành phần: 80% Ca cao,..." name="discount" type="text">
+                                                                    <input maxlength="50" class="form-control" placeholder="Nhập tỷ lệ và thành phần: 80% Ca cao,..." name="discount" type="text">
                                                                 </div>
                                                             </div>
                                                         </div>

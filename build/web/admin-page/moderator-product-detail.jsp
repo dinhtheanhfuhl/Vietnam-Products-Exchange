@@ -186,11 +186,6 @@
                                 <td>${product.element}</td>
                             </tr>
                             <tr>
-                                <th>Xuất xứ</th>
-                                <td>${product.productName}</td>
-                            </tr>
-
-                            <tr>
                                 <th>Mô tả sản phẩm</th>
                                 <td>
                                     ${product.productName}
@@ -262,10 +257,16 @@
                             </div>
                         </div>
                     </div>
+                    <!--  <div class="button-status ">
+                 <h5>Hành động</h5>
+                 <a href="ModeratorDetailProductController?action=accept&id=${product.productId}" data-toggle="modal" data-target="#exampleModal" class=" btn btn-success status mb-2" id="approved">  Phê duyệt </a>
+                 <a href="ModeratorDetailProductController?action=reject&id=${product.productId}" class=" btn btn-danger status mb-2" id="canceled">  Từ chối </a>
+             </div> -->
+
                     <div class="button-status ">
                         <h5>Hành động</h5>
-                        <a href="ModeratorDetailProductController?action=accept&id=${product.productId}" class=" btn btn-success status mb-2" id="approved">  Phê duyệt </a>
-                        <a href="ModeratorDetailProductController?action=reject&id=${product.productId}" class=" btn btn-danger status mb-2" id="canceled">  Từ chối </a>
+                        <button class=" btn btn-success status mb-2" data-toggle="modal" data-target="#exampleModal1" id="approved">  Phê duyệt </button>
+                        <button class=" btn btn-danger status mb-2" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"  id="canceled">  Từ chối </button>
 
                     </div>
                 </div>
