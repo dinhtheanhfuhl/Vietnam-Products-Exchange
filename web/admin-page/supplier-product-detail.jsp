@@ -139,60 +139,55 @@
                             <tr>
                                 <th>Khu vực giao hàng</th>
                                 <td>
-                                    sdádasd
+                                    Hà nội
                                 </td>
                             </tr> 
                             <tr>
                                 <th>Danh mục hàng</th>
-                                <td>02</td>
+                                <td>Hoa qua</td>
                             </tr>
                             <tr>
                                 <th>Mã Barcode / SKU</th>
-                                <td>Hoàng Xoan</td>
+                                <td>542453453453</td>
                             </tr>
                             <tr>
                                 <th>Tên loại sản phẩm</th>
-                                <td>0123456789</td>
+                                <td>Cam</td>
                             </tr>
                             <tr>
                                 <th>Thương hiệu</th>
-                                <td>Nam Sách Hải Dương</td>
+                                <td>Nong san dung ha</td>
                             </tr>
                             <tr>
                                 <th>Hương vị</th>
-                                <td>127,000đ</td>
+                                <td>chua</td>
                             </tr>
                             <tr>
                                 <th>Màu sắc</th>
-                                <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</td>
+                                <td>do</td>
                             </tr>
                             <tr>
                                 <th>Trọng lượng</th>
-                                <td>Lodipisiciit.</td>
+                                <td>100kg.</td>
                             </tr>
                             <tr>
                                 <th>Kiểu đóng gói</th>
-                                <td>Lorelit.</td>
+                                <td>.</td>
                             </tr>
                             <tr>
                                 <th>Thành phần</th>
-                                <td>Lorem r adipisicing elit.</td>
+                                <td>cafein.</td>
                             </tr>
-                            <tr>
-                                <th>Xuất xứ</th>
-                                <td>Lorem ipsum dolorng elit.</td>
-                            </tr>
-
                             <tr>
                                 <th>Mô tả sản phẩm</th>
                                 <td>
-                                    Lorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elitLorem ipsum dolorng elit
+                                   xanh sach dep
                                 </td>
                             </tr>
                             <tr>
                                 <th>Giấy tờ chứng nhận</th>
                                 <td>
-                                    tádsa
+                                    giay to chung nhan
                                 </td>
                             </tr>
                             <tr>

@@ -47,119 +47,7 @@
             </div>
 
             <ul class="navbar-nav flex-row ml-lg-auto">
-                <li class="nav-item dropdown message-dropdown ml-lg-4 mr-lg-4 d-sm-block d-none align-self-center">
 
-                    <div class="dropdown-menu  position-absolute p-0 eq-animated eq-fadeInUp"
-                         aria-labelledby="message-dropdown">
-                        <div class="">
-                            <a class="dropdown-item">
-                                <div class="">
-                                    <div class="media notification-new">
-                                        <div class="usr-img align-self-center mr-3">
-                                            <img class="usr-img rounded-circle" src="assets/img/90x90.jpg" alt="profile">
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="meta-user-name mr-3 mb-0">LÃª VÄn BÃ¬nh</p>
-                                                <p class="meta-time align-self-center mb-0">04.11.21</p>
-                                            </div>
-                                            <p class="message-text mb-0 ">Cháº¥t lÆ°á»£ng sáº£n pháº©m tá»t</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item">
-                                <div class="">
-                                    <div class="media notification-new">
-                                        <div class="notification-icon align-self-center mr-3">
-                                            <i class="flaticon-mailbox"></i>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="meta-title mr-3 mb-0">1 email má»i</p>
-                                                <p class="meta-time align-self-center mb-0">04.10.19</p>
-                                            </div>
-                                            <p class="message-text mb-0 ">Anderson.Daisy@mail.com</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item">
-                                <div class="">
-                                    <div class="media">
-                                        <div class="usr-img align-self-center mr-3">
-                                            <img class="usr-img rounded-circle" src="assets/img/90x90.jpg" alt="profile">
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="meta-user-name mr-3 mb-0">BÃ¬nh An</p>
-                                                <p class="meta-time align-self-center mb-0">04.02.21</p>
-                                            </div>
-                                            <p class="message-text mb-0 ">Cháº¥t lÆ°á»£ng sáº£n pháº©m tá»t </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown notification-dropdown ml-3 mr-lg-4 align-self-center">
-
-                    <div class="dropdown-menu position-absolute eq-animated eq-fadeInUp"
-                         aria-labelledby="notification-dropdown">
-                        <div class="notification-scroll">
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Nguyá»n VÄn A</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Nguyá»n VÄn B</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Äá» Thá» Nga</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>LÃª Ngá»c HÃ </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
 
                 <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
@@ -255,7 +143,8 @@
                                 </div>
 
                                 <div class="widget-content widget-content-area">
-                                    <div class="table-responsive mb-4">
+                                    <h3>Nhà cung cấp</h3>
+                                    <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;">
                                         <c:if test="${mapSuppliers.keySet().size()!=0}">
                                             <table id="ecommerce-product-list" class="table  table-bordered">
                                                 <thead>
@@ -263,10 +152,11 @@
                                                         <th>ID</th>
                                                         <th>Tên người dùng</th>
                                                         <th>Tên nhà cung cấp</th>
-                                                        <th>Khu vực</th>
+                                                        <th>Thành phố</th>
                                                         <th>SĐT</th>
-                                                        <th>Role</th>
+                                                        <th>Vai trò</th>
                                                         <th>Email</th>
+                                                        <th>Trạng thái</th>
                                                         <th>Chi tiết</th>
                                                     </tr>
                                                 </thead>
@@ -280,6 +170,7 @@
                                                             <td>${key.phone}</td>
                                                             <td>${mapSuppliers.get(key)}</td>
                                                             <td>${key.email}</td>
+                                                            <td>Trạng thái</td>
                                                             <td><a href="DetailSuppilerController?action=detail-supplier&id=${key.supplierId}">Thông tin chi tiết</a></td>
                                                         </tr>
                                                     </c:forEach>
@@ -287,18 +178,20 @@
                                             </table>
                                         </c:if>
                                     </div>
-                                    <div class="table-responsive mb-4">
+                                    <h3>Khách hàng</h3>
+                                    <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;"> 
                                         <c:if test="${mapCustomers.keySet().size()!=0}">
-                                            <table id="ecommerce-product-list" class="table  table-bordered">
+                                            <table id="ecommerce-product-list" class="table  table-bordered" >
                                                 <thead>
                                                     <tr class="text-center">
                                                         <th>ID</th>
                                                         <th>Tên người dùng</th>
                                                         <th>Tên nhà cung cấp</th>
-                                                        <th>Khu vực</th>
+                                                        <th>Thành phố</th>
                                                         <th>SĐT</th>
-                                                        <th>Role</th>
+                                                        <th>Vai trò</th>
                                                         <th>Email</th>
+                                                        <th>Trạng thái</th>
                                                         <th>Chi tiết</th>
                                                     </tr>
                                                 </thead>
@@ -312,6 +205,7 @@
                                                             <td>${key.phone}</td>
                                                             <td>${mapCustomers.get(key)}</td>
                                                             <td>${key.email}</td>
+                                                            <td>trạng thái</td>
                                                             <td><a href="DetailCustomerController?action=detail-customer&id=${key.customerId}">Thông tin chi tiết</a></td>
                                                         </tr>
                                                     </c:forEach>
@@ -332,33 +226,33 @@
 
         <footer class="footer-section theme-footer">
 
-                <div class="footer-section-1  sidebar-theme">
+            <div class="footer-section-1  sidebar-theme">
 
-                </div>
+            </div>
 
-                <div class="footer-section-2 container-fluid">
-                    <div class="row">
-                        <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
-                            <ul class="list-inline links ml-sm-5">
-                                <li class="list-inline-item">
-                                    <a target="_blank" href="#">Vietnam Products Exchange</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-xl-5 col-md-6 col-sm-6 col-12">
-                            <ul
-                                class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
-                                <li class="list-inline-item  mr-3">
-                                    <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
-                                </li>
-                                <li class="list-inline-item align-self-center">
-                                    <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
-                                </li>
-                            </ul>
-                        </div>
+            <div class="footer-section-2 container-fluid">
+                <div class="row">
+                    <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
+                        <ul class="list-inline links ml-sm-5">
+                            <li class="list-inline-item">
+                                <a target="_blank" href="#">Vietnam Products Exchange</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xl-5 col-md-6 col-sm-6 col-12">
+                        <ul
+                            class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
+                            <li class="list-inline-item  mr-3">
+                                <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
+                            </li>
+                            <li class="list-inline-item align-self-center">
+                                <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </footer>
+            </div>
+        </footer>
         <!--  END FOOTER  -->
 
         <!--  BEGIN PROFILE SIDEBAR  -->
