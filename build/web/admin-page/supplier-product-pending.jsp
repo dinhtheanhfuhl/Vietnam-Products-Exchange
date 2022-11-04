@@ -155,9 +155,13 @@
 
                                         </div>
                                     </div>
-                                    <div class="table-responsive new-products">
+                                    <div class="table-responsive new-products" style="background-color: white;">
                                         <a href="supplier-add-product.jsp">
                                             <button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
+                                        <select onchange="location = this.value;" class="btn btn-warning" name="forma">
+                                            <option value="home.jsp">Đã duyệt</option>
+                                            <option value="home.jsp">Chờ duyệt</option>
+                                        </select>
                                         <table class="table">
                                             <thead>
                                                 <tr class="text-center">

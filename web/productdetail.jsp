@@ -203,11 +203,14 @@
                                     đ 139.000</span>
                                 <span>150 - 1500 kg<br>
                                     đ 39.000</span>
-                                <input type="hidden" id="productId" value="1">
                                 <div class="pricing">
-                                    <div class="discount-price mr-15"><span>Thời điểm có hàng</span> </div>
+                                    <div class="discount-price mr-15"><span>Danh mục</span> </div>
                                 </div>
-                                <p> 05/10/2100</p>
+                                <p>Danh mục cấp 1 - Danh mục cấp 2</p>
+                                <div class="pricing">
+                                    <div class="discount-price mr-15"><span>Trọng lượng</span> </div>
+                                </div>
+                                <p>100kg</p>
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Địa điểm</span> </div>
                                 </div>
@@ -216,7 +219,14 @@
                                     <div class="discount-price mr-15"><span>Nhà cung cấp</span> </div>
                                 </div>
                                 <p>Hợp tác xã chăn nuôi</p>
-                                <button type="button" class="btn btn-warning"><b>Thêm vào giỏ hàng</b></button>
+                                <div class="shop-buttons d-block d-sm-flex align-items-center">
+                                    <div class="product-quantity" id="quantity">
+                                        <button type="button" id="sub" class="sub">-</button>
+                                        <input type="text" id="1" value="1" />
+                                        <button type="button" id="add" class="add">+</button>
+                                    </div>
+                                    <a class="main-btn ml-10" href="#">Thêm vào giỏ</a>
+                                </div> 
 
                             </div>
                         </div>

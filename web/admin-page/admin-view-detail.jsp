@@ -43,7 +43,7 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect" href="${pageContext.request.contextPath}/home.jsp">
+                <a class="navbar-brand waves-effect">
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
@@ -87,23 +87,12 @@
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
-                                <a href="supplier-product-pending.jsp" 
-                                   class="dropdown-toggle collapsed">
+                                <a href="AdminController" class="dropdown-toggle collapsed">
                                     <div class="">
-                                        <i class="flaticon-3d-cube"></i>
-                                        <span>Danh sách <br> sản phẩm</span>                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="menu">
-                                <a href="./supplier-view-order.jsp" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-cart-bag-1"></i>
-                                        <span>Xem đơn hàng</span>
+                                        <i class="flaticon-user-1"></i>
+                                        <span>Danh sách <br> người dùng</span>
                                     </div>
                                 </a>
-
                             </li>
                         </ul>
                     </nav>
@@ -128,9 +117,6 @@
                                 </div>
                                 <div class="profile-usertitle">
                                     <div class="profile-usertitle-name">${supplier.supplierName}</div>
-                                </div>
-                                <div class="profile-userbuttons">
-                                    <button type="button" class="btn btn-success btn-sm"> Upload Image</button>
                                 </div>
                             </div>
                         </div>
@@ -283,61 +269,54 @@
 
     <footer class="footer-section theme-footer">
 
-                <div class="footer-section-1  sidebar-theme">
+        <div class="footer-section-1  sidebar-theme">
 
-                </div>
+        </div>
 
-                <div class="footer-section-2 container-fluid">
-                    <div class="row">
-                        <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
-                            <ul class="list-inline links ml-sm-5">
-                                <li class="list-inline-item">
-                                    <a target="_blank" href="#">Vietnam Products Exchange</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-xl-5 col-md-6 col-sm-6 col-12">
-                            <ul
-                                class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
-                                <li class="list-inline-item  mr-3">
-                                    <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
-                                </li>
-                                <li class="list-inline-item align-self-center">
-                                    <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+        <div class="footer-section-2 container-fluid">
+            <div class="row">
+                <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
+                    <ul class="list-inline links ml-sm-5">
+                        <li class="list-inline-item">
+                            <a target="_blank" href="#">OrFarm Store</a>
+                        </li>
+                    </ul>
                 </div>
-            </footer>
+                <div class="col-xl-5 col-md-6 col-sm-6 col-12">
+                    <ul
+                        class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
+                        <li class="list-inline-item  mr-3">
+                            <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">OrFarm Store</a></p>
+                        </li>
+                        <li class="list-inline-item align-self-center">
+                            <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!--  END FOOTER  -->
 
     <!--  BEGIN PROFILE SIDEBAR  -->
     <aside class="profile-sidebar text-center">
-        <div class="profile-content profile-content-scroll">
-            <div class="usr-profile">
-                <img src="../assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
+            <div class="profile-content profile-content-scroll">
+                <div class="usr-profile">
+                    <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
+                </div>
+                <p class="user-name mt-4 mb-4">Hoan</p>
+                <div class="user-links text-left">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="./admin-page/personal-infor-admin.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <p class="user-name mt-4 mb-4">Han</p>
-
-            <div class="user-links text-left">
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="./personal-infor-supplier.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
-                    </li>
-                    <li>
-                        <a href="../changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
-                    </li>
-                    <li>
-                        <a href="supplier-product-pending.jsp"><i class="flaticon-globe"></i> Quản lý</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </aside>
+        </aside>
 
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="${pageContext.request.contextPath}/assets/js/libs/jquery-3.1.1.min.js"></script>
