@@ -268,7 +268,7 @@
                             <a href="./admin-page/personal-infor-admin.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                         </li>
                         <li>
-                            <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
+                            <a href="LogoutController"><i class="flaticon-power-off"></i> Đăng xuất</a>
                         </li>
                     </ul>
                 </div>
