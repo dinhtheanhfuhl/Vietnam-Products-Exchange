@@ -178,7 +178,7 @@
                                                     <tr>
                                                         <td>#${product.productId}</td>
                                                         <td>${product.createdDate}</td>
-                                                        <td>${product.subCateId}</td>
+                                                        <td>${mapProductSupplier.get(product).shopName}</td>
                                                         <td>${product.productName}</td>
                                                         <td>${product.barCode}</td>
                                                         <td>${product.barCode}</td>
