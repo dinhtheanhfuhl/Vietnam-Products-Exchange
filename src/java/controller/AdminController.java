@@ -45,7 +45,7 @@ public class AdminController extends HttpServlet {
             resultSuppliers = allSuppliers;
             resultCustomers = allCustomers;
 
-        } else {
+        } else if(action.equals("search")) {
             String nameSearch = request.getParameter("name-search").trim();
             String shopNameSearch = request.getParameter("shop-name-search").trim();
             String addressSearch = request.getParameter("address-search").trim();

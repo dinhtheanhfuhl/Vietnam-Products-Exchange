@@ -139,20 +139,21 @@
                     <div class="col-lg-4 col-sm-12">
                         <div class="acc-page">
                             <div class="login">
-                                <form action="index.html">
+                                <form action="LogginController" method="post">
                                     <div class="login-form-container">
+                                        <input type="hidden" name="action" value="login"/>
                                         <div class="title-text ">
                                             <h2>Đăng nhập</h2>
                                             <p>Vui lòng nhập thông tin của bạn!</p>
                                         </div>
                                         <div class="form-group fill-form log-email">
                                             <label for="exampleInputPassword1">Email</label>
-                                            <input type="email" class="form-control" id="exampleInputPassword1"
+                                            <input name="email" type="email" class="form-control" id="exampleInputPassword1"
                                                    placeholder="Email">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
                                             <label for="exampleInputPassword1">Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                            <input name="password" type="password" class="form-control" id="exampleInputPassword1"
                                                    placeholder="Password">
                                         </div>
 

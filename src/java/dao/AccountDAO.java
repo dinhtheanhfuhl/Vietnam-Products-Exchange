@@ -112,4 +112,25 @@ public class AccountDAO {
         }
         return account;
     }
+        public Account getAccountByInfo(String email, String password) {
+        Account account = null;
+        String strSelectById = "select * from Account where email=? and password=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                account = new Account();
+                account.setAccId(rs.getInt("AccId"));
+                account.setEmail(rs.getString("Email"));
+                account.setPassWord(rs.getString("Password"));
+                account.setRoldId(rs.getInt("RoleID"));
+                account.setStatus(rs.getBoolean("Status"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return account;
+    }
 }

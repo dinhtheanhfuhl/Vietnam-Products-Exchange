@@ -34,7 +34,7 @@ public class DetailCustomerController extends HttpServlet {
             Account account1 = accountDAO.getAccountById(customer.getAccId());
             request.setAttribute("customer", customer);
             request.setAttribute("account", account1);
-            RequestDispatcher rd = request.getRequestDispatcher("admin-page/personal-infor-customer.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("admin-page/admin-view-detail-customer.jsp");
             rd.forward(request, response);
 
         } else {
@@ -45,7 +45,7 @@ public class DetailCustomerController extends HttpServlet {
 
             request.setAttribute("customer", customer);
             request.setAttribute("account", account);
-            RequestDispatcher rd = request.getRequestDispatcher("admin-page/personal-infor-customer.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("admin-page/admin-view-detail-customer.jsp");
             rd.forward(request, response);
         }
 
