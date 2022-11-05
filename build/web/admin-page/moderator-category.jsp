@@ -117,8 +117,8 @@
                             <div class="statbox widget box">
                                 <h3>Danh sách danh mục</h3>
                                 <div class="widget-content-area">
-                                    <a href="Moderator"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục </button></a>
-                                    <a href="./moderator-add-subcate.jsp"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục con </button></a>
+                                    <a href="ModeratorAddCateController?action=show"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục </button></a>
+                                    <a href="ModeratorAddSubCateController?action=show"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục con </button></a>
                                     <div class="table-responsive new-products">
                                         <table class="table">
                                             <thead>
@@ -134,12 +134,14 @@
                                                     <tr>
                                                         <td>${key.cateId}</td>
                                                         <td>${key.cateName}</td>
-                                                        <td>${mapSubcategorys.get(key).get(0).subCateName} / ${mapSubcategoryStatus.get(mapSubcategorys.get(key).get(0))}</td>
-                                                        <td><a data-toggle="modal" 
-                                                               <c:if test="${mapSubcategoryStatus.get(mapSubcategorys.get(key).get(0)) == false}">data-target="#exampleModal1" </c:if>
-                                                               <c:if test="${mapSubcategoryStatus.get(mapSubcategorys.get(key).get(0)) == true}">data-target="#exampleModal2" </c:if>
-                                                                   href="#"><i class="flaticon-delete"></i></a></td>
-                                                        </tr>
+                                                        <c:if test="${mapSubcategorys.get(key).size()>0}">
+                                                            <td>${mapSubcategorys.get(key).get(0).subCateName} / ${mapSubcategoryStatus.get(mapSubcategorys.get(key).get(0))}</td>
+                                                            <td><a data-toggle="modal" 
+                                                                   <c:if test="${mapSubcategoryStatus.get(mapSubcategorys.get(key).get(0)) == false}">data-target="#exampleModal1" </c:if>
+                                                                   <c:if test="${mapSubcategoryStatus.get(mapSubcategorys.get(key).get(0)) == true}">data-target="#exampleModal2" </c:if>
+                                                                       href="#"><i class="flaticon-delete"></i></a></td>
+                                                            </tr>
+                                                    </c:if>
                                                     <c:if test="${mapSubcategorys.get(key).size()>0}">
                                                         <c:forEach var="subcategory" items="${mapSubcategorys.get(key)}">
                                                             <c:if test="${subcategory!=mapSubcategorys.get(key).get(0)}">

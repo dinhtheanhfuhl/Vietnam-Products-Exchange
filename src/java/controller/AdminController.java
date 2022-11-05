@@ -10,7 +10,7 @@ import entity.Supplier;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.RequestDispatcher;
@@ -37,8 +37,8 @@ public class AdminController extends HttpServlet {
         List<Supplier> resultSuppliers = new ArrayList<>();
         List<Customer> resultCustomers = new ArrayList<>();
 
-        Map<Supplier, String> mapSuppliers = new HashMap<>();
-        Map<Customer, String> mapCustomers = new HashMap<>();
+        Map<Supplier, String> mapSuppliers = new LinkedHashMap<>();
+        Map<Customer, String> mapCustomers = new LinkedHashMap<>();
 
         String action = request.getParameter("action");
         if (action == null) {
@@ -46,22 +46,22 @@ public class AdminController extends HttpServlet {
             resultCustomers = allCustomers;
 
         } else {
-            String nameSearch = request.getParameter("name-search");
-            String shopNameSearch = request.getParameter("shop-name-search");
-            String addressSearch = request.getParameter("address-search");
-            String phoneSearch = request.getParameter("phone-search");
-            String emailSearch = request.getParameter("email-search");
+            String nameSearch = request.getParameter("name-search").trim();
+            String shopNameSearch = request.getParameter("shop-name-search").trim();
+            String addressSearch = request.getParameter("address-search").trim();
+            String phoneSearch = request.getParameter("phone-search").trim();
+            String emailSearch = request.getParameter("email-search").trim();
 
             for (Customer customer : allCustomers) {
                 boolean flagName = true, flagShopName = true, flagAddress = true, flagPhone = true, flagEmail = true;
                 if (nameSearch.isBlank()) {
                     flagName = true;
-                } else if (!customer.getCustomerName().contains(nameSearch)) {
+                } else if (!customer.getCustomerName().toUpperCase().contains(nameSearch.toUpperCase())) {
                     flagName = false;
                 }
                 if (shopNameSearch.isBlank()) {
                     flagShopName = true;
-                } else if (!customer.getShopName().contains(shopNameSearch)) {
+                } else if (!customer.getShopName().toUpperCase().contains(shopNameSearch.toUpperCase())) {
                     flagShopName = false;
                 }
                 if (addressSearch.isBlank()) {
@@ -88,12 +88,12 @@ public class AdminController extends HttpServlet {
                 boolean flagName = true, flagShopName = true, flagAddress = true, flagPhone = true, flagEmail = true;
                 if (nameSearch.isBlank()) {
                     flagName = true;
-                } else if (!supplier.getSupplierName().contains(nameSearch)) {
+                } else if (!supplier.getSupplierName().toUpperCase().contains(nameSearch.toUpperCase())) {
                     flagName = false;
                 }
                 if (shopNameSearch.isBlank()) {
                     flagShopName = true;
-                } else if (!supplier.getShopName().contains(shopNameSearch)) {
+                } else if (!supplier.getShopName().toUpperCase().contains(shopNameSearch.toUpperCase())) {
                     flagShopName = false;
                 }
                 if (addressSearch.isBlank()) {
