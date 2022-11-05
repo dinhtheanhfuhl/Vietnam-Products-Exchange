@@ -90,4 +90,24 @@ public class DeliveryAreaDAO {
         }
         return deliveryAreas;
     }
+
+    public List<DeliveryArea> getDeliverysAreaByProductId(int productId) {
+                
+        String strSelectAll = "select * from DeliveryArea where ProductID=?";
+        List<DeliveryArea> deliveryAreas = new ArrayList<>();
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                DeliveryArea deliveryArea = new DeliveryArea();
+                deliveryArea.setProductId(rs.getInt("ProductID"));
+                deliveryArea.setCityId(rs.getInt("CityID"));
+                deliveryAreas.add(deliveryArea);
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+        return deliveryAreas;
+    }
 }

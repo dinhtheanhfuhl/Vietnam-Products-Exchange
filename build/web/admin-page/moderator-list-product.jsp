@@ -181,7 +181,11 @@
                                                         <td>${mapProductSupplier.get(product).shopName}</td>
                                                         <td>${product.productName}</td>
                                                         <td>${product.barCode}</td>
-                                                        <td>${product.barCode}</td>
+                                                        <td>
+                                                            <c:forEach items="${mapProductCities.get(product)}" var="city">
+                                                                ${city.cityName}</br>
+                                                            </c:forEach>
+                                                        </td>
                                                         <td>${product.statusId}</td>
                                                         <td><a href="ModeratorDetailProductController?id=${product.productId}">Xem chi tiết</a></td>
                                                     </tr>

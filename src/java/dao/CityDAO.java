@@ -1,6 +1,5 @@
 package dao;
 
-
 import entity.City;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,12 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CityDAO {
+
     private final Connection connection;
 
     public CityDAO(Connection connection) {
         this.connection = connection;
     }
-    
+
     public int saveCity(City city) {
         int status = 0;
         String strInsert = "insert into City(CityName) values(?)";
