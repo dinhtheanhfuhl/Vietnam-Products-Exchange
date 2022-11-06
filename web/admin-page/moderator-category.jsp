@@ -117,15 +117,15 @@
                             <div class="statbox widget box">
                                 <h3>Danh sách danh mục</h3>
                                 <div class="widget-content-area">
-                                    <a href="ModeratorAddCateController?action=show"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục </button></a>
-                                    <a href="ModeratorAddSubCateController?action=show"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục con </button></a>
+                                    <a href="ModeratorAddCateController?action=show"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục cấp 1 </button></a>
+                                    <a href="ModeratorAddSubCateController?action=show"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục cấp 2 </button></a>
                                     <div class="table-responsive new-products">
                                         <table class="table">
                                             <thead>
                                                 <tr class="text-center">
                                                     <th>ID</th>
-                                                    <th>Tên danh mục</th>
-                                                    <th>Danh mục con</th>
+                                                    <th>Danh mục cấp 1</th>
+                                                    <th>Danh mục cấp 2</th>
                                                     <th>Xoá</th>
                                                 </tr>
                                             </thead>

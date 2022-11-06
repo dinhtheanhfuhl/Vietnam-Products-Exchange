@@ -158,9 +158,11 @@
                                     <div class="table-responsive new-products" style="background-color: white;">
                                         <a href="supplier-add-product.jsp">
                                             <button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
-                                        <select onchange="location = this.value;" class="btn btn-warning" name="forma">
-                                            <option value="home.jsp">Đã duyệt</option>
-                                            <option value="home.jsp">Chờ duyệt</option>
+                                        <select style="float: right;width: 160px;" onchange="location = this.value;" class="form-control">
+                                            <option value="#">Đã phê duyệt</option>
+                                            <option value="#">Chờ phê duyệt</option>
+                                            <option value="#">Từ chối phê duyệt</option>
+                                            <option value="#">Đã ẩn</option>
                                         </select>
                                         <table class="table">
                                             <thead>
@@ -177,18 +179,18 @@
                                                     <th>Trạng thái</th>
                                                     <th>Chi tiết</th>
                                                     <th>Chỉnh sửa</th>
-                                                    <th>Ẩn</th>
+                                                    <th>Ẩn/Bỏ Ẩn</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">
                                                 <tr>
                                                     <td>1</td>
                                                     <td>#0001</td>
-                                                    <td>Cam sành</td>
+                                                    <td>01/01/1000</td>
                                                     <td><span class="badge badge-info badge-pill">Hoa quả</span></td>
                                                     <td>100</td>
-                                                    <td>50</td>
-                                                    <td>50</td>
+                                                    <td>Hà Nội</td>
+                                                    <td>Đã phê duyệt</td>
 
                                                     <td>
                                                         <div class="dropdown dropdown-user">
@@ -198,9 +200,11 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a href="./supplier-edit-product.jsp"><button type="button" class="btn btn-warning">Chỉnh sửa</button></a>
+                                                        <a href="#"><i class="flaticon-edit"></i></a>
                                                     </td>
-                                                    <td><button type="button" class="btn btn-danger">Ẩn</button></td>
+                                                    <td>
+                                                        <a href="#"><i class="flaticon-view"></i></a>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -213,8 +217,6 @@
                                             <li><a href="javascript:void(0);">1</a></li>
                                             <li><a href="javascript:void(0);">2</a></li>
                                             <li><a href="javascript:void(0);">3</a></li>
-                                            <li><a href="javascript:void(0);">4</a></li>
-                                            <li><a href="javascript:void(0);">5</a></li>
                                             <li><a href="javascript:void(0);">»</a></li>
                                         </ul>
                                     </div>
@@ -303,9 +305,9 @@
     <script src="../plugins/blockui/jquery.blockUI.min.js"></script>
     <script src="../assets/js/app.js"></script>
     <script>
-        $(document).ready(function () {
-            App.init();
-        });
+                                                $(document).ready(function () {
+                                                    App.init();
+                                                });
     </script>
     <script src="../assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
