@@ -94,7 +94,7 @@
                                 </a>
                             </li>
                             <li class="menu">
-                                <a href="./moderator-category.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorCategoryController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-saas"></i>
                                         <span>Danh mục</span>
@@ -178,10 +178,14 @@
                                                     <tr>
                                                         <td>#${product.productId}</td>
                                                         <td>${product.createdDate}</td>
-                                                        <td>${product.subCateId}</td>
+                                                        <td>${mapProductSupplier.get(product).shopName}</td>
                                                         <td>${product.productName}</td>
                                                         <td>${product.barCode}</td>
-                                                        <td>${product.barCode}</td>
+                                                        <td>
+                                                            <c:forEach items="${mapProductCities.get(product)}" var="city">
+                                                                ${city.cityName}</br>
+                                                            </c:forEach>
+                                                        </td>
                                                         <td>${product.statusId}</td>
                                                         <td><a href="ModeratorDetailProductController?id=${product.productId}">Xem chi tiết</a></td>
                                                     </tr>

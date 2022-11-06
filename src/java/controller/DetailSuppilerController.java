@@ -34,7 +34,7 @@ public class DetailSuppilerController extends HttpServlet {
             Account account1 = accountDAO.getAccountById(supplier.getAccId());
             request.setAttribute("supplier", supplier);
             request.setAttribute("account", account1);
-            RequestDispatcher rd = request.getRequestDispatcher("admin-page/personal-infor-supplier.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("admin-page/admin-view-detail-supplier.jsp");
             rd.forward(request, response);
 
         } else {
@@ -45,7 +45,7 @@ public class DetailSuppilerController extends HttpServlet {
 
             request.setAttribute("supplier", supplier);
             request.setAttribute("account", account);
-            RequestDispatcher rd = request.getRequestDispatcher("admin-page/personal-infor-supplier.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("admin-page/admin-view-detail-supplier.jsp");
             rd.forward(request, response);
         }
 

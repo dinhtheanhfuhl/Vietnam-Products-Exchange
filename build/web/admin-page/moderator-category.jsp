@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -11,18 +12,18 @@
         <link rel="shortcut icon" .href="./image/578b1438ff0a7fc4704aa5ade7625e89.jpeg" type="image/png">
 
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="../assets/css/loader.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/loader.css" rel="stylesheet" type="text/css" />
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/plugins.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/plugins.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-        <link href="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
-        <link href="../plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
-        <link href="../assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />\
-        <link rel="stylesheet" href="../assets/css/style.css">
+        <link href="${pageContext.request.contextPath}/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />\
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
         <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
 
@@ -42,7 +43,7 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect" href="../home.jsp">
+                <a class="navbar-brand waves-effect" href="${pageContext.request.contextPath}/home.jsp">
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
@@ -77,7 +78,7 @@
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
-                                <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
                                         <span>Danh sách<br> sản phẩm</span>
@@ -93,7 +94,7 @@
                                 </a>
                             </li>
                             <li class="menu">
-                                <a href="./moderator-category.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorCategoryController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-saas"></i>
                                         <span>Danh mục</span>
@@ -116,25 +117,47 @@
                             <div class="statbox widget box">
                                 <h3>Danh sách danh mục</h3>
                                 <div class="widget-content-area">
-                                    <a href="./moderator-add-cate.jsp"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục </button></a>
-                                    <a href="./moderator-add-subcate.jsp"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục con </button></a>
+                                    <a href="ModeratorAddCateController?action=show"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục </button></a>
+                                    <a href="ModeratorAddSubCateController?action=show"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục con </button></a>
                                     <div class="table-responsive new-products">
                                         <table class="table">
                                             <thead>
                                                 <tr class="text-center">
-                                                    <th>STT</th>
+                                                    <th>ID</th>
                                                     <th>Tên danh mục</th>
                                                     <th>Danh mục con</th>
                                                     <th>Xoá</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Hoa quả</td>
-                                                    <td>ádád</td>
-                                                    <td><a data-toggle="modal" data-target="#exampleModal" href="#"><i class="flaticon-delete"></i></a></td>
-                                                </tr>
+                                                <c:forEach var="key" items="${mapSubcategorys.keySet()}">
+                                                    <tr>
+                                                        <td>${key.cateId}</td>
+                                                        <td>${key.cateName}</td>
+                                                        <c:if test="${mapSubcategorys.get(key).size()>0}">
+                                                            <td>${mapSubcategorys.get(key).get(0).subCateName} / ${mapSubcategoryStatus.get(mapSubcategorys.get(key).get(0))}</td>
+                                                            <td><a data-toggle="modal" 
+                                                                   <c:if test="${mapSubcategoryStatus.get(mapSubcategorys.get(key).get(0)) == false}">data-target="#exampleModal1" </c:if>
+                                                                   <c:if test="${mapSubcategoryStatus.get(mapSubcategorys.get(key).get(0)) == true}">data-target="#exampleModal2" </c:if>
+                                                                       href="#"><i class="flaticon-delete"></i></a></td>
+                                                            </tr>
+                                                    </c:if>
+                                                    <c:if test="${mapSubcategorys.get(key).size()>0}">
+                                                        <c:forEach var="subcategory" items="${mapSubcategorys.get(key)}">
+                                                            <c:if test="${subcategory!=mapSubcategorys.get(key).get(0)}">
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td>${subcategory.subCateName} / ${mapSubcategoryStatus.get(subcategory)}</td>
+                                                                    <td><a data-toggle="modal" 
+                                                                           <c:if test="${mapSubcategoryStatus.get(subcategory) == false}">data-target="#exampleModal1" </c:if>
+                                                                           <c:if test="${mapSubcategoryStatus.get(subcategory) == true}">data-target="#exampleModal2" </c:if>
+                                                                               href="#"><i class="flaticon-delete"></i></a></td>
+                                                                    </tr>
+                                                            </c:if>
+                                                        </c:forEach>
+                                                    </c:if>
+                                                </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>
@@ -158,7 +181,7 @@
                 <!--  END CONTENT PART  -->
 
             </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -171,8 +194,26 @@
                             Bạn có muốn xoá danh mục này?
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger status mb-2" data-dismiss="modal">Huỷ</button>
-                            <button type="button" class="btn btn-warning status mb-2">Có</button>
+                            <a type="button" class="btn btn-danger status mb-2" data-dismiss="modal">Huỷ</a>
+                            <a href="ModeratorCategoryController?action=delete-sub-cate&id" type="button" class="btn btn-warning status mb-2">Có</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Danh mục này đang chứa sản phẩm. Không thể xoá.
+                        </div>
+                        <div class="modal-footer">
+                            <a type="button" class="btn btn-danger status mb-2" data-dismiss="modal">Huỷ</a>
                         </div>
                     </div>
                 </div>
@@ -217,7 +258,7 @@
             <aside class="profile-sidebar text-center">
                 <div class="profile-content profile-content-scroll">
                     <div class="usr-profile">
-                        <img src="../assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
+                        <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
                     </div>
                     <p class="user-name mt-4 mb-4">Hoàng Thị Xoan</p>
 
@@ -239,38 +280,38 @@
             <!--  BEGIN PROFILE SIDEBAR  -->
     </body>
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="../assets/js/libs/jquery-3.1.1.min.js"></script>
-    <script src="../assets/js/loader.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="../plugins/blockui/jquery.blockUI.min.js"></script>
-    <script src="../assets/js/app.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/loader.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
     <script>
         $(document).ready(function () {
             App.init();
         });
     </script>
-    <script src="../assets/js/custom.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-    <script src="../plugins/charts/chartist/chartist.js"></script>
-    <script src="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
-    <script src="../plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="../plugins/calendar/pignose/moment.latest.min.js"></script>
-    <script src="../plugins/calendar/pignose/pignose.calendar.js"></script>
-    <script src="../plugins/progressbar/progressbar.min.js"></script>
-    <script src="../assets/js/default-dashboard/default-custom.js"></script>
-    <script src="../assets/js/ui-kit/timeline/horizontal-main.js"></script>
-    <script src="../plugins/charts/amcharts/amcharts.js"></script>
-    <script src="../plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
-    <script src="../plugins/maps/vector/ammaps/worldLow.js"></script>
-    <script src="../plugins/charts/amcharts/radar.js"></script>
-    <script src="../plugins/charts/amcharts/pie.js"></script>
-    <script src="../plugins/charts/sparklines/jquery.sparkline.min.js"></script>
-    <script src="../plugins/charts/amcharts/serial.js"></script>
-    <script src="../plugins/charts/amcharts/light.js"></script>
-    <script src="../assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/chartist/chartist.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/calendar/pignose/moment.latest.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/calendar/pignose/pignose.calendar.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/progressbar/progressbar.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/default-dashboard/default-custom.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/ui-kit/timeline/horizontal-main.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/amcharts.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/worldLow.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/radar.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/pie.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/sparklines/jquery.sparkline.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/serial.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/light.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
 
 
 </html>

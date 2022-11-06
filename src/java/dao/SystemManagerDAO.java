@@ -9,8 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class SystemManagerDAO {
+
     private final Connection connection;
 
     public SystemManagerDAO(Connection connection) {
@@ -122,5 +122,28 @@ public class SystemManagerDAO {
         }
         return systemManager;
     }
+
+    public SystemManager getSystemManagerByAccId(int roldId) {
+        SystemManager systemManager = null;
+        String strSelectById = "select * from SystemManager where AccID=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setInt(1, roldId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                systemManager = new SystemManager();
+                systemManager.setId(rs.getInt("ID"));
+                systemManager.setName(rs.getString("Name"));
+                systemManager.setAccId(rs.getInt("AccID"));
+                systemManager.setDateBirth(rs.getString("DateBirth"));
+                systemManager.setGender(rs.getString("Gender"));
+                systemManager.setEmail(rs.getString("Email"));
+                systemManager.setPhone(rs.getString("Phone"));
+                systemManager.setAvartarImg(rs.getString("AvartarImg"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return systemManager;
+    }
 }
-// chưa test dao
