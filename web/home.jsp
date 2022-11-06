@@ -90,7 +90,6 @@
                                         <a class="dropdown-item" href="./fruit.jsp">Trái cây</a>
                                         <a class="dropdown-item" href="./dokho.html">Rau củ sạch</a>
                                         <a class="dropdown-item" href="./dokho.html">Các loại hạt</a>
-                                        <a class="dropdown-item" href="./dokho.html">Tất cả sản phẩm</a>
                                     </div>
                                 </div>
 
@@ -104,12 +103,19 @@
 
                         <!-- Right -->
                         <ul class="navbar-nav nav-flex-icons">
+                            <li class="nav-item">
+                                <div class="input-group rounded">
+                                    <input type="search" class="form-control " placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                    <span class="input-group-text border-0" id="search-addon">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </div>
+                            </li>
                             <li class="nav-item ">
                                 <a href="#"  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i>
                                     <span class="quantity-amm-shopping-cart-open">0</span></a>
 
                             </li>
-
                             <li class="nav-item">
                                 <div class="dropdown dropdown-user">
                                     <a href="login.jsp" class="nav-link border border-light rounded waves-effect" target="_blank">

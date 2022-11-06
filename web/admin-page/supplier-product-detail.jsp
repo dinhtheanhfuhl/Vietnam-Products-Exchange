@@ -201,9 +201,7 @@
                     </div>
                     <div class="button-status ">
                         <h5>Hành động</h5>
-                        <button class=" btn btn-success status mb-2" id="approved">  Gửi yêu cầu </button>
-                        <button class=" btn btn-danger status mb-2" id="canceled">  Huỷ </button>
-
+                        <button class=" btn btn-danger status mb-2" id="canceled">  Huỷ yêu cầu</button>
                     </div>
                 </div>
 

@@ -152,13 +152,18 @@
                                                             <i class="flaticon-search" aria-hidden="true"
                                                                style="color:#469408;font-size: 25px;line-height: 42px;"></i>
                                                         </button>
-
                                                     </div>
                                                 </form>
                                             </div>
 
                                         </div>
                                     </div>
+                                    <select style="float: right;width: 160px;" onchange="location = this.value;" class="form-control">
+                                        <option value="#">Đã phê duyệt</option>
+                                        <option value="#">Chờ phê duyệt</option>
+                                        <option value="#">Từ chối phê duyệt</option>
+                                        <option value="#">Đã ẩn</option>
+                                    </select>
                                     <div class="table-responsive new-products">
                                         <table class="table">
                                             <thead>
@@ -287,9 +292,9 @@
     <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
     <script>
-        $(document).ready(function () {
-            App.init();
-        });
+                                        $(document).ready(function () {
+                                            App.init();
+                                        });
     </script>
     <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
