@@ -202,30 +202,61 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Số điện thoại</label>
+                                                <td><label style="margin-left: -15px;" class="form-label pass-infor">Số điện thoại</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
+                                                    <input style="margin-left: 13px;" type="text" required class="form-control" id="inputpass"
                                                            value="${supplier.phone}"   placeholder="số điện thoại">
                                                 </td>
+                                                <td> <button type="submit" id="btn-edit" for="formGroupExampleInput1"
+                                                             class="btn btn-warning ml-10">Chỉnh sửa</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <div class="hidden-edit pt-3" style="height: 170px;">
+                                        <div class="form-group ">
+                                            <label for="inputName" class="col-sm-6 col-form-label">Số điện thoại mới</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control appear-input mb-3 " id="inputName"
+                                                       placeholder="nhập số điện thoại mới" aria-label="First name">
+
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-secondary updated-infor ml-10 mt-25">Cập
+                                            nhật</button>
+                                        <button type="submit" class="btn btn-secondary exit ml-10 mt-25">Hủy</button>
+                                    </div>
                                 </div>
                                 <div class="col-md-8 col-sm-6 pt-4 pb-4">
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Nhà cung cấp</label>
+                                                <td><label style="margin-left: -15px;" class="form-label pass-infor">Nhà cung cấp</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           value="${supplier.shopName}"   placeholder="nhà cung cấp">
+                                                    <input style="margin-left: 13px;" type="text" required class="form-control" id="inputpass"
+                                                           value="${supplier.shopName}"   placeholder="nhập nhà cung cấp">
                                                 </td>
+                                                <td> <button type="submit" id="btn-edit-2" for="formGroupExampleInput"
+                                                             class="btn btn-warning ml-10">Chỉnh sửa</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <div class="hidden-pass pt-3" style="height: 170px;">
+                                        <div class="form-group ">
+                                            <label for="inputName" class="col-sm-6 col-form-label">Nhà cung cấp</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control appear-input mb-3 " id="inputName"
+                                                       placeholder="nhập tên nhà cung cấp" aria-label="First name">
+
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-secondary updated-infor ml-10 mt-25">Cập
+                                            nhật</button>
+                                        <button type="submit" class="btn btn-secondary exit-pass ml-10 mt-25">Hủy</button>
+                                    </div>
                                 </div>
+
                                 <div class="col-md-8 col-sm-6 pt-4 pb-4">
                                     <table>
                                         <tbody>
@@ -244,7 +275,7 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Giấy phép</label>
+                                                <td><label for="inputpass" class="form-label pass-infor">Giấy phép <br> kinh doanh</label>
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <a href="#" class="btn btn-info">Tải về giấy phép</a>
@@ -283,33 +314,33 @@
 
     <footer class="footer-section theme-footer">
 
-                <div class="footer-section-1  sidebar-theme">
+        <div class="footer-section-1  sidebar-theme">
 
-                </div>
+        </div>
 
-                <div class="footer-section-2 container-fluid">
-                    <div class="row">
-                        <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
-                            <ul class="list-inline links ml-sm-5">
-                                <li class="list-inline-item">
-                                    <a target="_blank" href="#">Vietnam Products Exchange</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-xl-5 col-md-6 col-sm-6 col-12">
-                            <ul
-                                class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
-                                <li class="list-inline-item  mr-3">
-                                    <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
-                                </li>
-                                <li class="list-inline-item align-self-center">
-                                    <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+        <div class="footer-section-2 container-fluid">
+            <div class="row">
+                <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
+                    <ul class="list-inline links ml-sm-5">
+                        <li class="list-inline-item">
+                            <a target="_blank" href="#">Vietnam Products Exchange</a>
+                        </li>
+                    </ul>
                 </div>
-            </footer>
+                <div class="col-xl-5 col-md-6 col-sm-6 col-12">
+                    <ul
+                        class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
+                        <li class="list-inline-item  mr-3">
+                            <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
+                        </li>
+                        <li class="list-inline-item align-self-center">
+                            <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!--  END FOOTER  -->
 
     <!--  BEGIN PROFILE SIDEBAR  -->
@@ -386,31 +417,27 @@
 
             document.querySelector(".personal-infor .hidden-edit").style.display = 'block';
             document.querySelector(".personal-infor .hidden-edit").style.margin = '0 0 0 22%';
-            document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 43%';
-            document.querySelector(".personal-infor table .display-userName").style.display = 'none';
             document.querySelector(".personal-infor #btn-edit").style.display = 'none';
         };
         document.querySelector(".exit").onclick = function () {
 
             document.querySelector(".personal-infor .hidden-edit").style.display = 'none';
-            document.querySelector(".personal-infor table .display-userName").style.display = 'block';
-            document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 24%';
             document.querySelector(".personal-infor #btn-edit").style.display = 'block';
         };
-        document.getElementById("btn-edit-2").onclick = function () {
 
-            document.querySelector(".personal-infor .hidden-pass").style.display = 'block';
-            document.querySelector(".personal-infor .hidden-pass").style.margin = '0 0 0 22%';
-            document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 43%';
-            document.querySelector(".personal-infor table .display-userName-3").style.display = 'none';
-            document.querySelector(".personal-infor #btn-edit-2").style.display = 'none';
-        };
-        document.querySelector(".exit-pass").onclick = function () {
-            document.querySelector(".personal-infor .hidden-pass").style.display = 'none';
-            document.querySelector(".personal-infor table .display-userName-3").style.display = 'block';
-            document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 24%';
-            document.querySelector(".personal-infor #btn-edit-2").style.display = 'block';
-        };
 </script>
+<script>
+
+    document.getElementById("btn-edit-2").onclick = function () {
+
+        document.querySelector(".personal-infor .hidden-pass").style.display = 'block';
+        document.querySelector(".personal-infor .hidden-pass").style.margin = '0 0 0 22%';
+        document.querySelector(".personal-infor #btn-edit-2").style.display = 'none';
+    };
+    document.querySelector(".exit-pass").onclick = function () {
+
+        document.querySelector(".personal-infor .hidden-pass").style.display = 'none';
+        document.querySelector(".personal-infor #btn-edit-2").style.display = 'block';
+    };</script>
 
 </html>

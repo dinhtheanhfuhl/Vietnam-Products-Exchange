@@ -230,7 +230,7 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Giấy phép</label>
+                                                <td><label class="form-label pass-infor">Giấy phép</label>
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <a href="#" class="btn btn-info">Tải về giấy phép</a>
@@ -243,13 +243,27 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Trạng thái:</label>
+                                                <td><label class="form-label pass-infor">Trạng thái</label>
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <c:choose>
                                                         <c:when test="${account.status == true}"><a class="btn btn-success">Đang hoạt động</a></c:when>
                                                         <c:otherwise><a href="DetailSuppilerController?action=accept-account&sup-id=${customer.customerId}&acc-id=${account.accId}" class="btn btn-success">Chấp thuận tài khoản</a></c:otherwise>
                                                     </c:choose>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td><label style="margin-left: -10px"; class="form-label pass-infor">Hành động</label>
+                                                </td>
+                                                <td class="display-userName-3">
+                                                    <a style="margin-left: 10px;" href="" class="btn btn-success">Phê duyệt tài khoản</a>
+                                                    <a href="" class="btn btn-danger">Từ chối tài khoản</a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -300,23 +314,23 @@
 
     <!--  BEGIN PROFILE SIDEBAR  -->
     <aside class="profile-sidebar text-center">
-            <div class="profile-content profile-content-scroll">
-                <div class="usr-profile">
-                    <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
-                </div>
-                <p class="user-name mt-4 mb-4">Hoan</p>
-                <div class="user-links text-left">
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="./admin-page/personal-infor-admin.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="profile-content profile-content-scroll">
+            <div class="usr-profile">
+                <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
             </div>
-        </aside>
+            <p class="user-name mt-4 mb-4">Hoan</p>
+            <div class="user-links text-left">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="./admin-page/personal-infor-admin.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
 
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="${pageContext.request.contextPath}/assets/js/libs/jquery-3.1.1.min.js"></script>

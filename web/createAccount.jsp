@@ -152,13 +152,14 @@
                                         </div>
                                         <div class="form-group fill-form log-lastName">
                                             <label for="exampleInputPassword1">Mật khẩu</label>
-                                            <input type="password" class="form-control" 
+                                            <input name="password" id="password" type="password" class="form-control" 
                                                    placeholder="mật khẩu">
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
                                             <label for="exampleInputPassword1">Xác nhận mật khẩu</label>
-                                            <input type="password" class="form-control" 
+                                            <input type="password" name="confirm_password" id="confirm_password" class="form-control" 
                                                    placeholder="xác nhận mật khẩu">
+                                            <span id='message'></span>
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
                                             <label for="exampleInputPassword1">Ngày sinh</label>
@@ -264,7 +265,7 @@
             </div>
             <div class="overlay"></div>
         </div>
-        
+
         <footer>
             <div class="main-footer container">
                 <div class="row m14 container">
@@ -418,5 +419,11 @@
                     <!--====== Main js ======-->
                     <script src="assets/js/main.js"></script>
                     <script src="./cart.js"></script>
+                    <script>$('#password, #confirm_password').on('keyup', function () {
+                                        if ($('#password').val() == $('#confirm_password').val()) {
+                                            $('#message').html('Đã khớp').css('color', 'green');
+                                        } else
+                                            $('#message').html('Không khớp').css('color', 'red');
+                                    });</script>
                     </body>
                     </html>

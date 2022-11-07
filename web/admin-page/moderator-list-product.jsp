@@ -191,7 +191,12 @@
                                                                 ${city.cityName}</br>
                                                             </c:forEach>
                                                         </td>
-                                                        <td>${product.statusId}</td>
+                                                        <td><p class="btn btn-warning status mb-2">${product.statusId}</p></td>
+                                                        <!-- <td><p class="btn btn-secondary status mb-2">Đã ẩn</p></td>
+                                                        <td><p class="btn btn-danger status mb-2">Từ chối phê duyệt</p></td>
+                                                        <td><p class="btn btn-warning status mb-2">Chờ phê duyệt</p></td>
+                                                        <td><p class="btn btn-success status mb-2">Đã phê duyệt</p></td> -->
+
                                                         <td><a href="ModeratorDetailProductController?id=${product.productId}">Xem chi tiết</a></td>
                                                     </tr>
                                                 </c:forEach>
