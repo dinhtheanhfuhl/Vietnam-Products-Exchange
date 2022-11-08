@@ -149,12 +149,12 @@
                                         <div class="form-group fill-form log-email">
                                             <label for="exampleInputPassword1">Email</label>
                                             <input name="email" type="email" class="form-control" id="exampleInputPassword1"
-                                                   placeholder="Email">
+                                                   placeholder="Nhập Email">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
-                                            <label for="exampleInputPassword1">Password</label>
+                                            <label for="exampleInputPassword1">Mật khẩu</label>
                                             <input name="password" type="password" class="form-control" id="exampleInputPassword1"
-                                                   placeholder="Password">
+                                                   placeholder="Nhập mật khẩu">
                                         </div>
 
                                         <button type="submit" class="btn btn-primary btn-warning form-control">Đăng nhập</button>
