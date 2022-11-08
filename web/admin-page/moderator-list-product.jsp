@@ -44,7 +44,7 @@
                     <i class="flaticon-menu-line-3"></i>
                 </a>
                 <a class="navbar-brand waves-effect" href="${pageContext.request.contextPath}/home.jsp">
-                    <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
+                    <h2 id="logoheader">VnProX</h2>
                 </a>
             </div>
 
@@ -158,14 +158,15 @@
 
                                         </div>
                                     </div>
-                                    
-                                    <select style="float: right;width: 160px;" onchange="location = this.value;" class="form-control">
+
+                                    <select id="selectstatus" onchange="location = this.value;" class="form-control">
                                         <option>Trạng thái</option>
                                         <option value="">Đã phê duyệt</option>
                                         <option value="#">Chờ phê duyệt</option>
                                         <option value="#">Từ chối phê duyệt</option>
                                         <option value="#">Đã ẩn</option>
                                     </select>
+                                    <h6 id="sorttext">Sắp xếp theo</h6>
                                     <div class="table-responsive new-products">
                                         <table class="table">
                                             <thead>

@@ -108,7 +108,6 @@
                                     </div>
                                     <div class="widget-header mb-5">
                                         <div class="row">
-
                                             <div class="col-lg-12">
                                                 <form class="top-action" method="get" action="AdminController">
                                                     <div id="filter">
@@ -141,8 +140,16 @@
                                         </div>
                                     </div>  
                                 </div>
-
+                                
                                 <div class="widget-content widget-content-area">
+                                    <select id="selectstatus" onchange="location = this.value;" class="form-control">
+                                        <option>Trạng thái</option>
+                                        <option value="">Đã phê duyệt</option>
+                                        <option value="#">Chờ phê duyệt</option>
+                                        <option value="#">Từ chối phê duyệt</option>
+                                        <option value="#">Đã ẩn</option>
+                                    </select>
+                                    <h6 id="sorttext">Sắp xếp theo</h6>
                                     <h3>Nhà cung cấp</h3>
                                     <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;">
                                         <c:if test="${mapSuppliers.keySet().size()!=0}">
