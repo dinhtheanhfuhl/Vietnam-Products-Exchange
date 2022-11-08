@@ -179,7 +179,14 @@
     display: none;
     margin-left: 42px;
 }
-.hidden-edit input, .hidden-pass input{
+.hidden-pass-3{
+    background-color: #eee;
+    height: 400px;
+    width: 500px;
+    display: none;
+    margin-left: 42px;
+}
+.hidden-edit input, .hidden-pass input, .hidden-pass-3 input{
     margin-left: 25%;
     width: 300px;
 }
@@ -187,10 +194,10 @@
     margin-left: 22%;
     width: 300px;
 }
-.hidden-edit label, .hidden-pass label{
+.hidden-edit label, .hidden-pass label, .hidden-pass-3 label{
     margin-left: 20%;
 }
-.hidden-edit .updated-infor, .hidden-pass .updated-infor{
+.hidden-edit .updated-infor, .hidden-pass .updated-infor, .hidden-pass-3 .updated-infor{
     margin-left: 151px;
 }
 .birthday-customer input{
@@ -226,7 +233,7 @@
     margin-bottom: 7px;
 }
 
-#btn-edit, #btn-edit-2{
+#btn-edit, #btn-edit-2, #btn-edit-3{
     background-color: #fff !important;
     border: none !important;
     color: blue !important;
@@ -234,7 +241,7 @@
     width: 110px;
     box-shadow: none !important;
 }
-#btn-edit:hover, #btn-edit-2:hover{
+#btn-edit:hover, #btn-edit-2:hover, #btn-edit-3:hover{
     text-decoration: underline;
     border: none;
 
@@ -331,7 +338,7 @@
     position: absolute;
     visibility: hidden;
     background-color: #e9ecef;
-    
+
 }
 #licennote:hover a{
     visibility: visible;
@@ -340,6 +347,32 @@
     text-align: center;
     border-radius: 6px;
     padding: 5px 5px;
-   
+}
+#selectstatus{
+    float: right;
+    width: 160px;
+    margin-bottom: 10px;
+}
 
+#sorttext{
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+#logoheader{
+    color: #F5AB1E;
+    font-family: 'Signika Negative';
+    font-weight: 700;
+}
+#gendertext{
+    margin-left: 8px;
+}
+#genderselect{
+    margin-left: -10px;
+}
+#suppliertext{
+    margin-left: -15px;
+}
+#supplierinput{
+    margin-left: 13px;
 }

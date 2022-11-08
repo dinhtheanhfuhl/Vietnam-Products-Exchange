@@ -44,7 +44,7 @@
                     <i class="flaticon-menu-line-3"></i>
                 </a>
                 <a class="navbar-brand waves-effect" href="${pageContext.request.contextPath}/home.jsp">
-                    <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
+                    <h2 id="logoheader">VnProX</h2>
                 </a>
             </div>
             <ul class="navbar-nav flex-row mr-auto">
@@ -172,10 +172,10 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" style="margin-left: 5px;" class="form-label pass-infor">Giới tính</label>
+                                                <td><label id="gendertext" class="form-label pass-infor">Giới tính</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <select class="form-control" name="gender" id="gender">
+                                                    <select class="form-control" name="gender" id="genderselect">
                                                         <option value="male">${supplier.gender}</option>
                                                     </select>
                                                 </td>
@@ -205,7 +205,7 @@
                                                 <td><label style="margin-left: -15px;" class="form-label pass-infor">Số điện thoại</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input style="margin-left: 13px;" type="text" required class="form-control" id="inputpass"
+                                                    <input style="margin-left: 13px;" type="text" required class="form-control"
                                                            value="${supplier.phone}"   placeholder="số điện thoại">
                                                 </td>
                                                 <td> <button type="submit" id="btn-edit" for="formGroupExampleInput1"
@@ -231,10 +231,10 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label style="margin-left: -15px;" class="form-label pass-infor">Nhà cung cấp</label>
+                                                <td><label id="suppliertext" class="form-label pass-infor">Nhà cung cấp</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input style="margin-left: 13px;" type="text" required class="form-control" id="inputpass"
+                                                    <input id="supplierinput" type="text" required class="form-control" 
                                                            value="${supplier.shopName}"   placeholder="nhập nhà cung cấp">
                                                 </td>
                                                 <td> <button type="submit" id="btn-edit-2" for="formGroupExampleInput"
@@ -246,7 +246,7 @@
                                         <div class="form-group ">
                                             <label for="inputName" class="col-sm-6 col-form-label">Nhà cung cấp</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control appear-input mb-3 " id="inputName"
+                                                <input type="text" class="form-control appear-input mb-3 " 
                                                        placeholder="nhập tên nhà cung cấp" aria-label="First name">
 
                                             </div>
@@ -261,15 +261,30 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Địa chỉ chính</label>
+                                                <td><label id="suppliertext" class="form-label pass-infor">Địa chỉ chính</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           value="${supplier.mainAddress}"   placeholder="địa chỉ chính">
+                                                    <input style="margin-left: 13px;" type="text" required class="form-control" 
+                                                           value="${supplier.mainAddress}"   placeholder="nhập địa chỉ chính">
                                                 </td>
+                                                <td> <button type="submit" id="btn-edit-3" for="formGroupExampleInput"
+                                                             class="btn btn-warning ml-10">Chỉnh sửa</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <div class="hidden-pass-3 pt-3" style="height: 170px;">
+                                        <div class="form-group ">
+                                            <label for="inputName" class="col-sm-6 col-form-label">Địa chỉ chính</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control appear-input mb-3 " id="inputName"
+                                                       placeholder="nhập tên địa chỉ chính" aria-label="First name">
+
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-secondary updated-infor ml-10 mt-25">Cập
+                                            nhật</button>
+                                        <button type="submit" class="btn btn-secondary exit-pass-3 ml-10 mt-25">Hủy</button>
+                                    </div>
                                 </div>
                                 <div class="col-md-8 col-sm-6 pt-4 pb-4">
                                     <table>
@@ -438,6 +453,20 @@
 
         document.querySelector(".personal-infor .hidden-pass").style.display = 'none';
         document.querySelector(".personal-infor #btn-edit-2").style.display = 'block';
+    };</script>
+
+<script>
+
+    document.getElementById("btn-edit-3").onclick = function () {
+
+        document.querySelector(".personal-infor .hidden-pass-3").style.display = 'block';
+        document.querySelector(".personal-infor .hidden-pass-3").style.margin = '0 0 0 22%';
+        document.querySelector(".personal-infor #btn-edit-3").style.display = 'none';
+    };
+    document.querySelector(".exit-pass-3").onclick = function () {
+
+        document.querySelector(".personal-infor .hidden-pass-3").style.display = 'none';
+        document.querySelector(".personal-infor #btn-edit-3").style.display = 'block';
     };</script>
 
 </html>
