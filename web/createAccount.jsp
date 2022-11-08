@@ -146,18 +146,18 @@
                                             <p>Vui lòng đăng kí thông tin vào bên dưới!</p>
                                         </div>
                                         <div class="form-group fill-form log-email">
-                                            <label for="exampleInputPassword1">Tên người dùng</label>
-                                            <input type="text" class="form-control" id="exampleInputPassword1"
-                                                   placeholder="tên người dùng">
+                                            <label>Tên người dùng*</label>
+                                            <input type="text" required="" class="form-control" id="exampleInputPassword1"
+                                                   placeholder="nhập tên người dùng">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
-                                            <label for="exampleInputPassword1">Mật khẩu</label>
-                                            <input name="password" id="password" type="password" class="form-control" 
-                                                   placeholder="mật khẩu">
+                                            <label for="exampleInputPassword1">Mật khẩu*</label>
+                                            <input name="password" required="" id="password" type="password" class="form-control" 
+                                                   placeholder=" nhập mật khẩu">
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
-                                            <label for="exampleInputPassword1">Xác nhận mật khẩu</label>
-                                            <input type="password" name="confirm_password" id="confirm_password" class="form-control" 
+                                            <label for="exampleInputPassword1">Xác nhận mật khẩu*</label>
+                                            <input type="password" required="" name="confirm_password" id="confirm_password" class="form-control" 
                                                    placeholder="xác nhận mật khẩu">
                                             <span id='message'></span>
                                         </div> 
@@ -175,24 +175,36 @@
                                             </select>
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
-                                            <label for="exampleInputPassword1">Email</label>
-                                            <input type="email" class="form-control"
-                                                   placeholder="email">
+                                            <label>Email*</label>
+                                            <input required="" type="email" class="form-control"
+                                                   placeholder="nhập email">
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
-                                            <label for="exampleInputPassword1">Số điện thoại</label>
-                                            <input type="text" class="form-control" 
-                                                   placeholder="số điện thoại">
+                                            <label>Số điện thoại*</label>
+                                            <input required="" type="text" class="form-control" 
+                                                   placeholder="nhập số điện thoại">
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
-                                            <label for="exampleInputPassword1">Tên cửa hàng</label>
-                                            <input type="text" class="form-control" 
-                                                   placeholder="tên cửa hàng">
+                                            <label >Vai trò</label>
+                                            <select class="form-control" name="role" id="gender">
+                                                <option value="">Nhà cung cấp</option>
+                                                <option value="">Minimart</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group fill-form log-lastName">
+                                            <label>Tên cửa hàng*</label>
+                                            <input required="" type="text" class="form-control" 
+                                                   placeholder="nhập tên cửa hàng">
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
-                                            <label for="exampleInputPassword1">Địa chỉ cơ sở chính</label>
-                                            <input type="password" class="form-control" 
-                                                   placeholder="địa chỉ cơ sở chính">
+                                            <label>Địa chỉ cơ sở chính*</label>
+                                            <input type="password"  required="" class="form-control" 
+                                                   placeholder="nhập địa chỉ cơ sở chính">
+                                        </div>
+                                        <div class="form-group fill-form log-lastName">
+                                            <label>Giấy phép*</label>
+                                            <input type="file" class="form-control-file"
+                                                   id="file-input">
                                         </div> 
                                         <button type="submit" class="btn btn-primary btn-warning form-control">Đăng ký</button>
                                     </div>
@@ -421,9 +433,9 @@
                     <script src="./cart.js"></script>
                     <script>$('#password, #confirm_password').on('keyup', function () {
                                         if ($('#password').val() == $('#confirm_password').val()) {
-                                            $('#message').html('Đã khớp').css('color', 'green');
+                                            $('#message').html('').css('color', 'green');
                                         } else
-                                            $('#message').html('Không khớp').css('color', 'red');
+                                            $('#message').html('Mật khẩu chưa trùng khớp').css('color', 'red');
                                     });</script>
                     </body>
                     </html>

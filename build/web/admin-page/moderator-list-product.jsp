@@ -158,8 +158,10 @@
 
                                         </div>
                                     </div>
+                                    
                                     <select style="float: right;width: 160px;" onchange="location = this.value;" class="form-control">
-                                        <option value="#">Đã phê duyệt</option>
+                                        <option>Trạng thái</option>
+                                        <option value="">Đã phê duyệt</option>
                                         <option value="#">Chờ phê duyệt</option>
                                         <option value="#">Từ chối phê duyệt</option>
                                         <option value="#">Đã ẩn</option>
