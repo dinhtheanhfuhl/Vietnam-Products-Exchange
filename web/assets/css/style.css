@@ -331,6 +331,26 @@
     padding: 20px;
     min-height: 460px;
 }
+
+#licennote1{
+    cursor: pointer;
+}
+#licennote1 a{
+    position: absolute;
+    visibility: hidden;
+    background-color: #e9ecef;
+
+}
+#licennote1:hover a{
+    visibility: visible;
+    width: 200px;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+    margin-top: 23px;
+    margin-left: -20px;
+}
 #licennote{
     cursor: pointer;
 }
@@ -353,7 +373,9 @@
     width: 160px;
     margin-bottom: 10px;
 }
-
+#selectunit{
+    width: 60px;
+}
 #sorttext{
     float: right;
     margin-top: 5px;
