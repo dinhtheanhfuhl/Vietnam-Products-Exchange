@@ -33,7 +33,7 @@ public class SubCategoryDAO {
             ps.setInt(2, subCategory.getCateId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -48,20 +48,20 @@ public class SubCategoryDAO {
             ps.setInt(3, subCategory.getSubCateId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
 
-    public int deleteSubCategory(int subCategoryId) {
+    public int deleteSubCategory(SubCategory subCategory) {
         int status = 0;
         String strDelete = "delete from SubCategory where SubCateID=?";
         try {
             PreparedStatement ps = connection.prepareStatement(strDelete);
-            ps.setInt(1, subCategoryId);
+            ps.setInt(1, subCategory.getSubCateId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
 
         return status;
@@ -81,7 +81,7 @@ public class SubCategoryDAO {
                 subCategorys.add(subCategory);
             }
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return subCategorys;
     }
@@ -100,7 +100,7 @@ public class SubCategoryDAO {
                 subCategory.setCateId(rs.getInt("CateID"));
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
         return subCategory;
     }
@@ -120,9 +120,8 @@ public class SubCategoryDAO {
                 subCategorys.add(subCategory);
             }
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return subCategorys;
     }
 }
-// chưa test dao

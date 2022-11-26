@@ -1,7 +1,10 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package dao;
 
-
-import entity.City;
+import entity.Cart;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,34 +12,39 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CityDAO {
+/**
+ *
+ * @author DEKUPAC
+ */
+public class CartDAO {
+
     private final Connection connection;
 
-    public CityDAO(Connection connection) {
+    public CartDAO(Connection connection) {
         this.connection = connection;
     }
-    
-    public int saveCity(City city) {
+
+    public int saveCart(Cart cart) {
         int status = 0;
-        String strInsert = "insert into City(CityName) values(?)";
+        String strInsert = "insert into Cart(CustomerID) values(?)";
         try {
             PreparedStatement ps
                     = connection.prepareStatement(strInsert);
-            ps.setString(1, city.getCityName());
+            ps.setInt(1, cart.getCustomerId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-           System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
         return status;
     }
 
-    public int updateCity(City city) {
+    public int updateCart(Cart cart) {
         int status = 0;
-        String strUpdate = "update City set CityName=? where CityID=?";
+        String strUpdate = "update Cart set CustomerID=? where CartID=?";
         try {
             PreparedStatement ps = connection.prepareStatement(strUpdate);
-            ps.setString(1, city.getCityName());
-            ps.setInt(2, city.getCityId());
+            ps.setInt(1, cart.getCustomerId());
+            ps.setInt(2, cart.getCartId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -44,12 +52,12 @@ public class CityDAO {
         return status;
     }
 
-    public int deleteCity(City city) {
+    public int deleteCart(Cart cart) {
         int status = 0;
-        String strDelete = "delete from City where CityID=?";
+        String strDelete = "delete from Cart where CartID=?";
         try {
             PreparedStatement ps = connection.prepareStatement(strDelete);
-            ps.setInt(1, city.getCityId());
+            ps.setInt(1, cart.getCartId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -58,39 +66,39 @@ public class CityDAO {
         return status;
     }
 
-    public List<City> getAllCity() {
-        List<City> citys = new ArrayList<>();
-        String strSelectAll = "select * from City";
+    public List<Cart> getAllCarts() {
+        List<Cart> carts = new ArrayList<>();
+        String strSelectAll = "select * from Cart";
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                City city = new City();
-                city.setCityId(rs.getInt("CityID"));
-                city.setCityName(rs.getString("CityName"));
-                citys.add(city);
+                Cart cart = new Cart();
+                cart.setCartId(rs.getInt("CartID"));
+                cart.setCustomerId(rs.getInt("CustomerID"));
+                carts.add(cart);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return citys;
+        return carts;
     }
 
-    public City getCityById(int id) {
-        City city = null;
-        String strSelectById = "select * from City where CityID=?";
+    public Cart getCartById(int id) {
+        Cart cart = null;
+        String strSelectById = "select * from Cart where CartID=?";
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectById);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                city = new City();
-                city.setCityId(rs.getInt("CityID"));
-                city.setCityName(rs.getString("CityName"));
+                cart = new Cart();
+                cart.setCartId(rs.getInt("CartID"));
+                cart.setCustomerId(rs.getInt("CustomerID"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return city;
+        return cart;
     }
 }

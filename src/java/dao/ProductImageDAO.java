@@ -34,7 +34,7 @@ public class ProductImageDAO {
             ps.setString(2, productImage.getImgPath());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -47,7 +47,7 @@ public class ProductImageDAO {
             ps.setInt(1, productImage.getProductImageId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
 
         return status;
@@ -68,7 +68,7 @@ public class ProductImageDAO {
                 productImages.add(productImage);
             }
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return productImages;
     }
@@ -89,9 +89,5 @@ public class ProductImageDAO {
             System.out.println(e.getMessage());
         }
         return  productImage;
-    }
-       public static void main(String[] args) {
-        ProductImage p = new ProductImageDAO(dbconnect.DBConnect.getConnection()).getProductImageById(12);
-           System.out.println(p);
     }
 }

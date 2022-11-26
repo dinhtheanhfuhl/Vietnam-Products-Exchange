@@ -33,7 +33,7 @@ public class DeliveryAreaDAO {
             ps.setInt(2, deliveryArea.getCityId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -46,7 +46,7 @@ public class DeliveryAreaDAO {
             ps.setInt(1, deliveryArea.getProductId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
 
         return status;
@@ -66,7 +66,7 @@ public class DeliveryAreaDAO {
                 deliveryAreas.add(deliveryArea);
             }
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return deliveryAreas;
     }
@@ -86,11 +86,10 @@ public class DeliveryAreaDAO {
                 deliveryAreas.add(deliveryArea);
             }
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return deliveryAreas;
     }
-
     public List<DeliveryArea> getDeliverysAreaByProductId(int productId) {
                 
         String strSelectAll = "select * from DeliveryArea where ProductID=?";

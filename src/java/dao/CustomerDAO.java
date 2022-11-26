@@ -44,7 +44,7 @@ public class CustomerDAO {
             ps.setString(11, customer.getAvartarImg());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -72,7 +72,7 @@ public class CustomerDAO {
 
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -85,7 +85,7 @@ public class CustomerDAO {
             ps.setInt(1, customer.getCustomerId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
 
         return status;
@@ -114,7 +114,7 @@ public class CustomerDAO {
                 customers.add(customer);
             }
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return customers;
     }
@@ -142,7 +142,7 @@ public class CustomerDAO {
                 customer.setAvartarImg(rs.getString("AvartarImg"));
             }
         } catch (SQLException e) {
-            System.out.println(e);
+           System.out.println(e.getMessage());
         }
         return customer;
     }
