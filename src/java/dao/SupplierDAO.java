@@ -47,7 +47,7 @@ public class SupplierDAO {
             ps.setString(11, supplier.getAvartarImg());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -75,7 +75,7 @@ public class SupplierDAO {
 
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -88,7 +88,7 @@ public class SupplierDAO {
             ps.setInt(1, supplier.getSupplierId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
 
         return status;
@@ -117,7 +117,7 @@ public class SupplierDAO {
                 suppliers.add(supplier);
             }
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return suppliers;
     }
@@ -145,10 +145,10 @@ public class SupplierDAO {
                 supplier.setAvartarImg(rs.getString("AvartarImg"));
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
         return supplier;
     }
 
 }
-// chưa test dao
+

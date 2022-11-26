@@ -9,8 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SystemManagerDAO {
 
+public class SystemManagerDAO {
     private final Connection connection;
 
     public SystemManagerDAO(Connection connection) {
@@ -35,7 +35,7 @@ public class SystemManagerDAO {
             ps.setString(7, systemManager.getAvartarImg());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -57,7 +57,7 @@ public class SystemManagerDAO {
             ps.setInt(8, systemManager.getId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -70,7 +70,7 @@ public class SystemManagerDAO {
             ps.setInt(1, systemManager.getId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -94,7 +94,7 @@ public class SystemManagerDAO {
                 systemManagers.add(systemManager);
             }
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return systemManagers;
     }
@@ -118,11 +118,10 @@ public class SystemManagerDAO {
                 systemManager.setAvartarImg(rs.getString("AvartarImg"));
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
         return systemManager;
     }
-
     public SystemManager getSystemManagerByAccId(int roldId) {
         SystemManager systemManager = null;
         String strSelectById = "select * from SystemManager where AccID=?";
@@ -146,4 +145,5 @@ public class SystemManagerDAO {
         }
         return systemManager;
     }
+    
 }

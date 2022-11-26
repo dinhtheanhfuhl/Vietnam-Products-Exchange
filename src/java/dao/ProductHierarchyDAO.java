@@ -35,7 +35,7 @@ public class ProductHierarchyDAO {
             ps.setFloat(3, productHierarchy.getPrice());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -50,7 +50,7 @@ public class ProductHierarchyDAO {
             ps.setInt(3, productHierarchy.getQuantity());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -63,7 +63,7 @@ public class ProductHierarchyDAO {
             ps.setInt(1, productHierarchy.getProductId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
 
         return status;
@@ -83,7 +83,7 @@ public class ProductHierarchyDAO {
                 productHierarchys.add(productHierarchy);
             }
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return productHierarchys;
     }

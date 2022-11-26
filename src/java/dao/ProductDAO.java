@@ -21,16 +21,16 @@ public class ProductDAO {
         int status = 0;
         String strInsert
                 = "insert into "
-                + "Product(SupplierID,SubCateID,CreatedDate,RequestCode,ProductName,"
-                + "BarCode,ProductCertificate,Trademark,Smell,Color,Weight,Packing,Element,StatusID)"
-                + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                + "Product(SupplierID,SubCateID,CreatedDate,Description,ProductName,"
+                + "BarCode,ProductCertificate,Trademark,Smell,Color,Weight,Packing,Element,ViewNumber,StatusID)"
+                + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps
                     = connection.prepareStatement(strInsert);
             ps.setInt(1, product.getSupplierId());
             ps.setInt(2, product.getSubCateId());
             ps.setString(3, product.getCreatedDate());
-            ps.setString(4, product.getRequestCode());
+            ps.setString(4, product.getDescription());
             ps.setString(5, product.getProductName());
             ps.setString(6, product.getBarCode());
             ps.setString(7, product.getProductCertificate());
@@ -40,25 +40,26 @@ public class ProductDAO {
             ps.setInt(11, product.getWeight());
             ps.setString(12, product.getPacking());
             ps.setString(13, product.getElement());
-            ps.setInt(14, product.getStatusId());
+            ps.setInt(14, product.getViewNumber());
+            ps.setInt(15, product.getStatusId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
 
     public int updateProduct(Product product) {
         int status = 0;
-        String strUpdate = "update Product set SupplierID=?, SubCateID=?, CreatedDate=?, "
-                + "RequestCode=?, ProductName=?, BarCode=?, ProductCertificate=?, Trademark=?, Smell=?, "
-                + "Color=?, Weight=?, Packing=?, Element=?, StatusID=? where ProductID=?";
+        String strUpdate = "update Product set SupplierID=?, SubCateID=?, CreatedDate=?, Description=?,"
+                + "ProductName=?, BarCode=?, ProductCertificate=?, Trademark=?, Smell=?, "
+                + "Color=?, Weight=?, Packing=?, Element=?, ViewNumber=?, StatusID=? where ProductID=?";
         try {
             PreparedStatement ps = connection.prepareStatement(strUpdate);
             ps.setInt(1, product.getSupplierId());
             ps.setInt(2, product.getSubCateId());
             ps.setString(3, product.getCreatedDate());
-            ps.setString(4, product.getRequestCode());
+            ps.setString(4, product.getDescription());
             ps.setString(5, product.getProductName());
             ps.setString(6, product.getBarCode());
             ps.setString(7, product.getProductCertificate());
@@ -68,12 +69,13 @@ public class ProductDAO {
             ps.setInt(11, product.getWeight());
             ps.setString(12, product.getPacking());
             ps.setString(13, product.getElement());
-            ps.setInt(14, product.getStatusId());
-            ps.setInt(15, product.getProductId());
+            ps.setInt(14, product.getViewNumber());
+            ps.setInt(15, product.getStatusId());
+            ps.setInt(16, product.getProductId());
 
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -86,7 +88,7 @@ public class ProductDAO {
             ps.setInt(1, product.getProductId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
 
         return status;
@@ -104,7 +106,7 @@ public class ProductDAO {
                 product.setSupplierId(rs.getInt("SupplierID"));
                 product.setSubCateId(rs.getInt("SubCateID"));
                 product.setCreatedDate(rs.getString("CreatedDate"));
-                product.setRequestCode(rs.getString("RequestCode"));
+                product.setDescription(rs.getString("Description"));
                 product.setProductName(rs.getString("ProductName"));
                 product.setBarCode(rs.getString("BarCode"));
                 product.setProductCertificate(rs.getString("ProductCertificate"));
@@ -114,11 +116,12 @@ public class ProductDAO {
                 product.setWeight(rs.getInt("Weight"));
                 product.setPacking(rs.getString("Packing"));
                 product.setElement(rs.getString("Element"));
+                product.setViewNumber(rs.getInt("ViewNumber"));
                 product.setStatusId(rs.getInt("StatusID"));
                 products.add(product);
             }
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return products;
     }
@@ -136,7 +139,7 @@ public class ProductDAO {
                 product.setSupplierId(rs.getInt("SupplierID"));
                 product.setSubCateId(rs.getInt("SubCateID"));
                 product.setCreatedDate(rs.getString("CreatedDate"));
-                product.setRequestCode(rs.getString("RequestCode"));
+                product.setDescription(rs.getString("Description"));
                 product.setProductName(rs.getString("ProductName"));
                 product.setBarCode(rs.getString("BarCode"));
                 product.setProductCertificate(rs.getString("ProductCertificate"));
@@ -146,10 +149,11 @@ public class ProductDAO {
                 product.setWeight(rs.getInt("Weight"));
                 product.setPacking(rs.getString("Packing"));
                 product.setElement(rs.getString("Element"));
+                product.setViewNumber(rs.getInt("ViewNumber"));
                 product.setStatusId(rs.getInt("StatusID"));
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
         return product;
     }
@@ -167,7 +171,7 @@ public class ProductDAO {
                 product.setSupplierId(rs.getInt("SupplierID"));
                 product.setSubCateId(rs.getInt("SubCateID"));
                 product.setCreatedDate(rs.getString("CreatedDate"));
-                product.setRequestCode(rs.getString("RequestCode"));
+                product.setDescription(rs.getString("Description"));
                 product.setProductName(rs.getString("ProductName"));
                 product.setBarCode(rs.getString("BarCode"));
                 product.setProductCertificate(rs.getString("ProductCertificate"));
@@ -177,13 +181,12 @@ public class ProductDAO {
                 product.setWeight(rs.getInt("Weight"));
                 product.setPacking(rs.getString("Packing"));
                 product.setElement(rs.getString("Element"));
+                product.setViewNumber(rs.getInt("ViewNumber"));
                 product.setStatusId(rs.getInt("StatusID"));
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
-        return product==null ? 0:1;
+        return product == null ? 0 : 1;
     }
 }
-
-// lỗi phần update mãi đéo fixx đc cmnn

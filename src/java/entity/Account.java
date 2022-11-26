@@ -16,12 +16,12 @@ public class Account {
     private String email;
     private String passWord;
     private int roldId;
-    private boolean status;
+    private int status;
 
     public Account() {
     }
 
-    public Account(int accId, String email, String passWord, int roldId, boolean status) {
+    public Account(int accId, String email, String passWord, int roldId, int status) {
         this.accId = accId;
         this.email = email;
         this.passWord = passWord;
@@ -61,11 +61,11 @@ public class Account {
         this.roldId = roldId;
     }
 
-    public boolean isStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -73,4 +73,6 @@ public class Account {
     public String toString() {
         return "Account{" + "accId=" + accId + ", email=" + email + ", passWord=" + passWord + ", roldId=" + roldId + ", status=" + status + '}';
     }
+
+    
 }

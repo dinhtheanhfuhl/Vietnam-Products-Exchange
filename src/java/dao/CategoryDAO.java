@@ -21,7 +21,7 @@ public class CategoryDAO {
             ps.setString(1, category.getCateName());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -35,7 +35,7 @@ public class CategoryDAO {
             ps.setInt(2, category.getCateId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -48,7 +48,7 @@ public class CategoryDAO {
             ps.setInt(1, category.getCateId());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-            e.getMessage();
+           System.out.println(e.getMessage());
         }
 
         return status;
@@ -67,7 +67,7 @@ public class CategoryDAO {
                 categorys.add(category);
             }
         } catch (SQLException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return categorys;
     }
@@ -85,7 +85,7 @@ public class CategoryDAO {
                 category.setCateName(rs.getString("CateName"));
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
         return category;
     }

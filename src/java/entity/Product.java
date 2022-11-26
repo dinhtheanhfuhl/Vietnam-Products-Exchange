@@ -13,7 +13,7 @@ public class Product {
     private int supplierId;
     private int subCateId;
     private String createdDate;
-    private String requestCode;
+    private String description;
     private String productName;
     private String barCode;
     private String productCertificate;
@@ -23,17 +23,18 @@ public class Product {
     private int weight;
     private String packing;
     private String element;
+    private int viewNumber;
     private int statusId;
 
     public Product() {
     }
 
-    public Product(int productId, int supplierId, int subCateId, String createdDate, String requestCode, String productName, String barCode, String productCertificate, String trademark, String smell, String color, int weight, String packing, String element, int statusId) {
+    public Product(int productId, int supplierId, int subCateId, String createdDate, String description, String productName, String barCode, String productCertificate, String trademark, String smell, String color, int weight, String packing, String element, int viewNumber, int statusId) {
         this.productId = productId;
         this.supplierId = supplierId;
         this.subCateId = subCateId;
         this.createdDate = createdDate;
-        this.requestCode = requestCode;
+        this.description = description;
         this.productName = productName;
         this.barCode = barCode;
         this.productCertificate = productCertificate;
@@ -43,6 +44,7 @@ public class Product {
         this.weight = weight;
         this.packing = packing;
         this.element = element;
+        this.viewNumber = viewNumber;
         this.statusId = statusId;
     }
 
@@ -78,12 +80,12 @@ public class Product {
         this.createdDate = createdDate;
     }
 
-    public String getRequestCode() {
-        return requestCode;
+    public String getDescription() {
+        return description;
     }
 
-    public void setRequestCode(String requestCode) {
-        this.requestCode = requestCode;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getProductName() {
@@ -158,6 +160,14 @@ public class Product {
         this.element = element;
     }
 
+    public int getViewNumber() {
+        return viewNumber;
+    }
+
+    public void setViewNumber(int viewNumber) {
+        this.viewNumber = viewNumber;
+    }
+
     public int getStatusId() {
         return statusId;
     }
@@ -168,6 +178,8 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" + "productId=" + productId + ", supplierId=" + supplierId + ", subCateId=" + subCateId + ", createdDate=" + createdDate + ", requestCode=" + requestCode + ", productName=" + productName + ", barCode=" + barCode + ", productCertificate=" + productCertificate + ", trademark=" + trademark + ", smell=" + smell + ", color=" + color + ", weight=" + weight + ", packing=" + packing + ", element=" + element + ", statusId=" + statusId + '}';
+        return "Product{" + "productId=" + productId + ", supplierId=" + supplierId + ", subCateId=" + subCateId + ", createdDate=" + createdDate + ", description=" + description + ", productName=" + productName + ", barCode=" + barCode + ", productCertificate=" + productCertificate + ", trademark=" + trademark + ", smell=" + smell + ", color=" + color + ", weight=" + weight + ", packing=" + packing + ", element=" + element + ", viewNumber=" + viewNumber + ", statusId=" + statusId + '}';
     }
+    
+    
 }
