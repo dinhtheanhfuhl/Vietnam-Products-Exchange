@@ -67,7 +67,11 @@ public class LogginController extends HttpServlet {
                         response.sendRedirect("login.jsp");
                         break;
                     case 4:
-                        response.sendRedirect("login.jsp");
+                        SystemManagerDAO systemManagerDAO2 = new SystemManagerDAO(connection);
+                        SystemManager systemManager2 = systemManagerDAO2.getSystemManagerByAccId(account.getRoldId());
+                        session.setAttribute("nameUser", systemManager2.getName());
+                        session.setAttribute("systemManager", systemManager2);
+                        response.sendRedirect("home.jsp");
                         break;
                     default:
                         break;

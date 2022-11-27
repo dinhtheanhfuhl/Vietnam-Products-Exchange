@@ -87,9 +87,9 @@
 
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="MinimartProductController">Trái cây</a>
-                                        <a class="dropdown-item" href="./dokho.html">Rau củ sạch</a>
-                                        <a class="dropdown-item" href="./dokho.html">Các loại hạt</a>
+                                        <c:forEach items="${listCate}" var="o" >
+                                        <a class="dropdown-item" href="MinimartProductController?cid=${o.cateId}">${o.cateName}</a>
+                                        </c:forEach>
                                     </div>
                                 </div>
 
@@ -231,7 +231,7 @@
                             </select>
                         </div>
                         <div class="row">
-                            <c:forEach items="${listP}" var="o" >
+                            <c:forEach var="o" items="${mapImages.keySet()}">
                                 <div class="col-lg-4 col-md-6">
                                     <div class="single-shop-box">
                                         <div class="thumb text-center">
@@ -250,8 +250,9 @@
                                             <a href="MimartDetailProduct?pid=${o.productId}">${o.productName}</a>
                                             <div class="pricing">
                                                 <div class="discount-price"><span>25.000 </span>  </div> 
-                                                <div class="regular-price"><span>30.000 </span> </div>
                                             </div>
+                                            <p>City</p>
+                                            <p>${o.weight}Kg</p>
                                         </div>
                                     </div>
                                 </div>

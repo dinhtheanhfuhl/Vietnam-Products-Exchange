@@ -90,4 +90,24 @@ public class ProductImageDAO {
         }
         return  productImage;
     }
+       public List<ProductImage> getAllProductsImageById(int productId) {
+
+        String strSelectAll = "select * from ProductImage where ProductID = ?";
+        List<ProductImage> productImages = new ArrayList<>();
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                ProductImage productImage = new ProductImage();
+                productImage.setProductImageId(rs.getInt("ProductImageID"));
+                productImage.setProducId(rs.getInt("ProductID"));
+                productImage.setImgPath(rs.getString("ImgPath"));
+                productImages.add(productImage);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return productImages;
+    }
 }

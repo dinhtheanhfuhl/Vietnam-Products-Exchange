@@ -4,12 +4,18 @@
  */
 package controller;
 
+import dao.CategoryDAO;
 import dao.ProductDAO;
+import dao.ProductImageDAO;
 import dbconnect.DBConnect;
+import entity.Category;
 import entity.Product;
+import entity.ProductImage;
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,10 +41,21 @@ public class MinimartProductController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         Connection connection = DBConnect.getConnection();
         ProductDAO productDAO = new ProductDAO(connection);
-        List<Product> allProducts = productDAO.getAllProduct2();
-        request.setAttribute("listP", allProducts);
+        CategoryDAO categoryDAO = new CategoryDAO(connection);
+        ProductImageDAO ProductImageDAO = new ProductImageDAO(connection);
+        String id = request.getParameter("cid");
+        List<Product> getAllProductsbyCateId = productDAO.getAllProductsByCateID(id);
+        Map<Product, List<ProductImage>> mapImages = new LinkedHashMap<Product, List<ProductImage>>();
+        for (Product product : getAllProductsbyCateId) {
+            List<ProductImage> images = ProductImageDAO.getAllProductsImageById(product.getProductId());
+            mapImages.put(product, images);
+            System.out.println(mapImages);
+        }
+        request.setAttribute("mapImages", mapImages);
+        List<Category> allCate = categoryDAO.getAllCategory();
+        request.setAttribute("listCate", allCate);
         request.getRequestDispatcher("fruit.jsp").forward(request, response);
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
