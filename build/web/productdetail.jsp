@@ -1,4 +1,5 @@
 <!doctype html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -173,7 +174,7 @@
                             <div class="shop-details-thumb">
                                 <div class="shop-details-thumb-slider-active">
                                     <div class="item ">
-                                        <img src="https://hoaquafuji.com/storage/app/media/cong-dung-le-nam-phi-fuji.jpg" alt="">
+                                        <img src="${product.img}" alt="">
                                     </div>
 
                                 </div>
@@ -196,7 +197,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="shop-product-details-content pl-70 mt-35" >
-                                <h2 class="title">Vải  thiều siêu ngọt Bắc Giang  - Giống vải không hạt, mọng nước</h2>
+                                <h2 class="title">${product.productName}</h2>
                                 <span>50 - 500 kg<br>
                                     đ 239.000</span>
                                 <span>100 - 700 kg<br>
@@ -210,15 +211,15 @@
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Trọng lượng</span> </div>
                                 </div>
-                                <p>100kg</p>
+                                <p>${product.weight} Kg</p>
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Địa điểm</span> </div>
                                 </div>
-                                <p>Hà Nội</p>
+                                <p>${product.mainAddress}</p>
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Nhà cung cấp</span> </div>
                                 </div>
-                                <p>Hợp tác xã chăn nuôi</p>
+                                <p>${product.shopName}</p>
                                 <div class="shop-buttons d-block d-sm-flex align-items-center">
                                     <div class="product-quantity" id="quantity">
                                         <button type="button" id="sub" class="sub">-</button>
@@ -244,7 +245,7 @@
 
                     <div id="des" class="tabcontent">
                         <h4>
-                            🔥 TỐT CHO SỨC KHỎE GIA ĐÌNH : 
+                            ${product.description}
                         </h4>
                     </div>
 
