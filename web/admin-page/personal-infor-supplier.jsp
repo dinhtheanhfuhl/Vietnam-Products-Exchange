@@ -91,7 +91,8 @@
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>Danh sách <br> sản phẩm</span>                                    </div>
+                                        <span>Danh sách <br> sản phẩm</span>                                    
+                                    </div>
                                 </a>
                             </li>
 

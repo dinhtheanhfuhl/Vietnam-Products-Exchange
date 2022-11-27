@@ -25,6 +25,9 @@ public class Product {
     private String element;
     private int viewNumber;
     private int statusId;
+    private String img;
+    private String mainAddress;
+    private String shopName;
 
     public Product() {
     }
@@ -47,6 +50,49 @@ public class Product {
         this.viewNumber = viewNumber;
         this.statusId = statusId;
     }
+
+    public Product(int productId, int supplierId, int subCateId, String createdDate, String description, String productName, String barCode, String productCertificate, String trademark, String smell, String color, int weight, String packing, String element, int viewNumber, int statusId, String img) {
+        this.productId = productId;
+        this.supplierId = supplierId;
+        this.subCateId = subCateId;
+        this.createdDate = createdDate;
+        this.description = description;
+        this.productName = productName;
+        this.barCode = barCode;
+        this.productCertificate = productCertificate;
+        this.trademark = trademark;
+        this.smell = smell;
+        this.color = color;
+        this.weight = weight;
+        this.packing = packing;
+        this.element = element;
+        this.viewNumber = viewNumber;
+        this.statusId = statusId;
+        this.img = img;
+    }
+
+    public Product(int productId, int supplierId, int subCateId, String createdDate, String description, String productName, String barCode, String productCertificate, String trademark, String smell, String color, int weight, String packing, String element, int viewNumber, int statusId, String img, String mainAddress, String shopName) {
+        this.productId = productId;
+        this.supplierId = supplierId;
+        this.subCateId = subCateId;
+        this.createdDate = createdDate;
+        this.description = description;
+        this.productName = productName;
+        this.barCode = barCode;
+        this.productCertificate = productCertificate;
+        this.trademark = trademark;
+        this.smell = smell;
+        this.color = color;
+        this.weight = weight;
+        this.packing = packing;
+        this.element = element;
+        this.viewNumber = viewNumber;
+        this.statusId = statusId;
+        this.img = img;
+        this.mainAddress = mainAddress;
+        this.shopName = shopName;
+    }
+    
 
     public int getProductId() {
         return productId;
@@ -174,6 +220,30 @@ public class Product {
 
     public void setStatusId(int statusId) {
         this.statusId = statusId;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public String getMainAddress() {
+        return mainAddress;
+    }
+
+    public void setMainAddress(String mainAddress) {
+        this.mainAddress = mainAddress;
+    }
+
+    public String getShopName() {
+        return shopName;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
     }
 
     @Override

@@ -1,6 +1,5 @@
 package dao;
 
-import dbconnect.DBConnect;
 import entity.Product;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -126,6 +125,40 @@ public class ProductDAO {
         return products;
     }
 
+    public List<Product> getAllProduct2() {
+        List<Product> products = new ArrayList<>();
+        String strSelectAll = "SELECT *\n"
+                + "FROM Product LEFT JOIN ProductImage\n"
+                + "ON Product.ProductID = ProductImage.ProductID";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setProductId(rs.getInt("ProductID"));
+                product.setSupplierId(rs.getInt("SupplierID"));
+                product.setSubCateId(rs.getInt("SubCateID"));
+                product.setCreatedDate(rs.getString("CreatedDate"));
+                product.setDescription(rs.getString("Description"));
+                product.setProductName(rs.getString("ProductName"));
+                product.setBarCode(rs.getString("BarCode"));
+                product.setProductCertificate(rs.getString("ProductCertificate"));
+                product.setTrademark(rs.getString("Trademark"));
+                product.setSmell(rs.getString("Smell"));
+                product.setColor(rs.getString("Color"));
+                product.setWeight(rs.getInt("Weight"));
+                product.setPacking(rs.getString("Packing"));
+                product.setElement(rs.getString("Element"));
+                product.setViewNumber(rs.getInt("ViewNumber"));
+                product.setImg(rs.getString("ImgPath"));
+                products.add(product);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return products;
+    }
+
     public Product getProductById(int id) {
         Product product = null;
         String strSelectById = "select * from Product where ProductID=?";
@@ -151,6 +184,43 @@ public class ProductDAO {
                 product.setElement(rs.getString("Element"));
                 product.setViewNumber(rs.getInt("ViewNumber"));
                 product.setStatusId(rs.getInt("StatusID"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return product;
+    }
+
+    public Product getProductById2(String id) {
+        Product product = null;
+        String strSelectById = "SELECT *\n"
+                + "FROM Product LEFT JOIN ProductImage\n"
+                + "ON Product.ProductID = ProductImage.ProductID LEFT JOIN Supplier ON Product.SupplierID = Supplier.SupplierID  where Product.ProductID=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                product = new Product();
+                product.setProductId(rs.getInt("ProductID"));
+                product.setSupplierId(rs.getInt("SupplierID"));
+                product.setSubCateId(rs.getInt("SubCateID"));
+                product.setCreatedDate(rs.getString("CreatedDate"));
+                product.setDescription(rs.getString("Description"));
+                product.setProductName(rs.getString("ProductName"));
+                product.setBarCode(rs.getString("BarCode"));
+                product.setProductCertificate(rs.getString("ProductCertificate"));
+                product.setTrademark(rs.getString("Trademark"));
+                product.setSmell(rs.getString("Smell"));
+                product.setColor(rs.getString("Color"));
+                product.setWeight(rs.getInt("Weight"));
+                product.setPacking(rs.getString("Packing"));
+                product.setElement(rs.getString("Element"));
+                product.setViewNumber(rs.getInt("ViewNumber"));
+                product.setStatusId(rs.getInt("StatusID"));
+                product.setImg(rs.getString("ImgPath"));
+                product.setMainAddress(rs.getString("MainAddress"));
+                product.setShopName(rs.getString("ShopName"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

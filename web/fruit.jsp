@@ -1,4 +1,5 @@
 <!doctype html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -86,7 +87,7 @@
 
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="./fruit.jsp">Trái cây</a>
+                                        <a class="dropdown-item" href="MinimartProductController">Trái cây</a>
                                         <a class="dropdown-item" href="./dokho.html">Rau củ sạch</a>
                                         <a class="dropdown-item" href="./dokho.html">Các loại hạt</a>
                                     </div>
@@ -95,7 +96,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link waves-effect text-header" href="./contact.html">Liên hệ</a>
+                                <a class="nav-link waves-effect text-header" href="./contact.jsp">Liên hệ</a>
                             </li>
                         </ul>
 
@@ -230,29 +231,31 @@
                             </select>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4 col-md-6">
-                                <div class="single-shop-box">
-                                    <div class="thumb text-center">
-                                        <img src="./image/shop-grid-1.jpg" alt="">
-                                        <div class="cart-list-icon">
-                                            <ul>
-                                                <li class="shopping-bag"><a href="#"><i class="fal fa-shopping-bag"></i></a></li>
-                                                <li><a href="#"><i class="fal fa-heart"></i></a></li>
-                                                <li><a href="#"><i class="fal fa-eye"></i></a></li>
-                                            </ul>
+                            <c:forEach items="${listP}" var="o" >
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-shop-box">
+                                        <div class="thumb text-center">
+                                            <img src="${o.img}" alt="">
+                                            <div class="cart-list-icon">
+                                                <ul>
+                                                    <li class="shopping-bag"><a href="#"><i class="fal fa-shopping-bag"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-heart"></i></a></li>
+                                                    <li><a href="#"><i class="fal fa-eye"></i></a></li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="content">
-                                        <input type="hidden" id="productId" value="1">
-                                        <a href="#">Cải Bắp</a>
-                                        <div class="pricing">
-                                            <div class="discount-price"><span>25.000 </span>  </div> 
-                                            <div class="regular-price"><span>30.000 </span> </div>
+                                        <div class="content">
+
+                                            <input type="hidden" id="productId" value="1">
+                                            <a href="MimartDetailProduct?pid=${o.productId}">${o.productName}</a>
+                                            <div class="pricing">
+                                                <div class="discount-price"><span>25.000 </span>  </div> 
+                                                <div class="regular-price"><span>30.000 </span> </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
+                            </c:forEach>
                             <div class="col-lg-12">
                                 <div class="bisylms-pagination">
                                     <span class="current">1</span>
@@ -261,6 +264,7 @@
                                     <a class="next" href="#">next<i class="fal fa-arrow-right"></i></a>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
