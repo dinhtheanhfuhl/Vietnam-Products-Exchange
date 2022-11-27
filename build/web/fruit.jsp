@@ -231,11 +231,11 @@
                             </select>
                         </div>
                         <div class="row">
-                            <c:forEach var="o" items="${mapImages.keySet()}">
+                            <c:forEach var="key" items="${mapImages.keySet()}">
                                 <div class="col-lg-4 col-md-6">
                                     <div class="single-shop-box">
                                         <div class="thumb text-center">
-                                            <img src="${o.img}" alt="">
+                                            <img src="${mapImages.get(key).get(0).getImgPath()}" alt="">
                                             <div class="cart-list-icon">
                                                 <ul>
                                                     <li class="shopping-bag"><a href="#"><i class="fal fa-shopping-bag"></i></a></li>
@@ -247,12 +247,12 @@
                                         <div class="content">
 
                                             <input type="hidden" id="productId" value="1">
-                                            <a href="MimartDetailProduct?pid=${o.productId}">${o.productName}</a>
+                                            <a href="MimartDetailProduct?pid=${key.productId}">${key.productName}</a>
                                             <div class="pricing">
                                                 <div class="discount-price"><span>25.000 </span>  </div> 
                                             </div>
                                             <p>City</p>
-                                            <p>${o.weight}Kg</p>
+                                            <p>${key.weight}Kg</p>
                                         </div>
                                     </div>
                                 </div>
