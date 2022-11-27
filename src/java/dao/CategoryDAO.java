@@ -71,7 +71,7 @@ public class CategoryDAO {
         }
         return categorys;
     }
-
+   
     public Category getCategoryById(int id) {
         Category category = null;
         String strSelectById = "select * from Category where CateID=?";

@@ -8,7 +8,6 @@ import dao.ProductDAO;
 import dbconnect.DBConnect;
 import entity.Product;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +35,7 @@ public class MimartDetailProduct extends HttpServlet {
         String id = request.getParameter("pid");
         Connection connection = DBConnect.getConnection();
         ProductDAO productDAO = new ProductDAO(connection);
-        Product product = productDAO.getProductById2(id);
+        Product product = productDAO.getProductByProductId(id);
         request.setAttribute("product", product);
         request.getRequestDispatcher("productdetail.jsp").forward(request, response);
     }
