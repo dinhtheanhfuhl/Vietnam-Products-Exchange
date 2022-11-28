@@ -146,4 +146,31 @@ public class CustomerDAO {
         }
         return customer;
     }
+    public Customer getCustomerByAccId(int accId) {
+        Customer customer = null;
+        String strSelectById = "select * from Customer where AccID=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setInt(1, accId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                customer = new Customer();
+                customer.setCustomerId(rs.getInt("CustomerID"));
+                customer.setCustomerName(rs.getString("CustomerName"));
+                customer.setAccId(rs.getInt("AccID"));
+                customer.setDateBirth(rs.getString("DateBirth"));
+                customer.setGender(rs.getString("Gender"));
+                customer.setEmail(rs.getString("Email"));
+                customer.setPhone(rs.getString("Phone"));
+                customer.setShopName(rs.getString("ShopName"));
+                customer.setMainAddress(rs.getString("MainAddress"));
+                customer.setCityId(rs.getInt("CityID"));
+                customer.setBusinessLicense(rs.getString("BusinessLicense"));
+                customer.setAvartarImg(rs.getString("AvartarImg"));
+            }
+        } catch (SQLException e) {
+           System.out.println(e.getMessage());
+        }
+        return customer;
+    }
 }

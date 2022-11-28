@@ -6,7 +6,11 @@
     </servlet>
     <servlet>
         <servlet-name>MimartDetailProduct</servlet-name>
-        <servlet-class>controller.MimartDetailProduct</servlet-class>
+        <servlet-class>controller.MinimartDetailProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomeControler</servlet-name>
+        <servlet-class>controller.HomeController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MinimartProductController</servlet-name>
@@ -16,13 +20,13 @@
         <servlet-name>MimartDetailProduct</servlet-name>
         <url-pattern>/MimartDetailProduct</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeControler</servlet-name>
+        <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <servlet>
-        <servlet-name>HomeController</servlet-name>
-        <servlet-class>controller.HomeController</servlet-class>
-    </servlet>
 </web-app>
