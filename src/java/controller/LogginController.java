@@ -1,9 +1,11 @@
 package controller;
 
 import dao.AccountDAO;
+import dao.CustomerDAO;
 import dao.SystemManagerDAO;
 import dbconnect.DBConnect;
 import entity.Account;
+import entity.Customer;
 import entity.SystemManager;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -47,7 +49,6 @@ public class LogginController extends HttpServlet {
                 session.setAttribute("email", email);
                 session.setAttribute("password", password);
                 session.setAttribute("roleId", account.getRoldId());
-
                 switch (account.getRoldId()) {
                     case 1:
                         SystemManagerDAO systemManagerDAO = new SystemManagerDAO(connection);
@@ -67,11 +68,11 @@ public class LogginController extends HttpServlet {
                         response.sendRedirect("login.jsp");
                         break;
                     case 4:
-                        SystemManagerDAO systemManagerDAO2 = new SystemManagerDAO(connection);
-                        SystemManager systemManager2 = systemManagerDAO2.getSystemManagerByAccId(account.getRoldId());
-                        session.setAttribute("nameUser", systemManager2.getName());
-                        session.setAttribute("systemManager", systemManager2);
-                        response.sendRedirect("home.jsp");
+                        CustomerDAO customerDAO = new CustomerDAO(connection);
+                        Customer customer = customerDAO.getCustomerByAccId(account.getAccId());
+                        session.setAttribute("nameUser", customer.getCustomerName());
+                        session.setAttribute("customer", customer);
+                        response.sendRedirect("Home");
                         break;
                     default:
                         break;
