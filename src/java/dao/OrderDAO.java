@@ -4,7 +4,6 @@
  */
 package dao;
 
-import entity.Cart;
 import entity.Order;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
