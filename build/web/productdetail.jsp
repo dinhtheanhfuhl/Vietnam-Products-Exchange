@@ -226,7 +226,7 @@
                                         <input type="text" id="1" value="1" />
                                         <button type="button" id="add" class="add">+</button>
                                     </div>
-                                    <a class="main-btn ml-10" href="#">Thêm vào giỏ</a>
+                                    <a class="main-btn ml-10" href="AddToCartController?proId=${product.productId}">Thêm vào giỏ</a>
                                 </div> 
 
                             </div>

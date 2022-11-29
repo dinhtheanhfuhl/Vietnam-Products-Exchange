@@ -88,7 +88,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <c:forEach items="${listCate}" var="o" >
-                                        <a class="dropdown-item" href="MinimartProductController?cid=${o.cateId}">${o.cateName}</a>
+                                            <a class="dropdown-item" href="MinimartProductController?cid=${o.cateId}">${o.cateName}</a>
                                         </c:forEach>
                                     </div>
                                 </div>
@@ -249,7 +249,13 @@
                                             <input type="hidden" id="productId" value="1">
                                             <a href="MimartDetailProduct?pid=${key.productId}">${key.productName}</a>
                                             <div class="pricing">
-                                                <div class="discount-price"><span>25.000 </span>  </div> 
+                                                <c:forEach var="hierarchy" items="${mapHierarchy.get(key)}">
+
+                                                    <c:if test="${mapHierarchy.get(key).get(1)!=hierarchy}">
+                                                        <div class="discount-price"><span>${hierarchy.price}&nbsp;</span> </div> 
+                                                    </c:if>
+
+                                                </c:forEach>
                                             </div>
                                             <p>City</p>
                                             <p>${key.weight}Kg</p>

@@ -4,20 +4,14 @@
  */
 package controller;
 
-import dao.CategoryDAO;
+import dao.CartItemDAO;
 import dao.ProductDAO;
-import dao.ProductHierarchyDAO;
-import dao.ProductImageDAO;
 import dbconnect.DBConnect;
-import entity.Category;
 import entity.Product;
-import entity.ProductHierarchy;
-import entity.ProductImage;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ductd
  */
-public class MinimartProductController extends HttpServlet {
+public class AddToCartController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,29 +36,8 @@ public class MinimartProductController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         Connection connection = DBConnect.getConnection();
-        ProductDAO productDAO = new ProductDAO(connection);
-        CategoryDAO categoryDAO = new CategoryDAO(connection);
-        ProductImageDAO productImageDAO = new ProductImageDAO(connection);
-        ProductHierarchyDAO productHierarchyDAO = new ProductHierarchyDAO(connection);
-        String id = request.getParameter("cid");
-        List<Product> getAllProductsbyCateId = productDAO.getAllProductsByCateID(id);
-        Map<Product, List<ProductImage>> mapImages = new LinkedHashMap<Product, List<ProductImage>>();
-        for (Product product : getAllProductsbyCateId) {
-            List<ProductImage> images = productImageDAO.getAllProductsImageById(product.getProductId());
-            mapImages.put(product, images);
-        }
-        Map<Product, List<ProductHierarchy>> mapHierarchy = new LinkedHashMap<Product, List<ProductHierarchy>>();
-        for (Product product : getAllProductsbyCateId) {
-            List<ProductHierarchy> hierarchy = productHierarchyDAO.getAllProductsHeirarchyById(product.getProductId());
-            mapHierarchy.put(product, hierarchy);
-            System.out.println(mapHierarchy);
-        }
-        request.setAttribute("mapImages", mapImages);
-        request.setAttribute("mapHierarchy", mapHierarchy);
-        List<Category> allCate = categoryDAO.getAllCategory();
-        request.setAttribute("listCate", allCate);
-        request.getRequestDispatcher("fruit.jsp").forward(request, response);
-
+        CartItemDAO cartItemDAO = new CartItemDAO(connection);
+        String id = request.getParameter("proId");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

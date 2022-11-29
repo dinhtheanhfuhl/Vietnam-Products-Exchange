@@ -87,4 +87,24 @@ public class ProductHierarchyDAO {
         }
         return productHierarchys;
     }
+    public List<ProductHierarchy> getAllProductsHeirarchyById(int productId) {
+
+        String strSelectAll = "select * from ProductHierarchy where ProductID = ?";
+        List<ProductHierarchy> productImages = new ArrayList<>();
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                ProductHierarchy productHierarchy = new ProductHierarchy();
+                productHierarchy.setProductId(rs.getInt("ProductID"));
+                productHierarchy.setQuantity(rs.getInt("Quantity"));
+                productHierarchy.setPrice(rs.getInt("Price"));
+                productImages.add(productHierarchy);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return productImages;
+    }
 }
