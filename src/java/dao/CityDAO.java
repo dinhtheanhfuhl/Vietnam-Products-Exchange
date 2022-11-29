@@ -1,6 +1,5 @@
 package dao;
 
-
 import entity.City;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,12 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CityDAO {
+
     private final Connection connection;
 
     public CityDAO(Connection connection) {
         this.connection = connection;
     }
-    
+
     public int saveCity(City city) {
         int status = 0;
         String strInsert = "insert into City(CityName) values(?)";
@@ -25,7 +25,7 @@ public class CityDAO {
             ps.setString(1, city.getCityName());
             status = ps.executeUpdate();
         } catch (SQLException e) {
-           System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
         return status;
     }
@@ -93,4 +93,27 @@ public class CityDAO {
         }
         return city;
     }
+
+    public List<City> getCitiesByProductId(int productId) {
+
+        String strSelectAll = "select * from City INNER JOIN Supplier ON City.CityID = Supplier.CityID \n"
+                + "INNER JOIN Product on Supplier.SupplierID = Product.SupplierID where Product.ProductID=?";
+
+        List<City> productCities = new ArrayList<>();
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                City city = new City();
+                city.setCityId(rs.getInt("CityID"));
+                city.setCityName(rs.getString("CityName"));
+                productCities.add(city);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return productCities;
+    }
+
 }

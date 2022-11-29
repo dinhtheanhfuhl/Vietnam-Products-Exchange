@@ -5,14 +5,18 @@
 package controller;
 
 import dao.CategoryDAO;
+import dao.CityDAO;
 import dao.ProductDAO;
 import dao.ProductHierarchyDAO;
 import dao.ProductImageDAO;
+import dao.SubCategoryDAO;
 import dbconnect.DBConnect;
 import entity.Category;
+import entity.City;
 import entity.Product;
 import entity.ProductHierarchy;
 import entity.ProductImage;
+import entity.SubCategory;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.LinkedHashMap;
@@ -45,6 +49,8 @@ public class MinimartProductController extends HttpServlet {
         ProductDAO productDAO = new ProductDAO(connection);
         CategoryDAO categoryDAO = new CategoryDAO(connection);
         ProductImageDAO productImageDAO = new ProductImageDAO(connection);
+        SubCategoryDAO subcategoryDAO = new SubCategoryDAO(connection);
+        CityDAO cityDAO = new CityDAO(connection);
         ProductHierarchyDAO productHierarchyDAO = new ProductHierarchyDAO(connection);
         String id = request.getParameter("cid");
         List<Product> getAllProductsbyCateId = productDAO.getAllProductsByCateID(id);
@@ -57,12 +63,21 @@ public class MinimartProductController extends HttpServlet {
         for (Product product : getAllProductsbyCateId) {
             List<ProductHierarchy> hierarchy = productHierarchyDAO.getAllProductsHeirarchyById(product.getProductId());
             mapHierarchy.put(product, hierarchy);
-            System.out.println(mapHierarchy);
+        }
+        Map<Product, List<City>> mapCity = new LinkedHashMap<Product, List<City>>();
+        for (Product product : getAllProductsbyCateId) {
+            List<City> city = cityDAO.getCitiesByProductId(product.getProductId());
+            mapCity.put(product, city);
         }
         request.setAttribute("mapImages", mapImages);
         request.setAttribute("mapHierarchy", mapHierarchy);
+        request.setAttribute("mapCity", mapCity);
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
+        List<City> allCities = cityDAO.getAllCity();
+        request.setAttribute("allCities", allCities);
+        List<SubCategory> allSubCategory = subcategoryDAO.getAllCategory();
+        request.setAttribute("allSubCategory", allSubCategory);
         request.getRequestDispatcher("fruit.jsp").forward(request, response);
 
     }
