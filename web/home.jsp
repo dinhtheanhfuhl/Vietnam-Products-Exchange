@@ -1,4 +1,5 @@
 <!doctype html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -46,7 +47,7 @@
                 <div class="container-fluid">
 
                     <!-- Brand -->
-                    <a class="navbar-brand waves-effect" href="./home.jsp">
+                    <a class="navbar-brand waves-effect" href="Home">
                         <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                     </a>
 
@@ -87,9 +88,9 @@
 
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="./fruit.jsp">Trái cây</a>
-                                        <a class="dropdown-item" href="./dokho.html">Rau củ sạch</a>
-                                        <a class="dropdown-item" href="./dokho.html">Các loại hạt</a>
+                                        <c:forEach items="${listCate}" var="o" >
+                                            <a class="dropdown-item" href="MinimartProductController?cid=${o.cateId}">${o.cateName}</a>
+                                        </c:forEach>
                                     </div>
                                 </div>
 

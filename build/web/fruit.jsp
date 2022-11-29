@@ -1,5 +1,7 @@
 <!doctype html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -46,7 +48,7 @@
                 <div class="container-fluid">
 
                     <!-- Brand -->
-                    <a class="navbar-brand waves-effect" href="./home.jsp">
+                    <a class="navbar-brand waves-effect" href="Home">
                         <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                     </a>
 
@@ -63,7 +65,7 @@
                         <!-- Left -->
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active" style="padding-left: 40px;">
-                                <a class="nav-link waves-effect  text-header" href="./home.jsp">Trang chủ
+                                <a class="nav-link waves-effect  text-header" href="Home">Trang chủ
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -165,7 +167,7 @@
         <section class="breadcrum">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
-                    <li class="breadcrumb-item"><a href="./home.jsp">Home</a></li>
+                    <li class="breadcrumb-item"><a href="Home">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Danh mục sản phẩm</li>
                 </ol>
             </nav>
@@ -186,30 +188,27 @@
                                     </div></form>
                             </div>
                             <div class="shop-category-widget">
-                                <h4 class="title">Danh Mục Sản Phẩm</h4>
+                                <h4 class="title">Khu vực giao hàng</h4>
                                 <ul>
-                                    <li ><a href="./raucusach.html" >Rau củ sạch</a></li>
-                                    <li class="fruit"><a href="./hoaqua.html">Hoa quả</a></li>
-                                    <li><a href="./dokho.html">Đồ khô</a></li>
-                                    <li ><a href="./vungmien.html">Đặc sản vùng miền</a></li>
-                                    <li ><a href="./tuoisong.html">Thực phẩm tươi sống</a></li>
-                                    <li><a href="./thucphamkhac.html">Sản phẩm khác</a></li>
+                                    <select id="city" onchange="location = this.value;" class="form-control">
+                                        <c:forEach items="${allCities}" var="o" >
+                                        <option value="${o.cityId}">${o.cityName}</option>
+                                        </c:forEach>
+                                    </select>
+                                  
+                                </ul>
+                            </div>
+                            <div class="shop-category-widget">
+                                <h4 class="title">Danh mục cấp 2</h4>
+                                <ul>
+                                    <select id="city" onchange="location = this.value;" class="form-control">
+                                        <c:forEach items="${allSubCategory}" var="o" >
+                                            <option value="dropdown-item">${o.subCateName}</option>
+                                        </c:forEach>
+                                    </select>
                                 </ul>
                             </div>
 
-                            <div class="shop-tags-bar">
-                                <h4 class="title">Sản phẩm phổ biến</h4>
-                                <ul>
-                                    <li><a href="#">Chuối</a></li>
-                                    <li><a href="#">Thịt trâu</a></li>
-                                    <li><a href="#">Táo</a></li>
-                                    <li><a href="#">Gạo</a></li>
-                                    <li><a href="#">Cà Phê</a></li>
-                                    <li><a href="#">Hạt Điều</a></li>
-                                    <li><a href="#">cải Bắp</a></li>
-                                    <li><a href="#">Cải Gồng</a></li>
-                                </ul>
-                            </div>
                             <div class="shop-sidebar">
                                 <a href="./shop.html" class="image-hover">
                                     <img src="./image/banner10-min.jpg" alt="">
@@ -252,13 +251,15 @@
                                                 <c:forEach var="hierarchy" items="${mapHierarchy.get(key)}">
 
                                                     <c:if test="${mapHierarchy.get(key).get(1)!=hierarchy}">
-                                                        <div class="discount-price"><span>${hierarchy.price}&nbsp;</span> </div> 
-                                                    </c:if>
-
-                                                </c:forEach>
+                                                        <div class="discount-price"> <span>đ<fmt:formatNumber type = "number" 
+                                                                          pattern = "" value = "${hierarchy.price}" />&nbsp;&nbsp;</span> </div> 
+                                                            </c:if>
+                                                        </c:forEach>
                                             </div>
-                                            <p>City</p>
-                                            <p>${key.weight}Kg</p>
+
+
+                                            <p>${mapCity.get(key).get(0).getCityName()}</p>
+                                            <p>Khối lượng: ${key.weight} Kg</p>
                                         </div>
                                     </div>
                                 </div>
