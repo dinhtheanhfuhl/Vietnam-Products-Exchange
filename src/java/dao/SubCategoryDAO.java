@@ -67,11 +67,12 @@ public class SubCategoryDAO {
         return status;
     }
 
-    public List<SubCategory> getAllCategory() {
+    public List<SubCategory> getAllSubCateByCateId(String cateId) {
         List<SubCategory> subCategorys = new ArrayList<>();
-        String strSelectAll = "select * from SubCategory";
+        String strSelectAll = "select * from SubCategory where CateID = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setString(1, cateId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 SubCategory subCategory = new SubCategory();

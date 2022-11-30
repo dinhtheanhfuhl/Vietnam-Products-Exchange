@@ -6,11 +6,16 @@ package controller;
 
 import dao.CartDAO;
 import dao.CartItemDAO;
+import dao.CategoryDAO;
+import dao.ProductDAO;
 import dbconnect.DBConnect;
 import entity.CartItem;
+import entity.Category;
 import entity.Customer;
+import entity.Product;
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,7 +43,10 @@ public class AddToCartController extends HttpServlet {
         Connection connection = DBConnect.getConnection();
         CartItemDAO cartItemDAO = new CartItemDAO(connection);
         CartDAO cartDAO = new CartDAO(connection);
-
+        ProductDAO productDAO = new ProductDAO(connection);
+        String id = request.getParameter("pid");
+        Product product = productDAO.getProductByProductId(id);
+        request.setAttribute("product", product);
         int productid = Integer.parseInt(request.getParameter("proId"));
         String amountstr = request.getParameter("amount");
         int amount = Integer.parseInt(amountstr);
@@ -52,11 +60,19 @@ public class AddToCartController extends HttpServlet {
 
         if (cartItem == null) {
             cartItemDAO.insertCartItem(cartId, productid, amount);
+            request.setAttribute("message", "Sản phẩm đã được thêm vào giỏ hàng");    
+            request.setAttribute("alert", "success");    
         } else {
             amount = amount + cartItem.getAmount();
             cartItemDAO.updateAmount(amount, cartId, productid);
+            request.setAttribute("message", "Sản phẩm đã được thêm vào giỏ hàng");    
+            request.setAttribute("alert", "success");    
         }
+        CategoryDAO categoryDAO = new CategoryDAO(connection);
+        List<Category> allCate = categoryDAO.getAllCategory();
+        request.setAttribute("listCate", allCate);
         request.getRequestDispatcher("productdetail.jsp").forward(request, response);
+                
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

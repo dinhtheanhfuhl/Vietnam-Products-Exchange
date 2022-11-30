@@ -175,47 +175,45 @@
         <div class="orfarm-shop-grid-area pt-100 pb-50">
             <div class="container">
                 <div class="row">
+
                     <div class="col-lg-3 order-2 order-lg-1">
                         <div class="orfarm-shop-sidebar">
-                            <div class="shop-price-filter">
-                                <h4 class="title">Lọc theo giá</h4>
-                                <form>
+                            <form>
+                                <div class="shop-price-filter">
+                                    <h4 class="title">Lọc theo giá</h4>
                                     <div class="price-range">
                                         <label for="">
                                             <input type="number" placeholder="Từ" class="form-control"> - 
                                             <input type="number" placeholder="Đến" class="form-control"></label>                                    
-                                        <button class=" btn btn-warning status" id="canceled">  Lọc </button>
-                                    </div></form>
-                            </div>
-                            <div class="shop-category-widget">
-                                <h4 class="title">Khu vực giao hàng</h4>
-                                <ul>
-                                    <select id="city" onchange="location = this.value;" class="form-control">
-                                        <c:forEach items="${allCities}" var="o" >
-                                        <option value="${o.cityId}">${o.cityName}</option>
-                                        </c:forEach>
-                                    </select>
-                                  
-                                </ul>
-                            </div>
-                            <div class="shop-category-widget">
-                                <h4 class="title">Danh mục cấp 2</h4>
-                                <ul>
-                                    <select id="city" onchange="location = this.value;" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="shop-category-widget">
+                                    <h4 class="title">Danh mục cấp 2</h4>
+                                    <ul>
                                         <c:forEach items="${allSubCategory}" var="o" >
-                                            <option value="dropdown-item">${o.subCateName}</option>
+                                            <input type="checkbox" id="subcate" name="" value="">
+                                            <label for="subcate">${o.subCateName}</label><br>
                                         </c:forEach>
-                                    </select>
-                                </ul>
-                            </div>
+                                    </ul>
+                                </div>
+                                <div class="shop-category-widget">
+                                    <h4 class="title">Khu vực giao hàng</h4>
+                                    <ul>
+                                        <select id="city"  class="form-control">
+                                            <c:forEach items="${allCities}" var="o" >
+                                                <option value="">Tất cả thành phố</option>
+                                                <option value="${o.cityId}">${o.cityName}</option>
+                                            </c:forEach>
+                                        </select>
 
-                            <div class="shop-sidebar">
-                                <a href="./shop.html" class="image-hover">
-                                    <img src="./image/banner10-min.jpg" alt="">
-                                </a>
-                            </div>
+                                    </ul>
+                                </div>
+                                <button class=" btn btn-warning status" type="submit" id="">  Lọc </button>
+
+                            </form>
                         </div>
                     </div>
+
                     <div class="col-lg-9 order-1 order-lg-2">
                         <div class="row">
                             <div class="banner-collection pb-5 w-300">

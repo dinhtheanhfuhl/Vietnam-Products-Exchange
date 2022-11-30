@@ -5,11 +5,19 @@
 package controller;
 
 import dao.CategoryDAO;
+import dao.ProductDAO;
+import dao.ProductImageDAO;
+import dao.SupplierDAO;
 import dbconnect.DBConnect;
 import entity.Category;
+import entity.Product;
+import entity.ProductImage;
+import entity.Supplier;
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +43,36 @@ public class HomeController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         Connection connection = DBConnect.getConnection();
         CategoryDAO categoryDAO = new CategoryDAO(connection);
+        ProductImageDAO productImageDAO = new ProductImageDAO(connection);
+        ProductDAO productDAO = new ProductDAO(connection);
+        SupplierDAO supplierDAO = new SupplierDAO(connection);
+        List<Product> getTop5 = productDAO.getTop5ProductOrderByView();
+        
+        Map<Product, List<ProductImage>> mapImages = new LinkedHashMap<Product, List<ProductImage>>();
+        for (Product product : getTop5) {
+            List<ProductImage> images = productImageDAO.getAllProductsImageById(product.getProductId());
+            mapImages.put(product, images);
+        }
+        Map<Product, List<Supplier>> mapSuppliers = new LinkedHashMap<Product, List<Supplier>>();
+        for (Product product : getTop5) {
+            List<Supplier> supplier = supplierDAO.getSupplierByProId(product.getProductId());
+            mapSuppliers.put(product, supplier);
+        }
+        List<Product> getTop4Newest = productDAO.getTop4ProductNewest();
+        Map<Product, List<ProductImage>> mapImages2 = new LinkedHashMap<Product, List<ProductImage>>();
+        for (Product product : getTop4Newest) {
+            List<ProductImage> images = productImageDAO.getAllProductsImageById(product.getProductId());
+            mapImages2.put(product, images);
+        }
+        Map<Product, List<Supplier>> mapSuppliers2 = new LinkedHashMap<Product, List<Supplier>>();
+        for (Product product : getTop4Newest) {
+            List<Supplier> supplier = supplierDAO.getSupplierByProId(product.getProductId());
+            mapSuppliers2.put(product, supplier);
+        }
+        request.setAttribute("mapImages", mapImages);
+        request.setAttribute("mapSuppliers", mapSuppliers);
+        request.setAttribute("mapImages2", mapImages2);
+        request.setAttribute("mapSupplier2", mapSuppliers2);
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
         request.getRequestDispatcher("home.jsp").forward(request, response);

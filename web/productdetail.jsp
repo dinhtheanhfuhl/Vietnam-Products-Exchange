@@ -175,14 +175,19 @@
         <main>
             <section class="shop-details-area pt-100 pb-100">
                 <div class="container">
-                    <div class="row ">
-                        <div class="col-lg-6">
-                            <div class="shop-details-thumb">
-                                <div class="shop-details-thumb-slider-active">
-                                    <div class="item ">
-                                        <img src="${product.img}" alt="">
-                                    </div>
+                    <c:if test="${not empty message}">
+                        <div class="alert alert-${alert}" role="alert">
+                            ${message}
+                        </div>
+                    </c:if>
 
+                        <div class="row ">
+                            <div class="col-lg-6">
+                                <div class="shop-details-thumb">
+                                    <div class="shop-details-thumb-slider-active">
+                                        <div class="item ">
+                                            <img src="${product.img}" alt="">
+                                    </div>
                                 </div>
                             </div>
                             <div class="shop-small-slider-active mt-10">
@@ -198,7 +203,6 @@
                                 <div class="item">
                                     <img src="assets/images/shop-details-small-4.jpg" alt="">
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -213,19 +217,20 @@
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Danh mục</span> </div>
                                 </div>
-                                <p>Danh mục cấp 1 - Danh mục cấp 2</p>
+                                <p>${product.subCateId}</p>
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Trọng lượng</span> </div>
                                 </div>
                                 <p>${product.weight} Kg</p>
-                               
+
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Nhà cung cấp</span> </div>
                                 </div>
                                 <p>${product.shopName}</p>
-                                <form action="AddToCartController" method="post">
+                                <form action="AddToCartController?pid=${product.productId}" method="post">
                                     <div class="shop-buttons d-block d-sm-flex align-items-center">
                                         <input class="form-control" required="" type="number" placeholder="Nhập trọng lượng" name="amount" style="width: 150px;" />
+                                        
                                         <input class="main-btn ml-10" type="submit" value="Thêm vào giỏ">
                                         <input type="hidden" name="proId" value="${product.productId}">
                                     </div> 

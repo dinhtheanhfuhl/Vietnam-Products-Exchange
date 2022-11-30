@@ -125,6 +125,69 @@ public class ProductDAO {
         return products;
     }
 
+    public List<Product> getTop5ProductOrderByView() {
+        List<Product> products = new ArrayList<>();
+        String strSelectAll = "select top 5 * from Product order by ViewNumber desc";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setProductId(rs.getInt("ProductID"));
+                product.setSupplierId(rs.getInt("SupplierID"));
+                product.setSubCateId(rs.getInt("SubCateID"));
+                product.setCreatedDate(rs.getString("CreatedDate"));
+                product.setDescription(rs.getString("Description"));
+                product.setProductName(rs.getString("ProductName"));
+                product.setBarCode(rs.getString("BarCode"));
+                product.setProductCertificate(rs.getString("ProductCertificate"));
+                product.setTrademark(rs.getString("Trademark"));
+                product.setSmell(rs.getString("Smell"));
+                product.setColor(rs.getString("Color"));
+                product.setWeight(rs.getInt("Weight"));
+                product.setPacking(rs.getString("Packing"));
+                product.setElement(rs.getString("Element"));
+                product.setViewNumber(rs.getInt("ViewNumber"));
+                product.setStatusId(rs.getInt("StatusID"));
+                products.add(product);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return products;
+    }
+    public List<Product> getTop4ProductNewest() {
+        List<Product> products = new ArrayList<>();
+        String strSelectAll = "select top 4 * from Product order by CreatedDate desc";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setProductId(rs.getInt("ProductID"));
+                product.setSupplierId(rs.getInt("SupplierID"));
+                product.setSubCateId(rs.getInt("SubCateID"));
+                product.setCreatedDate(rs.getString("CreatedDate"));
+                product.setDescription(rs.getString("Description"));
+                product.setProductName(rs.getString("ProductName"));
+                product.setBarCode(rs.getString("BarCode"));
+                product.setProductCertificate(rs.getString("ProductCertificate"));
+                product.setTrademark(rs.getString("Trademark"));
+                product.setSmell(rs.getString("Smell"));
+                product.setColor(rs.getString("Color"));
+                product.setWeight(rs.getInt("Weight"));
+                product.setPacking(rs.getString("Packing"));
+                product.setElement(rs.getString("Element"));
+                product.setViewNumber(rs.getInt("ViewNumber"));
+                product.setStatusId(rs.getInt("StatusID"));
+                products.add(product);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return products;
+    }
+
     public Product getProductById(int id) {
         Product product = null;
         String strSelectById = "select * from Product where ProductID=?";
@@ -226,6 +289,7 @@ public class ProductDAO {
         }
         return products;
     }
+
     public List<Product> getAllProductsByCartID(int id) {
         List<Product> products = new ArrayList<>();
         String strSelectAll = "select * from Product INNER JOIN CartItem ON Product.ProductID = CartItem.ProductID where CartItem.CartID = ?";
