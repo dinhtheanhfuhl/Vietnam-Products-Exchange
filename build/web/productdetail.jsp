@@ -46,7 +46,7 @@
                 <div class="container-fluid">
 
                     <!-- Brand -->
-                    <a class="navbar-brand waves-effect" href="./home.jsp">
+                    <a class="navbar-brand waves-effect" href="Home">
                         <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                     </a>
 
@@ -63,7 +63,7 @@
                         <!-- Left -->
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active" style="padding-left: 40px;">
-                                <a class="nav-link waves-effect  text-header" href="./home.jsp">Trang chủ
+                                <a class="nav-link waves-effect  text-header" href="Home">Trang chủ
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -87,28 +87,35 @@
 
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="./hoaqua.html">Trái cây</a>
-                                        <a class="dropdown-item" href="./dokho.html">Rau củ sạch</a>
-                                        <a class="dropdown-item" href="./dokho.html">Các loại hạt</a>
+                                        <c:forEach items="${listCate}" var="o" >
+                                            <a class="dropdown-item" href="MinimartProductController?cid=${o.cateId}">${o.cateName}</a>
+                                        </c:forEach>
                                     </div>
                                 </div>
 
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link waves-effect text-header" href="./contact.html">Liên hệ</a>
+                                <a class="nav-link waves-effect text-header" href="./contact.jsp">Liên hệ</a>
                             </li>
                         </ul>
 
 
                         <!-- Right -->
                         <ul class="navbar-nav nav-flex-icons">
+                            <li class="nav-item">
+                                <div class="input-group rounded">
+                                    <input type="search" class="form-control " placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" />
+                                    <span class="input-group-text border-0" id="search-addon">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </div>
+                            </li>
                             <li class="nav-item ">
-                                <a href="#"  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i>
+                                <a href="CartController"  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i>
                                     <span class="quantity-amm-shopping-cart-open">0</span></a>
 
                             </li>
-
                             <li class="nav-item">
                                 <div class="dropdown dropdown-user">
                                     <a href="login.jsp" class="nav-link border border-light rounded waves-effect" target="_blank">
@@ -131,7 +138,6 @@
                 </ol>
             </nav>
         </section>
-        <title>Orfarm Store</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -212,17 +218,14 @@
                                     <div class="discount-price mr-15"><span>Trọng lượng</span> </div>
                                 </div>
                                 <p>${product.weight} Kg</p>
-                                <div class="pricing">
-                                    <div class="discount-price mr-15"><span>Địa điểm</span> </div>
-                                </div>
-                                <p>${product.mainAddress}</p>
+                               
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Nhà cung cấp</span> </div>
                                 </div>
                                 <p>${product.shopName}</p>
                                 <form action="AddToCartController" method="post">
                                     <div class="shop-buttons d-block d-sm-flex align-items-center">
-                                        <input class="form-control" type="number" name="amount" style="width: 150px;" />
+                                        <input class="form-control" required="" type="number" placeholder="Nhập trọng lượng" name="amount" style="width: 150px;" />
                                         <input class="main-btn ml-10" type="submit" value="Thêm vào giỏ">
                                         <input type="hidden" name="proId" value="${product.productId}">
                                     </div> 
@@ -455,12 +458,10 @@
                     <div class="col-lg-2 col-sm-6 col-xs-12">
                         <div class="text-footer">
                             <h4>Liên kết</h4>
-                            <p><a href="#">Tìm kiếm</a></p>
-                            <p><a href="#">Giới thiệu</a> </p>
-                            <p><a href="#">Chính sách đổi trả</a></p>
-                            <p><a href="#">Chính sách bảo mật</a></p>
-                            <p><a href="#">Điều khoản dịch vụ</a></p>
-                            <p><a href="#">Liên hệ</a></p>
+                            <p><a href="./information.jsp">Về chúng tôi</a></p>
+                            <p><a href="./policy.jsp">Chính sách bảo mật</a></p>
+                            <p><a href="./condition.jsp">Điều khoản dịch vụ</a></p>
+                            <p><a href="./contact.jsp">Liên hệ</a></p>
 
                         </div>
                     </div>
@@ -553,7 +554,7 @@
                         </ul>
 
                     </div>
-                    </footer>     
+                    </footer>  
                     </body>
                     <script>
                         function openCity(evt, cityName) {
