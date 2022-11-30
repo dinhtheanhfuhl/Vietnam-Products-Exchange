@@ -43,7 +43,25 @@ public class OrderDAO {
         }
         return status;
     }
-    
+
+    public void insertOrder(int customerId, String receiverName, String receiverAddress, String receiverPhone, String Note) {
+        String strInsert = "insert into [Order](CustomerID,RecieverName,RecieverAddress,RecieverPhone,Note) \n"
+                + "values(?,?,?,?,?)";
+
+        try {
+            PreparedStatement ps
+                    = connection.prepareStatement(strInsert);
+            ps.setInt(1, customerId);
+            ps.setString(2, receiverName);
+            ps.setString(3, receiverAddress);
+            ps.setString(4, receiverPhone);
+            ps.setString(5, Note);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+    }
+
     public List<Order> getAllOrders() {
         List<Order> orders = new ArrayList<>();
         String strSelectAll = "select * from [Order]";
@@ -66,7 +84,7 @@ public class OrderDAO {
         }
         return orders;
     }
-    
+
     public Order getOrderById(int id) {
         Order order = null;
         String strSelectById = "select * from [Order] where OrderID=?";

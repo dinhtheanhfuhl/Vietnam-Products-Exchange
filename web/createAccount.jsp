@@ -162,12 +162,12 @@
                                             <span id='message'></span>
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
-                                            <label for="exampleInputPassword1">Ngày sinh</label>
+                                            <label for="exampleInputPassword1">Ngày sinh*</label>
                                             <input type="date" class="form-control"
                                                    placeholder="ngày sinh">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
-                                            <label for="exampleInputPassword1">Giới tính</label>
+                                            <label for="exampleInputPassword1">Giới tính*</label>
                                             <select class="form-control" name="gender" id="gender">
                                                 <option value="male">Nam</option>
                                                 <option value="female">Nữ</option>
@@ -185,7 +185,7 @@
                                                    placeholder="nhập số điện thoại">
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
-                                            <label >Vai trò</label>
+                                            <label >Vai trò*</label>
                                             <select class="form-control" name="role" id="gender">
                                                 <option value="">Nhà cung cấp</option>
                                                 <option value="">Minimart</option>

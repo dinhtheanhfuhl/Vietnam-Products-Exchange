@@ -4,24 +4,22 @@
  */
 package controller;
 
-import dao.CategoryDAO;
-import dao.ProductDAO;
+import dao.OrderDAO;
 import dbconnect.DBConnect;
-import entity.Category;
-import entity.Product;
+import entity.Customer;
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author ductd
  */
-public class MinimartDetailProductController extends HttpServlet {
+public class OrderController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,15 +33,18 @@ public class MinimartDetailProductController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String id = request.getParameter("pid");
         Connection connection = DBConnect.getConnection();
-        ProductDAO productDAO = new ProductDAO(connection);
-        CategoryDAO categoryDAO = new CategoryDAO(connection);
-        Product product = productDAO.getProductByProductId(id);
-        request.setAttribute("product", product);
-        List<Category> allCate = categoryDAO.getAllCategory();
-        request.setAttribute("listCate", allCate);
-        request.getRequestDispatcher("productdetail.jsp").forward(request, response);
+        OrderDAO orderDAO = new OrderDAO(connection);
+        HttpSession session = request.getSession();
+        Customer customer = (Customer) session.getAttribute("customer");
+        int customerid = customer.getCustomerId();
+        String receiverName = request.getParameter("receiverName");
+        String receiverAddress = request.getParameter("receiverAddress");
+        String receiverPhone = request.getParameter("receiverPhone");
+        String note = request.getParameter("note");
+        orderDAO.insertOrder(customerid, receiverName, receiverAddress, receiverPhone, note);
+        request.getRequestDispatcher("CartController").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -146,6 +146,7 @@ public class CustomerDAO {
         }
         return customer;
     }
+    
     public Customer getCustomerByAccId(int accId) {
         Customer customer = null;
         String strSelectById = "select * from Customer where AccID=?";

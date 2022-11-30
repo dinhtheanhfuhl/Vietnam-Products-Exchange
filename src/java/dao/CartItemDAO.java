@@ -88,6 +88,26 @@ public class CartItemDAO {
         return cartItems;
     }
 
+    public List<CartItem> getAllCartItemsByProductId(int customerId) {
+        List<CartItem> cartItems = new ArrayList<>();
+        String strSelectAll = "select * from CartItem INNER JOIN Cart ON CartItem.CartID = Cart.CartID where Cart.CustomerID=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setInt(1, customerId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                CartItem cartItem = new CartItem();
+                cartItem.setCartId(rs.getInt("CartID"));
+                cartItem.setProductId(rs.getInt("ProductID"));
+                cartItem.setAmount(rs.getInt("Amount"));
+                cartItems.add(cartItem);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return cartItems;
+    }
+
     public CartItem getCartItemByProductId(int productid, int cartId) {
         CartItem cartItem = null;
         String strSelectAll = "select * from CartItem where ProductID = ? and CartID = ?";
