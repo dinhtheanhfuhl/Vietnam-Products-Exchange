@@ -4,18 +4,18 @@
  */
 package controller;
 
+import dao.CartDAO;
 import dao.CartItemDAO;
-import dao.ProductDAO;
 import dbconnect.DBConnect;
-import entity.Product;
+import entity.CartItem;
+import entity.Customer;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -37,7 +37,26 @@ public class AddToCartController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         Connection connection = DBConnect.getConnection();
         CartItemDAO cartItemDAO = new CartItemDAO(connection);
-        String id = request.getParameter("proId");
+        CartDAO cartDAO = new CartDAO(connection);
+
+        int productid = Integer.parseInt(request.getParameter("proId"));
+        String amountstr = request.getParameter("amount");
+        int amount = Integer.parseInt(amountstr);
+
+        HttpSession session = request.getSession();
+        Customer customer = (Customer) session.getAttribute("customer");
+        int customerid = customer.getCustomerId();
+        int cartId = cartDAO.getCartIdByCustomerId(customerid);
+
+        CartItem cartItem = cartItemDAO.getCartItemByProductId(productid, cartId);
+
+        if (cartItem == null) {
+            cartItemDAO.insertCartItem(cartId, productid, amount);
+        } else {
+            amount = amount + cartItem.getAmount();
+            cartItemDAO.updateAmount(amount, cartId, productid);
+        }
+        request.getRequestDispatcher("productdetail.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

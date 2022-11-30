@@ -220,15 +220,13 @@
                                     <div class="discount-price mr-15"><span>Nhà cung cấp</span> </div>
                                 </div>
                                 <p>${product.shopName}</p>
-                                <div class="shop-buttons d-block d-sm-flex align-items-center">
-                                    <div class="product-quantity" id="quantity">
-                                        <button type="button" id="sub" class="sub">-</button>
-                                        <input type="text" id="1" value="1" />
-                                        <button type="button" id="add" class="add">+</button>
-                                    </div>
-                                    <a class="main-btn ml-10" href="AddToCartController?proId=${product.productId}">Thêm vào giỏ</a>
-                                </div> 
-
+                                <form action="AddToCartController" method="post">
+                                    <div class="shop-buttons d-block d-sm-flex align-items-center">
+                                        <input class="form-control" type="number" name="amount" style="width: 150px;" />
+                                        <input class="main-btn ml-10" type="submit" value="Thêm vào giỏ">
+                                        <input type="hidden" name="proId" value="${product.productId}">
+                                    </div> 
+                                </form>
                             </div>
                         </div>
                     </div>
