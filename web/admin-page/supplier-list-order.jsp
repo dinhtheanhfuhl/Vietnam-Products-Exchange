@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-        <title>Danh sách sản phẩm chờ duyệt </title>
+        <title>Danh sách đơn hàng</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" .href="./image/578b1438ff0a7fc4704aa5ade7625e89.jpeg" type="image/png">
@@ -75,14 +75,25 @@
                 <div class="">
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
+
                             <li class="menu">
-                                <a href="./admin-product-pending.jsp" class="dropdown-toggle collapsed">
+                                <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>D/s sản phẩm</span>
+                                        <span>Danh sách<br> sản phẩm</span>
                                     </div>
                                 </a>
                             </li>
+                            <li class="menu">
+                                <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-list2"></i>
+                                        <span>Danh sách<br> đơn hàng</span>
+                                    </div>
+                                </a>
+                            </li>
+                            
+
                         </ul>
                     </nav>
 
@@ -97,7 +108,9 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
                             <div class="statbox widget box">
                                 <div class="widget-content-area">
+                                    <h3>Danh sách đơn hàng</h3>
                                     <div class="widget-header mb-5 mt-5">
+
                                         <div class="row">
 
                                             <div class="col-lg-12">
@@ -119,14 +132,9 @@
                                                            type="hidden">
 
                                                     <div id="filter">
-                                                        <input type="text" name="id" placeholder="Mã yêu cầu phê duyệt" value=""
+                                                        <input type="text" name="id" placeholder="Mã đơn hàng" value=""
                                                                class="form-control">
-                                                        <input type="text" name="name" placeholder="Tên sản phẩm" value=""
-                                                               class="form-control">
-                                                        <input type="text" name="danh mục" placeholder="Mã Barcode/SKU" value=""
-                                                               class="form-control"> 
-                                                        <input type="text" name="danh mục" placeholder="Nhà cung cấp" value=""
-                                                               class="form-control"> 
+                                                      
                                                         <button class="btn btn-info"
                                                                 style="padding: 0 10px; background: none; border: none;"
                                                                 title="Tìm kiếm">
@@ -140,40 +148,45 @@
 
                                         </div>
                                     </div>
+                                    <select id="selectstatus" onchange="location = this.value;" class="form-control">
+                                        <option>Trạng thái</option>
+                                        <option value="">Chờ xác nhận</option>
+                                        <option value="#">Đã xác nhận</option>
+                                        <option value="#">Từ chối đơn</option>
+                                        <option value="#">Giao hàng thành công</option>
+                                    </select>
+                                    <h6 id="sorttext">Sắp xếp theo</h6>
                                     <div class="table-responsive new-products">
                                         <table class="table">
                                             <thead>
                                                 <tr class="text-center">
-                                                    <th> </th>
                                                     <th>STT</th>
-                                                    <th>Mã yêu 
-                                                        cầu duyệt</th>
-                                                    <th>Thời gian 
-                                                        gửi yêu cầu</th>
-                                                    <th>Tên sản phẩm</th>
-                                                    <th>Mã Barcode/
-                                                        SKU</th>
-                                                    <th>Nhà cung cấp </th>
-                                                    <th>Khu vực 
-                                                        giao hàng</th>
+                                                    <th>Thời gian đặt hàng</th>
+                                                    <th>Mã đặt đơn hàng</th>
+                                                    <th>Minimart</th>
+                                                    <th>Số sản phẩm</th>
+                                                    <th>Giá trị đơn hàng</th>
+                                                    <th>Địa chỉ giao hàng</th>
                                                     <th>Trạng thái</th>
                                                     <th>Chi tiết</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">
                                                 <tr>
-                                                    <td>&nbsp;<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" ></td>
-                                                    <td>#0001</td>
-                                                    <td>Cam sành</td>
-                                                    <td><span class="badge badge-info badge-pill">Hoa quả</span></td>
-                                                    <td>100</td>
-                                                    <td>50</td>
-                                                    <td>50</td>
-                                                    <td>
-                                                        50.000
-                                                    </td>
-                                                    <td>20.000</td>
-                                                    <td><a href="#">Xem chi tiết</a></td>
+                                                    <td>1</td>
+                                                    <td>11/01/2000</td>
+                                                    <td>4520001</td>
+                                                    <td>Supper market</td>
+                                                    <td>20</td>
+                                                    <td>500đ</td>
+                                                    <td>TP HCM</td>
+                                                    <td><p class="btn btn-warning status mb-2">fff</p></td>
+                                                    <!-- <td><p class="btn btn-secondary status mb-2">Đã ẩn</p></td>
+                                                    <td><p class="btn btn-danger status mb-2">Từ chối phê duyệt</p></td>
+                                                    <td><p class="btn btn-warning status mb-2">Chờ phê duyệt</p></td>
+                                                    <td><p class="btn btn-success status mb-2">Đã phê duyệt</p></td> -->
+                                                    <td><a href="moderator-detail-order.jsp">Xem chi tiết</a></td>
+
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -238,9 +251,11 @@
                 <div class="user-links text-left">
                     <ul class="list-unstyled">
                         <li>
-                            <a href="./personal-infor-admin.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                            <a href="./personal-infor-moderator.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                         </li>
-
+                        <li>
+                            <a href="moderator-list-product.jsp"><i class="flaticon-globe"></i> Quản lý</a>
+                        </li>
                         <li>
                             <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
                         </li>
@@ -259,9 +274,9 @@
     <script src="../plugins/blockui/jquery.blockUI.min.js"></script>
     <script src="../assets/js/app.js"></script>
     <script>
-        $(document).ready(function () {
-            App.init();
-        });
+                                        $(document).ready(function () {
+                                            App.init();
+                                        });
     </script>
     <script src="../assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->

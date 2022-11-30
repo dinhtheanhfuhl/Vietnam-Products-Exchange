@@ -64,7 +64,7 @@
                         <!-- Left -->
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active" style="padding-left: 40px;">
-                                <a class="nav-link waves-effect  text-header" href="./home.jsp">Trang chủ
+                                <a class="nav-link waves-effect  text-header" href="Home">Trang chủ
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -235,52 +235,17 @@
 
                 <div class="row">
                     <div class="product-slider">
-                        <div class="col-md-2">
-                            <div class="card">
-                                <img class="card-img-top" src="./image/nho đen.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Đu đủ Yên Hòa</h5>
-                                    <h6>Với hàm lượng đường chiếm đến 40% nho có vị ngọt, không quá gắt, màu sắc đẹp</h6>
+                        <c:forEach var="key" items="${mapImages.keySet()}">
+                            <div class="col-md-2">
+                                <div class="card">
+                                    <img class="card-img-top" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${key.trademark}</h5>
+                                        <h6>${mapSuppliers.get(key).get(0).getShopName()}</h6>
+                                    </div>
                                 </div>
                             </div>
-                        </div> 
-                        <div class="col-md-2">
-                            <div class="card">
-                                <img class="card-img-top" src="./image/nho đen.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Đu đủ Yên Hòa</h5>
-                                    <h6>Với hàm lượng đường chiếm đến 40% nho có vị ngọt, không quá gắt, màu sắc đẹp</h6>
-                                </div>
-                            </div>
-                        </div> 
-
-                        <div class="col-md-2">
-                            <div class="card">
-                                <img class="card-img-top" src="./image/nho đen.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Đu đủ Yên Hòa</h5>
-                                    <h6>Với hàm lượng đường chiếm đến 40% nho có vị ngọt, không quá gắt, màu sắc đẹp</h6>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-2">
-                            <div class="card">
-                                <img class="card-img-top" src="./image/nho đen.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Đu đủ Yên Hòa</h5>
-                                    <h6>Với hàm lượng đường chiếm đến 40% nho có vị ngọt, không quá gắt, màu sắc đẹp</h6>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-2">
-                            <div class="card">
-                                <img class="card-img-top" src="./image/nho đen.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Đu đủ Yên Hòa</h5>
-                                    <h6>Với hàm lượng đường chiếm đến 40% nho có vị ngọt, không quá gắt, màu sắc đẹp</h6>
-                                </div>
-                            </div>
-                        </div> 
+                        </c:forEach>
                     </div>
                 </div>
             </div>
@@ -295,47 +260,29 @@
                     </div>
                 </div>
                 <div class="row">
+                    <c:forEach var="key" items="${mapImages2.keySet()}">
+                        <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="pro-loop">
+                                <div class="product-block product-resize">
+                                    <div class="product-img">
+                                        <img class="w-100" src="${mapImages2.get(key).get(0).getImgPath()}" alt="">
+                                        <div class="box-pro-detail ">
+                                            <h3 class="pro-name">
+                                                <a href="#">
+                                                </a><a href="#">${key.trademark}</a>
+                                            </h3>
+                                            <div class="box-pro-prices">
+                                                <h6>${mapSupplier2.get(key).get(0).getShopName()}</h6>
+                                            </div>
 
-                    <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="pro-loop">
-                            <div class="product-block product-resize">
-                                <div class="product-img">
-                                    <div class="product-sale">
-                                        <span>-17%</span>
-                                    </div>
-                                    <a href="#">
-                                        <div class="fader">
-                                            <img class="w-100" src="./image/cat3.jpg" alt="">
-                                            <img class="w-100" src="./image/1.jpg" alt="" style="display: none;">
-                                        </div>
-                                    </a>
-
-                                    <div class="box-pro-detail ">
-
-                                        <h3 class="pro-name">
-                                            <a href="#">
-                                            </a><a href="#">Đào tiên</a>
-                                        </h3>
-                                        <div class="box-pro-prices">
-
-                                            <p class="pro-price highlight">
-                                                <span>54,000đ</span>
-                                                <span class="pro-price-del">
-                                                    <del class="compare-price">
-                                                        65,000đ
-                                                    </del>
-                                                </span>
-                                            </p>
 
                                         </div>
 
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>

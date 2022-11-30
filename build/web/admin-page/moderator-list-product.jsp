@@ -43,8 +43,8 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect" href="${pageContext.request.contextPath}/home.jsp">
-                    <h2 id="logoheader">VnProX</h2>
+                <a class="navbar-brand waves-effect" href="Home">
+                    <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
 
@@ -206,18 +206,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="pagination-section">
-                                        <ul
-                                            class="pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3">
-                                            <li><a href="javascript:void(0);">«</a></li>
-                                            <li><a href="javascript:void(0);">1</a></li>
-                                            <li><a href="javascript:void(0);">2</a></li>
-                                            <li><a href="javascript:void(0);">3</a></li>
-                                            <li><a href="javascript:void(0);">4</a></li>
-                                            <li><a href="javascript:void(0);">5</a></li>
-                                            <li><a href="javascript:void(0);">»</a></li>
-                                        </ul>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

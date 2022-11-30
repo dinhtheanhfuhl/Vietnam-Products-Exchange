@@ -46,7 +46,7 @@
                 <div class="container-fluid">
 
                     <!-- Brand -->
-                    <a class="navbar-brand waves-effect" href="./home.jsp">
+                    <a class="navbar-brand waves-effect" href="VnProX">
                         <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                     </a>
 
@@ -63,7 +63,7 @@
                         <!-- Left -->
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active" style="padding-left: 40px;">
-                                <a class="nav-link waves-effect  text-header" href="./home.jsp">Trang chủ
+                                <a class="nav-link waves-effect  text-header" href="Home">Trang chủ
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -156,7 +156,7 @@
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
-                    <li class="breadcrumb-item"><a href="./home.jsp">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="Home">Trang chủ</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Chính sách bảo mật</li>
                 </ol>
             </nav>
