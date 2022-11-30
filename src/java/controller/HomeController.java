@@ -8,7 +8,6 @@ import dao.CategoryDAO;
 import dbconnect.DBConnect;
 import entity.Category;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.util.List;
 import javax.servlet.ServletException;
