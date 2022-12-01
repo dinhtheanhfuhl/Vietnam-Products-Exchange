@@ -88,11 +88,11 @@
                             </li>
 
                             <li class="menu">
-                                <a href="./supplier-view-order.jsp" 
+                                <a href="./supplier-product-detail.jsp" 
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-cart-bag-1"></i>
-                                        <span>Xem đơn hàng</span>
+                                        <span>Danh sách<br>đơn hàng</span>
                                     </div>
                                 </a>
 

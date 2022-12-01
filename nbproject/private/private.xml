@@ -3,14 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/dao/CartItemDAO.java</file>
-            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/productdetail.jsp</file>
-            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/controller/LogginController.java</file>
-            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/controller/AddToCartController.java</file>
-            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/dao/CityDAO.java</file>
-            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/controller/AdminController.java</file>
-        </group>
-        <group>
             <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/productdetail.jsp</file>
             <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/dao/OrderDAO.java</file>
             <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/ViewCart.jsp</file>
@@ -18,6 +10,23 @@
             <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/controller/ViewCartController.java</file>
             <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/payment.jsp</file>
             <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/controller/OrderController.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/supplier-list-order.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/supplier-view-order.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/supplier-product-pending.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/supplier-product-detail.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/personal-infor-customer.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/personal-infor-moderator.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/personal-infor-supplier.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/admin-list-user.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/supplier-add-product.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/admin-view-detail-customer.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/fruit.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/personal-infor-admin.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/admin-view-detail-supplier.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/moderator-list-product.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/admin-page/supplier-edit-product.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -83,41 +83,7 @@
 
             <!--  BEGIN MODERN  -->
 
-            <div class="modernSidebar-nav header header navbar">
-                <div class="">
-                    <nav id="modernSidebar">
-                        <ul class="menu-categories pl-0 m-0" id="topAccordion">
-
-                            <li class="menu">
-                                <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-3d-cube"></i>
-                                        <span>Danh sách<br> sản phẩm</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="menu">
-                                <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-list2"></i>
-                                        <span>Danh sách<br> đơn hàng</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="menu">
-                                <a href="./moderator-category.jsp" class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-saas"></i>
-                                        <span>Danh mục</span>
-                                    </div>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </nav>
-
-                </div>
-            </div>
+            
             <!--  END MODERN  -->
 
             <!--  BEGIN CONTENT PART  -->
@@ -151,8 +117,7 @@
                                                 <td><label for="inputpass" class="form-label pass-infor">Tên người dùng</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           placeholder="tên người dùng">
+                                                    <p>Le Van A</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -167,8 +132,7 @@
                                                 <td><label for="inputpass" class="form-label pass-infor">Ngày sinh</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="date" required class="form-control" id="inputpass"
-                                                           placeholder="ngày sinh">
+                                                    <p>33/33/3333</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -183,11 +147,7 @@
                                                 <td><label for="inputpass" class="form-label pass-infor">Giới tính</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <select class="form-control" name="gender" id="gender">
-                                                        <option value="male">Nam</option>
-                                                        <option value="female">Nữ</option>
-                                                        <option value="other">Khác</option>
-                                                    </select>
+                                                    <p>Nam</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -200,8 +160,7 @@
                                                 <td><label for="inputpass" class="form-label pass-infor">Email</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="email" required class="form-control" id="inputpass"
-                                                           placeholder="email">
+                                                   <p>sdffds@gmail.com</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -215,8 +174,8 @@
                                                 <td> <label for="formGroupExampleInput" class="name-infor" style="margin-left: -20px;">Số điện thoại</label>
                                                 </td>
                                                 <td class="display-userName">
-                                                    <input style="margin-left: 22px;" type="text" class="form-control" id="formGroupExampleInput"
-                                                           placeholder="số điện thoại">
+                                                    <p style="margin-left: 22px;" type="text"   id="formGroupExampleInput"
+                                                           placeholder="số điện thoại">23432432</p>
                                                 </td>
                                                 <td> <button type="submit" id="btn-edit" for="formGroupExampleInput"
                                                              class="btn btn-warning ml-10">Chỉnh sửa</button></td>

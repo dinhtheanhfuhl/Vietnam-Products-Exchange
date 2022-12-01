@@ -199,34 +199,7 @@
 
             <!--  BEGIN MODERN  -->
 
-            <div class="modernSidebar-nav header header navbar">
-                <div class="">
-                    <nav id="modernSidebar">
-                        <ul class="menu-categories pl-0 m-0" id="topAccordion">
-                            <li class="menu">
-                                <a href="./personal-infor-admin.jsp" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-user-7"></i>
-                                        <span>Thông tin tài khoản</span>
-                                    </div>
-                                </a>
-
-                            </li>
-                            <li class="menu">
-                                <a href="AdminController" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-user-1"></i>
-                                        <span>Quản lý tài khoản</span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                </div>
-            </div>
+            
             <!--  END MODERN  -->
 
             <!--  BEGIN CONTENT PART  -->
@@ -261,8 +234,7 @@
                                                 </td>
 
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           value="${customer.customerName}" placeholder="tên người dùng">
+                                                    <p>${customer.customerName}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -276,9 +248,9 @@
                                             <tr>
                                                 <td><label for="inputpass" class="form-label pass-infor">Ngày sinh</label>
                                                 </td>
+
                                                 <td class="display-userName-3">
-                                                    <input type="date" required class="form-control" id="inputpass"
-                                                           value="${customer.dateBirth}"  placeholder="ngày sinh">
+                                                    <p>${customer.dateBirth}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -292,10 +264,9 @@
                                             <tr>
                                                 <td><label for="inputpass" class="form-label pass-infor">Giới tính</label>
                                                 </td>
+
                                                 <td class="display-userName-3">
-                                                    <select class="form-control" name="gender" id="gender">
-                                                        <option value="male">${customer.gender}</option>
-                                                    </select>
+                                                    <p>${customer.gender}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -307,9 +278,9 @@
                                             <tr>
                                                 <td><label for="inputpass" class="form-label pass-infor">Email</label>
                                                 </td>
+
                                                 <td class="display-userName-3">
-                                                    <input type="email" required class="form-control" id="inputpass"
-                                                           value="${customer.email}"     placeholder="email">
+                                                    <p>${customer.email}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -322,9 +293,9 @@
                                             <tr>
                                                 <td><label for="inputpass" class="form-label pass-infor">Số điện thoại</label>
                                                 </td>
+
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           value="${customer.phone}"   placeholder="số điện thoại">
+                                                    <p>${customer.phone}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -336,9 +307,9 @@
                                             <tr>
                                                 <td><label for="inputpass" class="form-label pass-infor">Nhà cung cấp</label>
                                                 </td>
+
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           value="${customer.shopName}"   placeholder="nhà cung cấp">
+                                                    <p>${customer.shopName}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -350,9 +321,9 @@
                                             <tr>
                                                 <td><label for="inputpass" class="form-label pass-infor">Địa chỉ chính</label>
                                                 </td>
+
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           value="${customer.mainAddress}"   placeholder="địa chỉ chính">
+                                                    <p>${customer.mainAddress}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -437,7 +408,7 @@
             <div class="usr-profile">
                 <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
             </div>
-            <p class="user-name mt-4 mb-4">HoÃ ng Thá» Xoan</p>
+            <p class="user-name mt-4 mb-4">Le Van A</p>
 
             <div class="user-links text-left">
                 <ul class="list-unstyled">

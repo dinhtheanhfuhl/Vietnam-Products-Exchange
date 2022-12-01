@@ -129,8 +129,8 @@
                                                 <td><label for="inputpass" class="form-label pass-infor">Tên người dùng</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           value="${customer.customerName}"   placeholder="tên người dùng">
+                                                    <p type="text" id="inputpass"
+                                                       value="" >${customer.customerName}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -145,8 +145,8 @@
                                                 <td><label for="inputpass" class="form-label pass-infor">Ngày sinh</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="date" required class="form-control" id="inputpass"
-                                                           value="${customer.dateBirth}"  placeholder="ngày sinh">
+                                                    <p type="text" id="inputpass"
+                                                       value="" >${customer.dateBirth}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -161,9 +161,8 @@
                                                 <td><label for="inputpass" style="margin-left: 5px;" class="form-label pass-infor">Giới tính</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <select class="form-control" name="gender" id="gender">
-                                                        <option value="male">${customer.gender}</option>
-                                                    </select>
+                                                    <p type="text" id="inputpass"
+                                                       value="" >${customer.gender}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -176,8 +175,8 @@
                                                 <td><label for="inputpass" class="form-label pass-infor">Email</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="email" required class="form-control" id="inputpass"
-                                                           value="${customer.email}"     placeholder="email">
+                                                    <p type="text" id="inputpass"
+                                                       value="" >${customer.email}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -190,9 +189,10 @@
                                             <tr>
                                                 <td><label for="inputpass" class="form-label pass-infor">Số điện thoại</label>
                                                 </td>
+
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           value="${customer.phone}"   placeholder="số điện thoại">
+                                                    <p type="text" id="inputpass"
+                                                       value="" >${customer.phone}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -204,9 +204,10 @@
                                             <tr>
                                                 <td><label for="inputpass" class="form-label pass-infor">Nhà cung cấp</label>
                                                 </td>
+
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           value="${customer.shopName}"   placeholder="nhà cung cấp">
+                                                    <p type="text" id="inputpass"
+                                                       value="" >${customer.shopName}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -218,9 +219,10 @@
                                             <tr>
                                                 <td><label for="inputpass" class="form-label pass-infor">Địa chỉ chính</label>
                                                 </td>
+
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           value="${customer.mainAddress}"   placeholder="địa chỉ chính">
+                                                    <p type="text" id="inputpass"
+                                                       value="" >${customer.mainAddress}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -233,9 +235,11 @@
                                                 <td><label class="form-label pass-infor">Giấy phép</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <a href="#" class="btn btn-info">Tải về giấy phép</a>
+                                                    <a type="text" id="inputpass"
+                                                       value="" >Giay phep</a>
                                                 </td>
                                             </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -250,6 +254,19 @@
                                                         <c:when test="${account.status == true}"><a class="btn btn-success">Đang hoạt động</a></c:when>
                                                         <c:otherwise><a href="DetailSuppilerController?action=accept-account&sup-id=${customer.customerId}&acc-id=${account.accId}" class="btn btn-success">Chấp thuận tài khoản</a></c:otherwise>
                                                     </c:choose>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td><label style="margin-left: -10px"; class="form-label pass-infor">Lý do bị từ chối</label>
+                                                </td>
+                                                <td class="display-userName-3">
+                                                    <p>Tài khoản không có giấy phép </p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -322,7 +339,7 @@
             <div class="user-links text-left">
                 <ul class="list-unstyled">
                     <li>
-                        <a href="./admin-page/personal-infor-admin.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                        <a href="./personal-infor-admin.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                     </li>
                     <li>
                         <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>

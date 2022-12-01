@@ -95,7 +95,7 @@
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-cart-bag-1"></i>
-                                        <span>Xem đơn hàng</span>
+                                        <span>Danh sách<br>đơn hàng</span>
                                     </div>
                                 </a>
 
@@ -175,7 +175,6 @@
                                                     <th>Tên sản phẩm</th>
                                                     <th>Mã Barcode/
                                                         SKU</th>
-                                                    <th>Khu vực giao hàng</th>
                                                     <th>Trạng thái</th>
                                                     <th>Chi tiết</th>
                                                     <th>Chỉnh sửa</th>
@@ -189,7 +188,6 @@
                                                     <td>01/01/1000</td>
                                                     <td><span class="badge badge-info badge-pill">Hoa quả</span></td>
                                                     <td>100</td>
-                                                    <td>Hà Nội</td>
                                                     <td>Đã phê duyệt</td>
 
                                                     <td>
