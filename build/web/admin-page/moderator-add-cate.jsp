@@ -77,7 +77,7 @@
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
-                                <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
                                         <span>Danh sách<br> sản phẩm</span>

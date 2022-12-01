@@ -113,9 +113,8 @@
                                 </div>
                             </li>
                             <li class="nav-item ">
-                                <a href="#"  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i>
-                                    <span class="quantity-amm-shopping-cart-open">0</span></a>
-
+                                <a href="CartController"  class="nav-link cart-btn pr-3"><i class="fas fa-shopping-cart"></i>
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <div class="dropdown dropdown-user">

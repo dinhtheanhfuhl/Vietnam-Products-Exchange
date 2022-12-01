@@ -83,7 +83,7 @@
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
-                                <a href="supplier-product-pending.jsp" 
+                                <a href="ModeratorController" 
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>

@@ -91,25 +91,23 @@
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
-                                <a href="supplier-product-pending.jsp" 
-                                   class="dropdown-toggle collapsed">
+                                <a href="./supplier-product-pending.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>Danh sách <br> sản phẩm</span>
+                                        <span>Danh sách<br> sản phẩm</span>
                                     </div>
                                 </a>
                             </li>
-
                             <li class="menu">
-                                <a href="./supplier-list-order.jsp" 
-                                   class="dropdown-toggle collapsed">
+                                <a href="./supplier-list-order.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
-                                        <i class="flaticon-cart-bag-1"></i>
-                                        <span>Danh sách<br>đơn hàng</span>
+                                        <i class="flaticon-list2"></i>
+                                        <span>Danh sách<br> đơn hàng</span>
                                     </div>
                                 </a>
-
                             </li>
+                            
+
                         </ul>
                     </nav>
 
@@ -125,6 +123,10 @@
                             <tr>
                                 <th>Mã đơn hàng</th>
                                 <td>02</td>
+                            </tr>
+                            <tr>
+                                <th>Ngày đặt hàng</th>
+                                <td>12/12/1222</td>
                             </tr>
                             <tr>
                                 <th>Tên Khách Hàng: </th>

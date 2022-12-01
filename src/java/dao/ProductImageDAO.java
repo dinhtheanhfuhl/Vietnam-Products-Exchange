@@ -72,14 +72,15 @@ public class ProductImageDAO {
         }
         return productImages;
     }
-       public ProductImage getProductImageById(int productId) {
+
+    public ProductImage getProductImageById(int productId) {
         ProductImage productImage = null;
         String strSelectById = "select top 1 * from ProductImage where ProductID=?";
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectById);
             ps.setInt(1, productId);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 productImage = new ProductImage();
                 productImage.setProductImageId(rs.getInt("ProductImageID"));
                 productImage.setProducId(rs.getInt("ProductID"));
@@ -88,9 +89,10 @@ public class ProductImageDAO {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return  productImage;
+        return productImage;
     }
-       public List<ProductImage> getAllProductsImageById(int productId) {
+
+    public List<ProductImage> getAllProductsImageById(int productId) {
 
         String strSelectAll = "select * from ProductImage where ProductID = ?";
         List<ProductImage> productImages = new ArrayList<>();
@@ -102,6 +104,24 @@ public class ProductImageDAO {
                 ProductImage productImage = new ProductImage();
                 productImage.setProductImageId(rs.getInt("ProductImageID"));
                 productImage.setProducId(rs.getInt("ProductID"));
+                productImage.setImgPath(rs.getString("ImgPath"));
+                productImages.add(productImage);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return productImages;
+    }
+
+    public List<ProductImage> getProImgByCartId(int id) {
+        String strSelectById = "select ImgPath from ProductImage inner join Product on ProductImage.ProductID = Product.ProductID inner join CartItem on CartItem.ProductID=Product.ProductID where CartItem.CartID=?";
+        List<ProductImage> productImages = new ArrayList<>();
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                ProductImage productImage = new ProductImage();
                 productImage.setImgPath(rs.getString("ImgPath"));
                 productImages.add(productImage);
             }

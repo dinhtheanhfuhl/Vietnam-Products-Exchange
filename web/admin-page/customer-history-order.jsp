@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-        <title>Đơn hàng</title>
+        <title>Lịch sử mua hàng</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" .href="./image/578b1438ff0a7fc4704aa5ade7625e89.jpeg" type="image/png">
@@ -40,10 +40,7 @@
         <!--  BEGIN NAVBAR  -->
         <header class="desktop-nav header navbar fixed-top">
             <div class="nav-logo mr-sm-5 ml-sm-4">
-                <a href="javascript:void(0);" class="nav-link sidebarCollapse d-inline-block mr-sm-5"
-                   data-placement="bottom">
-                    <i class="flaticon-menu-line-3"></i>
-                </a>
+               
                 <a class="navbar-brand waves-effect" href="Home">
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
@@ -85,33 +82,7 @@
 
             <!--  BEGIN MODERN  -->
 
-            <div class="modernSidebar-nav header header navbar">
-                <div class="">
-                    <nav id="modernSidebar">
-                        <ul class="menu-categories pl-0 m-0" id="topAccordion">
-                            <li class="menu">
-                                <a href="./minimart-view-order.jsp" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-cart-bag-1"></i>
-                                        <span>Xem đơn hàng</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="menu">
-                                <a href="minimart-history-order.jsp" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-bank-safe-box"></i>
-                                        <span>Lịch sử mua hàng</span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                </div>
-            </div>
+            
             <!--  END MODERN  -->
 
             <!--  BEGIN CONTENT PART  -->
@@ -245,13 +216,17 @@
             <aside class="profile-sidebar text-center">
                 <div class="profile-content profile-content-scroll">
                     <div class="usr-profile">
-                        <img src="../assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
+                        <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
                     </div>
-                    <p class="user-name mt-4 mb-4">Hoàng Thị Xoan</p>
+                    <p class="user-name mt-4 mb-4">Le Van A</p>
+
                     <div class="user-links text-left">
                         <ul class="list-unstyled">
                             <li>
-                                <a href="./personal-infor-minimart.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                                <a href="./personal-infor-customer.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                            </li>
+                            <li>
+                                <a href="customer-history-order.jsp"><i class="flaticon-bank-safe-box"></i> Lịch sử mua hàng</a>
                             </li>
                             <li>
                                 <a href="../changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
@@ -263,6 +238,7 @@
                     </div>
                 </div>
             </aside>
+                    
 
             <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
             <script src="../assets/js/libs/jquery-3.1.1.min.js"></script>

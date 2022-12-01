@@ -6,9 +6,11 @@ package controller;
 
 import dao.CategoryDAO;
 import dao.ProductDAO;
+import dao.SubCategoryDAO;
 import dbconnect.DBConnect;
 import entity.Category;
 import entity.Product;
+import entity.SubCategory;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.List;
@@ -39,8 +41,13 @@ public class MinimartDetailProductController extends HttpServlet {
         Connection connection = DBConnect.getConnection();
         ProductDAO productDAO = new ProductDAO(connection);
         CategoryDAO categoryDAO = new CategoryDAO(connection);
+        SubCategoryDAO subCateDAO = new SubCategoryDAO(connection);
         Product product = productDAO.getProductByProductId(id);
+        System.out.println(product);
         request.setAttribute("product", product);
+        SubCategory subcate = subCateDAO.getSubCategoryNameByProductId(id);
+        System.out.println(subcate);
+        request.setAttribute("subcate", subcate);
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
         request.getRequestDispatcher("productdetail.jsp").forward(request, response);

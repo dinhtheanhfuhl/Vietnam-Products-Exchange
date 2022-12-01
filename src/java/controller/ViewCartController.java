@@ -8,11 +8,13 @@ import dao.CartDAO;
 import dao.CartItemDAO;
 import dao.CategoryDAO;
 import dao.ProductDAO;
+import dao.ProductImageDAO;
 import dbconnect.DBConnect;
 import entity.CartItem;
 import entity.Category;
 import entity.Customer;
 import entity.Product;
+import entity.ProductImage;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.List;
@@ -45,16 +47,19 @@ public class ViewCartController extends HttpServlet {
         CartItemDAO cartItemDAO = new CartItemDAO(connection);
         CartDAO cartDAO = new CartDAO(connection);
         ProductDAO productDAO = new ProductDAO(connection);
+        ProductImageDAO productImageDAO = new ProductImageDAO(connection);
         HttpSession session = request.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
         int customerid = customer.getCustomerId();
         int cartId = cartDAO.getCartIdByCustomerId(customerid);
+        List<ProductImage> proImg = productImageDAO.getProImgByCartId(cartId);
+        request.setAttribute("proImg", proImg);
         List<CartItem> allCart = cartItemDAO.getAllCartItemsByProductId(customerid);
         request.setAttribute("allCart", allCart);
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
         List<Product> getAllProductsbyCartId = productDAO.getAllProductsByCartID(cartId);
-       
+        
         request.setAttribute("listProduct", getAllProductsbyCartId);
         request.getRequestDispatcher("ViewCart.jsp").forward(request, response);
     }
