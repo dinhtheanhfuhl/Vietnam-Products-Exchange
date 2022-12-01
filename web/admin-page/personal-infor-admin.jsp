@@ -39,10 +39,7 @@
         <!--  BEGIN NAVBAR  -->
         <header class="desktop-nav header navbar fixed-top">
             <div class="nav-logo mr-sm-5 ml-sm-4">
-                <a href="javascript:void(0);" class="nav-link sidebarCollapse d-inline-block mr-sm-5"
-                   data-placement="bottom">
-                    <i class="flaticon-menu-line-3"></i>
-                </a>
+                
                 <a class="navbar-brand waves-effect" href="Home">
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>

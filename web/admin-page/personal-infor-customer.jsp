@@ -39,10 +39,7 @@
         <!--  BEGIN NAVBAR  -->
         <header class="desktop-nav header navbar fixed-top">
             <div class="nav-logo mr-sm-5 ml-sm-4">
-                <a href="javascript:void(0);" class="nav-link sidebarCollapse d-inline-block mr-sm-5"
-                   data-placement="bottom">
-                    <i class="flaticon-menu-line-3"></i>
-                </a>
+
                 <a class="navbar-brand waves-effect" href="Home">
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
@@ -199,7 +196,7 @@
 
             <!--  BEGIN MODERN  -->
 
-            
+
             <!--  END MODERN  -->
 
             <!--  BEGIN CONTENT PART  -->
@@ -412,7 +409,15 @@
 
             <div class="user-links text-left">
                 <ul class="list-unstyled">
-
+                    <li>
+                        <a href="./personal-infor-customer.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                    </li>
+                    <li>
+                        <a href="customer-history-order.jsp"><i class="flaticon-bank-safe-box"></i> Lịch sử mua hàng</a>
+                    </li>
+                    <li>
+                        <a href="../changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                    </li>
                     <li>
                         <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
                     </li>

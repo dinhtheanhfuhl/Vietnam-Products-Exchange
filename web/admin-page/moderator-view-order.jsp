@@ -89,24 +89,32 @@
                 <div class="">
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
+
                             <li class="menu">
-                                <a href="./minimart-view-order.jsp" 
-                                   class="dropdown-toggle collapsed">
+                                <a href="ModeratorController" class="dropdown-toggle collapsed">
                                     <div class="">
-                                        <i class="flaticon-cart-bag-1"></i>
-                                        <span>Xem đơn hàng</span>
+                                        <i class="flaticon-3d-cube"></i>
+                                        <span>Danh sách<br> sản phẩm</span>
                                     </div>
                                 </a>
                             </li>
                             <li class="menu">
-                                <a href="minimart-history-order.jsp" 
-                                   class="dropdown-toggle collapsed">
+                                <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
-                                        <i class="flaticon-bank-safe-box"></i>
-                                        <span>Lịch sử mua hàng</span>
+                                        <i class="flaticon-list2"></i>
+                                        <span>Danh sách<br> đơn hàng</span>
                                     </div>
                                 </a>
                             </li>
+                            <li class="menu">
+                                <a href="./moderator-category.jsp" class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-saas"></i>
+                                        <span>Danh mục</span>
+                                    </div>
+                                </a>
+                            </li>
+
                         </ul>
                     </nav>
 
@@ -120,8 +128,12 @@
                     <div class="summary-order">
                         <table >
                             <tr>
-                                <th>Id Order</th>
+                                <th>Mã đơn hàng</th>
                                 <td>02</td>
+                            </tr>
+                            <tr>
+                                <th>Ngày đặt hàng</th>
+                                <td>12/12/1222</td>
                             </tr>
                             <tr>
                                 <th>Tên Khách Hàng: </th>
@@ -147,15 +159,15 @@
                     </div>
                     <div class="button-status ">
                         <h5>Trạng thái đơn hàng</h5>
-                        <button class=" btn btn-success status mb-2 mt-2 " id="processing">  PROCESSING  </button>
-                        <button class=" btn btn-info status mb-2" id="approved">  APPROVED </button>
-                        <button class=" btn btn-secondary status mb-2" id="delivered">  DELIVERED </button>
-                        <button class=" btn btn-danger status mb-2" id="canceled">  CANCELED </button>
-
+                        <a class=" btn btn-success status mb-2 mt-2 " >  Đã xác nhận  </a>
+                        <a class=" btn btn-info status mb-2" >  Chờ xác nhận </a>
+                        <a class=" btn btn-secondary status mb-2" >  Giao hàng thành công </a>
+                        <a class=" btn btn-danger status mb-2" >  Từ chối đơn </a>
                     </div>
+                    
                 </div>
 
-                <h3 class="h3-order">Chi tiết sản phẩm đơn hàng</h3>
+                <h3 class="h3-order">Danh sách sản phẩm đơn hàng</h3>
                 <div class="widget-content widget-content-area view-order-detail">
                     <div class="table-responsive mb-4">
                         <table id="ecommerce-product-list" class="table  table-bordered">
@@ -251,10 +263,13 @@
                     <div class="user-links text-left">
                         <ul class="list-unstyled">
                             <li>
-                                <a href="./personal-infor-minimart.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                                <a href="./personal-infor-supplier.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                             </li>
                             <li>
                                 <a href="../changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                            </li>
+                            <li>
+                                <a href="supplier-product-pending.jsp"><i class="flaticon-globe"></i> Quản lý</a>
                             </li>
                             <li>
                                 <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>

@@ -78,7 +78,7 @@
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
-                                <a href="./admin-list-user.jsp" class="dropdown-toggle collapsed">
+                                <a href="AdminController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-user-1"></i>
                                         <span>Danh sách <br> người dùng</span>
@@ -273,7 +273,7 @@
                 <div class="user-links text-left">
                     <ul class="list-unstyled">
                         <li>
-                            <a href="./personal-infor-admin.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                            <a href="./admin-page/personal-infor-admin.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                         </li>
                         <li>
                             <a href="AdminController"><i class="flaticon-globe"></i> Quản lý</a>

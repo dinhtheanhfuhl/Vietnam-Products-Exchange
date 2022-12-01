@@ -77,7 +77,7 @@
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
-                                <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
+                                <a href="./supplier-product-pending.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
                                         <span>Danh sách<br> sản phẩm</span>
@@ -85,7 +85,7 @@
                                 </a>
                             </li>
                             <li class="menu">
-                                <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
+                                <a href="./supplier-list-order.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-list2"></i>
                                         <span>Danh sách<br> đơn hàng</span>
@@ -185,7 +185,7 @@
                                                     <td><p class="btn btn-danger status mb-2">Từ chối phê duyệt</p></td>
                                                     <td><p class="btn btn-warning status mb-2">Chờ phê duyệt</p></td>
                                                     <td><p class="btn btn-success status mb-2">Đã phê duyệt</p></td> -->
-                                                    <td><a href="moderator-detail-order.jsp">Xem chi tiết</a></td>
+                                                    <td><a href="supplier-view-order.jsp">Xem chi tiết</a></td>
 
                                                 </tr>
                                             </tbody>

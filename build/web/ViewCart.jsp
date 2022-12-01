@@ -108,9 +108,8 @@
                                 </div>
                             </li>
                             <li class="nav-item ">
-                                <a href="ViewCart.jsp"  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i>
-                                    <span class="quantity-amm-shopping-cart-open">0</span></a>
-
+                                <a href="CartController"  class="nav-link cart-btn pr-3"><i class="fas fa-shopping-cart"></i>
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <div class="dropdown dropdown-user">
@@ -128,7 +127,7 @@
         <section class="breadcrum">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
-                    <li class="breadcrumb-item"><a href="./index.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="Home">Trang chủ</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Xem giỏ hàng</li>
                 </ol>
             </nav>
@@ -175,22 +174,41 @@
                         </div>
                         <div class="displayProduct pb-3">
                             <ul id="mainCart" class="pb-3">
-                                <c:forEach items="${allCart}" var="o" >
-                                    <li>
 
-                                        <table>
-                                            <tbody>
+                                <li>
+                                    <table>
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th>Ảnh</th>
+                                                <th>Tên sản phẩm</th>
+                                                <th>Nhà cung cấp</th>
+                                                <th>Giá</th>
+                                                <th>Số lượng</th>
+                                                <th>Xoá</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <c:forEach items="${allCart}" var="o" >
 
                                                 <tr>
 
-                                                    <td><div class="img-product ">
-                                                            <img src="./image/bơ.jpg" alt="">
+                                                    <td><c:forEach items="${proImg}" var="p" ><div class="img-product ">
+
+                                                                <img src="${p.getImgPath()}" alt="">
+
+                                                            </div>
+                                                        </c:forEach>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="infor-product pl-3">
+                                                            <h5>cải bắp</h5>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="infor-product pl-3">
-                                                            <h5>Cải bắp</h5>
-
+                                                            <h5>dũng hà</h5>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -200,7 +218,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="infor-product pl-3" >
-                                                            <h5><strong>Số lượng:</strong> <span>${o.amount}</span></h5>
+                                                            <div class="discount-price"><h5><span><input style="width: 90px;" value="${o.amount}" class="form-control" ></span> Kg</h5></div>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -208,40 +226,23 @@
                                                             <h5><i class="icon-delete1 fas fa-trash-alt"></i></h5>
                                                         </div>
                                                     </td>
-
                                                 </tr>
+                                            </c:forEach>
+                                        </tbody>
 
-                                            </tbody>
-                                        </table>
+                                    </table>
+                                </li> 
 
-                                    </li> 
-                                </c:forEach>
                             </ul>
-                            <div class="cart-link pt-3 pb-3 ">
-                                <a href="./shop.html">Tiếp tục mua hàng</a>
-                                <a href="#" class="delete">Xóa tất cả</a>
-                            </div>
 
                         </div>
                     </div>
                     <div class="col-lg-3 box-fee mt-70 mb-50 pt-3">
-                        <div class="immidiate-fee ">
-                            Tạm tính: <span class="prices">0</span> <sup>đ</sup>
-                        </div>
-
-                        <div class="shipping-fee pt-4">
-                            <p>Phí ship: <span class="prices">0</span> <sup>đ</sup></p>
-
-
-                            <p class="pt-2" ><Strong style="color: brown;">Ưu đãi từ cửa hàng:</Strong> OrFarm hỗ trợ
-                                khách hàng miễn phí vận chuyển với những đơn hàng có giá trị từ 50.000đ trở lên.
-                            </p>
-                        </div>
                         <div class="immidiate-fee sum-fee" style="color: rgb(49, 189, 21);">
                             Tổng tiền: <span class="prices">0 </span> <sup>đ</sup>
                         </div>
                         <div class="payment">
-                            <a href="./payment.jsp" class="pt-50 pl-50">Tiến hành thanh toán</a>
+                            <a style="margin-left: 50px;" href="payment.jsp"><button id="btn-order" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
                         </div>
                     </div>
                 </div>
@@ -399,11 +400,11 @@
         <script src="assets/js/main.js"></script>
         <script src="./cart.js"></script>
         <script type="text/javascript">
-    $(window).load(function () {
-        showProduct();
-        immidiateSum();
+                $(window).load(function () {
+                    showProduct();
+                    immidiateSum();
 
-    });
+                });
 
 
         </script>

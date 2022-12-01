@@ -133,7 +133,7 @@
 
 
                             <div class="form-group">
-
+                                <h3>Thông tin đặt hàng</h3>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Tên người nhận hàng</label>
                                     <input required type="text" class="form-control" id="exampleInputPhone" name="receiverName" placeholder="nhập tên người nhận">

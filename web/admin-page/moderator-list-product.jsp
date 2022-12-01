@@ -78,7 +78,7 @@
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
-                                <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
                                         <span>Danh sách<br> sản phẩm</span>
@@ -264,7 +264,7 @@
                             <a href="./personal-infor-moderator.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                         </li>
                         <li>
-                            <a href="moderator-list-product.jsp"><i class="flaticon-globe"></i> Quản lý</a>
+                            <a href="ModeratorController"><i class="flaticon-globe"></i> Quản lý</a>
                         </li>
                         <li>
                             <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
