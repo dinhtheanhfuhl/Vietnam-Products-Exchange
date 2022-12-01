@@ -163,7 +163,7 @@
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
                                             <label for="exampleInputPassword1">Ngày sinh*</label>
-                                            <input type="date" class="form-control"
+                                            <input type="date" required="" class="form-control"
                                                    placeholder="ngày sinh">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
@@ -203,7 +203,7 @@
                                         </div>
                                         <div class="form-group fill-form log-lastName">
                                             <label>Giấy phép*</label>
-                                            <input type="file" class="form-control-file"
+                                            <input type="file" required="" class="form-control-file"
                                                    id="file-input">
                                         </div> 
                                         <button type="submit" class="btn btn-primary btn-warning form-control">Đăng ký</button>
@@ -367,12 +367,10 @@
                     <div class="col ">
                         <ul class="ft-bottom container">
                             <li class="copy-right">
-                                <p style="font-size: 14px;">Copyright © 2021 Powered by VnProx. Powered by VnProx</p>
+                                <p style="font-size: 14px;">Copyright © 2022 Powered by VnProx. Powered by VnProx</p>
                             </li>
                             <li class="social-media">
-                                <a href="">
-                                    <i class="fas fa-phone-square-alt"></i>
-                                </a>
+
                                 <a href="">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
@@ -382,60 +380,59 @@
                                 <a href="">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="">
-                                    <i class="fab fa-pinterest-p"></i>
-                                </a>
+
                                 <a href="">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </li>
                         </ul>
-
                     </div>
-                    </footer>
+                </div>
+            </div>
+        </footer>
 
-                    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-                    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-                    </script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-                    </script>
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-                    </script>
-                    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-                    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-                    <!--====== jquery js ======-->
-                    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-                    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <!--====== jquery js ======-->
+        <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+        <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
 
-                    <!--====== Bootstrap js ======-->
-                    <script src="assets/js/bootstrap.min.js"></script>
-                    <script src="assets/js/popper.min.js"></script>
+        <!--====== Bootstrap js ======-->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
 
-                    <!--====== wow js ======-->
-                    <script src="assets/js/wow.js"></script>
+        <!--====== wow js ======-->
+        <script src="assets/js/wow.js"></script>
 
-                    <!--====== Slick js ======-->
-                    <script src="assets/js/jquery.counterup.min.js"></script>
-                    <script src="assets/js/waypoints.min.js"></script>
+        <!--====== Slick js ======-->
+        <script src="assets/js/jquery.counterup.min.js"></script>
+        <script src="assets/js/waypoints.min.js"></script>
 
-                    <!--====== TweenMax js ======-->
-                    <script src="assets/js/TweenMax.min.js"></script>
+        <!--====== TweenMax js ======-->
+        <script src="assets/js/TweenMax.min.js"></script>
 
-                    <!--====== Slick js ======-->
-                    <script src="assets/js/slick.min.js"></script>
+        <!--====== Slick js ======-->
+        <script src="assets/js/slick.min.js"></script>
 
-                    <!--====== Magnific Popup js ======-->
-                    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <!--====== Magnific Popup js ======-->
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
 
-                    <!--====== Main js ======-->
-                    <script src="assets/js/main.js"></script>
-                    <script src="./cart.js"></script>
-                    <script>$('#password, #confirm_password').on('keyup', function () {
-                                        if ($('#password').val() == $('#confirm_password').val()) {
-                                            $('#message').html('').css('color', 'green');
-                                        } else
-                                            $('#message').html('Mật khẩu chưa trùng khớp').css('color', 'red');
-                                    });</script>
-                    </body>
-                    </html>
+        <!--====== Main js ======-->
+        <script src="assets/js/main.js"></script>
+        <script src="./cart.js"></script>
+        <script>$('#password, #confirm_password').on('keyup', function () {
+                            if ($('#password').val() == $('#confirm_password').val()) {
+                                $('#message').html('').css('color', 'green');
+                            } else
+                                $('#message').html('Mật khẩu chưa trùng khớp').css('color', 'red');
+                        });</script>
+    </body>
+</html>

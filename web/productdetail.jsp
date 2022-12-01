@@ -181,12 +181,12 @@
                         </div>
                     </c:if>
 
-                        <div class="row ">
-                            <div class="col-lg-6">
-                                <div class="shop-details-thumb">
-                                    <div class="shop-details-thumb-slider-active">
-                                        <div class="item ">
-                                            <img src="${product.img}" alt="">
+                    <div class="row ">
+                        <div class="col-lg-6">
+                            <div class="shop-details-thumb">
+                                <div class="shop-details-thumb-slider-active">
+                                    <div class="item ">
+                                        <img src="${product.img}" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -230,7 +230,7 @@
                                 <form action="AddToCartController?pid=${product.productId}" method="post">
                                     <div class="shop-buttons d-block d-sm-flex align-items-center">
                                         <input class="form-control" required="" type="number" placeholder="Nhập trọng lượng" name="amount" style="width: 150px;" />
-                                        
+
                                         <input class="main-btn ml-10" type="submit" value="Thêm vào giỏ">
                                         <input type="hidden" name="proId" value="${product.productId}">
                                     </div> 
@@ -534,12 +534,10 @@
                     <div class="col ">
                         <ul class="ft-bottom container">
                             <li class="copy-right">
-                                <p style="font-size: 14px;">Copyright © 2021 Powered by VnProx. Powered by VnProx</p>
+                                <p style="font-size: 14px;">Copyright © 2022 Powered by VnProx. Powered by VnProx</p>
                             </li>
                             <li class="social-media">
-                                <a href="">
-                                    <i class="fas fa-phone-square-alt"></i>
-                                </a>
+
                                 <a href="">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
@@ -549,59 +547,58 @@
                                 <a href="">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="">
-                                    <i class="fab fa-pinterest-p"></i>
-                                </a>
+
                                 <a href="">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </li>
                         </ul>
-
                     </div>
-                    </footer>  
-                    </body>
-                    <script>
-                        function openCity(evt, cityName) {
-                            var i, tabcontent, tablinks;
-                            tabcontent = document.getElementsByClassName("tabcontent");
-                            for (i = 0; i < tabcontent.length; i++) {
-                                tabcontent[i].style.display = "none";
-                            }
-                            tablinks = document.getElementsByClassName("tablinks");
-                            for (i = 0; i < tablinks.length; i++) {
-                                tablinks[i].className = tablinks[i].className.replace(" active", "");
-                            }
-                            document.getElementById(cityName).style.display = "block";
-                            evt.currentTarget.className += " active";
-                        }
-                        document.getElementById("defaultOpen").click();
-                    </script>
-                    <!--====== jquery js ======-->
-                    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-                    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+                </div>
+            </div>
+        </footer>  
+    </body>
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        document.getElementById("defaultOpen").click();
+    </script>
+    <!--====== jquery js ======-->
+    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
 
-                    <!--====== Bootstrap js ======-->
-                    <script src="assets/js/bootstrap.min.js"></script>
-                    <script src="assets/js/popper.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
 
-                    <!--====== wow js ======-->
-                    <script src="assets/js/wow.js"></script>
+    <!--====== wow js ======-->
+    <script src="assets/js/wow.js"></script>
 
-                    <!--====== Slick js ======-->
-                    <script src="assets/js/jquery.counterup.min.js"></script>
-                    <script src="assets/js/waypoints.min.js"></script>
+    <!--====== Slick js ======-->
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
 
-                    <!--====== TweenMax js ======-->
-                    <script src="assets/js/TweenMax.min.js"></script>
+    <!--====== TweenMax js ======-->
+    <script src="assets/js/TweenMax.min.js"></script>
 
-                    <!--====== Slick js ======-->
-                    <script src="assets/js/slick.min.js"></script>
+    <!--====== Slick js ======-->
+    <script src="assets/js/slick.min.js"></script>
 
-                    <!--====== Magnific Popup js ======-->
-                    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!--====== Magnific Popup js ======-->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
 
-                    <!--====== Main js ======-->
-                    <script src="assets/js/main.js"></script>
-                    <script src="./cart.js"></script>
-                    </html> 
+    <!--====== Main js ======-->
+    <script src="assets/js/main.js"></script>
+    <script src="./cart.js"></script>
+</html> 

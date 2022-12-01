@@ -46,7 +46,7 @@
                 <div class="container-fluid">
 
                     <!-- Brand -->
-                    <a class="navbar-brand waves-effect" href="./home.jsp">
+                    <a class="navbar-brand waves-effect" href="Home">
                         <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                     </a>
 
@@ -63,8 +63,7 @@
                         <!-- Left -->
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active" style="padding-left: 40px;">
-                                <a class="nav-link waves-effect  text-header" href="./index.html">Trang chủ
-
+                                <a class="nav-link waves-effect  text-header" href="Home">Trang chủ
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -75,9 +74,9 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
                                          id="dropdown-collection">
-                                        <a class="dropdown-item" href="./information.html">Về chúng tôi</a>
-                                        <a class="dropdown-item" href="./policy.html">Chính sách bảo mật</a>
-                                        <a class="dropdown-item" href="./condition.html">Điều khoản dịch vụ</a>
+                                        <a class="dropdown-item" href="./information.jsp">Về chúng tôi</a>
+                                        <a class="dropdown-item" href="./policy.jsp">Chính sách bảo mật</a>
+                                        <a class="dropdown-item" href="./condition.jsp">Điều khoản dịch vụ</a>
                                     </div>
                                 </div>
                             </li>
@@ -88,28 +87,28 @@
 
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="./hoaqua.html">Trái cây</a>
-                                        <a class="dropdown-item" href="./dokho.html">Rau củ sạch</a>
-                                        <a class="dropdown-item" href="./dokho.html">Các loại hạt</a>
+                                        <c:forEach items="${listCate}" var="o" >
+                                            <a class="dropdown-item" href="MinimartProductController?cid=${o.cateId}">${o.cateName}</a>
+                                        </c:forEach>
                                     </div>
                                 </div>
 
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link waves-effect text-header" href="./contact.html">Liên hệ</a>
+                                <a class="nav-link waves-effect text-header" href="./contact.jsp">Liên hệ</a>
                             </li>
                         </ul>
 
 
                         <!-- Right -->
                         <ul class="navbar-nav nav-flex-icons">
+                            
                             <li class="nav-item ">
                                 <a href="#"  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i>
                                     <span class="quantity-amm-shopping-cart-open">0</span></a>
 
                             </li>
-
                             <li class="nav-item">
                                 <div class="dropdown dropdown-user">
                                     <a href="login.jsp" class="nav-link border border-light rounded waves-effect" target="_blank">
@@ -128,7 +127,7 @@
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
-                    <li class="breadcrumb-item"><a href="./home.jsp">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="Home">Trang chủ</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Tài khoản</li>
                 </ol>
             </nav>
@@ -185,14 +184,14 @@
                                         <span>
                                             <sup>*</sup>
                                         </span>
-                                        <a href="" target="_blank"> Điều khoản và điều kiện</a>
+                                        <a href="./condition.jsp" target="_blank">Điều khoản dịch vụ</a>
                                     </p>
                                     <p class="pri-pol ">
 
                                         <span> Sự riêng tư và bảo mật của bạn không quan trọng đối với chúng tôi. Để biết thêm thông tin về cách chúng tôi sử dụng dữ liệu của bạn, hãy đọc điều khoản dưới đây.
                                         </span>
                                         <br>
-                                        <a href="" target="_blank" style="margin: 5px"> Chính sách điều khoản</a>
+                                        <a href="policy.jsp" target="_blank" style="margin: 5px"> Chính sách bảo mật</a>
                                     </p>
                                 </div>
                             </div>
@@ -323,12 +322,10 @@
                     <div class="col ">
                         <ul class="ft-bottom container">
                             <li class="copy-right">
-                                <p style="font-size: 14px;">Copyright © 2021 Powered by VnProx. Powered by VnProx</p>
+                                <p style="font-size: 14px;">Copyright © 2022 Powered by VnProx. Powered by VnProx</p>
                             </li>
                             <li class="social-media">
-                                <a href="">
-                                    <i class="fas fa-phone-square-alt"></i>
-                                </a>
+
                                 <a href="">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
@@ -338,16 +335,15 @@
                                 <a href="">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="">
-                                    <i class="fab fa-pinterest-p"></i>
-                                </a>
+
                                 <a href="">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </li>
                         </ul>
-
                     </div>
+                </div>
+            </div>
                     </footer>
 
                     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

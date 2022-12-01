@@ -176,7 +176,6 @@
                                                     <th>Nhà cung cấp</th>
                                                     <th>Tên sản phẩm</th>
                                                     <th>Mã Barcode/SKU</th>
-                                                    <th>Khu vực giao hàng</th>
                                                     <th>Trạng thái</th>
                                                     <th>Chi tiết</th>
                                                 </tr>
@@ -189,11 +188,7 @@
                                                         <td>${mapProductSupplier.get(product).shopName}</td>
                                                         <td>${product.productName}</td>
                                                         <td>${product.barCode}</td>
-                                                        <td>
-                                                            <c:forEach items="${mapProductCities.get(product)}" var="city">
-                                                                ${city.cityName}</br>
-                                                            </c:forEach>
-                                                        </td>
+                                                      
                                                         <td><p class="btn btn-warning status mb-2">${product.statusId}</p></td>
                                                         <!-- <td><p class="btn btn-secondary status mb-2">Đã ẩn</p></td>
                                                         <td><p class="btn btn-danger status mb-2">Từ chối phê duyệt</p></td>

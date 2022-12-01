@@ -97,7 +97,7 @@
                                    class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-cart-bag-1"></i>
-                                        <span>Xem đơn hàng</span>
+                                        <span>Danh sách<br>đơn hàng</span>
                                     </div>
                                 </a>
 

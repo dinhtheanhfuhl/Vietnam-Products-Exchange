@@ -157,10 +157,9 @@
                     </div>
                     <div class="button-status ">
                         <h5>Hành động</h5>
-                        <button class=" btn btn-success status mb-2 mt-2 " >  Đã xác nhận  </button>
-                        <button class=" btn btn-info status mb-2" >  Chờ xác nhận </button>
+                        <button class=" btn btn-success status mb-2 mt-2 " >  Xác nhận đơn hàng </button>
                         <button class=" btn btn-secondary status mb-2" >  Giao hàng thành công </button>
-                        <button class=" btn btn-danger status mb-2" >  Từ chối đơn </button>
+                        <button class=" btn btn-danger status mb-2" >  Từ chối đơn hàng </button>
                     </div>
                 </div>
 
