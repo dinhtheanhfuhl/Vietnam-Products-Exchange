@@ -1,10 +1,9 @@
-<!doctype html>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
 <html lang="en">
-    <%@page contentType="text/html" pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <head>
-        <title>Sàn nông sản</title>
-        <!-- Required meta tags -->
+        <%@page contentType="text/html" pageEncoding="UTF-8"%>
+        <title>Chi tiết đơn hàng</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./css/style.css">
@@ -38,6 +37,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
     </head>
 
     <body>
@@ -118,24 +118,9 @@
                             </li>
                             <li class="nav-item">
                                 <div class="dropdown dropdown-user">
-                                    <c:if test="${sessionScope.roleCusId==4}">
-                                        <div class="dropdown">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                ${sessionScope.nameUser}
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="CustomerInfoDetail">Thông tin cá nhân</a>
-                                                <a class="dropdown-item" href="customer-history-order.jsp">Lịch sử mua hàng</a>
-                                                <a class="dropdown-item" href="changepass.jsp">Thay đổi mật khẩu</a>
-                                                <a class="dropdown-item" href="LogoutController">Đăng xuất</a>
-                                            </div>
-                                        </div>
-                                    </c:if>
-                                    <c:if test="${sessionScope.roleCusId==null}">
-                                        <a href="LogginController" class="nav-link border border-light rounded waves-effect" target="_blank">
-                                            <i class="fas fa-user"></i>Đăng Nhập
-                                        </a>
-                                    </c:if>
+                                    <a href="LogginController" class="nav-link border border-light rounded waves-effect" target="_blank">
+                                        <i class="fas fa-user"></i>Đăng Nhập
+                                    </a>
 
                                 </div>
                             </li>
@@ -145,196 +130,57 @@
             </nav>
         </header>
 
-        <div class="banner-top pt-5">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active" style=" transform: scale(1.5);">
-                        <img class="d-block w-100" src="./image/b1.jpg" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <div class="row">
-                                <div class="col-sm-4 text-title">
-                                    <h2>Farmfood freshbox</h2>
-                                    <h6>
-                                        Fresh & Healthy
-                                    </h6>
-                                    <a href="./raucusach.jsp">ĐẾN SÀN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item" style=" transform: scale(1.2);">
-                        <img class="d-block w-100" src="./image/b2.jpg" alt="Third slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <div class="row">
-                                <div class="col-sm-4 text-title-diff">
-                                    <h2>Pure and Organic</h2>
-                                    <h6>
-                                        Honey Flat 20% Off
-                                    </h6>
-                                    <a href="./raucusach.jsp">ĐẾN SÀN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item" style=" transform: scale(1.2);">
-                        <img class="d-block w-100" src="./image/b3.jpg" alt="Second slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <div class="row">
-                                <div class="col-sm-4 text-title-diff">
-                                    <h2>Always Fresh Beans</h2>
-                                    <h6>
-                                        Best collections
-                                    </h6>
-                                    <a href="./raucusach.html">ĐẾN SÀN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item" style=" transform: scale(1.2);">
-                        <img class="d-block w-100" src="./image/b5.jpg" alt="Second slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <div class="row">
-                                <div class="col-sm-4 text-title-diff">
-                                    <h2>Heathiest Vegestables</h2>
-                                    <h6>
-                                        Best collections
-                                    </h6>
-                                    <a href="./raucusach.html">GHÉ SHOP</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <section class="breadcrum">
 
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb container">
 
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-
-
-        <div class="pt-50">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-3  ">
-                        <div class="banner-block banner-hover">
-                            <img class=" lazyloaded" src="./image/banner2-min.jpg">
-                            <div class="banner-content text-left">
-                                <h4 style="color: #232323;">Vegetable Eggplant <br> 100% Fresh food</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-3  ">
-                        <div class="banner-block banner-hover">
-                            <img class=" lazyloaded" src="./image/banner1.jpg">
-                            <div class="banner-content text-left">
-                                <h4 style="color: #232323;">Fresh fruit vegetable <br> on our product</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <section class="mt-5 product">
-            <div class="container">
-                <div class="title text-center pb-10  ">
-                    <h2>Sản phẩm nổi bật</h2>
-                </div>
-
-                <div class="row">
-                    <div class="product-slider">
-                        <c:forEach var="key" items="${mapImages.keySet()}">
-                            <div class="col-md-2">
-                                <div class="card">
-                                    <img class="card-img-top" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">${key.trademark}</h5>
-                                        <h6>${mapSuppliers.get(key).get(0).getShopName()}</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </c:forEach>
-                    </div>
-                </div>
-            </div>
+                </ol>
+            </nav>
         </section>
-        <div class="gallery">
+        <div class="container ">
+        </div>
+        <div class="container ">
+            <h3>Chi tiết đơn hàng</h3>
+
+
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="titlepage pt-3 pb-3">
-                            <h2>Sản phẩm mới nhất</h2>
-                        </div>
+                    <div class="col-sm">
+                        <p><b>Trạng thái: </b><span>Đang giao</span></p>
+                        <p><b>Mã đơn hàng: </b><span>DH12312</span></p>
+                        <p><b>Ngày đặt hàng: </b><span>12/12/1222</span></p>
+                        <p><b>Ghi chú: </b><span>Hàng dễ vỡ</span></p>
                     </div>
-                </div>
-                <div class="row">
-                    <c:forEach var="key" items="${mapImages2.keySet()}">
-                        <div class="col-md-3 col-sm-6 mb-3">
-                            <div class="pro-loop">
-                                <div class="product-block product-resize">
-                                    <div class="product-img">
-                                        <img class="w-100" src="${mapImages2.get(key).get(0).getImgPath()}" alt="">
-                                        <div class="box-pro-detail ">
-                                            <h3 class="pro-name">
-                                                <a href="#">
-                                                </a><a href="#">${key.trademark}</a>
-                                            </h3>
-                                            <div class="box-pro-prices">
-                                                <h6>${mapSupplier2.get(key).get(0).getShopName()}</h6>
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
+                    <div class="col-sm">
+                        <p><b>Tên người nhận hàng: </b><span>Le Van A</span></p>
+                        <p><b>Số điện thoại: </b><span>054354345</span></p>
+                        <p><b>Địa chỉ nhận hàng: </b><span>Ha Noi</span></p>
+                    </div>
+                    <div class="col-sm">
+                        <button type="button" style="float: right;" class="btn btn-warning status mb-2">Huỷ đơn</button>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <div class="ordered-detail container">
+            <div class="row " style="padding-top: 25px;">
+                <div class="col-md-4">
+                    <img src="./image/quả dừa.jpg" alt="">
+                </div>
+                <div class="col-md-8 ">
 
-        <!--====== SHOPPING CART PART START ======-->
-
-        <div class="amm-shopping-cart-wrapper">
-            <div class="amm-shopping-cart-canvas" id="amm-shopping-cart-canvas">
-                <div class="amm-shopping_cart">
-                    <div class="amm-shopping_cart-top-bar d-flex justify-content-between">
-                        <h6>Giỏ hàng</h6>
-                        <button onclick="removeShoppingCart()" class="amm-shopping-cart-close">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div><!-- shopping cart top bar -->
-                    <div class="amm-shopping_cart-list-items mt-30" id="showCart">
-                        <ul>
-
-                        </ul>
-                    </div> <!-- shopping_cart list items -->
-                    <div class="amm-shopping_cart-btn">
-                        <div class="total pt-35 d-flex justify-content-between">
-                            <h5>Tổng tiền:</h5>
-                            <p><span>0 <sup>đ</sup></span></p>
-
-                        </div>
-                        <div class="cart-btn pt-25">
-                            <a class="main-btn" onclick="viewCarts()" href="./ViewCart.html">Xem giỏ hàng</a>
-                            <a class="main-btn main-btn-2" href="./payment.html">Thanh toán</a>
-                        </div>
+                    <div class="product-id">
+                        <p style="margin-top: 81px" ><b>Quả Cam</b><span style="margin-left: 100px;"><b>Số lượng: 50kg</b></span><span style="margin-left: 100px;"><b>Giá: 25.000</b></span></p>
                     </div>
-                </div> <!-- shopping_cart -->
-            </div>
-            <div onclick="openOverlay()" class="overlay" id="overlay"></div>
+
+                </div>
+
+            </div> 
+
         </div>
 
-        <!--====== SHOPPING CART PART ENDS ======-->
         <footer>
             <div class="main-footer container">
                 <div class="row m14 container">
@@ -466,6 +312,7 @@
         <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
 
         <!--====== Bootstrap js ======-->
+        <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/popper.min.js"></script>
 
         <!--====== wow js ======-->
@@ -487,120 +334,7 @@
         <!--====== Main js ======-->
         <script src="assets/js/main.js"></script>
         <script src="./cart.js"></script>
-        <script type="text/javascript">
-                $(document).ready(function () {
-                    $('.cate-slider').slick({
-                        slidesToShow: 5,
-                        slidesToScroll: 1,
-                        responsive: [{
-                                breakpoint: 1024,
-                                settings: {
-                                    slidesToShow: 5,
-                                    slidesToScroll: 1,
 
-                                }
-                            }, {
-                                breakpoint: 800,
-                                settings: {
-                                    slidesToShow: 4,
-                                    slidesToScroll: 2,
-                                    dots: false
-                                }
-                            }, {
-                                breakpoint: 480,
-                                settings: {
-                                    slidesToShow: 1,
-                                    slidesToScroll: 1
-                                }
-                            }
-
-                        ]
-
-                    });
-                });
-        </script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('.product-slider').slick({
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                    responsive: [{
-                            breakpoint: 1024,
-                            settings: {
-                                slidesToShow: 4,
-                                slidesToScroll: 3,
-                                infinite: true,
-
-                            }
-                        }, {
-                            breakpoint: 800,
-                            settings: {
-                                slidesToShow: 2,
-                                slidesToScroll: 2
-                            }
-                        }, {
-                            breakpoint: 480,
-                            settings: {
-                                slidesToShow: 1,
-                                slidesToScroll: 1
-                            }
-                        }
-
-                    ]
-                });
-            });
-        </script>
-        <script>
-            $('.fader').hover(function () {
-                $(this).find("img:last").fadeToggle();
-            });
-
-        </script>
-        <script type='text/javascript'>
-            //<![CDATA[
-            function getTimeRemaining(endtime) {
-                var t = Date.parse(endtime) - Date.parse(new Date());
-                var seconds = Math.floor((t / 1000) % 60);
-                var minutes = Math.floor((t / 1000 / 60) % 60);
-                var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-                var days = Math.floor(t / (1000 * 60 * 60 * 24));
-                return {
-                    'total': t,
-                    'days': days,
-                    'hours': hours,
-                    'minutes': minutes,
-                    'seconds': seconds
-                };
-            }
-
-            function initializeClock(id, endtime) {
-                var clock = document.getElementById(id);
-                var daysSpan = clock.querySelector('.days');
-                var hoursSpan = clock.querySelector('.hours');
-                var minutesSpan = clock.querySelector('.minutes');
-                var secondsSpan = clock.querySelector('.seconds');
-
-                function updateClock() {
-                    var t = getTimeRemaining(endtime);
-
-                    daysSpan.innerHTML = t.days;
-                    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-                    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-                    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-                    if (t.total <= 0) {
-                        clearInterval(timeinterval);
-                    }
-                }
-
-                updateClock();
-                var timeinterval = setInterval(updateClock, 1000);
-            }
-
-            var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
-            initializeClock('clockdiv', deadline);
-            //]]>
-        </script>
     </body>
 
 </html>

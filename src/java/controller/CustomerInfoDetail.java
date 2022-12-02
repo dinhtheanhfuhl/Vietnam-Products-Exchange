@@ -4,26 +4,22 @@
  */
 package controller;
 
-import dao.CategoryDAO;
-import dao.ProductDAO;
-import dao.SubCategoryDAO;
+import dao.CustomerDAO;
 import dbconnect.DBConnect;
-import entity.Category;
-import entity.Product;
-import entity.SubCategory;
+import entity.Customer;
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author ductd
  */
-public class MinimartDetailProductController extends HttpServlet {
+public class CustomerInfoDetail extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,19 +33,14 @@ public class MinimartDetailProductController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String id = request.getParameter("pid");
         Connection connection = DBConnect.getConnection();
-        ProductDAO productDAO = new ProductDAO(connection);
-        CategoryDAO categoryDAO = new CategoryDAO(connection);
-        SubCategoryDAO subCateDAO = new SubCategoryDAO(connection);
-        Product product = productDAO.getProductByProductId(id);
-        request.setAttribute("product", product);
-        SubCategory subcate = subCateDAO.getSubCategoryNameByProductId(id);
-        System.out.println(subcate);
-        request.setAttribute("subcate", subcate);
-        List<Category> allCate = categoryDAO.getAllCategory();
-        request.setAttribute("listCate", allCate);
-        request.getRequestDispatcher("productdetail.jsp").forward(request, response);
+        CustomerDAO customerDAO = new CustomerDAO(connection);
+        HttpSession session = request.getSession();
+        Customer customer = (Customer) session.getAttribute("customer");
+        int customerid = customer.getCustomerId();
+        Customer customerDetail = customerDAO.getCustomerById(customerid);
+        request.setAttribute("customerDetail", customerDetail);
+        request.getRequestDispatcher("./admin-page/personal-infor-customer.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

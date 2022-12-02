@@ -116,62 +116,6 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown notification-dropdown ml-3 mr-lg-4 align-self-center">
-
-                    <div class="dropdown-menu position-absolute eq-animated eq-fadeInUp"
-                         aria-labelledby="notification-dropdown">
-                        <div class="notification-scroll">
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Nguyá»n VÄn A</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Nguyá»n VÄn B</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Äá» Thá» Nga</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>LÃª Ngá»c HÃ </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
 
                 <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
@@ -214,7 +158,7 @@
 
                                 </div>
                                 <div class="profile-usertitle">
-                                    <div class="profile-usertitle-name">${customer.customerName}</div>
+                                    <div class="profile-usertitle-name">${customerDetail.customerName}</div>
                                 </div>
                                 <div class="profile-userbuttons">
                                     <button type="button" class="btn btn-success btn-sm"> Upload Image</button>
@@ -231,7 +175,7 @@
                                                 </td>
 
                                                 <td class="display-userName-3">
-                                                    <p>${customer.customerName}</p>
+                                                    <p>${customerDetail.customerName}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -243,27 +187,23 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Ngày sinh</label>
+                                                <td><label >Ngày sinh</label>
                                                 </td>
-
                                                 <td class="display-userName-3">
-                                                    <p>${customer.dateBirth}</p>
+                                                    <p>${customerDetail.dateBirth}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
-
                                 </div>
-
                                 <div class="col-md-8 col-sm-6 pt-4 pb-4">
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Giới tính</label>
+                                                <td><label class="form-label pass-infor">Giới tính</label>
                                                 </td>
-
                                                 <td class="display-userName-3">
-                                                    <p>${customer.gender}</p>
+                                                    <p>${customerDetail.gender}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -277,7 +217,7 @@
                                                 </td>
 
                                                 <td class="display-userName-3">
-                                                    <p>${customer.email}</p>
+                                                    <p>${customerDetail.email}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -292,7 +232,7 @@
                                                 </td>
 
                                                 <td class="display-userName-3">
-                                                    <p>${customer.phone}</p>
+                                                    <p>${customerDetail.phone}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -306,7 +246,7 @@
                                                 </td>
 
                                                 <td class="display-userName-3">
-                                                    <p>${customer.shopName}</p>
+                                                    <p>${customerDetail.shopName}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -320,7 +260,7 @@
                                                 </td>
 
                                                 <td class="display-userName-3">
-                                                    <p>${customer.mainAddress}</p>
+                                                    <p>${customerDetail.mainAddress}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -410,7 +350,7 @@
             <div class="user-links text-left">
                 <ul class="list-unstyled">
                     <li>
-                        <a href="./personal-infor-customer.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                        <a href="CustomerInfoDetail"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                     </li>
                     <li>
                         <a href="customer-history-order.jsp"><i class="flaticon-bank-safe-box"></i> Lịch sử mua hàng</a>
@@ -419,7 +359,7 @@
                         <a href="../changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
                     </li>
                     <li>
-                        <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
+                        <a href="LogoutController"><i class="flaticon-power-off"></i> Đăng xuất</a>
                     </li>
                 </ul>
             </div>

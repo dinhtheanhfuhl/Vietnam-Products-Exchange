@@ -194,9 +194,7 @@
                                                 <tr>
 
                                                     <td><c:forEach items="${proImg}" var="p" ><div class="img-product ">
-
                                                                 <img src="${p.getImgPath()}" alt="">
-
                                                             </div>
                                                         </c:forEach>
                                                     </td>

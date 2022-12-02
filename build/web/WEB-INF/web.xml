@@ -24,6 +24,10 @@
         <servlet-name>OrderController</servlet-name>
         <servlet-class>controller.OrderController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CustomerInfoDetail</servlet-name>
+        <servlet-class>controller.CustomerInfoDetail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MinimartProductController</servlet-name>
         <url-pattern>/MinimartProductController</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>OrderController</servlet-name>
         <url-pattern>/OrderController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerInfoDetail</servlet-name>
+        <url-pattern>/CustomerInfoDetail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

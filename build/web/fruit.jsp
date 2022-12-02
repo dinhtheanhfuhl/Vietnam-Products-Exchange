@@ -199,8 +199,8 @@
                                     <h4 class="title">Khu vực giao hàng</h4>
                                     <ul>
                                         <select id="city"  class="form-control">
+                                            <option value="">Tất cả thành phố</option>
                                             <c:forEach items="${allCities}" var="o" >
-                                                <option value="">Tất cả thành phố</option>
                                                 <option value="${o.cityId}">${o.cityName}</option>
                                             </c:forEach>
                                         </select>
