@@ -164,7 +164,7 @@
                                             </div>
                                         </div>
                                         <div class="table-responsive new-products" style="background-color: white;">
-                                            <a href="supplier-add-product.jsp">
+                                            <a href="SupplierAddController">
                                                 <button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
                                             <select style="float: right;width: 160px;" onchange="location = this.value;" class="form-control">
                                                 <option <c:if test="${status!=null&&status==0}">selected</c:if> value="SupplierController?filter=filter&status=0<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Tất cả sản phẩm</option>
