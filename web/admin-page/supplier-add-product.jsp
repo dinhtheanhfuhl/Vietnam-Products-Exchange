@@ -123,8 +123,7 @@
                                     </div>
                                 </div>
                                 <div class="widget-content widget-content-area add-manage-product-2">
-                                    <form method="post" action="SupplierAddController">
-                                        <input type="hidden" name="action" value="add" />
+                                    <form method="post" action="SupplierAddController?action=add" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-xl-7 col-md-12">
                                             <div class="card card-default">
@@ -380,7 +379,7 @@
                                                                 <label class="col-md-4">Trọng lượng</label>
                                                                 <div class="col-md-8">
 
-                                                                    <input type="number" required="" class="form-control" placeholder="Ví dụ: 400g, 20kg,..." name="weight" type="text">
+                                                                    <input type="number" required="" class="form-control" placeholder="Ví dụ: 400g, 20kg,..." name="weight">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -429,20 +428,20 @@
                                                                                 <td><select id="selectunit" onchange="location = this.value;" >
                                                                                         <option value="">Kg</option>
                                                                                     </select></td>
-                                                                                    <td><input name="weight1" type="number" required="" class="form-control"  type="text"></td>
-                                                                                    <td><input name="price1" type="number" required="" class="form-control"  type="text"></td>
+                                                                                    <td><input name="weight1" type="number" required="" class="form-control"></td>
+                                                                                    <td><input name="price1" type="number" required="" class="form-control"></td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <th scope="row"></th>
                                                                                 <td></td>
-                                                                                <td><input name="weight2" type="number" required="" class="form-control"  type="text"></td>
-                                                                                <td><input name="price2" type="number" required="" class="form-control"  type="text"></td>
+                                                                                <td><input name="weight2" type="number" required="" class="form-control"></td>
+                                                                                <td><input name="price2" type="number" required="" class="form-control"></td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <th scope="row"></th>
                                                                                 <td></td>
-                                                                                <td><input name="weight3" type="number" required="" class="form-control"  type="text"></td>
-                                                                                <td><input name="price3" type="number" required="" class="form-control"  type="text"></td>
+                                                                                <td><input name="weight3" type="number" required="" class="form-control"></td>
+                                                                                <td><input name="price3" type="number" required="" class="form-control"></td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>

@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "SupplierController", urlPatterns = {"/SupplierController"})
 public class SupplierController extends HttpServlet {
-    
+
     private static void convertDate(List<Product> products) {
         SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         SimpleDateFormat formatter2 = new SimpleDateFormat("dd/MM/yyyy");
@@ -36,20 +36,15 @@ public class SupplierController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        
+
         HttpSession session = request.getSession();
-        
+
         // fake session supplier
         Supplier supplierFake = new Supplier();
         supplierFake.setSupplierId(1);
         session.setAttribute("supplier", supplierFake);
-        
-        
-        Supplier supplier =(Supplier) session.getAttribute("supplier");
-        
-        
+
+        Supplier supplier = (Supplier) session.getAttribute("supplier");
 
         Connection conn = dbconnect.DBConnect.getConnection();
         ProductDAO productDAO = new ProductDAO(conn);
@@ -63,7 +58,7 @@ public class SupplierController extends HttpServlet {
             String idSr = request.getParameter("idSr");
             String nameSr = request.getParameter("nameSr");
             String barcodeSr = request.getParameter("barcodeSr");
-            resultP = productDAO.searchProduct(idSr, nameSr, barcodeSr);
+            resultP = productDAO.searchProduct(supplier.getSupplierId(), idSr, nameSr, barcodeSr);
 
             request.setAttribute("idSr", idSr);
             request.setAttribute("nameSr", nameSr);
@@ -89,6 +84,7 @@ public class SupplierController extends HttpServlet {
         } else {
             request.setAttribute("resultP", resultP);
         }
+
         request.getRequestDispatcher("admin-page/supplier-product-pending.jsp").forward(request, response);
     }
 
