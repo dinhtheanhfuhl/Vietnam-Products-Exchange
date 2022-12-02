@@ -2,6 +2,7 @@ package controller;
 
 import dao.ProductDAO;
 import entity.Product;
+import entity.Supplier;
 import java.io.IOException;
 import java.sql.Connection;
 import java.text.ParseException;
@@ -14,10 +15,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "SupplierController", urlPatterns = {"/SupplierController"})
 public class SupplierController extends HttpServlet {
-
+    
     private static void convertDate(List<Product> products) {
         SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         SimpleDateFormat formatter2 = new SimpleDateFormat("dd/MM/yyyy");
@@ -34,13 +36,28 @@ public class SupplierController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
+        
+        HttpSession session = request.getSession();
+        
+        // fake session supplier
+        Supplier supplierFake = new Supplier();
+        supplierFake.setSupplierId(1);
+        session.setAttribute("supplier", supplierFake);
+        
+        
+        Supplier supplier =(Supplier) session.getAttribute("supplier");
+        
+        
+
         Connection conn = dbconnect.DBConnect.getConnection();
         ProductDAO productDAO = new ProductDAO(conn);
 
         List<Product> resultP = new ArrayList<>();
         String action = request.getParameter("action");
         if (action == null) {
-            List<Product> allProducts = productDAO.getAllProduct();
+            List<Product> allProducts = productDAO.getAllProductBySupplier(supplier.getSupplierId());
             resultP = allProducts;
         } else if (action.equals("search")) {
             String idSr = request.getParameter("idSr");

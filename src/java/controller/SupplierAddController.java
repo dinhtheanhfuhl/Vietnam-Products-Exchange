@@ -9,10 +9,12 @@ import dao.CityDAO;
 import dao.SubCategoryDAO;
 import entity.Category;
 import entity.City;
+import entity.Product;
 import entity.SubCategory;
+import entity.Supplier;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +23,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -41,6 +44,10 @@ public class SupplierAddController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession();
+        Supplier supplier = (Supplier) session.getAttribute("supplier");
+        int supplierId = supplier.getSupplierId();
+        
         String action = request.getParameter("action");
         Connection conn = dbconnect.DBConnect.getConnection();
         CityDAO cityDAO = new CityDAO(conn);
@@ -60,8 +67,50 @@ public class SupplierAddController extends HttpServlet {
         if (action == null || action.equals("")) {
             request.setAttribute("allCities", allCities);
             request.setAttribute("mapCateSubCate", mapCateSubCate);
-
             request.getRequestDispatcher("admin-page/supplier-add-product.jsp").forward(request, response);
+            
+        }else if(action.equals("add")){
+            // add file anh va file giay phep vao uploads
+            
+            
+            // add nhung field la field form
+            String description = request.getParameter("description");
+            String barcode = request.getParameter("barcode");
+            String subCate = request.getParameter("category");
+            String[] cities = request.getParameterValues("cities");
+            String name = request.getParameter("name");
+            String trademark = request.getParameter("trademark");
+            String taste = request.getParameter("taste");
+            String color = request.getParameter("color");
+            String weight = request.getParameter("weight");
+            String packaging = request.getParameter("packaging");
+            String composition = request.getParameter("composition");
+            
+            
+            String weight1 = request.getParameter("weight1");
+            String weight2 = request.getParameter("weight2");
+            String weight3 = request.getParameter("weight3");
+            String price1 = request.getParameter("price1");
+            String price2 = request.getParameter("price2");
+            String price3 = request.getParameter("price3");
+            
+            Product product = new Product();
+            product.setSupplierId(supplierId);
+            product.setSubCateId(Integer.parseInt(subCate));
+            product.setCreatedDate(new Date().toString());
+            product.setDescription(description);
+            product.setProductName(name);
+            product.setBarCode(barcode);
+            product.setProductCertificate("de trong");
+            product.setTrademark(trademark);
+            product.setSmell(taste);
+            product.setColor(color);
+            product.setWeight(Integer.parseInt(weight));
+            product.setPacking(packaging);
+            product.setElement(composition);
+            product.setViewNumber(0);
+            product.setStatusId(1);
+            
             
         }
     }

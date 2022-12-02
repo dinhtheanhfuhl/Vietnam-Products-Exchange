@@ -123,7 +123,8 @@
                                     </div>
                                 </div>
                                 <div class="widget-content widget-content-area add-manage-product-2">
-                                    <form>
+                                    <form method="post" action="SupplierAddController">
+                                        <input type="hidden" name="action" value="add" />
                                     <div class="row">
                                         <div class="col-xl-7 col-md-12">
                                             <div class="card card-default">
@@ -301,7 +302,7 @@
                                                                             <c:forEach var="cate" items="${mapCateSubCate.keySet()}">
                                                                                 <optgroup label="${cate.cateName}">
                                                                                     <c:forEach var="subCate" items="${mapCateSubCate.get(cate)}">
-                                                                                        <option value="volvo">${subCate.subCateName}</option>
+                                                                                        <option value="${subCate.subCateId}">${subCate.subCateName}</option>
                                                                                     </c:forEach>
                                                                                 </optgroup>
                                                                             </c:forEach>
@@ -314,10 +315,10 @@
                                                                     <label class="col-md-4">Khu vực giao hàng</label>
                                                                     <div class="col-md-8">
                                                                         <select multiple size="10" style="height: 50%;" class="form-control form-custom mb-4"
-                                                                                name="city">
+                                                                                name="cities">
 
                                                                             <c:forEach var="city" items="${allCities}">
-                                                                                <option value="category1">${city.cityName}</option>
+                                                                                <option value="${city.cityId}">${city.cityName}</option>
                                                                             </c:forEach>
 
 
@@ -452,8 +453,8 @@
                                                 </div>
                                             </div>
                                             <div class="align-center">
-                                                <input value="Huỷ" class="btn btn-gradient-secondary" type="submit">
-                                                <input value="Yêu cầu phê duyệt" class="btn btn-gradient-secondary" type="submit">
+                                                <input value="Huỷ" class="btn" type="submit">
+                                                <input value="Yêu cầu phê duyệt" class="btn" type="submit">
                                             </div>
                                         </div>
                                     </div>
