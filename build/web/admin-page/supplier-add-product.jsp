@@ -149,7 +149,7 @@
                                                                             <div class="mb-3">
                                                                                 <div class="custom-file">
 
-                                                                                    <input type="file" required="" class="form-control-file"
+                                                                                    <input type="file" required="" class="form-control-file" name="photo1"
                                                                                            id="file-input">
                                                                                 </div>
                                                                             </div>
@@ -172,7 +172,7 @@
                                                                             <div class="mb-3">
                                                                                 <div class="custom-file">
 
-                                                                                    <input type="file" required="" class="form-control-file"
+                                                                                    <input type="file" required="" class="form-control-file" name="photo2"
                                                                                            id="file-input">
                                                                                 </div>
                                                                             </div>
@@ -194,7 +194,7 @@
                                                                         <div class="col-md-8">
                                                                             <div class="mb-3">
                                                                                 <div class="custom-file">
-                                                                                    <input type="file" class="form-control-file"
+                                                                                    <input type="file" class="form-control-file" 
                                                                                            id="file-input" name="photo3">
                                                                                 </div>
                                                                             </div>
@@ -264,7 +264,7 @@
                                                                     <label class="col-md-4">Mã Barcode/SKU</label>
                                                                     <div class="col-md-8">
 
-                                                                        <input class="form-control" required="" placeholder="1234567890123" name="name" type="text">
+                                                                        <input class="form-control" required="" placeholder="1234567890123" name="barcode" type="text">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -284,7 +284,7 @@
                                                                                 <div class="custom-file">
 
                                                                                     <input required="" type="file" class="form-control-file"
-                                                                                           id="file-input">
+                                                                                           name="lincse"   id="file-input">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -343,7 +343,7 @@
                                                                 <label class="col-md-4">Tên loại sản phẩm</label>
                                                                 <div class="col-md-8">
 
-                                                                    <input maxlength="50" required="" class="form-control" placeholder="Nhập tên loại sản phẩm: vải, nước ngọt,..." name="price" type="text">
+                                                                    <input maxlength="50" required="" class="form-control" placeholder="Nhập tên loại sản phẩm: vải, nước ngọt,..." name="name" type="text">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -353,7 +353,7 @@
                                                                 <label class="col-md-4">Thương hiệu</label>
                                                                 <div class="col-md-8">
 
-                                                                    <input maxlength="50" required="" class="form-control" name="discount" placeholder="Nhập tên Thương Hiệu: Kinh Đô,..." type="text">
+                                                                    <input maxlength="50" required="" class="form-control" name="trademark" placeholder="Nhập tên Thương Hiệu: Kinh Đô,..." type="text">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -362,7 +362,7 @@
                                                                 <label class="col-md-4">Hương vị</label>
                                                                 <div class="col-md-8">
 
-                                                                    <input maxlength="50" required="" class="form-control" name="discount" placeholder="Nhập loại Hương vị: Chocolate, Đào,..." type="text">
+                                                                    <input maxlength="50" required="" class="form-control" name="taste" placeholder="Nhập loại Hương vị: Chocolate, Đào,..." type="text">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -379,7 +379,7 @@
                                                                 <label class="col-md-4">Trọng lượng</label>
                                                                 <div class="col-md-8">
 
-                                                                    <input type="number" required="" class="form-control" placeholder="Ví dụ: 400g, 20kg,..." name="discount" type="text">
+                                                                    <input type="number" required="" class="form-control" placeholder="Ví dụ: 400g, 20kg,..." name="weight" type="text">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -396,7 +396,7 @@
                                                                 <label class="col-md-4">Thành phần</label>
                                                                 <div class="col-md-8">
 
-                                                                    <input maxlength="50"  class="form-control" placeholder="Nhập tỷ lệ và thành phần: 80% Ca cao,..." name="discount" type="text">
+                                                                    <input maxlength="50"  class="form-control" placeholder="Nhập tỷ lệ và thành phần: 80% Ca cao,..." name="composition" type="text">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -428,20 +428,20 @@
                                                                                 <td><select id="selectunit" onchange="location = this.value;" >
                                                                                         <option value="">Kg</option>
                                                                                     </select></td>
-                                                                                    <td><input type="number" required="" class="form-control"  type="text"></td>
-                                                                                    <td><input type="number" required="" class="form-control"  type="text"></td>
+                                                                                    <td><input name="weight1" type="number" required="" class="form-control"  type="text"></td>
+                                                                                    <td><input name="price1" type="number" required="" class="form-control"  type="text"></td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <th scope="row"></th>
                                                                                 <td></td>
-                                                                                <td><input type="number" required="" class="form-control"  type="text"></td>
-                                                                                <td><input type="number" required="" class="form-control"  type="text"></td>
+                                                                                <td><input name="weight2" type="number" required="" class="form-control"  type="text"></td>
+                                                                                <td><input name="price2" type="number" required="" class="form-control"  type="text"></td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <th scope="row"></th>
                                                                                 <td></td>
-                                                                                <td><input type="number" required="" class="form-control"  type="text"></td>
-                                                                                <td><input type="number" required="" class="form-control"  type="text"></td>
+                                                                                <td><input name="weight3" type="number" required="" class="form-control"  type="text"></td>
+                                                                                <td><input name="price3" type="number" required="" class="form-control"  type="text"></td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
