@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -11,18 +12,18 @@
         <link rel="shortcut icon" .href="./image/578b1438ff0a7fc4704aa5ade7625e89.jpeg" type="image/png">
 
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="../assets/css/loader.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/loader.css" rel="stylesheet" type="text/css" />
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/plugins.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/plugins.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-        <link href="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
-        <link href="../plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
-        <link href="../assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />\
-        <link rel="stylesheet" href="../assets/css/style.css">
+        <link href="${pageContext.request.contextPath}/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />\
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
         <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
 
@@ -42,7 +43,7 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect" href="../home.jsp">
+                <a class="navbar-brand waves-effect" href="${pageContext.request.contextPath}/home.jsp">
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
@@ -136,76 +137,87 @@
                                                            type="hidden">
 
                                                     <div id="filter">
-                                                        <input type="text" name="id" placeholder="Mã yêu cầu phê duyệt" value=""
-                                                               class="form-control">
-                                                        <input type="text" name="name" placeholder="Tên sản phẩm" value=""
-                                                               class="form-control">
-                                                        <input type="text" name="danh mục" placeholder="Mã Barcode/SKU" value=""
-                                                               class="form-control"> 
-                                                        <button class="btn btn-info"
-                                                                style="padding: 0 10px; background: none; border: none;"
-                                                                title="Tìm kiếm">
-                                                            <i class="flaticon-search" aria-hidden="true"
-                                                               style="color:#469408;font-size: 25px;line-height: 42px;"></i>
-                                                        </button>
-
-                                                    </div>
-                                                </form>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="table-responsive new-products" style="background-color: white;">
-                                        <a href="supplier-add-product.jsp">
-                                            <button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
-                                        <select style="float: right;width: 160px;" onchange="location = this.value;" class="form-control">
-                                            <option value="#">Đã phê duyệt</option>
-                                            <option value="#">Chờ phê duyệt</option>
-                                            <option value="#">Từ chối phê duyệt</option>
-                                            <option value="#">Đã ẩn</option>
-                                        </select>
-                                        <table class="table">
-                                            <thead>
-                                                <tr class="text-center">
-                                                    <th>STT</th>
-                                                    <th>Mã yêu 
-                                                        cầu duyệt</th>
-                                                    <th>Thời gian 
-                                                        gửi yêu cầu</th>
-                                                    <th>Tên sản phẩm</th>
-                                                    <th>Mã Barcode/
-                                                        SKU</th>
-                                                    <th>Khu vực giao hàng</th>
-                                                    <th>Trạng thái</th>
-                                                    <th>Chi tiết</th>
-                                                    <th>Chỉnh sửa</th>
-                                                    <th>Ẩn/Bỏ Ẩn</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="text-center">
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>#0001</td>
-                                                    <td>01/01/1000</td>
-                                                    <td><span class="badge badge-info badge-pill">Hoa quả</span></td>
-                                                    <td>100</td>
-                                                    <td>Hà Nội</td>
-                                                    <td>Đã phê duyệt</td>
-
-                                                    <td>
-                                                        <div class="dropdown dropdown-user">
-                                                            <a href="supplier-product-detail.jsp" target="_blank">
-                                                                Xem chi tiết
-                                                            </a>
+                                                        <form action="SupplierController" method="post">
+                                                            <input type="hidden" name="action" value="search">
+                                                            <input type="text" name="idSr" placeholder="Mã yêu cầu phê duyệt"
+                                                                   <c:if test="${requestScope.idSr!=null}"> value="${requestScope.idSr}"</c:if>
+                                                                       class="form-control">
+                                                                   <input type="text" name="nameSr" placeholder="Tên sản phẩm"
+                                                                   <c:if test="${requestScope.nameSr!=null}"> value="${requestScope.nameSr}"</c:if>
+                                                                       class="form-control">
+                                                                   <input type="text" name="barcodeSr" placeholder="Mã Barcode/SKU"
+                                                                   <c:if test="${requestScope.barcodeSr!=null}"> value="${requestScope.barcodeSr}"</c:if>
+                                                                       class="form-control"> 
+                                                                   <button 
+                                                                       type="submit"
+                                                                       class="btn btn-info"
+                                                                       style="padding: 0 10px; background: none; border: none;"
+                                                                       title="Tìm kiếm">
+                                                                       <i class="flaticon-search" aria-hidden="true"
+                                                                          style="color:#469408;font-size: 25px;line-height: 42px;"></i>
+                                                                   </button>
+                                                            </form>
                                                         </div>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#"><i class="flaticon-edit"></i></a>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#"><i class="flaticon-view"></i></a>
-                                                    </td>
-                                                </tr>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive new-products" style="background-color: white;">
+                                            <a href="supplier-add-product.jsp">
+                                                <button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
+                                            <select style="float: right;width: 160px;" onchange="location = this.value;" class="form-control">
+                                                <option <c:if test="${status!=null&&status==0}">selected</c:if> value="SupplierController?filter=filter&status=0<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Tất cả sản phẩm</option>
+                                                <option <c:if test="${status!=null&&status==1}">selected</c:if> value="SupplierController?filter=filter&status=1<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Chờ phê duyệt</option>
+                                                <option <c:if test="${status!=null&&status==2}">selected</c:if> value="SupplierController?filter=filter&status=2<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã phê duyệt</option>
+                                                <option <c:if test="${status!=null&&status==3}">selected</c:if> value="SupplierController?filter=filter&status=3<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Từ chối phê duyệt</option>
+                                                <option <c:if test="${status!=null&&status==4}">selected</c:if> value="SupplierController?filter=filter&status=4<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã ẩn</option>
+                                            </select>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr class="text-center">
+                                                        <th>Mã yêu 
+                                                            cầu duyệt</th>
+                                                        <th>Thời gian 
+                                                            gửi yêu cầu</th>
+                                                        <th>Tên sản phẩm</th>
+                                                        <th>Mã Barcode/
+                                                            SKU</th>
+                                                        <th style="min-width: 150px" >Trạng thái</th>
+                                                        <th style="min-width: 150px">Chi tiết</th>
+                                                        <th>Chỉnh sửa</th>
+                                                        <th>Ẩn/Bỏ Ẩn</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-center">
+                                                <c:forEach var="p" items="${resultP}">
+                                                    <tr>
+                                                        <td>#${p.productId}</td>
+                                                        <td>${p.createdDate}</td>
+                                                        <td><span>${p.productName}</span></td>
+                                                        <td>${p.barCode}</td>
+
+                                                        <c:choose>
+                                                            <c:when test="${p.statusId==1}"><td>Chờ phê duyệt</td></c:when>
+                                                            <c:when test="${p.statusId==2}"><td>Đã phê duyệt</td></c:when>
+                                                            <c:when test="${p.statusId==3}"><td>Từ chối phê duyệt</td></c:when>
+                                                            <c:when test="${p.statusId==4}"><td>Đã ẩn</td></c:when>
+                                                        </c:choose>
+                                                        <td>
+                                                            <div class="dropdown dropdown-user">
+                                                                <a href="supplier-product-detail.jsp" target="_blank">
+                                                                    Xem chi tiết
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <a href="#"><i class="flaticon-edit"></i></a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="#"><i class="flaticon-view"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </c:forEach>
                                             </tbody>
                                         </table>
 
@@ -213,11 +225,7 @@
                                     <div class="pagination-section">
                                         <ul
                                             class="pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3">
-                                            <li><a href="javascript:void(0);">«</a></li>
-                                            <li><a href="javascript:void(0);">1</a></li>
-                                            <li><a href="javascript:void(0);">2</a></li>
-                                            <li><a href="javascript:void(0);">3</a></li>
-                                            <li><a href="javascript:void(0);">»</a></li>
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -272,7 +280,7 @@
         <aside class="profile-sidebar text-center">
             <div class="profile-content profile-content-scroll">
                 <div class="usr-profile">
-                    <img src="../assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
+                    <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
                 </div>
                 <p class="user-name mt-4 mb-4">Hoàng Thị Xoan</p>
 
@@ -282,7 +290,7 @@
                             <a href="./personal-infor-supplier.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                         </li>
                         <li>
-                            <a href="../changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                            <a href="${pageContext.request.contextPath}/changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
                         </li>
                         <li>
                             <a href="supplier-product-pending.jsp"><i class="flaticon-globe"></i> Quản lý</a>
@@ -297,39 +305,39 @@
         <!--  BEGIN PROFILE SIDEBAR  -->
     </body>
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="../assets/js/libs/jquery-3.1.1.min.js"></script>
-    <script src="../assets/js/loader.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="../plugins/blockui/jquery.blockUI.min.js"></script>
-    <script src="../assets/js/app.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/loader.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
     <script>
                                                 $(document).ready(function () {
                                                     App.init();
                                                 });
     </script>
-    <script src="../assets/js/custom.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-    <script src="../plugins/charts/chartist/chartist.js"></script>
-    <script src="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
-    <script src="../plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="../plugins/calendar/pignose/moment.latest.min.js"></script>
-    <script src="../plugins/calendar/pignose/pignose.calendar.js"></script>
-    <script src="../plugins/progressbar/progressbar.min.js"></script>
-    <script src="../assets/js/default-dashboard/default-custom.js"></script>
-    <script src="../assets/js/ui-kit/timeline/horizontal-main.js"></script>
-    <script src="../plugins/charts/amcharts/amcharts.js"></script>
-    <script src="../plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
-    <script src="../plugins/maps/vector/ammaps/worldLow.js"></script>
-    <script src="../plugins/charts/amcharts/radar.js"></script>
-    <script src="../plugins/charts/amcharts/pie.js"></script>
-    <script src="../plugins/charts/sparklines/jquery.sparkline.min.js"></script>
-    <script src="../plugins/charts/amcharts/serial.js"></script>
-    <script src="../plugins/charts/amcharts/light.js"></script>
-    <script src="../assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/chartist/chartist.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/calendar/pignose/moment.latest.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/calendar/pignose/pignose.calendar.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/progressbar/progressbar.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/default-dashboard/default-custom.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/ui-kit/timeline/horizontal-main.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/amcharts.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/worldLow.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/radar.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/pie.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/sparklines/jquery.sparkline.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/serial.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/light.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
 
 
 </html>

@@ -28,7 +28,7 @@ public class DetailSuppilerController extends HttpServlet {
             String accId = request.getParameter("acc-id");
             String supId = request.getParameter("sup-id");
             Account account = accountDAO.getAccountById(Integer.parseInt(accId));
-            account.setStatus(true);
+            account.setStatus(1);
             int statusUpdate = accountDAO.updateAccount(account);
             Supplier supplier = supplierDAO.getSupplierById(Integer.parseInt(supId));
             Account account1 = accountDAO.getAccountById(supplier.getAccId());

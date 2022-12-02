@@ -258,4 +258,61 @@ public class ProductDAO {
         }
         return product == null ? 0 : 1;
     }
+
+    public List<Product> searchProduct(String idStr, String nameStr, String barcodeStr) {
+        List<Product> products = new ArrayList<>();
+        String strSearch = "select * from Product";
+
+        
+        boolean checkStart = true;
+        if ((idStr != null && !idStr.trim().isEmpty()) || (nameStr != null && !nameStr.trim().isEmpty()) 
+                || (barcodeStr != null && !barcodeStr.trim().isEmpty())) {
+            strSearch += " where";
+        }
+        if (idStr != null && !idStr.trim().isEmpty()) {
+            strSearch += " ProductID = " + idStr;
+            checkStart = false;
+        }
+        if (nameStr != null && !nameStr.trim().isEmpty()) {
+            if (checkStart == false) {
+                strSearch += " and";
+            }
+            strSearch += " ProductName like N'%" + nameStr + "%'";
+            checkStart = false;
+        }
+        if (barcodeStr != null && !barcodeStr.trim().isEmpty()) {
+            if (checkStart == false) {
+                strSearch += " and";
+            }
+            strSearch += " BarCode like '%" + barcodeStr + "%'";
+        }
+        System.out.println(strSearch);
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSearch);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setProductId(rs.getInt("ProductID"));
+                product.setSupplierId(rs.getInt("SupplierID"));
+                product.setSubCateId(rs.getInt("SubCateID"));
+                product.setCreatedDate(rs.getString("CreatedDate"));
+                product.setDescription(rs.getString("Description"));
+                product.setProductName(rs.getString("ProductName"));
+                product.setBarCode(rs.getString("BarCode"));
+                product.setProductCertificate(rs.getString("ProductCertificate"));
+                product.setTrademark(rs.getString("Trademark"));
+                product.setSmell(rs.getString("Smell"));
+                product.setColor(rs.getString("Color"));
+                product.setWeight(rs.getInt("Weight"));
+                product.setPacking(rs.getString("Packing"));
+                product.setElement(rs.getString("Element"));
+                product.setViewNumber(rs.getInt("ViewNumber"));
+                product.setStatusId(rs.getInt("StatusID"));
+                products.add(product);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return products;
+    }
 }
