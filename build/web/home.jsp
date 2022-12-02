@@ -118,9 +118,24 @@
                             </li>
                             <li class="nav-item">
                                 <div class="dropdown dropdown-user">
-                                    <a href="LogginController" class="nav-link border border-light rounded waves-effect" target="_blank">
-                                        <i class="fas fa-user"></i>Đăng Nhập
-                                    </a>
+                                    <c:if test="${sessionScope.roleCusId==4}">
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                ${sessionScope.nameUser}
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="CustomerInfoDetail">Thông tin cá nhân</a>
+                                                <a class="dropdown-item" href="customer-history-order.jsp">Lịch sử mua hàng</a>
+                                                <a class="dropdown-item" href="changepass.jsp">Thay đổi mật khẩu</a>
+                                                <a class="dropdown-item" href="LogoutController">Đăng xuất</a>
+                                            </div>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${sessionScope.roleCusId==null}">
+                                        <a href="LogginController" class="nav-link border border-light rounded waves-effect" target="_blank">
+                                            <i class="fas fa-user"></i>Đăng Nhập
+                                        </a>
+                                    </c:if>
 
                                 </div>
                             </li>
@@ -473,36 +488,36 @@
         <script src="assets/js/main.js"></script>
         <script src="./cart.js"></script>
         <script type="text/javascript">
-    $(document).ready(function () {
-        $('.cate-slider').slick({
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
+                $(document).ready(function () {
+                    $('.cate-slider').slick({
                         slidesToShow: 5,
                         slidesToScroll: 1,
+                        responsive: [{
+                                breakpoint: 1024,
+                                settings: {
+                                    slidesToShow: 5,
+                                    slidesToScroll: 1,
 
-                    }
-                }, {
-                    breakpoint: 800,
-                    settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 2,
-                        dots: false
-                    }
-                }, {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
+                                }
+                            }, {
+                                breakpoint: 800,
+                                settings: {
+                                    slidesToShow: 4,
+                                    slidesToScroll: 2,
+                                    dots: false
+                                }
+                            }, {
+                                breakpoint: 480,
+                                settings: {
+                                    slidesToShow: 1,
+                                    slidesToScroll: 1
+                                }
+                            }
 
-            ]
+                        ]
 
-        });
-    });
+                    });
+                });
         </script>
         <script type="text/javascript">
             $(document).ready(function () {

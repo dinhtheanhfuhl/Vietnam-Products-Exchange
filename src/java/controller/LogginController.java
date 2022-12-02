@@ -71,6 +71,7 @@ public class LogginController extends HttpServlet {
                         CustomerDAO customerDAO = new CustomerDAO(connection);
                         Customer customer = customerDAO.getCustomerByAccId(account.getAccId());
                         session.setAttribute("nameUser", customer.getCustomerName());
+                        session.setAttribute("roleCusId", account.getRoldId());
                         session.setAttribute("customer", customer);
                         response.sendRedirect("Home");
                         break;
