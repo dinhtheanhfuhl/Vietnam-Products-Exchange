@@ -46,6 +46,7 @@
                     <i class="flaticon-menu-line-3"></i>
                 </a>
                 <a class="navbar-brand waves-effect" href="${pageContext.request.contextPath}/home.jsp">
+
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>

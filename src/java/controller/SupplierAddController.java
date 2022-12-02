@@ -49,7 +49,6 @@ public class SupplierAddController extends HttpServlet {
         
         List<City> allCities = cityDAO.getAllCity();
         List<Category> allCates = cateDAO.getAllCategory();
-        List<SubCategory> allSubCates = subCateDAO.getAllCategory();
         
         Map<Category, List<SubCategory>> mapCateSubCate = new LinkedHashMap<>();
         
