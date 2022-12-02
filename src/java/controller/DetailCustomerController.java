@@ -28,7 +28,7 @@ public class DetailCustomerController extends HttpServlet {
             String accId = request.getParameter("acc-id");
             String cusId = request.getParameter("cus-id");
             Account account = accountDAO.getAccountById(Integer.parseInt(accId));
-            account.setStatus(true);
+            account.setStatus(1);
             int statusUpdate = accountDAO.updateAccount(account);
             Customer customer = customerDAO.getCustomerById(Integer.parseInt(cusId));
             Account account1 = accountDAO.getAccountById(customer.getAccId());
