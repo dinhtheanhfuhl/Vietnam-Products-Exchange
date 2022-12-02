@@ -8,11 +8,13 @@ import dao.CartDAO;
 import dao.CartItemDAO;
 import dao.CategoryDAO;
 import dao.ProductDAO;
+import dao.ProductImageDAO;
 import dbconnect.DBConnect;
 import entity.CartItem;
 import entity.Category;
 import entity.Customer;
 import entity.Product;
+import entity.ProductImage;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.List;
@@ -26,7 +28,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author ductd
  */
-public class AddToCartController extends HttpServlet {
+public class ViewCartController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,38 +43,25 @@ public class AddToCartController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         Connection connection = DBConnect.getConnection();
+        CategoryDAO categoryDAO = new CategoryDAO(connection);
         CartItemDAO cartItemDAO = new CartItemDAO(connection);
         CartDAO cartDAO = new CartDAO(connection);
         ProductDAO productDAO = new ProductDAO(connection);
-        String id = request.getParameter("pid");
-        Product product = productDAO.getProductByProductId(id);
-        request.setAttribute("product", product);
-        int productid = Integer.parseInt(request.getParameter("proId"));
-        String amountstr = request.getParameter("amount");
-        int amount = Integer.parseInt(amountstr);
-
+        ProductImageDAO productImageDAO = new ProductImageDAO(connection);
         HttpSession session = request.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
         int customerid = customer.getCustomerId();
         int cartId = cartDAO.getCartIdByCustomerId(customerid);
-
-        CartItem cartItem = cartItemDAO.getCartItemByProductId(productid, cartId);
-
-        if (cartItem == null) {
-            cartItemDAO.insertCartItem(cartId, productid, amount);
-            request.setAttribute("message", "Sản phẩm đã được thêm vào giỏ hàng");    
-            request.setAttribute("alert", "success");    
-        } else {
-            amount = amount + cartItem.getAmount();
-            cartItemDAO.updateAmount(amount, cartId, productid);
-            request.setAttribute("message", "Sản phẩm đã được thêm vào giỏ hàng");    
-            request.setAttribute("alert", "success");    
-        }
-        CategoryDAO categoryDAO = new CategoryDAO(connection);
+        List<ProductImage> proImg = productImageDAO.getProImgByCartId(cartId);
+        request.setAttribute("proImg", proImg);
+        List<CartItem> allCart = cartItemDAO.getAllCartItemsByProductId(customerid);
+        request.setAttribute("allCart", allCart);
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
-        request.getRequestDispatcher("productdetail.jsp").forward(request, response);
-                
+        List<Product> getAllProductsbyCartId = productDAO.getAllProductsByCartID(cartId);
+        
+        request.setAttribute("listProduct", getAllProductsbyCartId);
+        request.getRequestDispatcher("ViewCart.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

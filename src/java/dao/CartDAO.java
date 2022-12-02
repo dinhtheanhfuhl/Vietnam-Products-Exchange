@@ -101,4 +101,19 @@ public class CartDAO {
         }
         return cart;
     }
+    public int getCartIdByCustomerId(int id) {
+        int cartId = -1;
+        String strSelectById = "select CartID from Cart where CustomerID=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                cartId=rs.getInt("CartId");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return cartId;
+    }
 }

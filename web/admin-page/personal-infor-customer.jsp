@@ -39,12 +39,9 @@
         <!--  BEGIN NAVBAR  -->
         <header class="desktop-nav header navbar fixed-top">
             <div class="nav-logo mr-sm-5 ml-sm-4">
-                <a href="javascript:void(0);" class="nav-link sidebarCollapse d-inline-block mr-sm-5"
-                   data-placement="bottom">
-                    <i class="flaticon-menu-line-3"></i>
-                </a>
-                <a class="navbar-brand waves-effect" href="${pageContext.request.contextPath}/home.jsp">
-                    <h2 id="logoheader" style="color: #359640;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
+
+                <a class="navbar-brand waves-effect" href="Home">
+                    <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
             <ul class="navbar-nav flex-row mr-auto">
@@ -119,62 +116,6 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown notification-dropdown ml-3 mr-lg-4 align-self-center">
-
-                    <div class="dropdown-menu position-absolute eq-animated eq-fadeInUp"
-                         aria-labelledby="notification-dropdown">
-                        <div class="notification-scroll">
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Nguyá»n VÄn A</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Nguyá»n VÄn B</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>Äá» Thá» Nga</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="">
-                                    <div class="media">
-                                        <div class="user-profile">
-                                            <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
-                                        </div>
-                                        <div class="media-body">
-                                            <span>LÃª Ngá»c HÃ </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
 
                 <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
@@ -199,34 +140,7 @@
 
             <!--  BEGIN MODERN  -->
 
-            <div class="modernSidebar-nav header header navbar">
-                <div class="">
-                    <nav id="modernSidebar">
-                        <ul class="menu-categories pl-0 m-0" id="topAccordion">
-                            <li class="menu">
-                                <a href="./personal-infor-admin.jsp" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-user-7"></i>
-                                        <span>Thông tin tài khoản</span>
-                                    </div>
-                                </a>
 
-                            </li>
-                            <li class="menu">
-                                <a href="AdminController" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-user-1"></i>
-                                        <span>Quản lý tài khoản</span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                </div>
-            </div>
             <!--  END MODERN  -->
 
             <!--  BEGIN CONTENT PART  -->
@@ -244,7 +158,7 @@
 
                                 </div>
                                 <div class="profile-usertitle">
-                                    <div class="profile-usertitle-name">${customer.customerName}</div>
+                                    <div class="profile-usertitle-name">${customerDetail.customerName}</div>
                                 </div>
                                 <div class="profile-userbuttons">
                                     <button type="button" class="btn btn-success btn-sm"> Upload Image</button>
@@ -261,8 +175,7 @@
                                                 </td>
 
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           value="${customer.customerName}" placeholder="tên người dùng">
+                                                    <p>${customerDetail.customerName}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -274,28 +187,23 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Ngày sinh</label>
+                                                <td><label >Ngày sinh</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="date" required class="form-control" id="inputpass"
-                                                           value="${customer.dateBirth}"  placeholder="ngày sinh">
+                                                    <p>${customerDetail.dateBirth}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
-
                                 </div>
-
                                 <div class="col-md-8 col-sm-6 pt-4 pb-4">
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Giới tính</label>
+                                                <td><label class="form-label pass-infor">Giới tính</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <select class="form-control" name="gender" id="gender">
-                                                        <option value="male">${customer.gender}</option>
-                                                    </select>
+                                                    <p>${customerDetail.gender}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -307,9 +215,9 @@
                                             <tr>
                                                 <td><label for="inputpass" class="form-label pass-infor">Email</label>
                                                 </td>
+
                                                 <td class="display-userName-3">
-                                                    <input type="email" required class="form-control" id="inputpass"
-                                                           value="${customer.email}"     placeholder="email">
+                                                    <p>${customerDetail.email}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -322,9 +230,9 @@
                                             <tr>
                                                 <td><label for="inputpass" class="form-label pass-infor">Số điện thoại</label>
                                                 </td>
+
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           value="${customer.phone}"   placeholder="số điện thoại">
+                                                    <p>${customerDetail.phone}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -336,9 +244,9 @@
                                             <tr>
                                                 <td><label for="inputpass" class="form-label pass-infor">Nhà cung cấp</label>
                                                 </td>
+
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           value="${customer.shopName}"   placeholder="nhà cung cấp">
+                                                    <p>${customerDetail.shopName}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -350,9 +258,9 @@
                                             <tr>
                                                 <td><label for="inputpass" class="form-label pass-infor">Địa chỉ chính</label>
                                                 </td>
+
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           value="${customer.mainAddress}"   placeholder="địa chỉ chính">
+                                                    <p>${customerDetail.mainAddress}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -437,13 +345,21 @@
             <div class="usr-profile">
                 <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
             </div>
-            <p class="user-name mt-4 mb-4">HoÃ ng Thá» Xoan</p>
+            <p class="user-name mt-4 mb-4">Le Van A</p>
 
             <div class="user-links text-left">
                 <ul class="list-unstyled">
-
                     <li>
-                        <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
+                        <a href="CustomerInfoDetail"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                    </li>
+                    <li>
+                        <a href="customer-history-order.jsp"><i class="flaticon-bank-safe-box"></i> Lịch sử mua hàng</a>
+                    </li>
+                    <li>
+                        <a href="../changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                    </li>
+                    <li>
+                        <a href="LogoutController"><i class="flaticon-power-off"></i> Đăng xuất</a>
                     </li>
                 </ul>
             </div>

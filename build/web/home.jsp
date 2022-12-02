@@ -64,7 +64,7 @@
                         <!-- Left -->
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active" style="padding-left: 40px;">
-                                <a class="nav-link waves-effect  text-header" href="./home.jsp">Trang chủ
+                                <a class="nav-link waves-effect  text-header" href="Home">Trang chủ
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -113,15 +113,29 @@
                                 </div>
                             </li>
                             <li class="nav-item ">
-                                <a href="#"  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i>
-                                    <span class="quantity-amm-shopping-cart-open">0</span></a>
-
+                                <a href="CartController"  class="nav-link cart-btn pr-3"><i class="fas fa-shopping-cart"></i>
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <div class="dropdown dropdown-user">
-                                    <a href="login.jsp" class="nav-link border border-light rounded waves-effect" target="_blank">
-                                        <i class="fas fa-user"></i>Đăng Nhập
-                                    </a>
+                                    <c:if test="${sessionScope.roleCusId==4}">
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                ${sessionScope.nameUser}
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="CustomerInfoDetail">Thông tin cá nhân</a>
+                                                <a class="dropdown-item" href="customer-history-order.jsp">Lịch sử mua hàng</a>
+                                                <a class="dropdown-item" href="changepass.jsp">Thay đổi mật khẩu</a>
+                                                <a class="dropdown-item" href="LogoutController">Đăng xuất</a>
+                                            </div>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${sessionScope.roleCusId==null}">
+                                        <a href="LogginController" class="nav-link border border-light rounded waves-effect" target="_blank">
+                                            <i class="fas fa-user"></i>Đăng Nhập
+                                        </a>
+                                    </c:if>
 
                                 </div>
                             </li>
@@ -235,52 +249,17 @@
 
                 <div class="row">
                     <div class="product-slider">
-                        <div class="col-md-2">
-                            <div class="card">
-                                <img class="card-img-top" src="./image/nho đen.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Đu đủ Yên Hòa</h5>
-                                    <h6>Với hàm lượng đường chiếm đến 40% nho có vị ngọt, không quá gắt, màu sắc đẹp</h6>
+                        <c:forEach var="key" items="${mapImages.keySet()}">
+                            <div class="col-md-2">
+                                <div class="card">
+                                    <img class="card-img-top" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${key.trademark}</h5>
+                                        <h6>${mapSuppliers.get(key).get(0).getShopName()}</h6>
+                                    </div>
                                 </div>
                             </div>
-                        </div> 
-                        <div class="col-md-2">
-                            <div class="card">
-                                <img class="card-img-top" src="./image/nho đen.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Đu đủ Yên Hòa</h5>
-                                    <h6>Với hàm lượng đường chiếm đến 40% nho có vị ngọt, không quá gắt, màu sắc đẹp</h6>
-                                </div>
-                            </div>
-                        </div> 
-
-                        <div class="col-md-2">
-                            <div class="card">
-                                <img class="card-img-top" src="./image/nho đen.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Đu đủ Yên Hòa</h5>
-                                    <h6>Với hàm lượng đường chiếm đến 40% nho có vị ngọt, không quá gắt, màu sắc đẹp</h6>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-2">
-                            <div class="card">
-                                <img class="card-img-top" src="./image/nho đen.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Đu đủ Yên Hòa</h5>
-                                    <h6>Với hàm lượng đường chiếm đến 40% nho có vị ngọt, không quá gắt, màu sắc đẹp</h6>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-2">
-                            <div class="card">
-                                <img class="card-img-top" src="./image/nho đen.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Đu đủ Yên Hòa</h5>
-                                    <h6>Với hàm lượng đường chiếm đến 40% nho có vị ngọt, không quá gắt, màu sắc đẹp</h6>
-                                </div>
-                            </div>
-                        </div> 
+                        </c:forEach>
                     </div>
                 </div>
             </div>
@@ -295,47 +274,29 @@
                     </div>
                 </div>
                 <div class="row">
+                    <c:forEach var="key" items="${mapImages2.keySet()}">
+                        <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="pro-loop">
+                                <div class="product-block product-resize">
+                                    <div class="product-img">
+                                        <img class="w-100" src="${mapImages2.get(key).get(0).getImgPath()}" alt="">
+                                        <div class="box-pro-detail ">
+                                            <h3 class="pro-name">
+                                                <a href="#">
+                                                </a><a href="#">${key.trademark}</a>
+                                            </h3>
+                                            <div class="box-pro-prices">
+                                                <h6>${mapSupplier2.get(key).get(0).getShopName()}</h6>
+                                            </div>
 
-                    <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="pro-loop">
-                            <div class="product-block product-resize">
-                                <div class="product-img">
-                                    <div class="product-sale">
-                                        <span>-17%</span>
-                                    </div>
-                                    <a href="#">
-                                        <div class="fader">
-                                            <img class="w-100" src="./image/cat3.jpg" alt="">
-                                            <img class="w-100" src="./image/1.jpg" alt="" style="display: none;">
-                                        </div>
-                                    </a>
-
-                                    <div class="box-pro-detail ">
-
-                                        <h3 class="pro-name">
-                                            <a href="#">
-                                            </a><a href="#">Đào tiên</a>
-                                        </h3>
-                                        <div class="box-pro-prices">
-
-                                            <p class="pro-price highlight">
-                                                <span>54,000đ</span>
-                                                <span class="pro-price-del">
-                                                    <del class="compare-price">
-                                                        65,000đ
-                                                    </del>
-                                                </span>
-                                            </p>
 
                                         </div>
 
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>
@@ -463,12 +424,10 @@
                     <div class="col ">
                         <ul class="ft-bottom container">
                             <li class="copy-right">
-                                <p style="font-size: 14px;">Copyright © 2021 Powered by VnProx. Powered by VnProx</p>
+                                <p style="font-size: 14px;">Copyright © 2022 Powered by VnProx. Powered by VnProx</p>
                             </li>
                             <li class="social-media">
-                                <a href="">
-                                    <i class="fas fa-phone-square-alt"></i>
-                                </a>
+
                                 <a href="">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
@@ -478,58 +437,57 @@
                                 <a href="">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="">
-                                    <i class="fab fa-pinterest-p"></i>
-                                </a>
+
                                 <a href="">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </li>
                         </ul>
-
                     </div>
-                    </footer>
+                </div>
+            </div>
+        </footer>
 
-                    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-                    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-                    </script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-                            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-                    </script>
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-                            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-                    </script>
-                    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-                    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-                    <!--====== jquery js ======-->
-                    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-                    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <!--====== jquery js ======-->
+        <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+        <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
 
-                    <!--====== Bootstrap js ======-->
-                    <script src="assets/js/popper.min.js"></script>
+        <!--====== Bootstrap js ======-->
+        <script src="assets/js/popper.min.js"></script>
 
-                    <!--====== wow js ======-->
-                    <script src="assets/js/wow.js"></script>
+        <!--====== wow js ======-->
+        <script src="assets/js/wow.js"></script>
 
-                    <!--====== Slick js ======-->
-                    <script src="assets/js/jquery.counterup.min.js"></script>
-                    <script src="assets/js/waypoints.min.js"></script>
+        <!--====== Slick js ======-->
+        <script src="assets/js/jquery.counterup.min.js"></script>
+        <script src="assets/js/waypoints.min.js"></script>
 
-                    <!--====== TweenMax js ======-->
-                    <script src="assets/js/TweenMax.min.js"></script>
+        <!--====== TweenMax js ======-->
+        <script src="assets/js/TweenMax.min.js"></script>
 
-                    <!--====== Slick js ======-->
-                    <script src="assets/js/slick.min.js"></script>
+        <!--====== Slick js ======-->
+        <script src="assets/js/slick.min.js"></script>
 
-                    <!--====== Magnific Popup js ======-->
-                    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <!--====== Magnific Popup js ======-->
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
 
-                    <!--====== Main js ======-->
-                    <script src="assets/js/main.js"></script>
-                    <script src="./cart.js"></script>
-                    <script type="text/javascript">
+        <!--====== Main js ======-->
+        <script src="assets/js/main.js"></script>
+        <script src="./cart.js"></script>
+        <script type="text/javascript">
                 $(document).ready(function () {
                     $('.cate-slider').slick({
                         slidesToShow: 5,
@@ -560,89 +518,89 @@
 
                     });
                 });
-                    </script>
-                    <script type="text/javascript">
-                        $(document).ready(function () {
-                            $('.product-slider').slick({
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.product-slider').slick({
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    responsive: [{
+                            breakpoint: 1024,
+                            settings: {
                                 slidesToShow: 4,
-                                slidesToScroll: 1,
-                                responsive: [{
-                                        breakpoint: 1024,
-                                        settings: {
-                                            slidesToShow: 4,
-                                            slidesToScroll: 3,
-                                            infinite: true,
+                                slidesToScroll: 3,
+                                infinite: true,
 
-                                        }
-                                    }, {
-                                        breakpoint: 800,
-                                        settings: {
-                                            slidesToShow: 2,
-                                            slidesToScroll: 2
-                                        }
-                                    }, {
-                                        breakpoint: 480,
-                                        settings: {
-                                            slidesToShow: 1,
-                                            slidesToScroll: 1
-                                        }
-                                    }
-
-                                ]
-                            });
-                        });
-                    </script>
-                    <script>
-                        $('.fader').hover(function () {
-                            $(this).find("img:last").fadeToggle();
-                        });
-
-                    </script>
-                    <script type='text/javascript'>
-                        //<![CDATA[
-                        function getTimeRemaining(endtime) {
-                            var t = Date.parse(endtime) - Date.parse(new Date());
-                            var seconds = Math.floor((t / 1000) % 60);
-                            var minutes = Math.floor((t / 1000 / 60) % 60);
-                            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-                            var days = Math.floor(t / (1000 * 60 * 60 * 24));
-                            return {
-                                'total': t,
-                                'days': days,
-                                'hours': hours,
-                                'minutes': minutes,
-                                'seconds': seconds
-                            };
-                        }
-
-                        function initializeClock(id, endtime) {
-                            var clock = document.getElementById(id);
-                            var daysSpan = clock.querySelector('.days');
-                            var hoursSpan = clock.querySelector('.hours');
-                            var minutesSpan = clock.querySelector('.minutes');
-                            var secondsSpan = clock.querySelector('.seconds');
-
-                            function updateClock() {
-                                var t = getTimeRemaining(endtime);
-
-                                daysSpan.innerHTML = t.days;
-                                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-                                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-                                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-                                if (t.total <= 0) {
-                                    clearInterval(timeinterval);
-                                }
                             }
-
-                            updateClock();
-                            var timeinterval = setInterval(updateClock, 1000);
+                        }, {
+                            breakpoint: 800,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2
+                            }
+                        }, {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
                         }
 
-                        var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
-                        initializeClock('clockdiv', deadline);
-                        //]]>
-                    </script>
-                    </body>
+                    ]
+                });
+            });
+        </script>
+        <script>
+            $('.fader').hover(function () {
+                $(this).find("img:last").fadeToggle();
+            });
 
-                    </html>
+        </script>
+        <script type='text/javascript'>
+            //<![CDATA[
+            function getTimeRemaining(endtime) {
+                var t = Date.parse(endtime) - Date.parse(new Date());
+                var seconds = Math.floor((t / 1000) % 60);
+                var minutes = Math.floor((t / 1000 / 60) % 60);
+                var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+                var days = Math.floor(t / (1000 * 60 * 60 * 24));
+                return {
+                    'total': t,
+                    'days': days,
+                    'hours': hours,
+                    'minutes': minutes,
+                    'seconds': seconds
+                };
+            }
+
+            function initializeClock(id, endtime) {
+                var clock = document.getElementById(id);
+                var daysSpan = clock.querySelector('.days');
+                var hoursSpan = clock.querySelector('.hours');
+                var minutesSpan = clock.querySelector('.minutes');
+                var secondsSpan = clock.querySelector('.seconds');
+
+                function updateClock() {
+                    var t = getTimeRemaining(endtime);
+
+                    daysSpan.innerHTML = t.days;
+                    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+                    if (t.total <= 0) {
+                        clearInterval(timeinterval);
+                    }
+                }
+
+                updateClock();
+                var timeinterval = setInterval(updateClock, 1000);
+            }
+
+            var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+            initializeClock('clockdiv', deadline);
+            //]]>
+        </script>
+    </body>
+
+</html>

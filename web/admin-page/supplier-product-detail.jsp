@@ -44,7 +44,7 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect" href="../home.jsp">
+                <a class="navbar-brand waves-effect" href="Home">
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
@@ -79,24 +79,23 @@
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
-                                <a href="supplier-product-pending.jsp" 
-                                   class="dropdown-toggle collapsed">
+                                <a href="./supplier-product-pending.jsp" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>Danh sách <br> sản phẩm</span>                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="menu">
-                                <a href="./supplier-view-order.jsp" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-cart-bag-1"></i>
-                                        <span>Xem đơn hàng</span>
+                                        <span>Danh sách<br> sản phẩm</span>
                                     </div>
                                 </a>
-
                             </li>
+                            <li class="menu">
+                                <a href="./supplier-list-order.jsp" class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-list2"></i>
+                                        <span>Danh sách<br> đơn hàng</span>
+                                    </div>
+                                </a>
+                            </li>
+                            
+
                         </ul>
                     </nav>
 

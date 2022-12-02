@@ -42,7 +42,7 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect" href="../home.jsp">
+                <a class="navbar-brand waves-effect" href="Home">
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
@@ -77,7 +77,7 @@
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
-                                <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
                                         <span>Danh sách<br> sản phẩm</span>
@@ -115,7 +115,9 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
                             <div class="statbox widget box">
                                 <div class="widget-content-area">
+                                    <h3>Danh sách đơn hàng</h3>
                                     <div class="widget-header mb-5 mt-5">
+
                                         <div class="row">
 
                                             <div class="col-lg-12">
@@ -139,12 +141,8 @@
                                                     <div id="filter">
                                                         <input type="text" name="id" placeholder="Mã đơn hàng" value=""
                                                                class="form-control">
-                                                        <input type="text" name="id" placeholder="Tên sản phẩm" value=""
-                                                               class="form-control">
                                                         <input type="text" name="name" placeholder="Nhà cung cấp" value=""
                                                                class="form-control">
-                                                        <input type="text" name="danh mục" placeholder="Mã Barcode/SKU" value=""
-                                                               class="form-control"> 
                                                         <button class="btn btn-info"
                                                                 style="padding: 0 10px; background: none; border: none;"
                                                                 title="Tìm kiếm">
@@ -158,6 +156,14 @@
 
                                         </div>
                                     </div>
+                                    <select id="selectstatus" onchange="location = this.value;" class="form-control">
+                                        <option>Trạng thái</option>
+                                        <option value="">Chờ xác nhận</option>
+                                        <option value="#">Đã xác nhận</option>
+                                        <option value="#">Từ chối đơn</option>
+                                        <option value="#">Giao hàng thành công</option>
+                                    </select>
+                                    <h6 id="sorttext">Sắp xếp theo</h6>
                                     <div class="table-responsive new-products">
                                         <table class="table">
                                             <thead>
@@ -165,11 +171,12 @@
                                                     <th>STT</th>
                                                     <th>Thời gian đặt hàng</th>
                                                     <th>Mã đặt đơn hàng</th>
-                                                    <th>Đối tác/Minimart</th>
+                                                    <th>Minimart</th>
                                                     <th>Nhà cung cấp</th>
                                                     <th>Số sản phẩm</th>
                                                     <th>Giá trị đơn hàng</th>
                                                     <th>Địa chỉ giao hàng</th>
+                                                    <th>Trạng thái</th>
                                                     <th>Chi tiết</th>
                                                 </tr>
                                             </thead>
@@ -183,24 +190,18 @@
                                                     <td>20</td>
                                                     <td>500đ</td>
                                                     <td>TP HCM</td>
-                                                    <td><a href="moderator-detail-order.jsp">Xem chi tiết</a></td>
+                                                    <td><p class="btn btn-warning status mb-2">fff</p></td>
+                                                    <!-- <td><p class="btn btn-secondary status mb-2">Đã ẩn</p></td>
+                                                    <td><p class="btn btn-danger status mb-2">Từ chối phê duyệt</p></td>
+                                                    <td><p class="btn btn-warning status mb-2">Chờ phê duyệt</p></td>
+                                                    <td><p class="btn btn-success status mb-2">Đã phê duyệt</p></td> -->
+                                                    <td><a href="moderator-view-order.jsp">Xem chi tiết</a></td>
 
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="pagination-section">
-                                        <ul
-                                            class="pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3">
-                                            <li><a href="javascript:void(0);">«</a></li>
-                                            <li><a href="javascript:void(0);">1</a></li>
-                                            <li><a href="javascript:void(0);">2</a></li>
-                                            <li><a href="javascript:void(0);">3</a></li>
-                                            <li><a href="javascript:void(0);">4</a></li>
-                                            <li><a href="javascript:void(0);">5</a></li>
-                                            <li><a href="javascript:void(0);">»</a></li>
-                                        </ul>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -283,9 +284,9 @@
     <script src="../plugins/blockui/jquery.blockUI.min.js"></script>
     <script src="../assets/js/app.js"></script>
     <script>
-        $(document).ready(function () {
-            App.init();
-        });
+                                        $(document).ready(function () {
+                                            App.init();
+                                        });
     </script>
     <script src="../assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->

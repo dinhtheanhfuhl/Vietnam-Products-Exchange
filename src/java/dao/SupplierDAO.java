@@ -150,5 +150,35 @@ public class SupplierDAO {
         return supplier;
     }
 
-}
+  
+    public List<Supplier> getSupplierByProId(int productId) {
 
+        String strSelectAll = "select * from Supplier inner join Product on Supplier.SupplierID=Product.SupplierID where Product.ProductID=?";
+        List<Supplier> suplierProduct = new ArrayList<>();
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Supplier supplier = new Supplier();
+                supplier.setSupplierId(rs.getInt("SupplierID"));
+                supplier.setSupplierName(rs.getString("SupplierName"));
+                supplier.setAccId(rs.getInt("AccID"));
+                supplier.setDateBirth(rs.getString("DateBirth"));
+                supplier.setGender(rs.getString("Gender"));
+                supplier.setEmail(rs.getString("Email"));
+                supplier.setPhone(rs.getString("Phone"));
+                supplier.setShopName(rs.getString("ShopName"));
+                supplier.setMainAddress(rs.getString("MainAddress"));
+                supplier.setCityId(rs.getInt("CityID"));
+                supplier.setBusinessLicense(rs.getString("BusinessLicense"));
+                supplier.setAvartarImg(rs.getString("AvartarImg"));
+                suplierProduct.add(supplier);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return suplierProduct;
+    }
+
+}

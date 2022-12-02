@@ -39,11 +39,8 @@
         <!--  BEGIN NAVBAR  -->
         <header class="desktop-nav header navbar fixed-top">
             <div class="nav-logo mr-sm-5 ml-sm-4">
-                <a href="javascript:void(0);" class="nav-link sidebarCollapse d-inline-block mr-sm-5"
-                   data-placement="bottom">
-                    <i class="flaticon-menu-line-3"></i>
-                </a>
-                <a class="navbar-brand waves-effect">
+                
+                <a class="navbar-brand waves-effect" href="Home">
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
@@ -82,24 +79,7 @@
 
             <!--  BEGIN MODERN  -->
 
-            <div class="modernSidebar-nav header header navbar">
-                <div class="">
-                    <nav id="modernSidebar">
-                        <ul class="menu-categories pl-0 m-0" id="topAccordion">
-                            <li class="menu">
-                                <a href="../AdminController" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-user-1"></i>
-                                        <span>Danh sách <br> người dùng</span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                </div>
-            </div>
+            
             <!--  END MODERN  -->
 
             <!--  BEGIN CONTENT PART  -->
@@ -133,8 +113,7 @@
                                                 <td><label for="inputpass" class="form-label pass-infor">Tên người dùng</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           placeholder="tên người dùng">
+                                                    <p type="text">Le Van A</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -149,8 +128,7 @@
                                                 <td><label for="inputpass" class="form-label pass-infor">Ngày sinh</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="date" required class="form-control" id="inputpass"
-                                                           placeholder="ngày sinh">
+                                                    <p type="text">20/12/2222</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -165,11 +143,7 @@
                                                 <td><label for="inputpass" style="margin-left: 7px" class="form-label pass-infor">Giới tính</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <select class="form-control" name="gender" id="gender">
-                                                        <option value="male">Nam</option>
-                                                        <option value="female">Nữ</option>
-                                                        <option value="other">Khác</option>
-                                                    </select>
+                                                    <p type="text">Nam</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -182,8 +156,7 @@
                                                 <td><label for="inputpass" class="form-label pass-infor">Email</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="email" required class="form-control" id="inputpass"
-                                                           placeholder="email">
+                                                    <p type="text">dsa@gmail.com</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -197,8 +170,7 @@
                                                 <td> <label for="formGroupExampleInput" class="name-infor" style="margin-left: -20px;">Số điện thoại</label>
                                                 </td>
                                                 <td class="display-userName">
-                                                    <input style="margin-left: 22px;" type="text" class="form-control" id="formGroupExampleInput"
-                                                           placeholder="số điện thoại">
+                                                    <p style="margin-left: 22px;" type="text">03240230423</p>
                                                 </td>
                                                 <td> <button type="submit" id="btn-edit" for="formGroupExampleInput"
                                                              class="btn btn-warning ml-10">Chỉnh sửa</button></td>
@@ -273,6 +245,9 @@
                 <ul class="list-unstyled">
                     <li>
                         <a href="./personal-infor-admin.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                    </li>
+                    <li>
+                        <a href="AdminController"><i class="flaticon-globe"></i> Quản lý</a>
                     </li>
                     <li>
                         <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>

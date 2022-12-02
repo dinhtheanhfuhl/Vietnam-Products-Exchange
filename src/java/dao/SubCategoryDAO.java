@@ -67,11 +67,12 @@ public class SubCategoryDAO {
         return status;
     }
 
-    public List<SubCategory> getAllCategory() {
+    public List<SubCategory> getAllSubCateByCateId(String cateId) {
         List<SubCategory> subCategorys = new ArrayList<>();
-        String strSelectAll = "select * from SubCategory";
+        String strSelectAll = "select * from SubCategory where CateID = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setString(1, cateId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 SubCategory subCategory = new SubCategory();
@@ -123,5 +124,26 @@ public class SubCategoryDAO {
             System.out.println(e.getMessage());
         }
         return subCategorys;
+    }
+
+    public SubCategory getSubCategoryNameByProductId(String id) {
+        SubCategory subCate = null;
+        String strSelectById = "select * from SubCategory inner join Category on SubCategory.CateID = Category.CateID inner join Product on Product.SubCateID = SubCategory.SubCateID \n"
+                + "where Product.ProductID=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                subCate = new SubCategory();
+                subCate.setSubCateId(rs.getInt("SubCateID"));
+                subCate.setSubCateName(rs.getString("SubCateName"));
+                subCate.setCateId(rs.getInt("CateID"));
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return subCate;
     }
 }

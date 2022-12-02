@@ -43,8 +43,8 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect" href="${pageContext.request.contextPath}/home.jsp">
-                    <h2 id="logoheader">VnProX</h2>
+                <a class="navbar-brand waves-effect" href="Home">
+                    <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
 
@@ -78,7 +78,7 @@
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
-                                <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
                                         <span>Danh sách<br> sản phẩm</span>
@@ -176,7 +176,6 @@
                                                     <th>Nhà cung cấp</th>
                                                     <th>Tên sản phẩm</th>
                                                     <th>Mã Barcode/SKU</th>
-                                                    <th>Khu vực giao hàng</th>
                                                     <th>Trạng thái</th>
                                                     <th>Chi tiết</th>
                                                 </tr>
@@ -189,11 +188,7 @@
                                                         <td>${mapProductSupplier.get(product).shopName}</td>
                                                         <td>${product.productName}</td>
                                                         <td>${product.barCode}</td>
-                                                        <td>
-                                                            <c:forEach items="${mapProductCities.get(product)}" var="city">
-                                                                ${city.cityName}</br>
-                                                            </c:forEach>
-                                                        </td>
+                                                      
                                                         <td><p class="btn btn-warning status mb-2">${product.statusId}</p></td>
                                                         <!-- <td><p class="btn btn-secondary status mb-2">Đã ẩn</p></td>
                                                         <td><p class="btn btn-danger status mb-2">Từ chối phê duyệt</p></td>
@@ -206,18 +201,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="pagination-section">
-                                        <ul
-                                            class="pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3">
-                                            <li><a href="javascript:void(0);">«</a></li>
-                                            <li><a href="javascript:void(0);">1</a></li>
-                                            <li><a href="javascript:void(0);">2</a></li>
-                                            <li><a href="javascript:void(0);">3</a></li>
-                                            <li><a href="javascript:void(0);">4</a></li>
-                                            <li><a href="javascript:void(0);">5</a></li>
-                                            <li><a href="javascript:void(0);">»</a></li>
-                                        </ul>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -280,7 +264,7 @@
                             <a href="./personal-infor-moderator.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                         </li>
                         <li>
-                            <a href="moderator-list-product.jsp"><i class="flaticon-globe"></i> Quản lý</a>
+                            <a href="ModeratorController"><i class="flaticon-globe"></i> Quản lý</a>
                         </li>
                         <li>
                             <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>

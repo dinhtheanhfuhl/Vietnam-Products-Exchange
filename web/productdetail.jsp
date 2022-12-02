@@ -46,7 +46,7 @@
                 <div class="container-fluid">
 
                     <!-- Brand -->
-                    <a class="navbar-brand waves-effect" href="./home.jsp">
+                    <a class="navbar-brand waves-effect" href="Home">
                         <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                     </a>
 
@@ -63,7 +63,7 @@
                         <!-- Left -->
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active" style="padding-left: 40px;">
-                                <a class="nav-link waves-effect  text-header" href="./home.jsp">Trang chủ
+                                <a class="nav-link waves-effect  text-header" href="Home">Trang chủ
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -87,28 +87,34 @@
 
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="./hoaqua.html">Trái cây</a>
-                                        <a class="dropdown-item" href="./dokho.html">Rau củ sạch</a>
-                                        <a class="dropdown-item" href="./dokho.html">Các loại hạt</a>
+                                        <c:forEach items="${listCate}" var="o" >
+                                            <a class="dropdown-item" href="MinimartProductController?cid=${o.cateId}">${o.cateName}</a>
+                                        </c:forEach>
                                     </div>
                                 </div>
 
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link waves-effect text-header" href="./contact.html">Liên hệ</a>
+                                <a class="nav-link waves-effect text-header" href="./contact.jsp">Liên hệ</a>
                             </li>
                         </ul>
 
 
                         <!-- Right -->
                         <ul class="navbar-nav nav-flex-icons">
-                            <li class="nav-item ">
-                                <a href="#"  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i>
-                                    <span class="quantity-amm-shopping-cart-open">0</span></a>
-
+                            <li class="nav-item">
+                                <div class="input-group rounded">
+                                    <input type="search" class="form-control " placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" />
+                                    <span class="input-group-text border-0" id="search-addon">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </div>
                             </li>
-
+                            <li class="nav-item ">
+                                <a href="CartController"  class="nav-link cart-btn pr-3"><i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <div class="dropdown dropdown-user">
                                     <a href="login.jsp" class="nav-link border border-light rounded waves-effect" target="_blank">
@@ -131,7 +137,6 @@
                 </ol>
             </nav>
         </section>
-        <title>Orfarm Store</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -169,6 +174,12 @@
         <main>
             <section class="shop-details-area pt-100 pb-100">
                 <div class="container">
+                    <c:if test="${not empty message}">
+                        <div class="alert alert-${alert}" role="alert">
+                            ${message}
+                        </div>
+                    </c:if>
+
                     <div class="row ">
                         <div class="col-lg-6">
                             <div class="shop-details-thumb">
@@ -176,7 +187,6 @@
                                     <div class="item ">
                                         <img src="${product.img}" alt="">
                                     </div>
-
                                 </div>
                             </div>
                             <div class="shop-small-slider-active mt-10">
@@ -192,7 +202,6 @@
                                 <div class="item">
                                     <img src="assets/images/shop-details-small-4.jpg" alt="">
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -207,28 +216,24 @@
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Danh mục</span> </div>
                                 </div>
-                                <p>Danh mục cấp 1 - Danh mục cấp 2</p>
+                                <p>${subcate.subCateName}</p>
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Trọng lượng</span> </div>
                                 </div>
                                 <p>${product.weight} Kg</p>
-                                <div class="pricing">
-                                    <div class="discount-price mr-15"><span>Địa điểm</span> </div>
-                                </div>
-                                <p>${product.mainAddress}</p>
+
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Nhà cung cấp</span> </div>
                                 </div>
                                 <p>${product.shopName}</p>
-                                <div class="shop-buttons d-block d-sm-flex align-items-center">
-                                    <div class="product-quantity" id="quantity">
-                                        <button type="button" id="sub" class="sub">-</button>
-                                        <input type="text" id="1" value="1" />
-                                        <button type="button" id="add" class="add">+</button>
-                                    </div>
-                                    <a class="main-btn ml-10" href="AddToCartController?proId=${product.productId}">Thêm vào giỏ</a>
-                                </div> 
+                                <form action="AddToCartController?pid=${product.productId}" method="post">
+                                    <div class="shop-buttons d-block d-sm-flex align-items-center">
+                                        <input class="form-control" required="" type="number" placeholder="Nhập trọng lượng" name="amount" style="width: 150px;" />
 
+                                        <input class="main-btn ml-10" type="submit" value="Thêm vào giỏ">
+                                        <input type="hidden" name="proId" value="${product.productId}">
+                                    </div> 
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -457,12 +462,10 @@
                     <div class="col-lg-2 col-sm-6 col-xs-12">
                         <div class="text-footer">
                             <h4>Liên kết</h4>
-                            <p><a href="#">Tìm kiếm</a></p>
-                            <p><a href="#">Giới thiệu</a> </p>
-                            <p><a href="#">Chính sách đổi trả</a></p>
-                            <p><a href="#">Chính sách bảo mật</a></p>
-                            <p><a href="#">Điều khoản dịch vụ</a></p>
-                            <p><a href="#">Liên hệ</a></p>
+                            <p><a href="./information.jsp">Về chúng tôi</a></p>
+                            <p><a href="./policy.jsp">Chính sách bảo mật</a></p>
+                            <p><a href="./condition.jsp">Điều khoản dịch vụ</a></p>
+                            <p><a href="./contact.jsp">Liên hệ</a></p>
 
                         </div>
                     </div>
@@ -530,12 +533,10 @@
                     <div class="col ">
                         <ul class="ft-bottom container">
                             <li class="copy-right">
-                                <p style="font-size: 14px;">Copyright © 2021 Powered by VnProx. Powered by VnProx</p>
+                                <p style="font-size: 14px;">Copyright © 2022 Powered by VnProx. Powered by VnProx</p>
                             </li>
                             <li class="social-media">
-                                <a href="">
-                                    <i class="fas fa-phone-square-alt"></i>
-                                </a>
+
                                 <a href="">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
@@ -545,59 +546,58 @@
                                 <a href="">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="">
-                                    <i class="fab fa-pinterest-p"></i>
-                                </a>
+
                                 <a href="">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </li>
                         </ul>
-
                     </div>
-                    </footer>     
-                    </body>
-                    <script>
-                        function openCity(evt, cityName) {
-                            var i, tabcontent, tablinks;
-                            tabcontent = document.getElementsByClassName("tabcontent");
-                            for (i = 0; i < tabcontent.length; i++) {
-                                tabcontent[i].style.display = "none";
-                            }
-                            tablinks = document.getElementsByClassName("tablinks");
-                            for (i = 0; i < tablinks.length; i++) {
-                                tablinks[i].className = tablinks[i].className.replace(" active", "");
-                            }
-                            document.getElementById(cityName).style.display = "block";
-                            evt.currentTarget.className += " active";
-                        }
-                        document.getElementById("defaultOpen").click();
-                    </script>
-                    <!--====== jquery js ======-->
-                    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-                    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+                </div>
+            </div>
+        </footer>  
+    </body>
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        document.getElementById("defaultOpen").click();
+    </script>
+    <!--====== jquery js ======-->
+    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
 
-                    <!--====== Bootstrap js ======-->
-                    <script src="assets/js/bootstrap.min.js"></script>
-                    <script src="assets/js/popper.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
 
-                    <!--====== wow js ======-->
-                    <script src="assets/js/wow.js"></script>
+    <!--====== wow js ======-->
+    <script src="assets/js/wow.js"></script>
 
-                    <!--====== Slick js ======-->
-                    <script src="assets/js/jquery.counterup.min.js"></script>
-                    <script src="assets/js/waypoints.min.js"></script>
+    <!--====== Slick js ======-->
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
 
-                    <!--====== TweenMax js ======-->
-                    <script src="assets/js/TweenMax.min.js"></script>
+    <!--====== TweenMax js ======-->
+    <script src="assets/js/TweenMax.min.js"></script>
 
-                    <!--====== Slick js ======-->
-                    <script src="assets/js/slick.min.js"></script>
+    <!--====== Slick js ======-->
+    <script src="assets/js/slick.min.js"></script>
 
-                    <!--====== Magnific Popup js ======-->
-                    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!--====== Magnific Popup js ======-->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
 
-                    <!--====== Main js ======-->
-                    <script src="assets/js/main.js"></script>
-                    <script src="./cart.js"></script>
-                    </html> 
+    <!--====== Main js ======-->
+    <script src="assets/js/main.js"></script>
+    <script src="./cart.js"></script>
+</html> 

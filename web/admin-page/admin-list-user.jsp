@@ -41,7 +41,7 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect">
+                <a class="navbar-brand waves-effect" href="Home">
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
@@ -140,7 +140,7 @@
                                         </div>
                                     </div>  
                                 </div>
-                                
+
                                 <div class="widget-content widget-content-area">
                                     <select id="selectstatus" onchange="location = this.value;" class="form-control">
                                         <option>Trạng thái</option>
@@ -178,7 +178,7 @@
                                                             <td>${mapSuppliers.get(key)}</td>
                                                             <td>${key.email}</td>
                                                             <td>Trạng thái</td>
-                                                            <td><a href="DetailSuppilerController?action=detail-supplier&id=${key.supplierId}">Thông tin chi tiết</a></td>
+                                                            <td><a href="DetailSuppilerController?action=detail-supplier&id=${key.supplierId}">Xem chi tiết</a></td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>
@@ -213,23 +213,14 @@
                                                             <td>${mapCustomers.get(key)}</td>
                                                             <td>${key.email}</td>
                                                             <td>trạng thái</td>
-                                                            <td><a href="DetailCustomerController?action=detail-customer&id=${key.customerId}">Thông tin chi tiết</a></td>
+                                                            <td><a href="DetailCustomerController?action=detail-customer&id=${key.customerId}">Xem chi tiết</a></td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>
                                             </table>
                                         </c:if>
                                     </div>
-                                    <div class="pagination-section">
-                                        <ul
-                                            class="pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3">
-                                            <li><a href="javascript:void(0);">«</a></li>
-                                            <li><a href="javascript:void(0);">1</a></li>
-                                            <li><a href="javascript:void(0);">2</a></li>
-                                            <li><a href="javascript:void(0);">3</a></li>
-                                            <li><a href="javascript:void(0);">»</a></li>
-                                        </ul>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -285,6 +276,9 @@
                             <a href="./admin-page/personal-infor-admin.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                         </li>
                         <li>
+                            <a href="AdminController"><i class="flaticon-globe"></i> Quản lý</a>
+                        </li>
+                        <li>
                             <a href="LogoutController"><i class="flaticon-power-off"></i> Đăng xuất</a>
                         </li>
                     </ul>
@@ -301,9 +295,9 @@
         <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
         <script>
-            $(document).ready(function () {
-                App.init();
-            });
+                                        $(document).ready(function () {
+                                            App.init();
+                                        });
         </script>
         <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
         <!-- END GLOBAL MANDATORY SCRIPTS -->
@@ -330,16 +324,16 @@
     </body>
 </html>
 <script>
-            $('#ecommerce-product-list').DataTable({
-                "lengthMenu": [5, 10, 20, 50, 100],
-                "language": {
-                    "paginate": {"previous": "<i class='flaticon-arrow-left-1'></i>", "next": "<i class='flaticon-arrow-right'></i>"},
-                    "info": "Showing page _PAGE_ of _PAGES_"
-                },
-                drawCallback: function (settings) {
-                    $('[data-toggle="tooltip"]').tooltip();
-                }
-            });
+                                        $('#ecommerce-product-list').DataTable({
+                                            "lengthMenu": [5, 10, 20, 50, 100],
+                                            "language": {
+                                                "paginate": {"previous": "<i class='flaticon-arrow-left-1'></i>", "next": "<i class='flaticon-arrow-right'></i>"},
+                                                "info": "Showing page _PAGE_ of _PAGES_"
+                                            },
+                                            drawCallback: function (settings) {
+                                                $('[data-toggle="tooltip"]').tooltip();
+                                            }
+                                        });
 </script>
 <!--  END CUSTOM SCRIPT FILES  -->
 

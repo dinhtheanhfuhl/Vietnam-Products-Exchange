@@ -76,7 +76,7 @@ public class MinimartProductController extends HttpServlet {
         request.setAttribute("listCate", allCate);
         List<City> allCities = cityDAO.getAllCity();
         request.setAttribute("allCities", allCities);
-        List<SubCategory> allSubCategory = subcategoryDAO.getAllCategory();
+        List<SubCategory> allSubCategory = subcategoryDAO.getAllSubCateByCateId(id);
         request.setAttribute("allSubCategory", allSubCategory);
         request.getRequestDispatcher("fruit.jsp").forward(request, response);
 

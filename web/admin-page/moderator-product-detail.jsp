@@ -1,33 +1,32 @@
 <!DOCTYPE html>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-        <title>Chi tiết sản phẩm</title>
+        <title>Chi tiết đơn hàng</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" .href="./image/578b1438ff0a7fc4704aa5ade7625e89.jpeg" type="image/png">
 
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="${pageContext.request.contextPath}/assets/css/loader.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/loader.css" rel="stylesheet" type="text/css" />
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-        <link href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="${pageContext.request.contextPath}/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/plugins.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-        <link href="${pageContext.request.contextPath}/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
-        <link href="${pageContext.request.contextPath}/plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
-        <link href="${pageContext.request.contextPath}/assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
-        <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
-        <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />
+        <link href="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
+        <link href="../plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />
         <!--  BEGIN CUSTOM STYLE FILE  -->
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/plugins/table/datatable/datatables.css" />
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/ecommerce/order.css" />
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ecommerce/addedit_product.css">
+        <link rel="stylesheet" type="text/css" href="../plugins/table/datatable/datatables.css" />
+        <link rel="stylesheet" type="text/css" href="../assets/css/ecommerce/order.css" />
+        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/ecommerce/addedit_product.css">
         <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     </head>
 
@@ -45,12 +44,16 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect" href="${pageContext.request.contextPath}/home.jsp">
+                <a class="navbar-brand waves-effect" href="Home">
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
 
             <ul class="navbar-nav flex-row ml-lg-auto">
+
+
+
+
                 <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
                         <div class="user-profile d-lg-block d-none">
@@ -80,30 +83,25 @@
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
-                                <a href="./moderator-list-product.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorController" 
+                                   class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
-                                        <span>Danh sách<br> sản phẩm</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="menu">
-                                <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-list2"></i>
-                                        <span>Danh sách<br> đơn hàng</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="menu">
-                                <a href="./moderator-category.jsp" class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-saas"></i>
-                                        <span>Danh mục</span>
+                                        <span>Danh sách <br> sản phẩm</span>
                                     </div>
                                 </a>
                             </li>
 
+                            <li class="menu">
+                                <a href="./supplier-view-order.jsp" 
+                                   class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-cart-bag-1"></i>
+                                        <span>Xem đơn hàng</span>
+                                    </div>
+                                </a>
+
+                            </li>
                         </ul>
                     </nav>
 
@@ -112,286 +110,355 @@
             <!--  END MODERN  -->
 
             <!--  BEGIN CONTENT PART  -->
-            <div id="content" class="main-content container">
-                <p>&nbsp;</p>
-                <h4 class="h3-order">Chi tiết sản phẩm</h4>
-
-                <div class="view-order">
-                    <div class="summary-order">
-                        <table >
-                            <tr>
-                                <th>Ảnh</th>
-                                <td>
-                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
-                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
-                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
-                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
-                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
-                                </td>
-                            </tr> 
-                            <tr>
-                                <th>Tên</th>
-                                <td>
-                                    ${product.productName}
-                                </td>
-                            </tr> 
-                            <tr>
-                                <th>Khoảng giá</th>
-                                <td>
-                                    50 - 500 kg: <b>đ139.000</b><br>
-                                    150 - 600 kg: <b>đ99.000<br></b>
-                                    250 - 700 kg: <b>đ19.000</b>
-                                </td>
-                            </tr> 
-                            <tr>
-                                <th>Khu vực giao hàng</th>
-                                <td>
-                                    sdádasd
-                                </td>
-                            </tr> 
-                            <tr>
-                                <th>Danh mục hàng</th>
-                                <td>${product.productName}</td>
-                            </tr>
-                            <tr>
-                                <th>Mã Barcode / SKU</th>
-                                <td>${product.productName}</td>
-                            </tr>
-                            <tr>
-                                <th>Tên loại sản phẩm</th>
-                                <td>${product.productName}</td>
-                            </tr>
-                            <tr>
-                                <th>Thương hiệu</th>
-                                <td>${product.productName}</td>
-                            </tr>
-                            <tr>
-                                <th>Hương vị</th>
-                                <td>${product.smell}</td>
-                            </tr>
-                            <tr>
-                                <th>Màu sắc</th>
-                                <td>${product.color}</td>
-                            </tr>
-                            <tr>
-                                <th>Trọng lượng</th>
-                                <td>${product.weight}</td>
-                            </tr>
-                            <tr>
-                                <th>Kiểu đóng gói</th>
-                                <td>${product.packing}</td>
-                            </tr>
-                            <tr>
-                                <th>Thành phần</th>
-                                <td>${product.element}</td>
-                            </tr>
-                            <tr>
-                                <th>Mô tả sản phẩm</th>
-                                <td>
-                                    ${product.productName}
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Giấy tờ chứng nhận</th>
-                                <td>
-                                    <a href="#">Tải xuống</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Trạng thái</th>
-                                <td>
-                                    <c:choose>
-                                        <c:when test="${product.statusId==1}">
-                                            <p class=" btn btn-info status mb-2" id="approved">  Chờ phê duyệt </p>
-                                        </c:when>
-                                        <c:when test="${product.statusId==2}">
-                                            <p class=" btn btn-success status mb-2" id="approved">  Đã phê duyệt </p>
-                                        </c:when>
-                                        <c:when test="${product.statusId==3}">
-                                            <p class=" btn btn-danger status mb-2" id="approved"> Bị từ chối </p>
-                                        </c:when>
-                                    </c:choose>
-
-
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Lý do từ chối</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="form-group">
-                                            <textarea class="form-control" placeholder="Nhập lý do từ chối" style="height: 150px;" id="message-text"></textarea>
+            <div id="content" class="main-content ">
+                <div class="container " style="margin-top: 50px;">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+                            <div class="statbox widget box box-shadow" >
+                                <div class="widget-header">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger status mb-2" data-dismiss="modal">Huỷ</button>
-                                    <button type="button" class="btn btn-success status mb-2">Gửi</button>
+                                <div class="widget-content widget-content-area add-manage-product-2">
+                                    <div class="row">
+                                        <div class="col-xl-7 col-md-12">
+                                            <div class="card card-default">
+                                                <div class="card-heading">
+                                                    <h2 class="card-title"><span>Thông tin bên đặt hàng</span></h2>
+                                                </div>
+                                                <div class="card-body" >
+                                                    <div class="card-body" >
+                                                        <form class="form-horizontal" style="padding-top: 58px !important;">
+                                                            <div class="form-group mb-4">
+                                                                <div class="form-group">
+                                                                    <div class="row">
+                                                                        <label class="col-md-4">Người đặt
+                                                                        </label>
+                                                                        <div class="col-md-8">
+                                                                            <div class="mb-3">
+                                                                                <p> Nguyen Van A</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group mb-4">
+                                                                <div class="form-group">
+                                                                    <div class="row">
+                                                                        <label class="col-md-4">Email
+                                                                        </label>
+                                                                        <div class="col-md-8">
+                                                                            <div class="mb-3">
+                                                                                aaaaa@gmail.com
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group mb-4">
+                                                                <div class="form-group">
+                                                                    <div class="row">
+                                                                        <label class="col-md-4">
+                                                                            Sđt </label>
+                                                                        <div class="col-md-8">
+                                                                            <div class="mb-3">
+                                                                                <div class="custom-file">
+                                                                                    02342323
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group mb-4">
+                                                                <div class="form-group">
+                                                                    <div class="row">
+                                                                        <label class="col-md-4">Địa chỉ nhận hàng
+                                                                        </label>
+                                                                        <div class="col-md-8">
+                                                                            <div class="mb-3">
+                                                                                <div class="custom-file">
+                                                                                    24 Hai Ba Trung
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group mb-4">
+                                                                <div class="form-group">
+                                                                    <div class="row">
+                                                                        <label class="col-md-4">
+                                                                            Phương thức giao hàng</label>
+                                                                        <div class="col-md-8">
+                                                                            <div class="mb-3">
+                                                                                <div class="custom-file">
+                                                                                    Nhà cung cấp giao hàng
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group mb-4">
+                                                                <div class="row">
+                                                                    <label class="col-md-4">Phương thức thanh toán</label>
+                                                                    <div class="col-md-8">
+                                                                        Thanh toán khi nhận hàng (COD)
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group mb-4">
+                                                                <div class="row">
+                                                                    <label class="col-md-4">Lời nhắn</label>
+                                                                    <div class="col-md-8">
+                                                                        anh adisacas đá ádasd ádas dấd a
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-5 col-md-12">
+                                            <div class="card card-default">
+                                                <div class="card-heading">
+                                                    <h2 class="card-title"><span>Thông tin Nhà cung cấp</span></h2>
+                                                </div>
+                                                <div class="card-body">
+                                                    <form class="form-horizontal">
+                                                        <div class="form-group mb-4">
+                                                            <div class="row">
+                                                                <label class="col-md-4">Nhà cung cấp</label>
+                                                                <div class="col-md-8">
+                                                                    DUng Ha
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group mb-4">
+                                                            <div class="row">
+                                                                <label class="col-md-4">Email</label>
+                                                                <div class="col-md-8">
+                                                                    sfsdfsd@gmai.com
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group mb-4">
+                                                            <div class="row">
+                                                                <label class="col-md-4">Sđt</label>
+                                                                <div class="col-md-8">
+                                                                    004234324324
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group mb-4">
+                                                            <div class="row">
+                                                                <label class="col-md-4">Đia chỉ kho hàng</label>
+                                                                <div class="col-md-8">
+                                                                    26 Nguyen Chi Thanh
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group mb-4">
+                                                            <div class="row">
+                                                                <label class="col-md-4">Trọng lượng</label>
+                                                                <div class="col-md-8">
+                                                                    <input type="number" class="form-control" placeholder="Ví dụ: 400g, 20kg,..." name="discount" type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div style="margin-top: 250px;margin-left: -840px;">
+                                                <div class="form-group mb-4" >
+                                                    <div class="row">
+                                                        <label class="col-md-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                                            </svg><b>Chi tiết đơn hàng</b></label>
+                                                        <div class="col-md-8">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Thời gian đặt hàng</label>
+                                                        <div class="col-md-8">
+                                                            12/12/222
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Nhà cung cấp xác nhận</label>
+                                                        <div class="col-md-8">
+                                                            ...............
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4">Trạng thái</label>
+                                                        <div class="col-md-8">
+                                                            ................
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4"><b>Mã đơn hàng </b></label>
+                                                        <div class="col-md-8">
+                                                            21324324324
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label class="col-md-4"><b>Trạng thái</b></label>
+                                                        <div class="col-md-8">
+                                                            <input value="Chờ NCC Xác nhận" class="btn btn-gradient-success" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">STT</th>
+                                                <th scope="col">Tên hàng</th>
+                                                <th scope="col">Mã Barcode</th>
+                                                <th scope="col">Số lượng</th>
+                                                <th scope="col">Đơn giá</th>
+                                                <th scope="col">Tổng</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>@mdo</td>
+                                                <td>@mdo</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc muốn phê duyệt sản phẩm này không?
-                                    </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger status mb-2" data-dismiss="modal">Không</button>
-                                    <button type="button" class="btn btn-success status mb-2">Có</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  <div class="button-status ">
-                 <h5>Hành động</h5>
-                 <a href="ModeratorDetailProductController?action=accept&id=${product.productId}" data-toggle="modal" data-target="#exampleModal" class=" btn btn-success status mb-2" id="approved">  Phê duyệt </a>
-                 <a href="ModeratorDetailProductController?action=reject&id=${product.productId}" class=" btn btn-danger status mb-2" id="canceled">  Từ chối </a>
-             </div> -->
-
-                    <div class="button-status ">
-                        <h5>Hành động</h5>
-                        <button class=" btn btn-success status mb-2" data-toggle="modal" data-target="#exampleModal1" id="approved">  Phê duyệt </button>
-                        <button class=" btn btn-danger status mb-2" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"  id="canceled">  Từ chối </button>
-
                     </div>
                 </div>
+            </div>
+        </div>
 
+        <!--  END CONTENT PART  -->
+        <!--  END MODERN  -->
+        <footer class="footer-section theme-footer">
+
+            <div class="footer-section-1  sidebar-theme">
 
             </div>
 
-            <!--  END CONTENT PART  -->
-            <!--  END MODERN  -->
-            <footer class="footer-section theme-footer">
-
-                <div class="footer-section-1  sidebar-theme">
-
-                </div>
-
-                <div class="footer-section-2 container-fluid">
-                    <div class="row">
-                        <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
-                            <ul class="list-inline links ml-sm-5">
-                                <li class="list-inline-item">
-                                    <a target="_blank" href="#">Vietnam Products Exchange</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-xl-5 col-md-6 col-sm-6 col-12">
-                            <ul
-                                class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
-                                <li class="list-inline-item  mr-3">
-                                    <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
-                                </li>
-                                <li class="list-inline-item align-self-center">
-                                    <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!--  END FOOTER  -->
-
-            <!--  BEGIN PROFILE SIDEBAR  -->
-            <aside class="profile-sidebar text-center">
-                <div class="profile-content profile-content-scroll">
-                    <div class="usr-profile">
-                        <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
-                    </div>
-                    <p class="user-name mt-4 mb-4">Hoàng Thị Xoan</p>
-                    <div class="user-links text-left">
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="./personal-infor-moderator.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+            <div class="footer-section-2 container-fluid">
+                <div class="row">
+                    <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
+                        <ul class="list-inline links ml-sm-5">
+                            <li class="list-inline-item">
+                                <a target="_blank" href="#">Vietnam Products Exchange</a>
                             </li>
-                            <li>
-                                <a href="moderator-list-product.jsp"><i class="flaticon-globe"></i> Quản lý</a>
+                        </ul>
+                    </div>
+                    <div class="col-xl-5 col-md-6 col-sm-6 col-12">
+                        <ul
+                            class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
+                            <li class="list-inline-item  mr-3">
+                                <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
                             </li>
-                            <li>
-                                <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
+                            <li class="list-inline-item align-self-center">
+                                <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
                             </li>
                         </ul>
                     </div>
                 </div>
-            </aside>
+            </div>
+        </footer>
+        <!--  END FOOTER  -->
 
-            <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-            <script src="${pageContext.request.contextPath}/assets/js/libs/jquery-3.1.1.min.js"></script>
-            <script src="${pageContext.request.contextPath}/assets/js/loader.js"></script>
-            <script src="${pageContext.request.contextPath}/assets/js/popper.min.js"></script>
-            <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
-            <script src="${pageContext.request.contextPath}/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-            <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
-            <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
-            <script>
-                $(document).ready(function () {
-                    App.init();
-                });
-            </script>
-            <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
+        <!--  BEGIN PROFILE SIDEBAR  -->
+        <aside class="profile-sidebar text-center">
+            <div class="profile-content profile-content-scroll">
+                <div class="usr-profile">
+                    <img src="../assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
+                </div>
+                <p class="user-name mt-4 mb-4">Hoàng Thị Xoan</p>
+                <div class="user-links text-left">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="./personal-infor-supplier.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                        </li>
+                        <li>
+                            <a href="../changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                        </li>
+                        <li>
+                            <a href="supplier-product-pending.jsp"><i class="flaticon-globe"></i> Quản lý</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
 
-            <!-- END GLOBAL MANDATORY SCRIPTS -->
+        <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+        <script src="../assets/js/libs/jquery-3.1.1.min.js"></script>
+        <script src="../assets/js/loader.js"></script>
+        <script src="../assets/js/popper.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="../plugins/blockui/jquery.blockUI.min.js"></script>
+        <script src="../assets/js/app.js"></script>
+        <script>
+            $(document).ready(function () {
+                App.init();
+            });
+        </script>
+        <script src="../assets/js/custom.js"></script>
+        <!-- END GLOBAL MANDATORY SCRIPTS -->
 
-            <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-            <script src="${pageContext.request.contextPath}/plugins/charts/chartist/chartist.js"></script>
-            <script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
-            <script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
-            <script src="${pageContext.request.contextPath}/plugins/calendar/pignose/moment.latest.min.js"></script>
-            <script src="${pageContext.request.contextPath}/plugins/calendar/pignose/pignose.calendar.js"></script>
-            <script src="${pageContext.request.contextPath}/plugins/progressbar/progressbar.min.js"></script>
-            <script src="${pageContext.request.contextPath}/assets/js/default-dashboard/default-custom.js"></script>
-            <script src="${pageContext.request.contextPath}/assets/js/ui-kit/timeline/horizontal-main.js"></script>
-            <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/amcharts.js"></script>
-            <script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
-            <script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/worldLow.js"></script>
-            <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/radar.js"></script>
-            <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/pie.js"></script>
-            <script src="${pageContext.request.contextPath}/plugins/charts/sparklines/jquery.sparkline.min.js"></script>
-            <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/serial.js"></script>
-            <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/light.js"></script>
-            <script src="${pageContext.request.contextPath}/assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
-            <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+        <script src="../plugins/charts/chartist/chartist.js"></script>
+        <script src="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
+        <script src="../plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="../plugins/calendar/pignose/moment.latest.min.js"></script>
+        <script src="../plugins/calendar/pignose/pignose.calendar.js"></script>
+        <script src="../plugins/progressbar/progressbar.min.js"></script>
+        <script src="../assets/js/default-dashboard/default-custom.js"></script>
+        <script src="../assets/js/ui-kit/timeline/horizontal-main.js"></script>
+        <script src="../plugins/charts/amcharts/amcharts.js"></script>
+        <script src="../plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
+        <script src="../plugins/maps/vector/ammaps/worldLow.js"></script>
+        <script src="../plugins/charts/amcharts/radar.js"></script>
+        <script src="../plugins/charts/amcharts/pie.js"></script>
+        <script src="../plugins/charts/sparklines/jquery.sparkline.min.js"></script>
+        <script src="../plugins/charts/amcharts/serial.js"></script>
+        <script src="../plugins/charts/amcharts/light.js"></script>
+        <script src="../assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
+        <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     </body>
-    <script>
-                document.getElementById("processing").onclick = function () {
-                    document.querySelector("#processing").style.backgroundColor = 'green';
-                    document.querySelector("#canceled").style.backgroundColor = 'grey';
-                    document.querySelector("#approved").style.backgroundColor = 'grey';
-                    document.querySelector("#delivered").style.backgroundColor = 'grey';
-                }
-                document.getElementById("canceled").onclick = function () {
-                    document.querySelector("#canceled").style.backgroundColor = 'green';
-                    document.querySelector("#processing").style.backgroundColor = 'grey';
-                    document.querySelector("#approved").style.backgroundColor = 'grey';
-                    document.querySelector("#delivered").style.backgroundColor = 'grey';
-                }
-                document.getElementById("approved").onclick = function () {
-                    document.querySelector("#approved").style.backgroundColor = 'green';
-                    document.querySelector("#canceled").style.backgroundColor = 'grey';
-                    document.querySelector("#processing").style.backgroundColor = 'grey';
-                    document.querySelector("#delivered").style.backgroundColor = 'grey';
-                }
-                document.getElementById("delivered").onclick = function () {
-                    document.querySelector("#delivered").style.backgroundColor = 'green';
-                    document.querySelector("#canceled").style.backgroundColor = 'grey';
-                    document.querySelector("#approved").style.backgroundColor = 'grey';
-                    document.querySelector("#processing").style.backgroundColor = 'grey';
-                }
-
-    </script>
 </html>

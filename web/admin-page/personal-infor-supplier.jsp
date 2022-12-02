@@ -39,12 +39,9 @@
         <!--  BEGIN NAVBAR  -->
         <header class="desktop-nav header navbar fixed-top">
             <div class="nav-logo mr-sm-5 ml-sm-4">
-                <a href="javascript:void(0);" class="nav-link sidebarCollapse d-inline-block mr-sm-5"
-                   data-placement="bottom">
-                    <i class="flaticon-menu-line-3"></i>
-                </a>
-                <a class="navbar-brand waves-effect" href="${pageContext.request.contextPath}/home.jsp">
-                    <h2 id="logoheader">VnProX</h2>
+                
+                <a class="navbar-brand waves-effect" href="Home">
+                    <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
             </div>
             <ul class="navbar-nav flex-row mr-auto">
@@ -81,36 +78,7 @@
 
             <!--  BEGIN MODERN  -->
 
-            <div class="modernSidebar-nav header header navbar">
-                <div class="">
-                    <nav id="modernSidebar">
-                        <ul class="menu-categories pl-0 m-0" id="topAccordion">
-
-                            <li class="menu">
-                                <a href="supplier-product-pending.jsp" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-3d-cube"></i>
-                                        <span>Danh sách <br> sản phẩm</span>                                    
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="menu">
-                                <a href="./supplier-view-order.jsp" 
-                                   class="dropdown-toggle collapsed">
-                                    <div class="">
-                                        <i class="flaticon-cart-bag-1"></i>
-                                        <span>Xem đơn hàng</span>
-                                    </div>
-                                </a>
-
-                            </li>
-                        </ul>
-                    </nav>
-
-                </div>
-            </div>
+            
             <!--  END MODERN  -->
 
             <!--  BEGIN CONTENT PART  -->
@@ -144,8 +112,8 @@
                                                 <td><label for="inputpass" class="form-label pass-infor">Tên người dùng</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="text" required class="form-control" id="inputpass"
-                                                           value="${supplier.supplierName}"   placeholder="tên người dùng">
+
+                                                    <p>${supplier.supplierName}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -160,8 +128,8 @@
                                                 <td><label for="inputpass" class="form-label pass-infor">Ngày sinh</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="date" required class="form-control" id="inputpass"
-                                                           value="${supplier.dateBirth}"  placeholder="ngày sinh">
+
+                                                    <p>${supplier.dateBirth}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -173,12 +141,11 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label id="gendertext" class="form-label pass-infor">Giới tính</label>
+                                                <td><label id="inputpass" class="form-label pass-infor">Giới tính</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <select class="form-control" name="gender" id="genderselect">
-                                                        <option value="male">${supplier.gender}</option>
-                                                    </select>
+
+                                                    <p>${supplier.gender}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -191,8 +158,8 @@
                                                 <td><label for="inputpass" class="form-label pass-infor">Email</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input type="email" required class="form-control" id="inputpass"
-                                                           value="${supplier.email}"     placeholder="email">
+
+                                                    <p>${supplier.email}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -206,8 +173,7 @@
                                                 <td><label style="margin-left: -15px;" class="form-label pass-infor">Số điện thoại</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input style="margin-left: 13px;" type="text" required class="form-control"
-                                                           value="${supplier.phone}"   placeholder="số điện thoại">
+                                                    <p style="margin-left: 13px;" >${supplier.phone}</p>
                                                 </td>
                                                 <td> <button type="submit" id="btn-edit" for="formGroupExampleInput1"
                                                              class="btn btn-warning ml-10">Chỉnh sửa</button></td>
@@ -235,8 +201,8 @@
                                                 <td><label id="suppliertext" class="form-label pass-infor">Nhà cung cấp</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input id="supplierinput" type="text" required class="form-control" 
-                                                           value="${supplier.shopName}"   placeholder="nhập nhà cung cấp">
+                                                    <p id="supplierinput"   
+                                                       >${supplier.shopName}</p>
                                                 </td>
                                                 <td> <button type="submit" id="btn-edit-2" for="formGroupExampleInput"
                                                              class="btn btn-warning ml-10">Chỉnh sửa</button></td>
@@ -265,8 +231,7 @@
                                                 <td><label id="suppliertext" class="form-label pass-infor">Địa chỉ chính</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <input style="margin-left: 13px;" type="text" required class="form-control" 
-                                                           value="${supplier.mainAddress}"   placeholder="nhập địa chỉ chính">
+                                                    <p style="margin-left: 13px;">${supplier.mainAddress}</p>
                                                 </td>
                                                 <td> <button type="submit" id="btn-edit-3" for="formGroupExampleInput"
                                                              class="btn btn-warning ml-10">Chỉnh sửa</button></td>
@@ -291,7 +256,7 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Giấy phép <br> kinh doanh</label>
+                                                <td><label for="inputName" class="form-label pass-infor">Giấy phép <br> kinh doanh</label>
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <a href="#" class="btn btn-info">Tải về giấy phép</a>
@@ -304,7 +269,7 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Trạng thái:</label>
+                                                <td><label for="inputName" class="form-label pass-infor">Trạng thái</label>
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <c:choose>

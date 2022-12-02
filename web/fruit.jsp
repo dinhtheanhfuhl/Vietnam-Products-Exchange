@@ -114,9 +114,8 @@
                                 </div>
                             </li>
                             <li class="nav-item ">
-                                <a href="#"  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i>
-                                    <span class="quantity-amm-shopping-cart-open">0</span></a>
-
+                                <a href="CartController"  class="nav-link cart-btn pr-3"><i class="fas fa-shopping-cart"></i>
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <div class="dropdown dropdown-user">
@@ -175,47 +174,45 @@
         <div class="orfarm-shop-grid-area pt-100 pb-50">
             <div class="container">
                 <div class="row">
+
                     <div class="col-lg-3 order-2 order-lg-1">
                         <div class="orfarm-shop-sidebar">
-                            <div class="shop-price-filter">
-                                <h4 class="title">Lọc theo giá</h4>
-                                <form>
+                            <form>
+                                <div class="shop-price-filter">
+                                    <h4 class="title">Lọc theo giá</h4>
                                     <div class="price-range">
                                         <label for="">
                                             <input type="number" placeholder="Từ" class="form-control"> - 
                                             <input type="number" placeholder="Đến" class="form-control"></label>                                    
-                                        <button class=" btn btn-warning status" id="canceled">  Lọc </button>
-                                    </div></form>
-                            </div>
-                            <div class="shop-category-widget">
-                                <h4 class="title">Khu vực giao hàng</h4>
-                                <ul>
-                                    <select id="city" onchange="location = this.value;" class="form-control">
-                                        <c:forEach items="${allCities}" var="o" >
-                                        <option value="${o.cityId}">${o.cityName}</option>
-                                        </c:forEach>
-                                    </select>
-                                  
-                                </ul>
-                            </div>
-                            <div class="shop-category-widget">
-                                <h4 class="title">Danh mục cấp 2</h4>
-                                <ul>
-                                    <select id="city" onchange="location = this.value;" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="shop-category-widget">
+                                    <h4 class="title">Danh mục cấp 2</h4>
+                                    <ul>
                                         <c:forEach items="${allSubCategory}" var="o" >
-                                            <option value="dropdown-item">${o.subCateName}</option>
+                                            <input type="checkbox" id="subcate" name="" value="">
+                                            <label for="subcate">${o.subCateName}</label><br>
                                         </c:forEach>
-                                    </select>
-                                </ul>
-                            </div>
+                                    </ul>
+                                </div>
+                                <div class="shop-category-widget">
+                                    <h4 class="title">Khu vực giao hàng</h4>
+                                    <ul>
+                                        <select id="city"  class="form-control">
+                                            <option value="">Tất cả thành phố</option>
+                                            <c:forEach items="${allCities}" var="o" >
+                                                <option value="${o.cityId}">${o.cityName}</option>
+                                            </c:forEach>
+                                        </select>
 
-                            <div class="shop-sidebar">
-                                <a href="./shop.html" class="image-hover">
-                                    <img src="./image/banner10-min.jpg" alt="">
-                                </a>
-                            </div>
+                                    </ul>
+                                </div>
+                                <button class=" btn btn-warning status" type="submit" id="">  Lọc </button>
+
+                            </form>
                         </div>
                     </div>
+
                     <div class="col-lg-9 order-1 order-lg-2">
                         <div class="row">
                             <div class="banner-collection pb-5 w-300">
@@ -225,8 +222,10 @@
                         <div class="shop-grid-topbar d-flex justify-content-between align-items-center">
                             <span>Hiện thị tổng số <span>12</span> sản phẩm.</span>
                             <select id="product">
-                                <option value="volvo">Mới nhất</option>
-                                <option value="saab">Bán chạy nhất</option>
+                                <option value="">Mới nhất</option>
+                                <option value="">Bán chạy nhất</option>
+                                <option value="">Giá tăng dần</option>
+                                <option value="">Giá giảm dần</option>
                             </select>
                         </div>
                         <div class="row">
@@ -251,7 +250,7 @@
                                                 <c:forEach var="hierarchy" items="${mapHierarchy.get(key)}">
 
                                                     <c:if test="${mapHierarchy.get(key).get(1)!=hierarchy}">
-                                                        <div class="discount-price"> <span>đ<fmt:formatNumber type = "number" 
+                                                        <div class="discount-price"> <span><sup>đ</sup><fmt:formatNumber type = "number" 
                                                                           pattern = "" value = "${hierarchy.price}" />&nbsp;&nbsp;</span> </div> 
                                                             </c:if>
                                                         </c:forEach>
@@ -368,12 +367,10 @@
                     <div class="col ">
                         <ul class="ft-bottom container">
                             <li class="copy-right">
-                                <p style="font-size: 14px;">Copyright © 2021 Powered by VnProx. Powered by VnProx</p>
+                                <p style="font-size: 14px;">Copyright © 2022 Powered by VnProx. Powered by VnProx</p>
                             </li>
                             <li class="social-media">
-                                <a href="">
-                                    <i class="fas fa-phone-square-alt"></i>
-                                </a>
+
                                 <a href="">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
@@ -383,54 +380,53 @@
                                 <a href="">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="">
-                                    <i class="fab fa-pinterest-p"></i>
-                                </a>
+
                                 <a href="">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </li>
                         </ul>
-
                     </div>
-                    </footer>
+                </div>
+            </div>
+        </footer>
 
-                    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-                    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-                    </script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-                    </script>
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-                    </script>
-                    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-                    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-                    <!--====== jquery js ======-->
-                    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-                    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <!--====== jquery js ======-->
+        <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+        <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
 
-                    <!--====== Bootstrap js ======-->
-                    <script src="assets/js/bootstrap.min.js"></script>
-                    <script src="assets/js/popper.min.js"></script>
+        <!--====== Bootstrap js ======-->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
 
-                    <!--====== wow js ======-->
-                    <script src="assets/js/wow.js"></script>
+        <!--====== wow js ======-->
+        <script src="assets/js/wow.js"></script>
 
-                    <!--====== Slick js ======-->
-                    <script src="assets/js/jquery.counterup.min.js"></script>
-                    <script src="assets/js/waypoints.min.js"></script>
+        <!--====== Slick js ======-->
+        <script src="assets/js/jquery.counterup.min.js"></script>
+        <script src="assets/js/waypoints.min.js"></script>
 
-                    <!--====== TweenMax js ======-->
-                    <script src="assets/js/TweenMax.min.js"></script>
+        <!--====== TweenMax js ======-->
+        <script src="assets/js/TweenMax.min.js"></script>
 
-                    <!--====== Slick js ======-->
-                    <script src="assets/js/slick.min.js"></script>
+        <!--====== Slick js ======-->
+        <script src="assets/js/slick.min.js"></script>
 
-                    <!--====== Magnific Popup js ======-->
-                    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <!--====== Magnific Popup js ======-->
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
 
-                    <!--====== Main js ======-->
-                    <script src="assets/js/main.js"></script>
-                    <script src="./cart.js"></script>
-                    </body>
-                    </html>
+        <!--====== Main js ======-->
+        <script src="assets/js/main.js"></script>
+        <script src="./cart.js"></script>
+    </body>
+</html>
