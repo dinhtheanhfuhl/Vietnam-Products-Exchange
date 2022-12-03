@@ -56,7 +56,7 @@ public class MinimartProductController extends HttpServlet {
         List<Product> getAllProductsbyCateId = productDAO.getAllProductsByCateID(id);
         Map<Product, List<ProductImage>> mapImages = new LinkedHashMap<Product, List<ProductImage>>();
         for (Product product : getAllProductsbyCateId) {
-            List<ProductImage> images = productImageDAO.getAllProductsImageById(product.getProductId());
+            List<ProductImage> images = productImageDAO.getAllProductsImageByProId(product.getProductId());
             mapImages.put(product, images);
         }
         Map<Product, List<ProductHierarchy>> mapHierarchy = new LinkedHashMap<Product, List<ProductHierarchy>>();

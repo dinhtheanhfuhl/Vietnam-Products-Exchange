@@ -5,29 +5,36 @@
 package controller;
 
 import dao.CategoryDAO;
+import dao.CityDAO;
+import dao.DeliveryAreaDAO;
 import dao.ProductDAO;
+import dao.ProductHierarchyDAO;
 import dao.ProductImageDAO;
-import dao.SupplierDAO;
-import dbconnect.DBConnect;
+import dao.SubCategoryDAO;
 import entity.Category;
+import entity.City;
+import entity.DeliveryArea;
 import entity.Product;
+import entity.ProductHierarchy;
 import entity.ProductImage;
-import entity.Supplier;
+import entity.SubCategory;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author ductd
+ * @author DEKUPAC
  */
-public class HomeController extends HttpServlet {
+@WebServlet(name = "SupplierDetailPController", urlPatterns = {"/SupplierDetailPController"})
+public class SupplierDetailPController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,42 +48,39 @@ public class HomeController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        Connection connection = DBConnect.getConnection();
-        CategoryDAO categoryDAO = new CategoryDAO(connection);
-        ProductImageDAO productImageDAO = new ProductImageDAO(connection);
-        ProductDAO productDAO = new ProductDAO(connection);
-        SupplierDAO supplierDAO = new SupplierDAO(connection);
-        List<Product> getTop5 = productDAO.getTop5ProductOrderByView();
-        
-        Map<Product, List<ProductImage>> mapImages = new LinkedHashMap<Product, List<ProductImage>>();
-        for (Product product : getTop5) {
-            List<ProductImage> images = productImageDAO.getAllProductsImageByProId(product.getProductId());
-            mapImages.put(product, images);
+
+        Connection conn = dbconnect.DBConnect.getConnection();
+        ProductDAO productDAO = new ProductDAO(conn);
+        ProductHierarchyDAO proHieDAO = new ProductHierarchyDAO(conn);
+        ProductImageDAO proImgDAO = new ProductImageDAO(conn);
+        DeliveryAreaDAO deliDAO = new DeliveryAreaDAO(conn);
+        CityDAO cityDAO = new CityDAO(conn);
+        CategoryDAO cateDAO = new CategoryDAO(conn);
+        SubCategoryDAO subcateDAO = new SubCategoryDAO(conn);
+
+        String action = request.getParameter("action");
+        if (action == null || action.equals("")) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Product product = productDAO.getProductById(id);
+            List<ProductHierarchy> listProHies = proHieDAO.getProductHierachiesByProId(id);
+            List<ProductImage> listProImgs = proImgDAO.getAllProductsImageByProId(id);
+            List<DeliveryArea> listDelivery = deliDAO.getDeliverysAreaByProductId(id);
+            List<City> listCities = new ArrayList<>();
+            SubCategory subCate = subcateDAO.getSubCategoryById(product.getSubCateId());
+            Category cate = cateDAO.getCategoryById(subCate.getCateId());
+            for (DeliveryArea deliveryArea : listDelivery) {
+                City city = cityDAO.getCityById(deliveryArea.getCityId());
+                listCities.add(city);
+            }
+
+            request.setAttribute("listProHies", listProHies);
+            request.setAttribute("listProImgs", listProImgs);
+            request.setAttribute("listCities", listCities);
+            request.setAttribute("cate", cate);
+            request.setAttribute("product", product);
+            request.getRequestDispatcher("admin-page/supplier-product-detail.jsp").forward(request, response);
+
         }
-        Map<Product, List<Supplier>> mapSuppliers = new LinkedHashMap<Product, List<Supplier>>();
-        for (Product product : getTop5) {
-            List<Supplier> supplier = supplierDAO.getSupplierByProId(product.getProductId());
-            mapSuppliers.put(product, supplier);
-        }
-        List<Product> getTop4Newest = productDAO.getTop4ProductNewest();
-        Map<Product, List<ProductImage>> mapImages2 = new LinkedHashMap<Product, List<ProductImage>>();
-        for (Product product : getTop4Newest) {
-            List<ProductImage> images = productImageDAO.getAllProductsImageByProId(product.getProductId());
-            mapImages2.put(product, images);
-        }
-        Map<Product, List<Supplier>> mapSuppliers2 = new LinkedHashMap<Product, List<Supplier>>();
-        for (Product product : getTop4Newest) {
-            List<Supplier> supplier = supplierDAO.getSupplierByProId(product.getProductId());
-            mapSuppliers2.put(product, supplier);
-        }
-        request.setAttribute("mapImages", mapImages);
-        request.setAttribute("mapSuppliers", mapSuppliers);
-        request.setAttribute("mapImages2", mapImages2);
-        request.setAttribute("mapSupplier2", mapSuppliers2);
-        List<Category> allCate = categoryDAO.getAllCategory();
-        request.setAttribute("listCate", allCate);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

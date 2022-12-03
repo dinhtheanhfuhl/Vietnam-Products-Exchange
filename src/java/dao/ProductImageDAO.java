@@ -92,7 +92,7 @@ public class ProductImageDAO {
         return productImage;
     }
 
-    public List<ProductImage> getAllProductsImageById(int productId) {
+    public List<ProductImage> getAllProductsImageByProId(int productId) {
 
         String strSelectAll = "select * from ProductImage where ProductID = ?";
         List<ProductImage> productImages = new ArrayList<>();

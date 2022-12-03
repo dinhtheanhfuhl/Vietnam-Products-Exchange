@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,22 +12,22 @@
         <link rel="shortcut icon" .href="./image/578b1438ff0a7fc4704aa5ade7625e89.jpeg" type="image/png">
 
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="../assets/css/loader.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/loader.css" rel="stylesheet" type="text/css" />
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/plugins.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/plugins.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-        <link href="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
-        <link href="../plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
-        <link href="../assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />
         <!--  BEGIN CUSTOM STYLE FILE  -->
-        <link rel="stylesheet" type="text/css" href="../plugins/table/datatable/datatables.css" />
-        <link rel="stylesheet" type="text/css" href="../assets/css/ecommerce/order.css" />
-        <link rel="stylesheet" href="../assets/css/style.css">
-        <link rel="stylesheet" href="../assets/css/ecommerce/addedit_product.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/plugins/table/datatable/datatables.css" />
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/ecommerce/order.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ecommerce/addedit_product.css">
         <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     </head>
 
@@ -94,7 +95,7 @@
                                     </div>
                                 </a>
                             </li>
-                            
+
 
                         </ul>
                     </nav>
@@ -110,97 +111,99 @@
 
                 <div class="view-order">
                     <div class="summary-order">
-                        <table >
+                        <table>
                             <tr>
-                                <th>Ảnh</th>
+                                <th style="min-width: 300px">Ảnh</th>
                                 <td>
-                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
-                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
-                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
-                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
-                                    <img class="product-list-img" src="assets/img/90x90.jpg"> 
+                                    <c:forEach var="img" items="${listProImgs}">
+                                        <img style="width: 100px; height: 100px; object-fit: cover;" class="product-list-img" src="uploads/${img.imgPath}"> 
+                                    </c:forEach>
                                 </td>
                             </tr> 
                             <tr>
                                 <th>Tên</th>
-                                <td>
-                                    elitLorem ilitLorem ipsum dolorng elit
-                                </td>
+                                <td>${product.productName}</td>
                             </tr> 
                             <tr>
                                 <th>Khoảng giá</th>
                                 <td>
-                                    50 - 500 kg: <b>đ139.000</b><br>
-                                    150 - 600 kg: <b>đ99.000<br></b>
-                                    250 - 700 kg: <b>đ19.000</b>
+                                    <c:forEach var="lp" items="${listProHies}">
+                                        > ${lp.quantity} kg: <b>${lp.price} vnd</b><br>
+                                    </c:forEach>
                                 </td>
                             </tr> 
                             <tr>
                                 <th>Khu vực giao hàng</th>
                                 <td>
-                                    Hà nội
+                                    <c:forEach var="c" items="${listCities}">
+                                        <b>${c.cityName}</b><br/>
+                                    </c:forEach>
                                 </td>
                             </tr> 
                             <tr>
                                 <th>Danh mục hàng</th>
-                                <td>Hoa qua</td>
+                                <td>${cate.cateName}</td>
                             </tr>
                             <tr>
                                 <th>Mã Barcode / SKU</th>
-                                <td>542453453453</td>
+                                <td>${product.barCode}</td>
                             </tr>
                             <tr>
                                 <th>Tên loại sản phẩm</th>
-                                <td>Cam</td>
+                                <td>${product.productName}</td>
                             </tr>
                             <tr>
                                 <th>Thương hiệu</th>
-                                <td>Nong san dung ha</td>
+                                <td>${product.trademark}</td>
                             </tr>
                             <tr>
                                 <th>Hương vị</th>
-                                <td>chua</td>
+                                <td>${product.smell}</td>
                             </tr>
                             <tr>
                                 <th>Màu sắc</th>
-                                <td>do</td>
+                                <td>${product.color}</td>
                             </tr>
                             <tr>
                                 <th>Trọng lượng</th>
-                                <td>100kg.</td>
+                                <td>${product.weight}</td>
                             </tr>
                             <tr>
                                 <th>Kiểu đóng gói</th>
-                                <td>.</td>
+                                <td>${product.packing}</td>
                             </tr>
                             <tr>
                                 <th>Thành phần</th>
-                                <td>cafein.</td>
+                                <td>${product.element}</td>
                             </tr>
                             <tr>
                                 <th>Mô tả sản phẩm</th>
-                                <td>
-                                   xanh sach dep
-                                </td>
+                                <td>${product.description}</td>
                             </tr>
                             <tr>
                                 <th>Giấy tờ chứng nhận</th>
-                                <td>
-                                    giay to chung nhan
-                                </td>
+                                <td>${product.productCertificate}</td>
                             </tr>
                             <tr>
                                 <th>Trạng thái</th>
                                 <td>
-                                    <p class=" btn btn-success status mb-2" id="approved">  Đã phê duyệt </p>
-                                    <p class=" btn btn-danger status mb-2" id="approved"> Bị từ chối </p>
+                                    <c:choose>
+                                        <c:when test="${product.statusId == 1}"><span class="badge rounded-pill bg-info">Chờ phê duyệt</span></c:when>
+                                        <c:when test="${product.statusId == 2}"><span class="badge rounded-pill bg-success">Đã phê duyệt</span></c:when>
+                                        <c:when test="${product.statusId == 3}"><span class="badge rounded-pill bg-danger">Bị từ chối</span></c:when>
+                                        <c:when test="${product.statusId == 4}"><span class="badge rounded-pill bg-secondary">Đã ẩn</span></c:when>
+                                    </c:choose>
                                 </td>
                             </tr>
                         </table>
                     </div>
                     <div class="button-status ">
                         <h5>Hành động</h5>
-                        <button class=" btn btn-danger status mb-2" id="canceled">  Huỷ yêu cầu</button>
+                        <c:choose>
+                            <c:when test="${product.statusId==1}"><a href="SupplierActionController?action=cancel&id=${product.productId}" class=" btn btn-danger status mb-2" id="canceled">Huỷ yêu cầu</a></c:when>
+                            <c:when test="${product.statusId==3}"><a href="SupplierActionController?action=re-request&id=${product.productId}" class=" btn btn-danger status mb-2" id="canceled">Yêu cầu lại</a></c:when>
+                            <c:when test="${product.statusId==2}"><a href="SupplierActionController?action=hidden&id=${product.productId}" class=" btn btn-danger status my-5" id="canceled">Ẩn sản phẩm</a></c:when>
+                        </c:choose>
                     </div>
                 </div>
 
@@ -244,7 +247,7 @@
             <aside class="profile-sidebar text-center">
                 <div class="profile-content profile-content-scroll">
                     <div class="usr-profile">
-                        <img src="../assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
+                        <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
                     </div>
                     <p class="user-name mt-4 mb-4">Han</p>
 
@@ -254,7 +257,7 @@
                                 <a href="./personal-infor-supplier.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                             </li>
                             <li>
-                                <a href="../changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                                <a href="${pageContext.request.contextPath}/changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
                             </li>
                             <li>
                                 <a href="supplier-product-pending.jsp"><i class="flaticon-globe"></i> Quản lý</a>
@@ -268,39 +271,39 @@
             </aside>
 
             <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-            <script src="../assets/js/libs/jquery-3.1.1.min.js"></script>
-            <script src="../assets/js/loader.js"></script>
-            <script src="../assets/js/popper.min.js"></script>
-            <script src="../assets/js/bootstrap.min.js"></script>
-            <script src="../plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-            <script src="../plugins/blockui/jquery.blockUI.min.js"></script>
-            <script src="../assets/js/app.js"></script>
+            <script src="${pageContext.request.contextPath}/assets/js/libs/jquery-3.1.1.min.js"></script>
+            <script src="${pageContext.request.contextPath}/assets/js/loader.js"></script>
+            <script src="${pageContext.request.contextPath}/assets/js/popper.min.js"></script>
+            <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
+            <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
             <script>
                 $(document).ready(function () {
                     App.init();
                 });
             </script>
-            <script src="../assets/js/custom.js"></script>
+            <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
             <!-- END GLOBAL MANDATORY SCRIPTS -->
 
             <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-            <script src="../plugins/charts/chartist/chartist.js"></script>
-            <script src="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
-            <script src="../plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
-            <script src="../plugins/calendar/pignose/moment.latest.min.js"></script>
-            <script src="../plugins/calendar/pignose/pignose.calendar.js"></script>
-            <script src="../plugins/progressbar/progressbar.min.js"></script>
-            <script src="../assets/js/default-dashboard/default-custom.js"></script>
-            <script src="../assets/js/ui-kit/timeline/horizontal-main.js"></script>
-            <script src="../plugins/charts/amcharts/amcharts.js"></script>
-            <script src="../plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
-            <script src="../plugins/maps/vector/ammaps/worldLow.js"></script>
-            <script src="../plugins/charts/amcharts/radar.js"></script>
-            <script src="../plugins/charts/amcharts/pie.js"></script>
-            <script src="../plugins/charts/sparklines/jquery.sparkline.min.js"></script>
-            <script src="../plugins/charts/amcharts/serial.js"></script>
-            <script src="../plugins/charts/amcharts/light.js"></script>
-            <script src="../assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/charts/chartist/chartist.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/calendar/pignose/moment.latest.min.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/calendar/pignose/pignose.calendar.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/progressbar/progressbar.min.js"></script>
+            <script src="${pageContext.request.contextPath}/assets/js/default-dashboard/default-custom.js"></script>
+            <script src="${pageContext.request.contextPath}/assets/js/ui-kit/timeline/horizontal-main.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/amcharts.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/worldLow.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/radar.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/pie.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/charts/sparklines/jquery.sparkline.min.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/serial.js"></script>
+            <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/light.js"></script>
+            <script src="${pageContext.request.contextPath}/assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
             <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     </body>
     <script>

@@ -98,7 +98,7 @@
                                     </div>
                                 </a>
                             </li>
-                            
+
 
                         </ul>
                     </nav>
@@ -163,14 +163,13 @@
                                             </div>
                                         </div>
                                         <div class="table-responsive new-products" style="background-color: white;">
-                                            <a href="SupplierAddController">
-                                                <button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
+                                            <a href="SupplierAddController"><button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
                                             <select style="float: right;width: 160px;" onchange="location = this.value;" class="form-control">
-                                                <option <c:if test="${status!=null&&status==0}">selected</c:if> value="SupplierController?filter=filter&status=0<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Tất cả sản phẩm</option>
-                                                <option <c:if test="${status!=null&&status==1}">selected</c:if> value="SupplierController?filter=filter&status=1<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Chờ phê duyệt</option>
-                                                <option <c:if test="${status!=null&&status==2}">selected</c:if> value="SupplierController?filter=filter&status=2<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã phê duyệt</option>
-                                                <option <c:if test="${status!=null&&status==3}">selected</c:if> value="SupplierController?filter=filter&status=3<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Từ chối phê duyệt</option>
-                                                <option <c:if test="${status!=null&&status==4}">selected</c:if> value="SupplierController?filter=filter&status=4<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã ẩn</option>
+                                            <option <c:if test="${status!=null&&status==0}">selected</c:if> value="SupplierController?filter=filter&status=0<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Tất cả sản phẩm</option>
+                                            <option <c:if test="${status!=null&&status==1}">selected</c:if> value="SupplierController?filter=filter&status=1<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Chờ phê duyệt</option>
+                                            <option <c:if test="${status!=null&&status==2}">selected</c:if> value="SupplierController?filter=filter&status=2<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã phê duyệt</option>
+                                            <option <c:if test="${status!=null&&status==3}">selected</c:if> value="SupplierController?filter=filter&status=3<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Từ chối phê duyệt</option>
+                                            <option <c:if test="${status!=null&&status==4}">selected</c:if> value="SupplierController?filter=filter&status=4<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã ẩn</option>
                                             </select>
                                             <table class="table">
                                                 <thead>
@@ -185,7 +184,6 @@
                                                         <th style="min-width: 150px" >Trạng thái</th>
                                                         <th style="min-width: 150px">Chi tiết</th>
                                                         <th>Chỉnh sửa</th>
-                                                        <th>Ẩn/Bỏ Ẩn</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="text-center">
@@ -204,16 +202,13 @@
                                                         </c:choose>
                                                         <td>
                                                             <div class="dropdown dropdown-user">
-                                                                <a href="supplier-product-detail.jsp" target="_blank">
+                                                                <a href="SupplierDetailPController?id=${p.productId}" target="_blank">
                                                                     Xem chi tiết
                                                                 </a>
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <a href="#"><i class="flaticon-edit"></i></a>
-                                                        </td>
-                                                        <td>
-                                                            <a href="#"><i class="flaticon-view"></i></a>
                                                         </td>
                                                     </tr>
                                                 </c:forEach>
@@ -225,7 +220,7 @@
                                     <div class="pagination-section">
                                         <ul
                                             class="pagination pagination-style-1 pagination-rounded justify-content-end mt-3 mb-3">
-                                            
+
                                         </ul>
                                     </div>
 
