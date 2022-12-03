@@ -79,7 +79,7 @@ public class ProductHierarchyDAO {
                 ProductHierarchy productHierarchy = new ProductHierarchy();
                 productHierarchy.setProductId(rs.getInt("ProductID"));
                 productHierarchy.setQuantity(rs.getInt("Quantity"));
-                productHierarchy.setPrice(rs.getFloat("Price"));
+                productHierarchy.setPrice(rs.getInt("Price"));
                 productHierarchys.add(productHierarchy);
             }
         } catch (SQLException e) {
@@ -88,9 +88,33 @@ public class ProductHierarchyDAO {
         return productHierarchys;
     }
 
+    public List<ProductHierarchy> getHierarchyByProId(int productId) {
+
+        String strSelectAll = "select * from ProductHierarchy where ProductID = ? order by Quantity";
+        List<ProductHierarchy> productImages = new ArrayList<>();
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                ProductHierarchy productHierarchy = new ProductHierarchy();
+                productHierarchy.setProductId(rs.getInt("ProductID"));
+                productHierarchy.setQuantity(rs.getInt("Quantity"));
+                productHierarchy.setPrice(rs.getInt("Price"));
+                productImages.add(productHierarchy);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return productImages;
+    }
+    public List<ProductHierarchy> getAllHieByProId(int productId) {
+
+
     public List<ProductHierarchy> getAllProductsHeirarchyById(int productId) {
 
-        String strSelectAll = "select * from ProductHierarchy where ProductID = ?";
+
+        String strSelectAll = "select * from ProductHierarchy where ProductID = ? order by Quantity desc";
         List<ProductHierarchy> productImages = new ArrayList<>();
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);

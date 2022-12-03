@@ -54,6 +54,19 @@ public class CartItemDAO {
         }
     }
 
+    public void deleteCartByProId(String pid, String cid) {
+        String query = "delete from CartItem where ProductID = ? and CartID = ?";
+        try {
+            PreparedStatement ps
+                    = connection.prepareStatement(query);
+            ps.setString(1, pid);
+            ps.setString(2, cid);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+    }
+
     public void updateAmount(int amount, int CartID, int ProductID) {
         String query = "UPDATE CartItem\n"
                 + "SET Amount= ? where CartID=? and ProductID=?";
@@ -88,7 +101,7 @@ public class CartItemDAO {
         return cartItems;
     }
 
-    public List<CartItem> getAllCartItemsByProductId(int customerId) {
+    public List<CartItem> getAllCartItemsByCustomertId(int customerId) {
         List<CartItem> cartItems = new ArrayList<>();
         String strSelectAll = "select * from CartItem INNER JOIN Cart ON CartItem.CartID = Cart.CartID where Cart.CustomerID=?";
         try {

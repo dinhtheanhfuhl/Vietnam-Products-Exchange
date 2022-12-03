@@ -43,10 +43,12 @@ public class AddToCartController extends HttpServlet {
         Connection connection = DBConnect.getConnection();
         CartItemDAO cartItemDAO = new CartItemDAO(connection);
         CartDAO cartDAO = new CartDAO(connection);
+        CategoryDAO categoryDAO = new CategoryDAO(connection);
         ProductDAO productDAO = new ProductDAO(connection);
+        List<Category> allCate = categoryDAO.getAllCategory();
         String id = request.getParameter("pid");
         Product product = productDAO.getProductByProductId(id);
-        request.setAttribute("product", product);
+
         int productid = Integer.parseInt(request.getParameter("proId"));
         String amountstr = request.getParameter("amount");
         int amount = Integer.parseInt(amountstr);
@@ -57,22 +59,29 @@ public class AddToCartController extends HttpServlet {
         int cartId = cartDAO.getCartIdByCustomerId(customerid);
 
         CartItem cartItem = cartItemDAO.getCartItemByProductId(productid, cartId);
-
-        if (cartItem == null) {
-            cartItemDAO.insertCartItem(cartId, productid, amount);
-            request.setAttribute("message", "Sản phẩm đã được thêm vào giỏ hàng");    
-            request.setAttribute("alert", "success");    
+        if (amount > product.getWeight()) {
+            System.out.println(amount);
+            request.setAttribute("message", "Bạn đã nhập quá trọng lượng sản phẩm có trong kho");
+            request.setAttribute("alert", "warning");
+            request.setAttribute("product", product);
+            request.setAttribute("listCate", allCate);
+            request.getRequestDispatcher("MimartDetailProduct").forward(request, response);
         } else {
-            amount = amount + cartItem.getAmount();
-            cartItemDAO.updateAmount(amount, cartId, productid);
-            request.setAttribute("message", "Sản phẩm đã được thêm vào giỏ hàng");    
-            request.setAttribute("alert", "success");    
+            if (cartItem == null) {
+                cartItemDAO.insertCartItem(cartId, productid, amount);
+                request.setAttribute("message", "Sản phẩm đã được thêm vào giỏ hàng");
+                request.setAttribute("alert", "success");
+            } else {
+                amount = amount + cartItem.getAmount();
+                cartItemDAO.updateAmount(amount, cartId, productid);
+                request.setAttribute("message", "Sản phẩm đã được thêm vào giỏ hàng");
+                request.setAttribute("alert", "success");
+            }
+            request.setAttribute("product", product);
+            request.setAttribute("listCate", allCate);
+            request.getRequestDispatcher("MimartDetailProduct").forward(request, response);
         }
-        CategoryDAO categoryDAO = new CategoryDAO(connection);
-        List<Category> allCate = categoryDAO.getAllCategory();
-        request.setAttribute("listCate", allCate);
-        request.getRequestDispatcher("productdetail.jsp").forward(request, response);
-                
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -103,11 +103,9 @@
 
                         <!-- Right -->
                         <ul class="navbar-nav nav-flex-icons">
-                            
-                            <li class="nav-item ">
-                                <a href="#"  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i>
-                                    <span class="quantity-amm-shopping-cart-open">0</span></a>
 
+                            <li class="nav-item ">
+                                <a href=""  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i></a>
                             </li>
                             <li class="nav-item">
                                 <div class="dropdown dropdown-user">
@@ -203,36 +201,8 @@
             </div>
         </div>
 
-        <div class="amm-shopping-cart-wrapper">
-            <div class="amm-shopping-cart-canvas">
-                <div class="amm-shopping_cart">
-                    <div class="amm-shopping_cart-top-bar d-flex justify-content-between">
-                        <h6>Giá» hÃ ng</h6>
-                        <button class="amm-shopping-cart-close">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div><!-- shopping cart top bar -->
-                    <div class="amm-shopping_cart-list-items mt-30">
-                        <ul>
 
-                        </ul>
-                    </div> <!-- shopping_cart list items -->
-                    <div class="amm-shopping_cart-btn">
-                        <div class="total pt-35 d-flex justify-content-between">
-                            <h5>Tá»ng tiá»n:</h5>
-                            <p>0 <span>Ä</span></p>
 
-                        </div>
-                        <div class="cart-btn pt-25">
-                            <a class="main-btn" href="./ViewCart.html">Xem giá» hÃ ng</a>
-                            <a class="main-btn main-btn-2" href="./payment.html">Thanh toÃ¡n</a>
-                        </div>
-                    </div>
-                </div> <!-- shopping_cart -->
-            </div>
-            <div class="overlay"></div>
-        </div>
-        
         <footer>
             <div class="main-footer container">
                 <div class="row m14 container">
@@ -344,44 +314,44 @@
                     </div>
                 </div>
             </div>
-                    </footer>
+        </footer>
 
-                    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-                    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-                    </script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-                    </script>
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-                    </script>
-                    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-                    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-                    <!--====== jquery js ======-->
-                    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-                    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <!--====== jquery js ======-->
+        <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+        <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
 
-                    <!--====== Bootstrap js ======-->
-                    <script src="assets/js/bootstrap.min.js"></script>
-                    <script src="assets/js/popper.min.js"></script>
+        <!--====== Bootstrap js ======-->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
 
-                    <!--====== wow js ======-->
-                    <script src="assets/js/wow.js"></script>
+        <!--====== wow js ======-->
+        <script src="assets/js/wow.js"></script>
 
-                    <!--====== Slick js ======-->
-                    <script src="assets/js/jquery.counterup.min.js"></script>
-                    <script src="assets/js/waypoints.min.js"></script>
+        <!--====== Slick js ======-->
+        <script src="assets/js/jquery.counterup.min.js"></script>
+        <script src="assets/js/waypoints.min.js"></script>
 
-                    <!--====== TweenMax js ======-->
-                    <script src="assets/js/TweenMax.min.js"></script>
+        <!--====== TweenMax js ======-->
+        <script src="assets/js/TweenMax.min.js"></script>
 
-                    <!--====== Slick js ======-->
-                    <script src="assets/js/slick.min.js"></script>
+        <!--====== Slick js ======-->
+        <script src="assets/js/slick.min.js"></script>
 
-                    <!--====== Magnific Popup js ======-->
-                    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <!--====== Magnific Popup js ======-->
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
 
-                    <!--====== Main js ======-->
-                    <script src="assets/js/main.js"></script>
-                    <script src="./cart.js"></script>
-                    </body>
-                    </html>
+        <!--====== Main js ======-->
+        <script src="assets/js/main.js"></script>
+        <script src="./cart.js"></script>
+    </body>
+</html>

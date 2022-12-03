@@ -11,12 +11,12 @@ package entity;
 public class ProductHierarchy {
     private int productId;
     private int quantity;
-    private float price;
+    private int price;
 
     public ProductHierarchy() {
     }
 
-    public ProductHierarchy(int productId, int quantity, float price) {
+    public ProductHierarchy(int productId, int quantity, int price) {
         this.productId = productId;
         this.quantity = quantity;
         this.price = price;
@@ -38,11 +38,11 @@ public class ProductHierarchy {
         this.quantity = quantity;
     }
 
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
