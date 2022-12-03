@@ -4,22 +4,21 @@
  */
 package controller;
 
-import dao.OrderDAO;
+import dao.CartItemDAO;
 import dbconnect.DBConnect;
-import entity.Customer;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author ductd
  */
-public class OrderController extends HttpServlet {
+public class DeleteCartController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,20 +32,12 @@ public class OrderController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String productId = request.getParameter("pid");
+        String cartId = request.getParameter("cid");
         Connection connection = DBConnect.getConnection();
-        OrderDAO orderDAO = new OrderDAO(connection);
-        HttpSession session = request.getSession();
-        Customer customer = (Customer) session.getAttribute("customer");
-        
-        int customerid = customer.getCustomerId();
-        String receiverName = request.getParameter("receiverName");
-        String receiverAddress = request.getParameter("receiverAddress");
-        String receiverPhone = request.getParameter("receiverPhone");
-        int totalPrice = 1;
-        String note = request.getParameter("note");
-        orderDAO.insertOrder(customerid, receiverName, receiverAddress, receiverPhone, totalPrice, 1, note);
+        CartItemDAO cartItemDAO = new CartItemDAO(connection);
+        cartItemDAO.deleteCartByProId(productId, cartId);
         request.getRequestDispatcher("CartController").forward(request, response);
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

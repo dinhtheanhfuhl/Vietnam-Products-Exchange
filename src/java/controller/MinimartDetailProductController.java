@@ -6,10 +6,12 @@ package controller;
 
 import dao.CategoryDAO;
 import dao.ProductDAO;
+import dao.ProductHierarchyDAO;
 import dao.SubCategoryDAO;
 import dbconnect.DBConnect;
 import entity.Category;
 import entity.Product;
+import entity.ProductHierarchy;
 import entity.SubCategory;
 import java.io.IOException;
 import java.sql.Connection;
@@ -38,17 +40,39 @@ public class MinimartDetailProductController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String id = request.getParameter("pid");
+        int productId = Integer.parseInt(id);
         Connection connection = DBConnect.getConnection();
         ProductDAO productDAO = new ProductDAO(connection);
         CategoryDAO categoryDAO = new CategoryDAO(connection);
         SubCategoryDAO subCateDAO = new SubCategoryDAO(connection);
+        ProductHierarchyDAO proHieDAO = new ProductHierarchyDAO(connection);
+        
         Product product = productDAO.getProductByProductId(id);
         request.setAttribute("product", product);
         SubCategory subcate = subCateDAO.getSubCategoryNameByProductId(id);
-        System.out.println(subcate);
         request.setAttribute("subcate", subcate);
+        
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
+        int viewNumber = product.getViewNumber()+1;
+        productDAO.updateProduct(viewNumber,id);
+        
+        List<ProductHierarchy> listHierarchyByProId = proHieDAO.getHierarchyByProId(productId);
+        for (int i = 0; i < listHierarchyByProId.size(); i++) {
+                int min = listHierarchyByProId.get(0).getQuantity();
+                request.setAttribute("min", min);
+                int medium = listHierarchyByProId.get(1).getQuantity();
+                request.setAttribute("medium", medium);
+                int max = listHierarchyByProId.get(2).getQuantity();
+                request.setAttribute("max", max);
+                int priceMin = listHierarchyByProId.get(2).getPrice();
+                request.setAttribute("priceMin", priceMin);
+                int priceMedium = listHierarchyByProId.get(1).getPrice();
+                request.setAttribute("priceMedium", priceMedium);
+                int priceMax = listHierarchyByProId.get(0).getPrice();
+                request.setAttribute("priceMax", priceMax);
+            }
+        
         request.getRequestDispatcher("productdetail.jsp").forward(request, response);
     }
 

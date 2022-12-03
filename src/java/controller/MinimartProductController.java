@@ -61,7 +61,8 @@ public class MinimartProductController extends HttpServlet {
         }
         Map<Product, List<ProductHierarchy>> mapHierarchy = new LinkedHashMap<Product, List<ProductHierarchy>>();
         for (Product product : getAllProductsbyCateId) {
-            List<ProductHierarchy> hierarchy = productHierarchyDAO.getAllProductsHeirarchyById(product.getProductId());
+            List<ProductHierarchy> hierarchy = productHierarchyDAO.getAllHieByProId(product.getProductId());
+            System.out.println(hierarchy);
             mapHierarchy.put(product, hierarchy);
         }
         Map<Product, List<City>> mapCity = new LinkedHashMap<Product, List<City>>();

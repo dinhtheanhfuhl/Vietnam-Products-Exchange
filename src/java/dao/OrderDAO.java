@@ -44,9 +44,8 @@ public class OrderDAO {
         return status;
     }
 
-    public void insertOrder(int customerId, String receiverName, String receiverAddress, String receiverPhone, String Note) {
-        String strInsert = "insert into [Order](CustomerID,RecieverName,RecieverAddress,RecieverPhone,Note) \n"
-                + "values(?,?,?,?,?)";
+    public void insertOrder(int customerId, String receiverName, String receiverAddress, String receiverPhone, int totalPrice, int statusId, String note) {
+        String strInsert = "insert into [Order](CustomerID,RecieverName,RecieverAddress,RecieverPhone,TotalPrice,OrderStatusID,Note) values(?,?,?,?,?,?,?)";
 
         try {
             PreparedStatement ps
@@ -55,7 +54,9 @@ public class OrderDAO {
             ps.setString(2, receiverName);
             ps.setString(3, receiverAddress);
             ps.setString(4, receiverPhone);
-            ps.setString(5, Note);
+            ps.setInt(5, totalPrice);
+            ps.setInt(6, statusId);
+            ps.setString(7, note);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.getMessage();

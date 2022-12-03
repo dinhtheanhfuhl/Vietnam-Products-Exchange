@@ -1,6 +1,5 @@
 package controller;
 
-import dao.DeliveryAreaDAO;
 import dao.ProductDAO;
 import dbconnect.DBConnect;
 import entity.Product;
@@ -38,7 +37,7 @@ public class ModeratorDetailProductController extends HttpServlet {
             int flag = productDAO.updateProduct(product);
             request.setAttribute("product", product);
         }
-        RequestDispatcher rd = request.getRequestDispatcher("admin-page/moderator-product-detail.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("./admin-page/moderator-product-detail.jsp");
         rd.forward(request, response);
 
     }
