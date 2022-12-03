@@ -68,7 +68,7 @@ public class ViewCartController extends HttpServlet {
 
         Map<CartItem, List<ProductImage>> mapImages = new LinkedHashMap<CartItem, List<ProductImage>>();
         for (CartItem cart : allCart) {
-            List<ProductImage> images = productImageDAO.getAllProductsImageById(cart.getProductId());
+            List<ProductImage> images = productImageDAO.getAllProductsImageByProId(cart.getProductId());
             mapImages.put(cart, images);
         }
         request.setAttribute("mapImages", mapImages);

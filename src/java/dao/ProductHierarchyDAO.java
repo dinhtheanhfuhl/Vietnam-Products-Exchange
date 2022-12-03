@@ -24,7 +24,7 @@ public class ProductHierarchyDAO {
         this.connection = connection;
     }
 
-    public int saveProductHierarchy(ProductHierarchy productHierarchy) {
+    public int saveCategory(ProductHierarchy productHierarchy) {
         int status = 0;
         String strInsert = "insert into ProductHierarchy(ProductID,Quantity,Price) values(?,?,?)";
         try {
@@ -87,7 +87,6 @@ public class ProductHierarchyDAO {
         }
         return productHierarchys;
     }
-
     public List<ProductHierarchy> getHierarchyByProId(int productId) {
 
         String strSelectAll = "select * from ProductHierarchy where ProductID = ? order by Quantity";
@@ -110,10 +109,6 @@ public class ProductHierarchyDAO {
     }
     public List<ProductHierarchy> getAllHieByProId(int productId) {
 
-
-    public List<ProductHierarchy> getAllProductsHeirarchyById(int productId) {
-
-
         String strSelectAll = "select * from ProductHierarchy where ProductID = ? order by Quantity desc";
         List<ProductHierarchy> productImages = new ArrayList<>();
         try {
@@ -131,25 +126,5 @@ public class ProductHierarchyDAO {
             System.out.println(e.getMessage());
         }
         return productImages;
-    }
-
-    public List<ProductHierarchy> getProductHierachiesByProId(int id) {
-        List<ProductHierarchy> productHierarchys = new ArrayList<>();
-        String strSelectAll = "select * from ProductHierarchy where ProductID=? order by Quantity";
-        try {
-            PreparedStatement ps = connection.prepareStatement(strSelectAll);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                ProductHierarchy productHierarchy = new ProductHierarchy();
-                productHierarchy.setProductId(rs.getInt("ProductID"));
-                productHierarchy.setQuantity(rs.getInt("Quantity"));
-                productHierarchy.setPrice(rs.getFloat("Price"));
-                productHierarchys.add(productHierarchy);
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return productHierarchys;
     }
 }
