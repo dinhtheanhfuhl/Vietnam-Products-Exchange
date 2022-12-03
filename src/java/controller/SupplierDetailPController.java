@@ -62,7 +62,7 @@ public class SupplierDetailPController extends HttpServlet {
         if (action == null || action.equals("")) {
             int id = Integer.parseInt(request.getParameter("id"));
             Product product = productDAO.getProductById(id);
-            List<ProductHierarchy> listProHies = proHieDAO.getProductHierachiesByProId(id);
+            List<ProductHierarchy> listProHies = proHieDAO.getHierarchyByProId(id);
             List<ProductImage> listProImgs = proImgDAO.getAllProductsImageByProId(id);
             List<DeliveryArea> listDelivery = deliDAO.getDeliverysAreaByProductId(id);
             List<City> listCities = new ArrayList<>();
