@@ -69,7 +69,6 @@ public class SupplierAddController extends HttpServlet {
         Supplier supplier = (Supplier) session.getAttribute("supplier");
         int supplierId = supplier.getSupplierId();
 
-        String action = request.getParameter("action");
         Connection conn = dbconnect.DBConnect.getConnection();
         CityDAO cityDAO = new CityDAO(conn);
         CategoryDAO cateDAO = new CategoryDAO(conn);
@@ -79,17 +78,18 @@ public class SupplierAddController extends HttpServlet {
         ProductImageDAO productImageDAO = new ProductImageDAO(conn);
         ProductHierarchyDAO productHierarchyDAO = new ProductHierarchyDAO(conn);
 
-        List<City> allCities = cityDAO.getAllCity();
-        List<Category> allCates = cateDAO.getAllCategory();
-
-        Map<Category, List<SubCategory>> mapCateSubCate = new LinkedHashMap<>();
-
-        for (Category c : allCates) {
-            List<SubCategory> subCategorys = subCateDAO.getSubcategoryByCategoryId(c.getCateId());
-            mapCateSubCate.put(c, subCategorys);
-        }
-
+        String action = request.getParameter("action");
         if (action == null || action.equals("")) {
+            List<City> allCities = cityDAO.getAllCity();
+            List<Category> allCates = cateDAO.getAllCategory();
+
+            Map<Category, List<SubCategory>> mapCateSubCate = new LinkedHashMap<>();
+
+            for (Category c : allCates) {
+                List<SubCategory> subCategorys = subCateDAO.getSubcategoryByCategoryId(c.getCateId());
+                mapCateSubCate.put(c, subCategorys);
+            }
+
             request.setAttribute("allCities", allCities);
             request.setAttribute("mapCateSubCate", mapCateSubCate);
             request.getRequestDispatcher("admin-page/supplier-add-product.jsp").forward(request, response);
@@ -139,13 +139,14 @@ public class SupplierAddController extends HttpServlet {
                 if (!item.isFormField()) {
                     number++;
                     String filename = item.getName();
-                    int indexDot = filename.indexOf(".");
-                    SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyyHHmmss");
-                    Date date = new Date();
-                    filename = formatter.format(date) + number + filename.substring(indexDot);
                     if (filename == null || filename.equals("")) {
-                        break;
+                        continue;
                     } else {
+                        int indexDot = filename.indexOf(".");
+                        SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyyHHmmss");
+                        Date date = new Date();
+                        filename = formatter.format(date) + number + filename.substring(indexDot);
+
                         if (item.getFieldName().equals("lincse")) {
                             fileLincse = filename;
                         } else {
@@ -251,13 +252,13 @@ public class SupplierAddController extends HttpServlet {
                 DeliveryArea deliveryArea = new DeliveryArea();
                 deliveryArea.setProductId(productNewestId);
                 deliveryArea.setCityId(Integer.parseInt(cityId));
-                deliveryAreaDAO.saveDeliveryArea(deliveryArea);
+                int statusC = deliveryAreaDAO.saveDeliveryArea(deliveryArea);
             }
             for (String image : fileImages) {
                 ProductImage productImage = new ProductImage();
                 productImage.setProducId(productNewestId);
                 productImage.setImgPath(image);
-                productImageDAO.saveProductImage(productImage);
+                int statusI = productImageDAO.saveProductImage(productImage);
             }
             ProductHierarchy productHierarchy1 = new ProductHierarchy(productNewestId, weight1, price1);
             ProductHierarchy productHierarchy2 = new ProductHierarchy(productNewestId, weight2, price2);
