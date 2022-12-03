@@ -2,6 +2,7 @@ package controller;
 
 import dao.ProductDAO;
 import entity.Product;
+import entity.Supplier;
 import java.io.IOException;
 import java.sql.Connection;
 import java.text.ParseException;
@@ -14,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "SupplierController", urlPatterns = {"/SupplierController"})
 public class SupplierController extends HttpServlet {
@@ -34,19 +36,29 @@ public class SupplierController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession();
+
+        // fake session supplier
+        Supplier supplierFake = new Supplier();
+        supplierFake.setSupplierId(1);
+        session.setAttribute("supplier", supplierFake);
+
+        Supplier supplier = (Supplier) session.getAttribute("supplier");
+
         Connection conn = dbconnect.DBConnect.getConnection();
         ProductDAO productDAO = new ProductDAO(conn);
 
         List<Product> resultP = new ArrayList<>();
         String action = request.getParameter("action");
         if (action == null) {
-            List<Product> allProducts = productDAO.getAllProduct();
+            List<Product> allProducts = productDAO.getAllProductBySupplier(supplier.getSupplierId());
             resultP = allProducts;
         } else if (action.equals("search")) {
             String idSr = request.getParameter("idSr");
             String nameSr = request.getParameter("nameSr");
             String barcodeSr = request.getParameter("barcodeSr");
-            resultP = productDAO.searchProduct(idSr, nameSr, barcodeSr);
+            resultP = productDAO.searchProduct(supplier.getSupplierId(), idSr, nameSr, barcodeSr);
 
             request.setAttribute("idSr", idSr);
             request.setAttribute("nameSr", nameSr);
@@ -72,6 +84,7 @@ public class SupplierController extends HttpServlet {
         } else {
             request.setAttribute("resultP", resultP);
         }
+
         request.getRequestDispatcher("admin-page/supplier-product-pending.jsp").forward(request, response);
     }
 

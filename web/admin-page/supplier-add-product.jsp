@@ -123,7 +123,7 @@
                                     </div>
                                 </div>
                                 <div class="widget-content widget-content-area add-manage-product-2">
-                                    <form>
+                                    <form method="post" action="SupplierAddController?action=add" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-xl-7 col-md-12">
                                             <div class="card card-default">
@@ -301,7 +301,7 @@
                                                                             <c:forEach var="cate" items="${mapCateSubCate.keySet()}">
                                                                                 <optgroup label="${cate.cateName}">
                                                                                     <c:forEach var="subCate" items="${mapCateSubCate.get(cate)}">
-                                                                                        <option value="volvo">${subCate.subCateName}</option>
+                                                                                        <option value="${subCate.subCateId}">${subCate.subCateName}</option>
                                                                                     </c:forEach>
                                                                                 </optgroup>
                                                                             </c:forEach>
@@ -314,10 +314,10 @@
                                                                     <label class="col-md-4">Khu vực giao hàng</label>
                                                                     <div class="col-md-8">
                                                                         <select multiple size="10" style="height: 50%;" class="form-control form-custom mb-4"
-                                                                                name="city">
+                                                                                name="cities">
 
                                                                             <c:forEach var="city" items="${allCities}">
-                                                                                <option value="category1">${city.cityName}</option>
+                                                                                <option value="${city.cityId}">${city.cityName}</option>
                                                                             </c:forEach>
 
 
@@ -379,7 +379,7 @@
                                                                 <label class="col-md-4">Trọng lượng</label>
                                                                 <div class="col-md-8">
 
-                                                                    <input type="number" required="" class="form-control" placeholder="Ví dụ: 400g, 20kg,..." name="weight" type="text">
+                                                                    <input type="number" required="" class="form-control" placeholder="Ví dụ: 400g, 20kg,..." name="weight">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -428,20 +428,20 @@
                                                                                 <td><select id="selectunit" onchange="location = this.value;" >
                                                                                         <option value="">Kg</option>
                                                                                     </select></td>
-                                                                                    <td><input name="weight1" type="number" required="" class="form-control"  type="text"></td>
-                                                                                    <td><input name="price1" type="number" required="" class="form-control"  type="text"></td>
+                                                                                    <td><input name="weight1" type="number" required="" class="form-control"></td>
+                                                                                    <td><input name="price1" type="number" required="" class="form-control"></td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <th scope="row"></th>
                                                                                 <td></td>
-                                                                                <td><input name="weight2" type="number" required="" class="form-control"  type="text"></td>
-                                                                                <td><input name="price2" type="number" required="" class="form-control"  type="text"></td>
+                                                                                <td><input name="weight2" type="number" required="" class="form-control"></td>
+                                                                                <td><input name="price2" type="number" required="" class="form-control"></td>
                                                                             </tr>
                                                                             <tr>
                                                                                 <th scope="row"></th>
                                                                                 <td></td>
-                                                                                <td><input name="weight3" type="number" required="" class="form-control"  type="text"></td>
-                                                                                <td><input name="price3" type="number" required="" class="form-control"  type="text"></td>
+                                                                                <td><input name="weight3" type="number" required="" class="form-control"></td>
+                                                                                <td><input name="price3" type="number" required="" class="form-control"></td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
@@ -452,8 +452,8 @@
                                                 </div>
                                             </div>
                                             <div class="align-center">
-                                                <input value="Huỷ" class="btn btn-gradient-secondary" type="submit">
-                                                <input value="Yêu cầu phê duyệt" class="btn btn-gradient-secondary" type="submit">
+                                                <input value="Huỷ" class="btn" type="submit">
+                                                <input value="Yêu cầu phê duyệt" class="btn" type="submit">
                                             </div>
                                         </div>
                                     </div>

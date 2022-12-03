@@ -50,7 +50,7 @@ public class HomeController extends HttpServlet {
         
         Map<Product, List<ProductImage>> mapImages = new LinkedHashMap<Product, List<ProductImage>>();
         for (Product product : getTop5) {
-            List<ProductImage> images = productImageDAO.getAllProductsImageById(product.getProductId());
+            List<ProductImage> images = productImageDAO.getAllProductsImageByProId(product.getProductId());
             mapImages.put(product, images);
         }
         Map<Product, List<Supplier>> mapSuppliers = new LinkedHashMap<Product, List<Supplier>>();
@@ -61,7 +61,7 @@ public class HomeController extends HttpServlet {
         List<Product> getTop4Newest = productDAO.getTop4ProductNewest();
         Map<Product, List<ProductImage>> mapImages2 = new LinkedHashMap<Product, List<ProductImage>>();
         for (Product product : getTop4Newest) {
-            List<ProductImage> images = productImageDAO.getAllProductsImageById(product.getProductId());
+            List<ProductImage> images = productImageDAO.getAllProductsImageByProId(product.getProductId());
             mapImages2.put(product, images);
         }
         Map<Product, List<Supplier>> mapSuppliers2 = new LinkedHashMap<Product, List<Supplier>>();

@@ -13,6 +13,14 @@
         <group>
             <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/productdetail.jsp</file>
             <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/fruit.jsp</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/SupplierController.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/SupplierAddController.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/dao/ProductDAO.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/SupplierController.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/SupplierAddController.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/web/admin-page/supplier-add-product.jsp</file>
         </group>
     </open-files>
 </project-private>
