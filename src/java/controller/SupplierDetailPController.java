@@ -79,8 +79,10 @@ public class SupplierDetailPController extends HttpServlet {
             request.setAttribute("cate", cate);
             request.setAttribute("product", product);
             request.getRequestDispatcher("admin-page/supplier-product-detail.jsp").forward(request, response);
-
+        } else if(action.equals("cancel")){
+            
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

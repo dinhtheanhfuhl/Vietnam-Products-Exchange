@@ -130,4 +130,17 @@ public class ProductImageDAO {
         }
         return productImages;
     }
+
+    public int deleteProductImageByProId(int id) {
+        int status = 0;
+        String strDelete = "delete from ProductImage where ProductID=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strDelete);
+            ps.setInt(1, id);
+            status = ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return status;
+    }
 }
