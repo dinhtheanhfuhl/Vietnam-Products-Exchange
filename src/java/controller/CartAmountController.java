@@ -74,9 +74,9 @@ public class CartAmountController extends HttpServlet {
             totalCart += totalMoney;
             request.setAttribute("mapProHie", mapProHie);
         }
+        request.setAttribute("totalCart", totalCart);
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
-        request.setAttribute("totalCart", totalCart);
         request.getRequestDispatcher("payment.jsp").forward(request, response);
     }
 
