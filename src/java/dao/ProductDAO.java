@@ -89,7 +89,6 @@ public class ProductDAO {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
         return status;
     }
 

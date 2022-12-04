@@ -128,4 +128,18 @@ public class ProductHierarchyDAO {
         }
         return productHierarchys;
     }
+
+    public int deleteProductHierarchyByProId(int id) {
+        int status = 0;
+        String strDelete = "delete from ProductHierarchy where ProductID=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strDelete);
+            ps.setInt(1, id);
+            status = ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return status;
+    }
 }
