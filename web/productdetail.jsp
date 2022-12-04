@@ -92,10 +92,12 @@
                 <div class="container">
                     <c:if test="${not empty message}">
                         <div class="alert alert-${alert}" role="alert">
+                            <i class="fa fa-${icon}"></i>
                             ${message}
                         </div>
+                        
                     </c:if>
-
+                    
                     <div class="row ">
                         <div class="col-lg-6">
                             <div class="shop-details-thumb">

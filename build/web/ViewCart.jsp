@@ -90,69 +90,61 @@
                         </div>
                         <div class="displayProduct pb-3">
                             <ul id="mainCart" class="pb-3">
-                                <table class="table">
-                                    <th><p style="margin-left: 20px;"><b>Ảnh</b></p></th>
-                                    <th><p style="margin-left: 60px;"><b>Tên sản phẩm</b></p></th>
-                                    <th><p style="margin-left: 60px;"><b>Nhà cung cấp</b></p></th>
-                                    <th><p style="margin-right: 40px;"><b>Số lượng(Kg)</b></p></th>
-                                    <th><p style="margin-right: 70px;"><b>Giá</b></p></th>
-                                    <th><p style="float: right"><b>Xoá</b></p></th>
 
-                                </table>
                                 <c:forEach var="key" items="${mapImages.keySet()}" >
                                     <li>
                                         <table>
-                                            <tr>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                                                <th></th>
-                                                <th></th>
-                                            </tr>
                                             <tbody>
                                                 <tr>
-                                                    <td>
-                                                        <div class="img-product ">
+                                                    <td><div class="img-product ">
                                                             <img src="${mapImages.get(key).get(0).getImgPath()}" alt="" width="50" height="50" style="object-fit: cover">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="infor-product pl-3">
                                                             <b>
-                                                                ${mapProduct.get(key).get(0).productName}
-                                                                ${mapProduct.get(key).get(0).trademark}<br>
-                                                                ${mapProduct.get(key).get(0).smell},
-                                                                ${mapProduct.get(key).get(0).color},
-                                                                ${mapProduct.get(key).get(0).packing}</b>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="infor-product pl-3">
-                                                            <b>${mapSupplier.get(key).get(0).getShopName()}</b>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="infor-product pl-3">
-                                                            <b>${key.amount}</b></div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="infor-product pl-3" >
-                                                            <span><b><fmt:formatNumber type = "number"
-                                                                                                pattern = "" value = "${mapProHie.get(key)}" /><sup>vnđ</sup></b></span> 
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="infor-product pl-3" >
-                                                            <b><a style="margin-left: 100px;" href="DeleteCartController?pid=${mapProduct.get(key).get(0).getProductId()}&&cid=${key.cartId}"><i class="icon-delete1 fas fa-trash-alt"></i></a></b>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
+                                                                ${mapProduct.get(key).get(0).productName}<br>
 
+                                                                ${mapProduct.get(key).get(0).trademark}<br>
+
+                                                                ${mapProduct.get(key).get(0).smell},
+                                                                ${mapProduct.get(key).get(0).color}<br>
+                                                                ${mapProduct.get(key).get(0).packing}
+                                                            </b>
+                                                        </div>
+
+                                                    </td>
+                                                    <td>
+                                                        <div class="infor-product pl-3">
+
+                                                            <p><b>${mapSupplier.get(key).get(0).getShopName()}</b></p>
+
+                                                        </div>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="infor-product pl-3">
+
+                                                            <p><b>${key.amount}Kg</b></p>
+
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div  class="infor-product pl-3" >
+
+                                                            <p> <b><fmt:formatNumber type = "number"
+                                                                              pattern = "" value = "${mapProHie.get(key)}" /><sup>vnđ</sup></b> </p>
+
+                                                        </div>
+                                                    </td>
+
+                                            <b><a style="float: right;" href="DeleteCartController?pid=${mapProduct.get(key).get(0).getProductId()}&&cid=${key.cartId}"><i class="icon-delete1 fas fa-trash-alt"></i></a></b>
+
+                                            </tr>
+                                            </tbody>
                                         </table>
-                                    </li> 
+
+                                    </li>
                                 </c:forEach>
                             </ul>
                         </div>
@@ -160,8 +152,8 @@
                     <div class="col-lg-3 box-fee mt-70 mb-50 pt-3">
                         <div class="immidiate-fee sum-fee" style="color: rgb(49, 189, 21);">
                             Tổng tiền: <span class="prices"><fmt:formatNumber type = "number" 
-                                                                          pattern = "" value = "${totalCart}" /><sup>vnđ</sup>&nbsp;&nbsp;</span>
-                            
+                                              pattern = "" value = "${totalCart}" /><sup>vnđ</sup>&nbsp;&nbsp;</span>
+
                         </div>
                         <div class="payment">
                             <a style="margin-left: 50px;" href="CartAmountController"><button id="btn-order" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
