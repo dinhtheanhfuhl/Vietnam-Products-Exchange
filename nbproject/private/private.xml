@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/dao/ProductImageDAO.java</file>
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/dao/ProductHierarchyDAO.java</file>
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/dao/ProductDAO.java</file>
@@ -26,6 +27,22 @@
             <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/controller/ViewCartController.java</file>
             <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/controller/SupplierAddController.java</file>
             <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/entity/Account.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/dbconnect/DBConnect.java</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/dao/ProductImageDAO.java</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/dao/ProductHierarchyDAO.java</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/controller/ViewCartController.java</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/controller/SupplierAddController.java</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/controller/MinimartDetailProductController.java</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/controller/MinimartProductController.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/dao/CartItemDAO.java</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/web/ViewCart.jsp</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/controller/MinimartDetailProductController.java</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/controller/CartAmountController.java</file>
+            <file>file:/C:/Users/ductd/Documents/NetBeansProjects/CapstoneProject/src/java/controller/OrderController.java</file>
         </group>
     </open-files>
 </project-private>

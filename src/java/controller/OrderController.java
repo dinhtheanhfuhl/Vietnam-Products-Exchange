@@ -4,11 +4,16 @@
  */
 package controller;
 
+import dao.CartItemDAO;
 import dao.OrderDAO;
+import dao.ProductDAO;
 import dbconnect.DBConnect;
+import entity.CartItem;
 import entity.Customer;
+import entity.Product;
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,10 +40,27 @@ public class OrderController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         Connection connection = DBConnect.getConnection();
         OrderDAO orderDAO = new OrderDAO(connection);
+        CartItemDAO cartItemDAO = new CartItemDAO(connection);
+        ProductDAO productDAO = new ProductDAO(connection);
         HttpSession session = request.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
-        
+
         int customerid = customer.getCustomerId();
+        List<CartItem> listCart = cartItemDAO.getAllCartItemsByCustomertId(customerid);
+        //List<Product> listPro = productDAO.getAllProduct;
+        CartItem cartItem = null;
+        for (int i = 0; i < listCart.size(); i++) {
+            cartItem = listCart.get(i);
+            int cartAmount = cartItem.getAmount();
+            //int newCartAmount = cartAmount - 
+            int productId = cartItem.getProductId();
+          
+            productDAO.updateAmountByProId(cartAmount, productId);
+        }
+        
+        
+        
+        
         String receiverName = request.getParameter("receiverName");
         String receiverAddress = request.getParameter("receiverAddress");
         String receiverPhone = request.getParameter("receiverPhone");

@@ -440,6 +440,18 @@ public class ProductDAO {
         }
     }
     
+    public void updateAmountByProId( int weight, int productID) {
+        String query = "update Product set Weight = ? where ProductID = ? ";
+        try {
+            PreparedStatement ps
+                    = connection.prepareStatement(query);
+            ps.setInt(1, weight);
+            ps.setInt(2, productID);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+    }
 
 
     public List<Product> getAllProductBySupplier(int supplierID) {

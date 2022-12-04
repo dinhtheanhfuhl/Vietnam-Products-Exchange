@@ -24,7 +24,7 @@ public class ProductHierarchyDAO {
         this.connection = connection;
     }
 
-    public int saveCategory(ProductHierarchy productHierarchy) {
+    public int saveProductHierarchy(ProductHierarchy productHierarchy) {
         int status = 0;
         String strInsert = "insert into ProductHierarchy(ProductID,Quantity,Price) values(?,?,?)";
         try {

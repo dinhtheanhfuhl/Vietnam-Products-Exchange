@@ -60,9 +60,9 @@ public class AddToCartController extends HttpServlet {
 
         CartItem cartItem = cartItemDAO.getCartItemByProductId(productid, cartId);
         if (amount > product.getWeight()) {
-            System.out.println(amount);
             request.setAttribute("message", "Bạn đã nhập quá trọng lượng sản phẩm có trong kho");
-            request.setAttribute("alert", "warning");
+            request.setAttribute("alert", "danger");
+            request.setAttribute("icon", "exclamation-triangle");
             request.setAttribute("product", product);
             request.setAttribute("listCate", allCate);
             request.getRequestDispatcher("MimartDetailProduct").forward(request, response);
@@ -70,11 +70,13 @@ public class AddToCartController extends HttpServlet {
             if (cartItem == null) {
                 cartItemDAO.insertCartItem(cartId, productid, amount);
                 request.setAttribute("message", "Sản phẩm đã được thêm vào giỏ hàng");
+                request.setAttribute("icon", "shopping-cart");
                 request.setAttribute("alert", "success");
             } else {
                 amount = amount + cartItem.getAmount();
                 cartItemDAO.updateAmount(amount, cartId, productid);
                 request.setAttribute("message", "Sản phẩm đã được thêm vào giỏ hàng");
+                request.setAttribute("icon", "shopping-cart");
                 request.setAttribute("alert", "success");
             }
             request.setAttribute("product", product);
