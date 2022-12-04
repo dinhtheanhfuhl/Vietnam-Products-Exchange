@@ -1,5 +1,7 @@
 <!doctype html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -37,93 +39,7 @@
     </head>
 
     <body>
-        <header class="header">
-            <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar ">
-                <div class="container-fluid">
-
-                    <!-- Brand -->
-                    <a class="navbar-brand waves-effect" href="Home">
-                        <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
-                    </a>
-
-                    <!-- Collapse -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <!-- Links -->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                        <!-- Left -->
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active" style="padding-left: 40px;">
-                                <a class="nav-link waves-effect  text-header" href="Home">Trang chủ
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="nav-link waves-effect text-header dropdown-toggle" href=""
-                                       target="_blank">Giới thiệu
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                                         id="dropdown-collection">
-                                        <a class="dropdown-item" href="./information.html">Về chúng tôi</a>
-                                        <a class="dropdown-item" href="./policy.html">Chính sách bảo mật</a>
-                                        <a class="dropdown-item" href="./condition.html">Điều khoản dịch vụ</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="nav-link waves-effect text-header dropdown-toggle" href="./shop.html"
-                                       target="_blank">Cửa hàng
-
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <c:forEach items="${listCate}" var="o" >
-                                            <a class="dropdown-item" href="MinimartProductController?cid=${o.cateId}">${o.cateName}</a>
-                                        </c:forEach>
-                                    </div>
-                                </div>
-
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link waves-effect text-header" href="./contact.jsp">Liên hệ</a>
-                            </li>
-                        </ul>
-
-
-                        <!-- Right -->
-                        <ul class="navbar-nav nav-flex-icons">
-                            <li class="nav-item">
-                                <div class="input-group rounded">
-                                    <input type="search" class="form-control " placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" />
-                                    <span class="input-group-text border-0" id="search-addon">
-                                        <i class="fas fa-search"></i>
-                                    </span>
-                                </div>
-                            </li>
-                            <li class="nav-item ">
-                                <a href="CartController"  class="nav-link cart-btn pr-3"><i class="fas fa-shopping-cart"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown dropdown-user">
-                                    <a href="login.jsp" class="nav-link border border-light rounded waves-effect" target="_blank">
-                                        <i class="fas fa-user"></i>Đăng Nhập
-                                    </a>
-
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        <%@include file="header.jsp"%>
         <section class="breadcrum">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
@@ -174,73 +90,81 @@
                         </div>
                         <div class="displayProduct pb-3">
                             <ul id="mainCart" class="pb-3">
+                                <table class="table">
+                                    <th><p style="margin-left: 20px;"><b>Ảnh</b></p></th>
+                                    <th><p style="margin-left: 60px;"><b>Tên sản phẩm</b></p></th>
+                                    <th><p style="margin-left: 60px;"><b>Nhà cung cấp</b></p></th>
+                                    <th><p style="margin-right: 40px;"><b>Số lượng(Kg)</b></p></th>
+                                    <th><p style="margin-right: 70px;"><b>Giá</b></p></th>
+                                    <th><p style="float: right"><b>Xoá</b></p></th>
 
-                                <li>
-                                    <table>
-                                        <thead>
-                                            <tr class="text-center">
-                                                <th>Ảnh</th>
-                                                <th>Tên sản phẩm</th>
-                                                <th>Nhà cung cấp</th>
-                                                <th>Giá</th>
-                                                <th>Số lượng</th>
-                                                <th>Xoá</th>
+                                </table>
+                                <c:forEach var="key" items="${mapImages.keySet()}" >
+                                    <li>
+                                        <table>
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                                <th></th>
+                                                <th></th>
                                             </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            <c:forEach items="${allCart}" var="o" >
-
+                                            <tbody>
                                                 <tr>
-
-                                                    <td><c:forEach items="${proImg}" var="p" ><div class="img-product ">
-                                                                <img src="${p.getImgPath()}" alt="">
-                                                            </div>
-                                                        </c:forEach>
-                                                    </td>
-
                                                     <td>
-                                                        <div class="infor-product pl-3">
-                                                            <h5>cải bắp</h5>
+                                                        <div class="img-product ">
+                                                            <img src="${mapImages.get(key).get(0).getImgPath()}" alt="" width="50" height="50" style="object-fit: cover">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="infor-product pl-3">
-                                                            <h5>dũng hà</h5>
+                                                            <b>
+                                                                ${mapProduct.get(key).get(0).productName}
+                                                                ${mapProduct.get(key).get(0).trademark}<br>
+                                                                ${mapProduct.get(key).get(0).smell},
+                                                                ${mapProduct.get(key).get(0).color},
+                                                                ${mapProduct.get(key).get(0).packing}</b>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="infor-product pl-3">
-                                                            <div class="discount-price"><h5><span>25.000</span><sup>đ</sup> </h5></div>
+                                                            <b>${mapSupplier.get(key).get(0).getShopName()}</b>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="infor-product pl-3">
+                                                            <b>${key.amount}</b></div>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="infor-product pl-3" >
-                                                            <div class="discount-price"><h5><span><input style="width: 90px;" value="${o.amount}" class="form-control" ></span> Kg</h5></div>
+                                                            <span><b><fmt:formatNumber type = "number"
+                                                                                                pattern = "" value = "${mapProHie.get(key)}" /><sup>vnđ</sup></b></span> 
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="infor-product pl-3" >
-                                                            <h5><i class="icon-delete1 fas fa-trash-alt"></i></h5>
+                                                            <b><a style="margin-left: 100px;" href="DeleteCartController?pid=${mapProduct.get(key).get(0).getProductId()}&&cid=${key.cartId}"><i class="icon-delete1 fas fa-trash-alt"></i></a></b>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            </c:forEach>
-                                        </tbody>
+                                            </tbody>
 
-                                    </table>
-                                </li> 
-
+                                        </table>
+                                    </li> 
+                                </c:forEach>
                             </ul>
-
                         </div>
                     </div>
                     <div class="col-lg-3 box-fee mt-70 mb-50 pt-3">
                         <div class="immidiate-fee sum-fee" style="color: rgb(49, 189, 21);">
-                            Tổng tiền: <span class="prices">0 </span> <sup>đ</sup>
+                            Tổng tiền: <span class="prices"><fmt:formatNumber type = "number" 
+                                                                          pattern = "" value = "${totalCart}" /><sup>vnđ</sup>&nbsp;&nbsp;</span>
+                            
                         </div>
                         <div class="payment">
-                            <a style="margin-left: 50px;" href="payment.jsp"><button id="btn-order" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
+                            <a style="margin-left: 50px;" href="CartAmountController"><button id="btn-order" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
                         </div>
                     </div>
                 </div>

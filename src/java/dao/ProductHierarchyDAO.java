@@ -24,7 +24,7 @@ public class ProductHierarchyDAO {
         this.connection = connection;
     }
 
-    public int saveProductHierarchy(ProductHierarchy productHierarchy) {
+    public int saveCategory(ProductHierarchy productHierarchy) {
         int status = 0;
         String strInsert = "insert into ProductHierarchy(ProductID,Quantity,Price) values(?,?,?)";
         try {
@@ -79,7 +79,7 @@ public class ProductHierarchyDAO {
                 ProductHierarchy productHierarchy = new ProductHierarchy();
                 productHierarchy.setProductId(rs.getInt("ProductID"));
                 productHierarchy.setQuantity(rs.getInt("Quantity"));
-                productHierarchy.setPrice(rs.getFloat("Price"));
+                productHierarchy.setPrice(rs.getInt("Price"));
                 productHierarchys.add(productHierarchy);
             }
         } catch (SQLException e) {
@@ -87,10 +87,9 @@ public class ProductHierarchyDAO {
         }
         return productHierarchys;
     }
+    public List<ProductHierarchy> getHierarchyByProId(int productId) {
 
-    public List<ProductHierarchy> getAllProductsHeirarchyById(int productId) {
-
-        String strSelectAll = "select * from ProductHierarchy where ProductID = ?";
+        String strSelectAll = "select * from ProductHierarchy where ProductID = ? order by Quantity";
         List<ProductHierarchy> productImages = new ArrayList<>();
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);
@@ -108,25 +107,25 @@ public class ProductHierarchyDAO {
         }
         return productImages;
     }
+    public List<ProductHierarchy> getAllHieByProId(int productId) {
 
-    public List<ProductHierarchy> getProductHierachiesByProId(int id) {
-        List<ProductHierarchy> productHierarchys = new ArrayList<>();
-        String strSelectAll = "select * from ProductHierarchy where ProductID=? order by Quantity";
+        String strSelectAll = "select * from ProductHierarchy where ProductID = ? order by Quantity desc";
+        List<ProductHierarchy> productImages = new ArrayList<>();
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);
-            ps.setInt(1, id);
+            ps.setInt(1, productId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 ProductHierarchy productHierarchy = new ProductHierarchy();
                 productHierarchy.setProductId(rs.getInt("ProductID"));
                 productHierarchy.setQuantity(rs.getInt("Quantity"));
-                productHierarchy.setPrice(rs.getFloat("Price"));
-                productHierarchys.add(productHierarchy);
+                productHierarchy.setPrice(rs.getInt("Price"));
+                productImages.add(productHierarchy);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return productHierarchys;
+        return productImages;
     }
 
     public int deleteProductHierarchyByProId(int id) {

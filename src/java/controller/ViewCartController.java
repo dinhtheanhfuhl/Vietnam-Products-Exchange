@@ -8,16 +8,22 @@ import dao.CartDAO;
 import dao.CartItemDAO;
 import dao.CategoryDAO;
 import dao.ProductDAO;
+import dao.ProductHierarchyDAO;
 import dao.ProductImageDAO;
+import dao.SupplierDAO;
 import dbconnect.DBConnect;
 import entity.CartItem;
 import entity.Category;
 import entity.Customer;
 import entity.Product;
+import entity.ProductHierarchy;
 import entity.ProductImage;
+import entity.Supplier;
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,22 +51,64 @@ public class ViewCartController extends HttpServlet {
         Connection connection = DBConnect.getConnection();
         CategoryDAO categoryDAO = new CategoryDAO(connection);
         CartItemDAO cartItemDAO = new CartItemDAO(connection);
-        CartDAO cartDAO = new CartDAO(connection);
+        SupplierDAO supplierDAO = new SupplierDAO(connection);
+        ProductHierarchyDAO proHieDAO = new ProductHierarchyDAO(connection);
         ProductDAO productDAO = new ProductDAO(connection);
         ProductImageDAO productImageDAO = new ProductImageDAO(connection);
+
         HttpSession session = request.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
         int customerid = customer.getCustomerId();
-        int cartId = cartDAO.getCartIdByCustomerId(customerid);
-        List<ProductImage> proImg = productImageDAO.getProImgByCartId(cartId);
-        request.setAttribute("proImg", proImg);
-        List<CartItem> allCart = cartItemDAO.getAllCartItemsByProductId(customerid);
+
+        List<CartItem> allCart = cartItemDAO.getAllCartItemsByCustomertId(customerid);
         request.setAttribute("allCart", allCart);
+
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
-        List<Product> getAllProductsbyCartId = productDAO.getAllProductsByCartID(cartId);
-        
-        request.setAttribute("listProduct", getAllProductsbyCartId);
+
+        Map<CartItem, List<ProductImage>> mapImages = new LinkedHashMap<CartItem, List<ProductImage>>();
+        for (CartItem cart : allCart) {
+            List<ProductImage> images = productImageDAO.getAllProductsImageByProId(cart.getProductId());
+            mapImages.put(cart, images);
+        }
+        request.setAttribute("mapImages", mapImages);
+
+        Map<CartItem, List<Product>> mapProduct = new LinkedHashMap<CartItem, List<Product>>();
+        for (CartItem cart : allCart) {
+            List<Product> products = productDAO.getAllProductsProductID(cart.getProductId());
+            mapProduct.put(cart, products);
+        }
+        request.setAttribute("mapProduct", mapProduct);
+
+        Map<CartItem, List<Supplier>> mapSupplier = new LinkedHashMap<CartItem, List<Supplier>>();
+        for (CartItem cart : allCart) {
+            List<Supplier> supplier = supplierDAO.getSupplierByProId(cart.getProductId());
+            mapSupplier.put(cart, supplier);
+        }
+        request.setAttribute("mapSupplier", mapSupplier);
+
+        Map<CartItem, Integer> mapProHie = new LinkedHashMap<>();
+        int totalCart = 0;
+        for (CartItem cart : allCart) {
+            List<ProductHierarchy> listProhie = proHieDAO.getHierarchyByProId(cart.getProductId());
+            int amount = cart.getAmount();
+            ProductHierarchy proHierachy = null;
+            for (int i = 0; i < listProhie.size(); i++) {
+                if (amount <= listProhie.get(i).getQuantity()) {
+                    proHierachy = listProhie.get(i);
+                    break;
+                }
+            }
+            if (proHierachy == null) {
+                proHierachy = listProhie.get(listProhie.size() - 1);
+            }
+            int totalMoney = amount * proHierachy.getPrice();
+            mapProHie.put(cart, totalMoney);
+
+            totalCart += totalMoney;
+            request.setAttribute("mapProHie", mapProHie);
+        }
+        request.setAttribute("totalCart", totalCart);
         request.getRequestDispatcher("ViewCart.jsp").forward(request, response);
     }
 
