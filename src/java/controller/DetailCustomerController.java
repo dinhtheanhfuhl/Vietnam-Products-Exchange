@@ -2,9 +2,11 @@ package controller;
 
 import dao.AccountDAO;
 import dao.CustomerDAO;
+import dao.MessageRejectAccountDAO;
 import dbconnect.DBConnect;
 import entity.Account;
 import entity.Customer;
+import entity.MessageRejectAccount;
 import java.io.IOException;
 import java.sql.Connection;
 import javax.servlet.RequestDispatcher;
@@ -22,9 +24,20 @@ public class DetailCustomerController extends HttpServlet {
         Connection connection = DBConnect.getConnection();
         CustomerDAO customerDAO = new CustomerDAO(connection);
         AccountDAO accountDAO = new AccountDAO(connection);
+        MessageRejectAccountDAO messRejectDAO = new MessageRejectAccountDAO(connection);
 
         String action = request.getParameter("action");
-        if (action.equals("accept-account")) {
+
+        if (action == null) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Customer cus = customerDAO.getCustomerById(id);
+            Account acc = accountDAO.getAccountById(cus.getAccId());
+            MessageRejectAccount ma = messRejectDAO.getMessRejectAccByAccId(acc.getAccId());
+            request.setAttribute("cus", cus);
+            request.setAttribute("acc", acc);
+            request.setAttribute("ma", ma);
+            request.getRequestDispatcher("admin-page/admin-view-detail-customer.jsp").forward(request, response);
+        } else if (action.equals("accept-account")) {
             String accId = request.getParameter("acc-id");
             String cusId = request.getParameter("cus-id");
             Account account = accountDAO.getAccountById(Integer.parseInt(accId));

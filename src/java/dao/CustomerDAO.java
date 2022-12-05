@@ -4,7 +4,6 @@
  */
 package dao;
 
-
 import entity.Customer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -142,11 +141,11 @@ public class CustomerDAO {
                 customer.setAvartarImg(rs.getString("AvartarImg"));
             }
         } catch (SQLException e) {
-           System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
         return customer;
     }
-    
+
     public Customer getCustomerByAccId(int accId) {
         Customer customer = null;
         String strSelectById = "select * from Customer where AccID=?";
@@ -170,8 +169,55 @@ public class CustomerDAO {
                 customer.setAvartarImg(rs.getString("AvartarImg"));
             }
         } catch (SQLException e) {
-           System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
         return customer;
+    }
+
+    public List<Customer> searchCustomer(String name, String shopName, String address, String phone, String email, String filter) {
+        List<Customer> customers = new ArrayList<>();
+        String strSearch = "select * from Customer where 1 = 1";
+        if (name != null && !name.equals("")) {
+            strSearch += " and CustomerName like N'%" + name + "%'";
+        }
+        if (shopName != null && !shopName.equals("")) {
+            strSearch += " and ShopName like N'%" + shopName + "%'";
+        }
+        if (address != null && !address.equals("") && !address.equals("0")) {
+            strSearch += " and CityID = " + address;
+        }
+        if (phone != null && !phone.equals("")) {
+            strSearch += " and Phone like '" + phone + "%'";
+        }
+        if (email != null && !email.equals("")) {
+            strSearch += " and Email like '%" + email + "%'";
+        }
+        if (filter != null && !filter.equals("") && !filter.equals("0")) {
+            int status = Integer.parseInt(filter);
+            strSearch += " and AccID in (select AccID from Account where status = " + status + ")";
+        }
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSearch);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Customer customer = new Customer();
+                customer.setCustomerId(rs.getInt("CustomerID"));
+                customer.setCustomerName(rs.getString("CustomerName"));
+                customer.setAccId(rs.getInt("AccID"));
+                customer.setDateBirth(rs.getString("DateBirth"));
+                customer.setGender(rs.getString("Gender"));
+                customer.setEmail(rs.getString("Email"));
+                customer.setPhone(rs.getString("Phone"));
+                customer.setShopName(rs.getString("ShopName"));
+                customer.setMainAddress(rs.getString("MainAddress"));
+                customer.setCityId(rs.getInt("CityID"));
+                customer.setBusinessLicense(rs.getString("BusinessLicense"));
+                customer.setAvartarImg(rs.getString("AvartarImg"));
+                customers.add(customer);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return customers;
     }
 }

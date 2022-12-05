@@ -1,9 +1,11 @@
 package controller;
 
+import dao.AccountDAO;
 import dao.CityDAO;
 import dao.CustomerDAO;
 import dao.SupplierDAO;
 import dbconnect.DBConnect;
+import entity.Account;
 import entity.City;
 import entity.Customer;
 import entity.Supplier;
@@ -25,107 +27,76 @@ public class AdminController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         Connection connection = DBConnect.getConnection();
         SupplierDAO supplierDAO = new SupplierDAO(connection);
         CustomerDAO customerDAO = new CustomerDAO(connection);
         CityDAO cityDAO = new CityDAO(connection);
+        AccountDAO accDAO = new AccountDAO(connection);
 
-        List<Supplier> allSuppliers = supplierDAO.getAllSupplier();
-        List<Customer> allCustomers = customerDAO.getAllCustomer();
         List<City> allCities = cityDAO.getAllCity();
+        request.setAttribute("allCities", allCities);
 
         List<Supplier> resultSuppliers = new ArrayList<>();
         List<Customer> resultCustomers = new ArrayList<>();
 
+        String action = request.getParameter("action");
+        String statusFilter = request.getParameter("filter");
+        if (action == null) {
+            resultCustomers = customerDAO.searchCustomer(null, null, null, null, null, statusFilter);
+            resultSuppliers = supplierDAO.searchSupplier(null, null, null, null, null, statusFilter);
+            request.setAttribute("statusFilter", statusFilter);
+        } else if (action.equals("search")) {
+
+            String name = request.getParameter("name-search").trim();
+            String shopName = request.getParameter("shop-name-search").trim();
+            String address = request.getParameter("address-search").trim();
+            String phone = request.getParameter("phone-search").trim();
+            String email = request.getParameter("email-search").trim();
+
+            request.setAttribute("ACTION", "search");
+            request.setAttribute("name", name);
+            request.setAttribute("shopName", shopName);
+            request.setAttribute("address", Integer.parseInt(address));
+            request.setAttribute("phone", phone);
+            request.setAttribute("email", email);
+            request.setAttribute("statusFilter", statusFilter);
+
+            resultCustomers = customerDAO.searchCustomer(name, shopName, address, phone, email, statusFilter);
+            resultSuppliers = supplierDAO.searchSupplier(name, shopName, address, phone, email, statusFilter);
+        }
+
         Map<Supplier, String> mapSuppliers = new LinkedHashMap<>();
         Map<Customer, String> mapCustomers = new LinkedHashMap<>();
 
-        String action = request.getParameter("action");
-        if (action == null) {
-            resultSuppliers = allSuppliers;
-            resultCustomers = allCustomers;
+        Map<Supplier, City> mapSupplierCity = new LinkedHashMap<>();
+        Map<Customer, City> mapCustomerCity = new LinkedHashMap<>();
 
-        } else if(action.equals("search")) {
-            String nameSearch = request.getParameter("name-search").trim();
-            String shopNameSearch = request.getParameter("shop-name-search").trim();
-            String addressSearch = request.getParameter("address-search").trim();
-            String phoneSearch = request.getParameter("phone-search").trim();
-            String emailSearch = request.getParameter("email-search").trim();
+        Map<Supplier, Integer> mapSupplierStatus = new LinkedHashMap<>();
+        Map<Customer, Integer> mapCustomerStatus = new LinkedHashMap<>();
 
-            for (Customer customer : allCustomers) {
-                boolean flagName = true, flagShopName = true, flagAddress = true, flagPhone = true, flagEmail = true;
-                if (nameSearch.isBlank()) {
-                    flagName = true;
-                } else if (!customer.getCustomerName().toUpperCase().contains(nameSearch.toUpperCase())) {
-                    flagName = false;
-                }
-                if (shopNameSearch.isBlank()) {
-                    flagShopName = true;
-                } else if (!customer.getShopName().toUpperCase().contains(shopNameSearch.toUpperCase())) {
-                    flagShopName = false;
-                }
-                if (addressSearch.isBlank()) {
-                    flagAddress = true;
-                } else if (!(customer.getCityId() == Integer.parseInt(addressSearch))) {
-                    flagAddress = false;
-                }
-                if (phoneSearch.isBlank()) {
-                    flagPhone = true;
-                } else if (!customer.getPhone().startsWith(phoneSearch)) {
-                    flagPhone = false;
-                }
-                if (emailSearch.isBlank()) {
-                    flagEmail = true;
-                } else if (!customer.getEmail().equals(emailSearch)) {
-                    flagEmail = false;
-                }
-
-                if (flagName && flagShopName && flagAddress && flagPhone && flagEmail) {
-                    resultCustomers.add(customer);
-                }
-            }
-            for (Supplier supplier : allSuppliers) {
-                boolean flagName = true, flagShopName = true, flagAddress = true, flagPhone = true, flagEmail = true;
-                if (nameSearch.isBlank()) {
-                    flagName = true;
-                } else if (!supplier.getSupplierName().toUpperCase().contains(nameSearch.toUpperCase())) {
-                    flagName = false;
-                }
-                if (shopNameSearch.isBlank()) {
-                    flagShopName = true;
-                } else if (!supplier.getShopName().toUpperCase().contains(shopNameSearch.toUpperCase())) {
-                    flagShopName = false;
-                }
-                if (addressSearch.isBlank()) {
-                    flagAddress = true;
-                } else if (!(supplier.getCityId() == Integer.parseInt(addressSearch))) {
-                    flagAddress = false;
-                }
-                if (phoneSearch.isBlank()) {
-                    flagPhone = true;
-                } else if (!supplier.getPhone().startsWith(phoneSearch)) {
-                    flagPhone = false;
-                }
-                if (emailSearch.isBlank()) {
-                    flagEmail = true;
-                } else if (!supplier.getEmail().equals(emailSearch)) {
-                    flagEmail = false;
-                }
-
-                if (flagName && flagShopName && flagAddress && flagPhone && flagEmail) {
-                    resultSuppliers.add(supplier);
-                }
-            }
-        }
         for (Supplier supplier : resultSuppliers) {
             mapSuppliers.put(supplier, "Nhà cung cấp");
+            City c = cityDAO.getCityById(supplier.getCityId());
+            mapSupplierCity.put(supplier, c);
+            Account a = accDAO.getAccountById(supplier.getAccId());
+            mapSupplierStatus.put(supplier, a.getStatus());
         }
         for (Customer customer : resultCustomers) {
             mapCustomers.put(customer, "Khách hàng");
+            City c = cityDAO.getCityById(customer.getCityId());
+            mapCustomerCity.put(customer, c);
+            Account a = accDAO.getAccountById(customer.getAccId());
+            mapCustomerStatus.put(customer, a.getStatus());
         }
         request.setAttribute("mapSuppliers", mapSuppliers);
         request.setAttribute("mapCustomers", mapCustomers);
-        request.setAttribute("allCities", allCities);
+
+        request.setAttribute("mapSupplierCity", mapSupplierCity);
+        request.setAttribute("mapCustomerCity", mapCustomerCity);
+
+        request.setAttribute("mapSupplierStatus", mapSupplierStatus);
+        request.setAttribute("mapCustomerStatus", mapCustomerStatus);
 
         RequestDispatcher rd = request.getRequestDispatcher("admin-page/admin-list-user.jsp");
         rd.forward(request, response);

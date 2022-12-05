@@ -208,7 +208,7 @@
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <a href="#"><i class="flaticon-edit"></i></a>
+                                                            <a href="SupplierEditProductController?id=${p.productId}"><i class="flaticon-edit"></i></a>
                                                         </td>
                                                     </tr>
                                                 </c:forEach>

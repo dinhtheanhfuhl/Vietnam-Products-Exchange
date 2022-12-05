@@ -105,7 +105,7 @@ public class AccountDAO {
                 account.setEmail(rs.getString("Email"));
                 account.setPassWord(rs.getString("Password"));
                 account.setRoldId(rs.getInt("RoleID"));
-                account.setStatus(rs.getInt("StatusID"));
+                account.setStatus(rs.getInt("Status"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -126,7 +126,7 @@ public class AccountDAO {
                 account.setEmail(rs.getString("Email"));
                 account.setPassWord(rs.getString("Password"));
                 account.setRoldId(rs.getInt("RoleID"));
-                account.setStatus(rs.getInt("StatusID"));
+                account.setStatus(rs.getInt("Status"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

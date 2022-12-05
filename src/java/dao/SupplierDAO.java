@@ -150,7 +150,6 @@ public class SupplierDAO {
         return supplier;
     }
 
-  
     public List<Supplier> getSupplierByProId(int productId) {
 
         String strSelectAll = "select * from Supplier inner join Product on Supplier.SupplierID=Product.SupplierID where Product.ProductID=?";
@@ -208,4 +207,50 @@ public class SupplierDAO {
         return supplier;
     }
 
+    public List<Supplier> searchSupplier(String name, String shopName, String address, String phone, String email, String filter) {
+        List<Supplier> suppliers = new ArrayList<>();
+        String strSearch = "select * from Supplier where 1 = 1";
+        if (name != null && !name.equals("")) {
+            strSearch += " and SupplierName like N'%" + name + "%'";
+        }
+        if (shopName != null && !shopName.equals("")) {
+            strSearch += " and ShopName like N'%" + shopName + "%'";
+        }
+        if (address != null && !address.equals("") && !address.equals("0")) {
+            strSearch += " and CityID = " + address;
+        }
+        if (phone != null && !phone.equals("")) {
+            strSearch += " and Phone like '" + phone + "%'";
+        }
+        if (email != null && !email.equals("")) {
+            strSearch += " and Email like '%" + email + "%'";
+        }
+        if (filter != null && !filter.equals("") && !filter.equals("0")) {
+            int status = Integer.parseInt(filter);
+            strSearch += " and AccID in (select AccID from Account where status = " + status + ")";
+        }
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSearch);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Supplier supplier = new Supplier();
+                supplier.setSupplierId(rs.getInt("SupplierID"));
+                supplier.setSupplierName(rs.getString("SupplierName"));
+                supplier.setAccId(rs.getInt("AccID"));
+                supplier.setDateBirth(rs.getString("DateBirth"));
+                supplier.setGender(rs.getString("Gender"));
+                supplier.setEmail(rs.getString("Email"));
+                supplier.setPhone(rs.getString("Phone"));
+                supplier.setShopName(rs.getString("ShopName"));
+                supplier.setMainAddress(rs.getString("MainAddress"));
+                supplier.setCityId(rs.getInt("CityID"));
+                supplier.setBusinessLicense(rs.getString("BusinessLicense"));
+                supplier.setAvartarImg(rs.getString("AvartarImg"));
+                suppliers.add(supplier);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return suppliers;
+    }
 }

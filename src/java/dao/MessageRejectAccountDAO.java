@@ -56,4 +56,23 @@ public class MessageRejectAccountDAO {
         }
         return messageRejectAccount;
     }
+
+    public MessageRejectAccount getMessRejectAccByAccId(int id) {
+        MessageRejectAccount messageRejectAccount = null;
+        String strSelectById = "select * from MessageRejectAccount where AccID=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                messageRejectAccount = new MessageRejectAccount();
+                messageRejectAccount.setMessageAccID(rs.getInt("MessageAccID"));
+                messageRejectAccount.setAccID(rs.getInt("AccID"));
+                messageRejectAccount.setMessageDescribe(rs.getString("MessageDescribe"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return messageRejectAccount;
+    }
 }

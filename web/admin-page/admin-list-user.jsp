@@ -109,21 +109,21 @@
                                     <div class="widget-header mb-5">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <form class="top-action" method="get" action="AdminController">
+                                                <form class="top-action" method="post" action="AdminController">
                                                     <div id="filter">
                                                         <input type="hidden" value="search" name="action" />
-                                                        <input type="text" name="name-search" placeholder="Tên người dùng" value="" class="form-control">
-                                                        <input type="text" name="shop-name-search" placeholder="Tên nhà cung cấp" value=""
+                                                        <input type="text" name="name-search" placeholder="Tên người dùng" value="${name}" class="form-control">
+                                                        <input type="text" name="shop-name-search" placeholder="Tên nhà cung cấp" value="${shopName}"
                                                                class="form-control">
                                                         <select name="address-search" class="form-control" >
-                                                            <option value="">Tất cả thành phố</option>
+                                                            <option <c:if test="${address==0}">selected</c:if> value="0">Tất cả thành phố</option>
                                                             <c:forEach items="${allCities}" var="city">
-                                                                <option value="${city.cityId}">${city.cityName}</option>
+                                                                <option <c:if test="${address==city.cityId}">selected</c:if> value="${city.cityId}">${city.cityName}</option>
                                                             </c:forEach>
                                                         </select>
-                                                        <input type="text" name="phone-search" placeholder="Số điện thoại" value=""
+                                                        <input type="text" name="phone-search" placeholder="Số điện thoại" value="${phone}"
                                                                class="form-control">
-                                                        <input type="email" name="email-search" placeholder="Email" value=""
+                                                        <input type="email" name="email-search" placeholder="Email" value="${email}"
                                                                class="form-control">
 
                                                         <button class="btn btn-info"
@@ -142,13 +142,22 @@
                                 </div>
 
                                 <div class="widget-content widget-content-area">
-                                    <select id="selectstatus" onchange="location = this.value;" class="form-control">
-                                        <option>Trạng thái</option>
-                                        <option value="">Đã phê duyệt</option>
-                                        <option value="#">Chờ phê duyệt</option>
-                                        <option value="#">Từ chối phê duyệt</option>
-                                        <option value="#">Đã ẩn</option>
-                                    </select>
+                                    <form action="AdminController" method="post">
+                                        <c:if test='${ACTION != null && ACTION=="search"}'>
+                                            <input type="hidden" name="action" value="search"/>
+                                            <input type="hidden" name="name-search" value="${name}"/>
+                                            <input type="hidden" name="shop-name-search" value="${shopName}"/>
+                                            <input type="hidden" name="address-search" value="${address}"/>
+                                            <input type="hidden" name="phone-search" value="${phone}"/>
+                                            <input type="hidden" name="email-search" value="${email}"/>
+                                        </c:if>
+                                        <select name="filter" onchange="this.form.submit()" id="selectstatus" class="form-control">
+                                            <option <c:if test="${statusFilter==0}">selected</c:if> value="0">Tất cả</option>
+                                            <option <c:if test="${statusFilter==1}">selected</c:if> value="1">Chờ phê duyệt</option>
+                                            <option <c:if test="${statusFilter==2}">selected</c:if> value="2">Đã phê duyệt</option>
+                                            <option <c:if test="${statusFilter==3}">selected</c:if> value="3">Từ chối phê duyệt</option>
+                                        </select>
+                                    </form>
                                     <h6 id="sorttext">Sắp xếp theo</h6>
                                     <h3>Nhà cung cấp</h3>
                                     <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;">
@@ -173,11 +182,17 @@
                                                             <td>#${key.supplierId}</td>
                                                             <td>${key.supplierName}</td>
                                                             <td>${key.shopName}</td>
-                                                            <td>${key.mainAddress}</td>
+                                                            <td>${mapSupplierCity.get(key).cityName}</td>
                                                             <td>${key.phone}</td>
                                                             <td>${mapSuppliers.get(key)}</td>
                                                             <td>${key.email}</td>
-                                                            <td>Trạng thái</td>
+                                                            <td>
+                                                                <c:choose>
+                                                                    <c:when test="${mapSupplierStatus.get(key)==1}">Chờ phê duyệt</c:when>
+                                                                    <c:when test="${mapSupplierStatus.get(key)==2}">Đã chấp thuận</c:when>
+                                                                    <c:when test="${mapSupplierStatus.get(key)==3}">Tài khoản bị từ chối</c:when>
+                                                                </c:choose>
+                                                            </td>
                                                             <td><a href="DetailSuppilerController?action=detail-supplier&id=${key.supplierId}">Xem chi tiết</a></td>
                                                         </tr>
                                                     </c:forEach>
@@ -208,12 +223,18 @@
                                                             <td>#${key.customerId}</td>
                                                             <td>${key.customerName}</td>
                                                             <td>${key.shopName}</td>
-                                                            <td>${key.mainAddress}</td>
+                                                            <td>${mapCustomerCity.get(key).cityName}</td>
                                                             <td>${key.phone}</td>
                                                             <td>${mapCustomers.get(key)}</td>
                                                             <td>${key.email}</td>
-                                                            <td>trạng thái</td>
-                                                            <td><a href="DetailCustomerController?action=detail-customer&id=${key.customerId}">Xem chi tiết</a></td>
+                                                            <td>
+                                                                <c:choose>
+                                                                    <c:when test="${mapCustomerStatus.get(key)==1}">Chờ phê duyệt</c:when>
+                                                                    <c:when test="${mapCustomerStatus.get(key)==2}">Đã chấp thuận</c:when>
+                                                                    <c:when test="${mapCustomerStatus.get(key)==3}">Tài khoản bị từ chối</c:when>
+                                                                </c:choose>
+                                                            </td>
+                                                            <td><a href="DetailCustomerController?id=${key.customerId}">Xem chi tiết</a></td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>
@@ -295,9 +316,9 @@
         <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
         <script>
-                                        $(document).ready(function () {
-                                            App.init();
-                                        });
+                                            $(document).ready(function () {
+                                                App.init();
+                                            });
         </script>
         <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
         <!-- END GLOBAL MANDATORY SCRIPTS -->
@@ -324,16 +345,16 @@
     </body>
 </html>
 <script>
-                                        $('#ecommerce-product-list').DataTable({
-                                            "lengthMenu": [5, 10, 20, 50, 100],
-                                            "language": {
-                                                "paginate": {"previous": "<i class='flaticon-arrow-left-1'></i>", "next": "<i class='flaticon-arrow-right'></i>"},
-                                                "info": "Showing page _PAGE_ of _PAGES_"
-                                            },
-                                            drawCallback: function (settings) {
-                                                $('[data-toggle="tooltip"]').tooltip();
-                                            }
-                                        });
+                                            $('#ecommerce-product-list').DataTable({
+                                                "lengthMenu": [5, 10, 20, 50, 100],
+                                                "language": {
+                                                    "paginate": {"previous": "<i class='flaticon-arrow-left-1'></i>", "next": "<i class='flaticon-arrow-right'></i>"},
+                                                    "info": "Showing page _PAGE_ of _PAGES_"
+                                                },
+                                                drawCallback: function (settings) {
+                                                    $('[data-toggle="tooltip"]').tooltip();
+                                                }
+                                            });
 </script>
 <!--  END CUSTOM SCRIPT FILES  -->
 
