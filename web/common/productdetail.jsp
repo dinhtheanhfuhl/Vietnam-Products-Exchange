@@ -40,7 +40,23 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+        <style>
+
+            .side_view{
+                justify-content: center;
+                display: inline-block;
+            }
+            .side_view img{
+                width: 7rem;
+                height: 7rem;
+                object-fit: cover;
+                cursor: pointer;
+                margin:0.5rem;
+            }
+        </style>
     </head>
+
 
     <body>
         <%@include file="header.jsp"%>
@@ -53,40 +69,7 @@
                 </ol>
             </nav>
         </section>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="./css/style.css">
 
-        <!--====== Favicon Icon ======-->
-        <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
-
-        <!--====== Bootstrap css ======-->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-        <!--====== Fontawesome css ======-->
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
-        <!--====== Magnific Popup css ======-->
-        <link rel="stylesheet" href="assets/css/animate.min.css">
-
-        <!--====== Magnific Popup css ======-->
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-
-        <!--====== Slick css ======-->
-        <link rel="stylesheet" href="assets/css/slick.css">
-
-        <!--====== Default css ======-->
-        <link rel="stylesheet" href="assets/css/custom-animation.css">
-        <link rel="stylesheet" href="assets/css/default.css">
-
-        <!--====== Style css ======-->
-        <link rel="stylesheet" href="assets/scss/style.css">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
         <main>
             <section class="shop-details-area pt-100 pb-100">
                 <div class="container">
@@ -95,32 +78,22 @@
                             <i class="fa fa-${icon}"></i>
                             ${message}
                         </div>
-                        
+
                     </c:if>
-                    
+
                     <div class="row ">
+
                         <div class="col-lg-6">
                             <div class="shop-details-thumb">
                                 <div class="shop-details-thumb-slider-active">
-                                    <div class="item ">
-                                        <img src="${product.img}" alt="">
-                                    </div>
+                                    <img src="${product.img}" style="height: 70%;width: 70%;object-fit: cover;" alt="" id="mainimage" >
                                 </div>
                             </div>
-                            <div class="shop-small-slider-active mt-10">
-                                <div class="item">
-                                    <img src="assets/images/shop-details-small-1.jpg" alt="">
+                            <c:forEach items="${listProduct}" var="i">
+                                <div class="side_view">
+                                    <img src="${i.img}" alt="" onclick="change(this.src)">
                                 </div>
-                                <div class="item">
-                                    <img src="assets/images/shop-details-small-2.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="assets/images/shop-details-small-3.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="assets/images/shop-details-small-4.jpg" alt="">
-                                </div>
-                            </div>
+                            </c:forEach>
                         </div>
                         <div class="col-lg-6">
                             <div class="shop-product-details-content pl-70 mt-35" >
@@ -150,7 +123,7 @@
                                 <p>${product.shopName}</p>
                                 <form action="AddToCartController?pid=${product.productId}" method="post">
                                     <div class="shop-buttons d-block d-sm-flex align-items-center">
-                                        <input class="form-control" required="" type="number" placeholder="Nhập trọng lượng" min="${min}" max="2000000000" name="amount" style="width: 150px;" />
+                                        <input class="form-control" required="" type="number" placeholder="(Kg)Nhập trọng lượng" min="${min}" max="2000000000" name="amount" style="width: 150px;" />
 
                                         <input class="main-btn ml-10" type="submit" value="Thêm vào giỏ">
                                         <input type="hidden" name="proId" value="${product.productId}">
@@ -171,16 +144,24 @@
                     </div>
 
                     <div id="des" class="tabcontent">
-                        <h4>
-                            ${product.description}
-                        </h4>
+                        <hp>
+                            <h5><b>Thành phần: </b>${product.element}</h5>
+                        </hp>
+                        <br>
+                        <hp>
+                            <h5><b>Mô tả: <br></b>${product.description}</h5>
+                        </hp>
                     </div>
 
                     <div id="overview" class="tabcontent">
-                        <h4>Tên nhà cung cấp</h4>
-                        <p>Nông Sản Dũng Hà Giải Phóng</p> 
-                        <h4>Địa chỉ</h4>
-                        <p>Q. Hoàng Mai, Hà Nội</p> 
+                        <h5>Tên nhà cung cấp</h5>
+                        <p>${supplier.supplierName}</p> 
+                        <h5>Số điện thoại liên hệ</h5>
+                        <p>${supplier.phone}</p> 
+                        <h5>Địa chỉ cơ sở chính</h5>
+                        <p>${supplier.mainAddress}</p> 
+                        <h5>Giấy phép kinh doanh</h5>
+                        <p>giaasy pheepep</p> 
                     </div>
 
                     <div id="licence" class="tabcontent">
@@ -209,30 +190,18 @@
                         </div>
                     </div>
                     <div class="row shop-related-product-slider-active">
+                        <c:forEach items="${listProBySubCateId}" var="o">
                         <div class="col-lg-3 col-md-6">
                             <div class="single-shop-box">
                                 <div class="thumb text-center">
-                                    <img src="assets/images/shop-grid-1.jpg" alt="">
+                                    <img src="assets/images/shop-grid-5.jpg" alt="">
                                     <div class="reborn">
-                                        <span>Sale</span>
+                                        <span>New</span>
                                     </div>
-                                    <div class="cart-list-icon">
-                                        <ul>
-                                            <li><a href="#"><i class="fal fa-shopping-bag"></i></a></li>
-                                            <li><a href="#"><i class="fal fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fal fa-eye"></i></a></li>
-                                        </ul>
-                                    </div>
+                               
                                 </div>
                                 <div class="content">
-                                    <ul>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star-half-alt"></i></li>
-                                    </ul>
-                                    <a href="./productdetail.html">Cà Tím</a>
+                                    <a href="MimartDetailProduct?pid=${o.productId}">${o.productName}</a>
                                     <div class="pricing">
                                         <div class="discount-price">21.000đ </div> 
                                         <div class="regular-price">25.000đ</div>
@@ -240,90 +209,17 @@
                                 </div>
                             </div>
                         </div>
+                        </c:forEach>
                         <div class="col-lg-3 col-md-6">
                             <div class="single-shop-box">
                                 <div class="thumb text-center">
-                                    <img src="assets/images/shop-grid-2.jpg" alt="">
+                                    <img src="assets/images/shop-grid-5.jpg" alt="">
                                     <div class="reborn">
+                                        <span>New</span>
                                     </div>
-                                    <div class="cart-list-icon">
-                                        <ul>
-                                            <li><a href="#"><i class="fal fa-shopping-bag"></i></a></li>
-                                            <li><a href="#"><i class="fal fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fal fa-eye"></i></a></li>
-                                        </ul>
-                                    </div>
+                               
                                 </div>
                                 <div class="content">
-                                    <ul>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star-half-alt"></i></li>
-                                    </ul>
-                                    <a href="./productdetail.html">Cà Tím</a>
-                                    <div class="pricing">
-                                        <div class="discount-price">21.000đ </div> 
-                                        <div class="regular-price">25.000đ</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="single-shop-box">
-                                <div class="thumb text-center">
-                                    <img src="assets/images/shop-grid-3.jpg" alt="">
-                                    <div class="reborn">
-                                        <span>Hot</span>
-                                    </div>
-                                    <div class="cart-list-icon">
-                                        <ul>
-                                            <li><a href="#"><i class="fal fa-shopping-bag"></i></a></li>
-                                            <li><a href="#"><i class="fal fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fal fa-eye"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <ul>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star-half-alt"></i></li>
-                                    </ul>
-                                    <a href="./productdetail.html">Cà Tím</a>
-                                    <div class="pricing">
-                                        <div class="discount-price">21.000đ </div> 
-                                        <div class="regular-price">25.000đ</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="single-shop-box">
-                                <div class="thumb text-center">
-                                    <img src="assets/images/shop-grid-4.jpg" alt="">
-                                    <div class="reborn">
-                                    </div>
-                                    <div class="cart-list-icon">
-                                        <ul>
-                                            <li><a href="#"><i class="fal fa-shopping-bag"></i></a></li>
-                                            <li><a href="#"><i class="fal fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fal fa-eye"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <ul>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star-half-alt"></i></li>
-                                    </ul>
-                                    <a href="./productdetail.html">Cà Tím</a>
                                     <div class="pricing">
                                         <div class="discount-price">21.000đ </div> 
                                         <div class="regular-price">25.000đ</div>
@@ -338,23 +234,9 @@
                                     <div class="reborn">
                                         <span>New</span>
                                     </div>
-                                    <div class="cart-list-icon">
-                                        <ul>
-                                            <li><a href="#"><i class="fal fa-shopping-bag"></i></a></li>
-                                            <li><a href="#"><i class="fal fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fal fa-eye"></i></a></li>
-                                        </ul>
-                                    </div>
+                               
                                 </div>
                                 <div class="content">
-                                    <ul>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star-half-alt"></i></li>
-                                    </ul>
-                                    <a href="./productdetail.html">Cà Tím</a>
                                     <div class="pricing">
                                         <div class="discount-price">21.000đ </div> 
                                         <div class="regular-price">25.000đ</div>
@@ -368,6 +250,11 @@
         </main>
         <%@include file="footer.jsp"%> 
     </body>
+    <script type="text/javascript">
+        const change = src => {
+            document.getElementById('mainimage').src = src;
+        };
+    </script>
     <script>
         function openCity(evt, cityName) {
             var i, tabcontent, tablinks;

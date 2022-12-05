@@ -398,3 +398,66 @@
 #supplierinput{
     margin-left: 13px;
 }
+.main_view{
+    width: 20%;
+    height: 24rem;
+    margin-left:5px ;
+    margin-top: 60px;
+    position: absolute;
+
+}
+.main_view img{
+    width: 100%;
+    height: 100%;
+    float: left;
+    object-fit: cover;
+}
+
+.side_view{
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 320px;
+    width: 300px;
+}
+.side_view img{
+    width: 12rem;
+    height: 9rem;
+    object-fit: cover;
+    cursor: pointer;
+    margin:0.5rem;
+}
+.multiselect {
+    width: 200px;
+}
+
+.selectBox {
+    position: relative;
+}
+
+.selectBox select {
+    width: 100%;
+    font-weight: bold;
+}
+
+.overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#checkboxes {
+    display: none;
+    border: 1px #dadada solid;
+    overflow: scroll;
+    height: 300px;
+}
+
+#checkboxes label {
+    display: block;
+    margin-left: 10px;
+}
+
+#checkboxes label:hover {
+}
