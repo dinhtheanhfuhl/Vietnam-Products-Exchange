@@ -283,12 +283,39 @@
                                                 <td><label style="margin-left: -10px"; class="form-label pass-infor">Hành động</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <a href="" class="btn btn-success mb-1">Phê duyệt tài khoản</a>
-                                                    <a href="" class="btn btn-danger mb-1">Từ chối tài khoản</a>
+                                                    <button href="" class="btn btn-success mb-1">Phê duyệt tài khoản</button>
+                                                    <button href="" class="btn btn-danger mb-1" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Từ chối tài khoản</button>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Từ chối tài khoản</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form>
+                                                        
+                                                        <div class="form-group">
+                                                            <label for="message-text" class="col-form-label">Lý do từ chối: </label>
+                                                            <textarea class="form-control" id="message-text"></textarea>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Huỷ</button>
+                                                    <button type="button" class="btn btn-success">Gửi</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -390,41 +417,51 @@
     <script src="${pageContext.request.contextPath}/plugins/table/datatable/datatables.js"></script>
     <script src="${pageContext.request.contextPath}/plugins/progressbar/progressbar.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/js/ecommerce/order.js"></script>
+    <script>
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-body input').val(recipient)
+        })
+            </script>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 </body>
 
 </html>
 <script>
 
-        document.getElementById("btn-edit").onclick = function () {
+    document.getElementById("btn-edit").onclick = function () {
 
-            document.querySelector(".personal-infor .hidden-edit").style.display = 'block';
-            document.querySelector(".personal-infor .hidden-edit").style.margin = '0 0 0 22%';
-            document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 43%';
-            document.querySelector(".personal-infor table .display-userName").style.display = 'none';
-            document.querySelector(".personal-infor #btn-edit").style.display = 'none';
-        };
-        document.querySelector(".exit").onclick = function () {
+        document.querySelector(".personal-infor .hidden-edit").style.display = 'block';
+        document.querySelector(".personal-infor .hidden-edit").style.margin = '0 0 0 22%';
+        document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 43%';
+        document.querySelector(".personal-infor table .display-userName").style.display = 'none';
+        document.querySelector(".personal-infor #btn-edit").style.display = 'none';
+    };
+    document.querySelector(".exit").onclick = function () {
 
-            document.querySelector(".personal-infor .hidden-edit").style.display = 'none';
-            document.querySelector(".personal-infor table .display-userName").style.display = 'block';
-            document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 24%';
-            document.querySelector(".personal-infor #btn-edit").style.display = 'block';
-        };
-        document.getElementById("btn-edit-2").onclick = function () {
+        document.querySelector(".personal-infor .hidden-edit").style.display = 'none';
+        document.querySelector(".personal-infor table .display-userName").style.display = 'block';
+        document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 24%';
+        document.querySelector(".personal-infor #btn-edit").style.display = 'block';
+    };
+    document.getElementById("btn-edit-2").onclick = function () {
 
-            document.querySelector(".personal-infor .hidden-pass").style.display = 'block';
-            document.querySelector(".personal-infor .hidden-pass").style.margin = '0 0 0 22%';
-            document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 43%';
-            document.querySelector(".personal-infor table .display-userName-3").style.display = 'none';
-            document.querySelector(".personal-infor #btn-edit-2").style.display = 'none';
-        };
-        document.querySelector(".exit-pass").onclick = function () {
-            document.querySelector(".personal-infor .hidden-pass").style.display = 'none';
-            document.querySelector(".personal-infor table .display-userName-3").style.display = 'block';
-            document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 24%';
-            document.querySelector(".personal-infor #btn-edit-2").style.display = 'block';
-        };
+        document.querySelector(".personal-infor .hidden-pass").style.display = 'block';
+        document.querySelector(".personal-infor .hidden-pass").style.margin = '0 0 0 22%';
+        document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 43%';
+        document.querySelector(".personal-infor table .display-userName-3").style.display = 'none';
+        document.querySelector(".personal-infor #btn-edit-2").style.display = 'none';
+    };
+    document.querySelector(".exit-pass").onclick = function () {
+        document.querySelector(".personal-infor .hidden-pass").style.display = 'none';
+        document.querySelector(".personal-infor table .display-userName-3").style.display = 'block';
+        document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 24%';
+        document.querySelector(".personal-infor #btn-edit-2").style.display = 'block';
+    };
 </script>
 
 </html>
