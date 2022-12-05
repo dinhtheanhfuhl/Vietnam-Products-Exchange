@@ -75,7 +75,7 @@ public class HomeController extends HttpServlet {
         request.setAttribute("mapSupplier2", mapSuppliers2);
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        request.getRequestDispatcher("./common/home.jsp").forward(request, response);
         
     }
 

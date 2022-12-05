@@ -66,6 +66,18 @@ public class CartItemDAO {
             e.getMessage();
         }
     }
+    
+    public void deleteCartByCartId(int cartId) {
+        String query = "delete from CartItem where CartID = ?";
+        try {
+            PreparedStatement ps
+                    = connection.prepareStatement(query);
+            ps.setInt(1, cartId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+    }
 
     public void updateAmount(int amount, int CartID, int ProductID) {
         String query = "UPDATE CartItem\n"

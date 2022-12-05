@@ -145,12 +145,12 @@
                                         </div>
                                         <div class="form-group fill-form log-email">
                                             <label for="exampleInputPassword1">Email</label>
-                                            <input name="email" type="email" class="form-control" id="exampleInputPassword1"
+                                            <input name="email" type="email" required="" class="form-control" id="exampleInputPassword1"
                                                    placeholder="Nhập Email">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
                                             <label for="exampleInputPassword1">Mật khẩu</label>
-                                            <input name="password" type="password" class="form-control" id="exampleInputPassword1"
+                                            <input name="password" type="password" required="" class="form-control" id="exampleInputPassword1"
                                                    placeholder="Nhập mật khẩu">
                                         </div>
 

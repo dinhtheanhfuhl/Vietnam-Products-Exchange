@@ -130,7 +130,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${customer.customerName}</p>
+                                                       value="" >Đinh Thế Anh</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -146,7 +146,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${customer.dateBirth}</p>
+                                                       value="" >13/09/1999</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -162,7 +162,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${customer.gender}</p>
+                                                       value="" >Nam</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -176,7 +176,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${customer.email}</p>
+                                                       value="" >anhdt179@gmail.com</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -192,7 +192,7 @@
 
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${customer.phone}</p>
+                                                       value="" >036872673</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -207,7 +207,7 @@
 
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${customer.shopName}</p>
+                                                       value="" >Nông sản Đông Anh</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -222,7 +222,7 @@
 
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${customer.mainAddress}</p>
+                                                       value="" >Đông Anh - Hà Nội</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -236,7 +236,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <a type="text" id="inputpass"
-                                                       value="" >Giay phep</a>
+                                                       value="" >licence.pdf</a>
                                                 </td>
                                             </tr>
 
@@ -252,7 +252,7 @@
                                                 <td class="display-userName-3">
                                                     <c:choose>
                                                         <c:when test="${account.status == true}"><a class="btn btn-success">Đang hoạt động</a></c:when>
-                                                        <c:otherwise><a href="DetailSuppilerController?action=accept-account&sup-id=${customer.customerId}&acc-id=${account.accId}" class="btn btn-success">Chấp thuận tài khoản</a></c:otherwise>
+                                                        <c:otherwise><a href="DetailSuppilerController?action=accept-account&sup-id=${customer.customerId}&acc-id=${account.accId}" class="btn btn-success">Tài khoản chờ phê duyệt</a></c:otherwise>
                                                     </c:choose>
                                                 </td>
                                             </tr>
@@ -266,7 +266,7 @@
                                                 <td><label style="margin-left: -10px"; class="form-label pass-infor">Lý do bị từ chối</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <p>Tài khoản không có giấy phép </p>
+                                                    <p></p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -279,7 +279,7 @@
                                                 <td><label style="margin-left: -10px"; class="form-label pass-infor">Hành động</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <a style="margin-left: 10px;" href="" class="btn btn-success">Phê duyệt tài khoản</a>
+                                                    <a href="" class="btn btn-success mb-1">Phê duyệt tài khoản</a>
                                                     <a href="" class="btn btn-danger">Từ chối tài khoản</a>
                                                 </td>
                                             </tr>

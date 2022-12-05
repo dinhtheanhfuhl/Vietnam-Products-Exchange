@@ -28,10 +28,10 @@ public class LogginController extends HttpServlet {
             throws ServletException, IOException, NoSuchAlgorithmException {
         String action = request.getParameter("action");
         if (action == null) {
-            RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("./common/login.jsp");
             rd.forward(request, response);
         } else if (action.equals("show-login-form")) {
-            RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("./common/login.jsp");
             rd.forward(request, response);
         } else if (action.equals("login")) {
             String email = request.getParameter("email");
@@ -42,7 +42,7 @@ public class LogginController extends HttpServlet {
             AccountDAO accountDAO = new AccountDAO(connection);
             Account account = accountDAO.getAccountByInfo(email, passwordEnr);
             if (account == null) {
-                RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("./common/login.jsp");
                 rd.forward(request, response);
             } else {
                 HttpSession session = request.getSession();
@@ -65,7 +65,7 @@ public class LogginController extends HttpServlet {
                         response.sendRedirect("ModeratorController");
                         break;
                     case 3:
-                        response.sendRedirect("login.jsp");
+                        response.sendRedirect("./common/login.jsp");
                         break;
                     case 4:
                         CustomerDAO customerDAO = new CustomerDAO(connection);

@@ -39,7 +39,7 @@
         <!--  BEGIN NAVBAR  -->
         <header class="desktop-nav header navbar fixed-top">
             <div class="nav-logo mr-sm-5 ml-sm-4">
-                
+
                 <a class="navbar-brand waves-effect" href="Home">
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
@@ -79,7 +79,7 @@
 
             <!--  BEGIN MODERN  -->
 
-            
+
             <!--  END MODERN  -->
 
             <!--  BEGIN CONTENT PART  -->
@@ -100,7 +100,10 @@
                                     <div class="profile-usertitle-name"> Tên người dùng</div>
                                 </div>
                                 <div class="profile-userbuttons">
-                                    <button type="button" class="btn btn-success btn-sm"> Upload Image</button>
+                                    <input class="form-control" type="file" id="formFile">
+                                    <button type="button" class="btn btn-success btn-sm"> 
+                                       Lưu
+                                    </button>
                                 </div>
                             </div>
                         </div>

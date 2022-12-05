@@ -4,8 +4,10 @@
  */
 package controller;
 
+import dao.CartDAO;
 import dao.CartItemDAO;
 import dao.OrderDAO;
+import dao.OrderDetailDAO;
 import dao.ProductDAO;
 import dbconnect.DBConnect;
 import entity.CartItem;
@@ -13,6 +15,8 @@ import entity.Customer;
 import entity.Product;
 import java.io.IOException;
 import java.sql.Connection;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -38,36 +42,45 @@ public class OrderController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDateTime now = LocalDateTime.now();
         Connection connection = DBConnect.getConnection();
         OrderDAO orderDAO = new OrderDAO(connection);
+        OrderDetailDAO orderDetailDAO = new OrderDetailDAO(connection);
         CartItemDAO cartItemDAO = new CartItemDAO(connection);
+        CartDAO cartDAO = new CartDAO(connection);
         ProductDAO productDAO = new ProductDAO(connection);
+
         HttpSession session = request.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
-
         int customerid = customer.getCustomerId();
+        int cartId = cartDAO.getCartIdByCustomerId(customerid);
+
+        //int productPrice = Integer.parseInt(request.getParameter("totalprice"));
+        
         List<CartItem> listCart = cartItemDAO.getAllCartItemsByCustomertId(customerid);
-        //List<Product> listPro = productDAO.getAllProduct;
         CartItem cartItem = null;
         for (int i = 0; i < listCart.size(); i++) {
             cartItem = listCart.get(i);
             int cartAmount = cartItem.getAmount();
-            //int newCartAmount = cartAmount - 
             int productId = cartItem.getProductId();
-          
-            productDAO.updateAmountByProId(cartAmount, productId);
+            Product p = productDAO.getProductById(productId);
+            productDAO.updateAmountByProId(p.getWeight() - cartAmount, productId);
+            //orderDetailDAO.insertOrderDetail(cartId, productId, dtf.format(now), cartAmount, productPrice);
+            //orderId - proId - orderDate - amount - cost
         }
-        
-        
-        
-        
+
+        cartItemDAO.deleteCartByCartId(cartId);
+
         String receiverName = request.getParameter("receiverName");
         String receiverAddress = request.getParameter("receiverAddress");
         String receiverPhone = request.getParameter("receiverPhone");
-        int totalPrice = 1;
+        int totalPrice = Integer.parseInt(request.getParameter("totalprice"));
         String note = request.getParameter("note");
+
+        
         orderDAO.insertOrder(customerid, receiverName, receiverAddress, receiverPhone, totalPrice, 1, note);
-        request.getRequestDispatcher("CartController").forward(request, response);
+        request.getRequestDispatcher("HistoryOrderController").forward(request, response);
 
     }
 
