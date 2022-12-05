@@ -89,7 +89,6 @@
                                 <div class="sumarizePrice ">
                                     <p>Tổng tiền: <span class="padding-price"><fmt:formatNumber type = "number" 
                                                       pattern = "" value = "${totalCart}" /><sup>vnđ</sup>&nbsp;&nbsp;</span></p>
-
                                 </div>
                                 <div class="success-order row pb-5 ">
                                     <button id="btn-order" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Đặt hàng</button>
@@ -134,10 +133,10 @@
     <script src="assets/js/main.js"></script>
     <script src="./cart.js"></script>
     <script type="text/javascript">
-                                    $(window).load(function () {
-                                        showProductToPayment();
-                                        checkProduct();
-                                    });
+        $(window).load(function () {
+            showProductToPayment();
+            checkProduct();
+        });
 
 
     </script>

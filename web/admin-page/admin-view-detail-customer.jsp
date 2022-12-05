@@ -283,8 +283,8 @@
                                                 <td><label style="margin-left: -10px"; class="form-label pass-infor">Hành động</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <a href="DetailCustomerController?action=accept" class="btn btn-success mb-2">Phê duyệt tài khoản</a><br/>
-                                                    <a href="DetailCustomerController?action=reject" class="btn btn-danger mb-2">Từ chối tài khoản</a>
+                                                    <a href="" class="btn btn-success mb-1">Phê duyệt tài khoản</a>
+                                                    <a href="" class="btn btn-danger mb-1">Từ chối tài khoản</a>
                                                 </td>
                                             </tr>
                                         </tbody>

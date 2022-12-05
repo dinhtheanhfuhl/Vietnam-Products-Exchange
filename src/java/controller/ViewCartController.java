@@ -109,7 +109,7 @@ public class ViewCartController extends HttpServlet {
             request.setAttribute("mapProHie", mapProHie);
         }
         request.setAttribute("totalCart", totalCart);
-        request.getRequestDispatcher("ViewCart.jsp").forward(request, response);
+        request.getRequestDispatcher("./common/ViewCart.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

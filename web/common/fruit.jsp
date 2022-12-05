@@ -1,8 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
-        <title>Đăng nhập</title>
+        <title>Hoa quả tại VnProX</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -40,168 +43,124 @@
     </head>
 
     <body>
-
-        <header class="header">
-            <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar ">
-                <div class="container-fluid">
-
-                    <!-- Brand -->
-                    <a class="navbar-brand waves-effect" href="Home">
-                        <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
-                    </a>
-
-                    <!-- Collapse -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <!-- Links -->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                        <!-- Left -->
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active" style="padding-left: 40px;">
-                                <a class="nav-link waves-effect  text-header" href="Home">Trang chủ
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="nav-link waves-effect text-header dropdown-toggle" href=""
-                                       target="_blank">Giới thiệu
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                                         id="dropdown-collection">
-                                        <a class="dropdown-item" href="./information.jsp">Về chúng tôi</a>
-                                        <a class="dropdown-item" href="./policy.jsp">Chính sách bảo mật</a>
-                                        <a class="dropdown-item" href="./condition.jsp">Điều khoản dịch vụ</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="nav-link waves-effect text-header dropdown-toggle" href="./shop.html"
-                                       target="_blank">Cửa hàng
-
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <c:forEach items="${listCate}" var="o" >
-                                            <a class="dropdown-item" href="MinimartProductController?cid=${o.cateId}">${o.cateName}</a>
-                                        </c:forEach>
-                                    </div>
-                                </div>
-
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link waves-effect text-header" href="./contact.jsp">Liên hệ</a>
-                            </li>
-                        </ul>
-
-
-                        <!-- Right -->
-                        <ul class="navbar-nav nav-flex-icons">
-
-                            <li class="nav-item ">
-                                <a href=""  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown dropdown-user">
-                                    <a href="login.jsp" class="nav-link border border-light rounded waves-effect" target="_blank">
-                                        <i class="fas fa-user"></i>Đăng Nhập
-                                    </a>
-
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
+        <%@include file="header.jsp"%>
         <section class="breadcrum">
-
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
-                    <li class="breadcrumb-item"><a href="Home">Trang chủ</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Tài khoản</li>
+                    <li class="breadcrumb-item"><a href="Home">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Danh mục sản phẩm</li>
                 </ol>
             </nav>
         </section>
-        <div class="section-ptb customer-page register-page" style="padding-bottom: 80px;">
+        <div class="orfarm-shop-grid-area pt-100 pb-50">
             <div class="container">
-                <div class="row log-acc-page register-acc-page pt-5 justify-content-center">
-                    <div class="col-lg-4 col-sm-12">
-                        <div class="acc-page">
-                            <div class="login">
-                                <form action="LogginController" method="post">
-                                    <div class="login-form-container">
-                                        <input type="hidden" name="action" value="login"/>
-                                        <div class="title-text ">
-                                            <h2>Đăng nhập</h2>
-                                            <p>Vui lòng nhập thông tin của bạn!</p>
-                                        </div>
-                                        <div class="form-group fill-form log-email">
-                                            <label for="exampleInputPassword1">Email</label>
-                                            <input name="email" type="email" class="form-control" id="exampleInputPassword1"
-                                                   placeholder="Nhập Email">
-                                        </div>
-                                        <div class="form-group fill-form log-lastName">
-                                            <label for="exampleInputPassword1">Mật khẩu</label>
-                                            <input name="password" type="password" class="form-control" id="exampleInputPassword1"
-                                                   placeholder="Nhập mật khẩu">
-                                        </div>
+                <div class="row">
 
-                                        <button type="submit" class="btn btn-primary btn-warning form-control">Đăng nhập</button>
-
-
-                                        <div class="pt-3">
-                                            <a href="./resetPass.jsp" style="color: #f5ab1e;  " id="recoverPass">Quên mật khẩu?</a>
-                                        </div>
+                    <div class="col-lg-3 order-2 order-lg-1">
+                        <div class="orfarm-shop-sidebar">
+                            <form>
+                                <div class="shop-price-filter">
+                                    <h4 class="title">Lọc theo giá</h4>
+                                    <div class="price-range">
+                                        <label for="">
+                                            <input type="number" placeholder="Từ" class="form-control"> - 
+                                            <input type="number" placeholder="Đến" class="form-control"></label>                                    
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                                <div class="shop-category-widget">
+                                    <h4 class="title">Danh mục cấp 2</h4>
+                                    <ul>
+                                        <c:forEach items="${allSubCategory}" var="o" >
+                                            <input type="checkbox" id="subcate" name="" value="">
+                                            <label for="subcate">${o.subCateName}</label><br>
+                                        </c:forEach>
+                                    </ul>
+                                </div>
+                                <div class="shop-category-widget">
+                                    <h4 class="title">Khu vực giao hàng</h4>
+                                    <ul>
+                                        <select id="city"  class="form-control">
+                                            <option value="">Tất cả thành phố</option>
+                                            <c:forEach items="${allCities}" var="o" >
+                                                <option value="${o.cityId}">${o.cityName}</option>
+                                            </c:forEach>
+                                        </select>
+
+                                    </ul>
+                                </div>
+                                <button class=" btn btn-warning status" type="submit" id="">  Lọc </button>
+
+                            </form>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-12">
-                        <div class="acc-page-2">
-                            <div class="side-form">
-                                <div class="acc-title">
-                                    <h6>Bạn chưa có tài khoản? </h6>
-                                    <div class="account-option-action">
-                                        <a href="./createAccount.jsp" id="customer_register">
-                                            Tạo tài khoản
-                                            <!-- <button type="button" class="btn btn-outline-warning"></button> -->
-                                        </a>
+
+                    <div class="col-lg-9 order-1 order-lg-2">
+                        <div class="row">
+                            <div class="banner-collection pb-5 w-300">
+                                <img src="./image/Nen-chon-loai-hoa-qua-bieu-Tet-2019-nao.jpg"  height="262px" alt="">
+                            </div>
+                        </div>
+                        <div class="shop-grid-topbar d-flex justify-content-between align-items-center">
+                            <span>Hiện thị tổng số <span>12</span> sản phẩm.</span>
+                            <select id="product">
+                                <option value="">Mới nhất</option>
+                                <option value="">Bán chạy nhất</option>
+                                <option value="">Giá tăng dần</option>
+                                <option value="">Giá giảm dần</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <c:forEach var="key" items="${mapImages.keySet()}">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-shop-box">
+                                        <div class="thumb text-center">
+                                            <img src="${mapImages.get(key).get(0).getImgPath()}" alt="">
+
+                                        </div>
+                                        <div class="content">
+
+                                            <input type="hidden" id="productId" value="1">
+
+                                            <a href="MimartDetailProduct?pid=${key.productId}">
+                                                <h5>
+                                                    ${key.productName}
+                                                    ${key.trademark}
+                                                    ${key.smell},
+                                                    ${key.color},
+                                                    ${key.packing}
+                                                </h5>
+                                            </a>
+                                            <div class="pricing">
+                                                <c:forEach var="hierarchy" items="${mapHierarchy.get(key)}">
+
+                                                    <c:if test="${mapHierarchy.get(key).get(1)!=hierarchy}">
+                                                        <div class="discount-price"> <span><fmt:formatNumber type = "number" 
+                                                                          pattern = "" value = "${hierarchy.price}" /><sup>vnđ</sup>&nbsp;&nbsp;</span> </div> 
+                                                            </c:if>
+                                                        </c:forEach>
+                                            </div>
+
+
+                                            <p>${mapCity.get(key).get(0).getCityName()}</p>
+                                            <p>Khối lượng: ${key.weight} Kg</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="term-privacy">
-                                    <p class="term-con">
-                                        <span>
-                                            <sup>*</sup>
-                                        </span>
-                                        <a href="./condition.jsp" target="_blank">Điều khoản dịch vụ</a>
-                                    </p>
-                                    <p class="pri-pol ">
-
-                                        <span> Sự riêng tư và bảo mật của bạn không quan trọng đối với chúng tôi. Để biết thêm thông tin về cách chúng tôi sử dụng dữ liệu của bạn, hãy đọc điều khoản dưới đây.
-                                        </span>
-                                        <br>
-                                        <a href="policy.jsp" target="_blank" style="margin: 5px"> Chính sách bảo mật</a>
-                                    </p>
+                            </c:forEach>
+                            <div class="col-lg-12">
+                                <div class="bisylms-pagination">
+                                    <c:forEach begin="1" end="${end}" var="i">
+                                        <!-- <span class="current">1</span> -->
+                                        <a href="#">${i}</a>
+                                        <!-- <a class="next" href="#">next<i class="fal fa-arrow-right"></i></a> -->
+                                    </c:forEach>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-
-
 
         <footer>
             <div class="main-footer container">

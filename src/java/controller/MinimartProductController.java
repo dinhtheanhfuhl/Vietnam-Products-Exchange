@@ -52,24 +52,28 @@ public class MinimartProductController extends HttpServlet {
         SubCategoryDAO subcategoryDAO = new SubCategoryDAO(connection);
         CityDAO cityDAO = new CityDAO(connection);
         ProductHierarchyDAO productHierarchyDAO = new ProductHierarchyDAO(connection);
+        
         String id = request.getParameter("cid");
         List<Product> getAllProductsbyCateId = productDAO.getAllProductsByCateID(id);
+        
         Map<Product, List<ProductImage>> mapImages = new LinkedHashMap<Product, List<ProductImage>>();
         for (Product product : getAllProductsbyCateId) {
             List<ProductImage> images = productImageDAO.getAllProductsImageByProId(product.getProductId());
             mapImages.put(product, images);
         }
+        
         Map<Product, List<ProductHierarchy>> mapHierarchy = new LinkedHashMap<Product, List<ProductHierarchy>>();
         for (Product product : getAllProductsbyCateId) {
             List<ProductHierarchy> hierarchy = productHierarchyDAO.getAllHieByProId(product.getProductId());
-            System.out.println(hierarchy);
             mapHierarchy.put(product, hierarchy);
         }
+        
         Map<Product, List<City>> mapCity = new LinkedHashMap<Product, List<City>>();
         for (Product product : getAllProductsbyCateId) {
             List<City> city = cityDAO.getCitiesByProductId(product.getProductId());
             mapCity.put(product, city);
         }
+        
         request.setAttribute("mapImages", mapImages);
         request.setAttribute("mapHierarchy", mapHierarchy);
         request.setAttribute("mapCity", mapCity);
@@ -79,7 +83,7 @@ public class MinimartProductController extends HttpServlet {
         request.setAttribute("allCities", allCities);
         List<SubCategory> allSubCategory = subcategoryDAO.getAllSubCateByCateId(id);
         request.setAttribute("allSubCategory", allSubCategory);
-        request.getRequestDispatcher("fruit.jsp").forward(request, response);
+        request.getRequestDispatcher("./common/fruit.jsp").forward(request, response);
 
     }
 

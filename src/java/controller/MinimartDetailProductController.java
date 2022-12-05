@@ -8,11 +8,13 @@ import dao.CategoryDAO;
 import dao.ProductDAO;
 import dao.ProductHierarchyDAO;
 import dao.SubCategoryDAO;
+import dao.SupplierDAO;
 import dbconnect.DBConnect;
 import entity.Category;
 import entity.Product;
 import entity.ProductHierarchy;
 import entity.SubCategory;
+import entity.Supplier;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.List;
@@ -39,18 +41,30 @@ public class MinimartDetailProductController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String id = request.getParameter("pid");
-        int productId = Integer.parseInt(id);
         Connection connection = DBConnect.getConnection();
         ProductDAO productDAO = new ProductDAO(connection);
         CategoryDAO categoryDAO = new CategoryDAO(connection);
         SubCategoryDAO subCateDAO = new SubCategoryDAO(connection);
+        SupplierDAO supplierDAO = new SupplierDAO(connection);
         ProductHierarchyDAO proHieDAO = new ProductHierarchyDAO(connection);
+        
+        String id = request.getParameter("pid");
+        int productId = Integer.parseInt(id);
         
         Product product = productDAO.getProductByProductId(id);
         request.setAttribute("product", product);
+        
+        List<Product> listProduct = productDAO.getListProductByProductId(id);
+        request.setAttribute("listProduct", listProduct);
+
+        Supplier supplier = supplierDAO.getSupplierByProId(id);
+        request.setAttribute("supplier", supplier);
+        
         SubCategory subcate = subCateDAO.getSubCategoryNameByProductId(id);
         request.setAttribute("subcate", subcate);
+
+        List<Product> listProBySubCateId = productDAO.getAllProductBySubCateID(subcate.getSubCateId());
+        request.setAttribute("listProBySubCateId", listProBySubCateId);
         
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
@@ -73,7 +87,7 @@ public class MinimartDetailProductController extends HttpServlet {
                 request.setAttribute("priceMax", priceMax);
             }
         
-        request.getRequestDispatcher("productdetail.jsp").forward(request, response);
+        request.getRequestDispatcher("./common/productdetail.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
