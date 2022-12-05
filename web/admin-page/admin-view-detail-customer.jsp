@@ -130,7 +130,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${customer.customerName}</p>
+                                                       value="" >${cus.customerName}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -146,7 +146,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${customer.dateBirth}</p>
+                                                       value="" >${cus.dateBirth}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -162,7 +162,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${customer.gender}</p>
+                                                       value="" >${cus.gender}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -176,7 +176,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${customer.email}</p>
+                                                       value="" >${cus.email}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -192,7 +192,7 @@
 
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${customer.phone}</p>
+                                                       value="" >${cus.phone}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -207,7 +207,7 @@
 
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${customer.shopName}</p>
+                                                       value="" >${cus.shopName}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -221,8 +221,7 @@
                                                 </td>
 
                                                 <td class="display-userName-3">
-                                                    <p type="text" id="inputpass"
-                                                       value="" >${customer.mainAddress}</p>
+                                                    <p>${cus.mainAddress}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -235,8 +234,7 @@
                                                 <td><label class="form-label pass-infor">Giấy phép</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <a type="text" id="inputpass"
-                                                       value="" >Giay phep</a>
+                                                    <a href="">Tải xuống giấy phép</a>
                                                 </td>
                                             </tr>
 
@@ -251,27 +249,33 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <c:choose>
-                                                        <c:when test="${account.status == true}"><a class="btn btn-success">Đang hoạt động</a></c:when>
-                                                        <c:otherwise><a href="DetailSuppilerController?action=accept-account&sup-id=${customer.customerId}&acc-id=${account.accId}" class="btn btn-success">Chấp thuận tài khoản</a></c:otherwise>
+                                                        <c:when test="${acc.status==1}">Chờ phê duyệt</c:when>
+                                                        <c:when test="${acc.status==2}">Đã chấp thuận</c:when>
+                                                        <c:when test="${acc.status==3}">Từ chối tài khoản</c:when>
                                                     </c:choose>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label style="margin-left: -10px"; class="form-label pass-infor">Lý do bị từ chối</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <p>Tài khoản không có giấy phép </p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <c:if test="${ma != null}">
+                                    <div class="col-md-8 col-sm-6 pt-4 pb-4">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+
+                                                    <td>
+                                                        <label style="margin-left: -10px"; class="form-label pass-infor">Lý do bị từ chối</label>
+                                                    </td>
+
+                                                    <td class="display-userName-3">
+                                                        <p>Tài khoản không có giấy phép</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </c:if>
                                 <div class="col-md-8 col-sm-6 pt-4 pb-4">
                                     <table>
                                         <tbody>
@@ -279,8 +283,8 @@
                                                 <td><label style="margin-left: -10px"; class="form-label pass-infor">Hành động</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <a style="margin-left: 10px;" href="" class="btn btn-success">Phê duyệt tài khoản</a>
-                                                    <a href="" class="btn btn-danger">Từ chối tài khoản</a>
+                                                    <a href="DetailCustomerController?action=accept" class="btn btn-success mb-2">Phê duyệt tài khoản</a><br/>
+                                                    <a href="DetailCustomerController?action=reject" class="btn btn-danger mb-2">Từ chối tài khoản</a>
                                                 </td>
                                             </tr>
                                         </tbody>

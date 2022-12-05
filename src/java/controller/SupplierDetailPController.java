@@ -18,8 +18,10 @@ import entity.Product;
 import entity.ProductHierarchy;
 import entity.ProductImage;
 import entity.SubCategory;
+import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
@@ -79,8 +81,47 @@ public class SupplierDetailPController extends HttpServlet {
             request.setAttribute("cate", cate);
             request.setAttribute("product", product);
             request.getRequestDispatcher("admin-page/supplier-product-detail.jsp").forward(request, response);
-        } else if(action.equals("cancel")){
-            
+        } else if (action.equals("cancel")) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Product product = productDAO.getProductById(id);
+            List<ProductHierarchy> listProHies = proHieDAO.getHierarchyByProId(id);
+            List<ProductImage> listProImgs = proImgDAO.getAllProductsImageByProId(id);
+            List<DeliveryArea> listDelivery = deliDAO.getDeliverysAreaByProductId(id);
+
+            // xoa cac row trong db
+            int statusDelProHie = proHieDAO.deleteProductHierarchyByProId(id);
+            int statusDelProImg = proImgDAO.deleteProductImageByProId(id);
+            int statusDelDeli = deliDAO.deleteDeliveryAreaByProId(id);
+            int statusDelPro = productDAO.deleteProduct(product);
+
+            // xoa file trong folder
+            String filename = "";
+            javax.servlet.ServletContext servletContext = this.getServletConfig().getServletContext();
+            for (ProductImage image : listProImgs) {
+                filename = image.getImgPath();
+                Path path = Paths.get(filename);
+                String storePath = servletContext.getRealPath("/uploads");
+                File pathFile = new File(storePath + "/" + path.getFileName());
+                boolean statusDelFile = pathFile.delete();
+            }
+            filename = product.getProductCertificate();
+            Path path = Paths.get(filename);
+            String storePath = servletContext.getRealPath("/uploads");
+            File pathFile = new File(storePath + "/" + path.getFileName());
+            boolean statusDelFile = pathFile.delete();
+            response.sendRedirect("SupplierController");
+        } else if(action.equals("hidden")){
+            int id = Integer.parseInt(request.getParameter("id"));
+            Product product = productDAO.getProductById(id);
+            product.setStatusId(4);
+            int status = productDAO.updateProduct(product);
+            response.sendRedirect("SupplierDetailPController?id="+product.getProductId());
+        } else if(action.equals("cancel-hidden")){
+            int id = Integer.parseInt(request.getParameter("id"));
+            Product product = productDAO.getProductById(id);
+            product.setStatusId(2);
+            int status = productDAO.updateProduct(product);
+            response.sendRedirect("SupplierDetailPController?id="+product.getProductId());
         }
 
     }
