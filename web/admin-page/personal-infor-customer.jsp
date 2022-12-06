@@ -353,10 +353,10 @@
                         <a href="CustomerInfoDetail"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                     </li>
                     <li>
-                        <a href="customer-history-order.jsp"><i class="flaticon-bank-safe-box"></i> Lịch sử mua hàng</a>
+                        <a href="HistoryOrderController"><i class="flaticon-bank-safe-box"></i> Lịch sử mua hàng</a>
                     </li>
                     <li>
-                        <a href="../changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                        <a href="./common/changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
                     </li>
                     <li>
                         <a href="LogoutController"><i class="flaticon-power-off"></i> Đăng xuất</a>

@@ -9,7 +9,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
         <!--====== Bootstrap css ======-->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
@@ -30,7 +30,7 @@
         <link rel="stylesheet" href="assets/css/default.css">
 
         <!--====== Style css ======-->
-        <link rel="stylesheet" href="assets/scss/style.css">
+        <link rel="stylesheet" href="../assets/scss/style.css">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -124,7 +124,7 @@
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" href="CustomerInfoDetail">Thông tin cá nhân</a>
                                             <a class="dropdown-item" href="HistoryOrderController">Lịch sử mua hàng</a>
-                                            <a class="dropdown-item" href="changepass.jsp">Thay đổi mật khẩu</a>
+                                            <a class="dropdown-item" href="./common/changepass.jsp">Thay đổi mật khẩu</a>
                                             <a class="dropdown-item" href="LogoutController">Đăng xuất</a>
                                         </div>
                                     </div>

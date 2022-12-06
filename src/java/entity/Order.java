@@ -10,82 +10,125 @@ package entity;
  */
 public class Order {
 
-    private int OrderId, CustomerId;
-    private String RecieverName, RecieverPhone, RecieverAddress;
-    private int TotalPrice, OrderStatusId;
-
+    private int orderId, customerId;
+    private String recieverName, recieverPhone, recieverAddress;
+    private int totalPrice, orderStatusId;
+    private String note;
     public Order() {
     }
 
     public Order(int OrderID, int CustomerID, String RecieverName, String RecieverPhone, String RecieverAddress, int TotalPrice, int OrderStatusID) {
-        this.OrderId = OrderID;
-        this.CustomerId = CustomerID;
-        this.RecieverName = RecieverName;
-        this.RecieverPhone = RecieverPhone;
-        this.RecieverAddress = RecieverAddress;
-        this.TotalPrice = TotalPrice;
-        this.OrderStatusId = OrderStatusID;
+        this.orderId = OrderID;
+        this.customerId = CustomerID;
+        this.recieverName = RecieverName;
+        this.recieverPhone = RecieverPhone;
+        this.recieverAddress = RecieverAddress;
+        this.totalPrice = TotalPrice;
+        this.orderStatusId = OrderStatusID;
+    }
+
+    public Order(int OrderId, int CustomerId, String RecieverName, String RecieverPhone, String RecieverAddress, int TotalPrice, int OrderStatusId, String note) {
+        this.orderId = OrderId;
+        this.customerId = CustomerId;
+        this.recieverName = RecieverName;
+        this.recieverPhone = RecieverPhone;
+        this.recieverAddress = RecieverAddress;
+        this.totalPrice = TotalPrice;
+        this.orderStatusId = OrderStatusId;
+        this.note = note;
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int OrderId) {
+        this.orderId = OrderId;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int CustomerId) {
+        this.customerId = CustomerId;
+    }
+
+    public int getOrderStatusId() {
+        return orderStatusId;
+    }
+
+    public void setOrderStatusId(int OrderStatusId) {
+        this.orderStatusId = OrderStatusId;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public int getOrderID() {
-        return OrderId;
+        return orderId;
     }
 
     public void setOrderID(int OrderID) {
-        this.OrderId = OrderID;
+        this.orderId = OrderID;
     }
 
     public int getCustomerID() {
-        return CustomerId;
+        return customerId;
     }
 
     public void setCustomerID(int CustomerID) {
-        this.CustomerId = CustomerID;
+        this.customerId = CustomerID;
     }
 
     public String getRecieverName() {
-        return RecieverName;
+        return recieverName;
     }
 
     public void setRecieverName(String RecieverName) {
-        this.RecieverName = RecieverName;
+        this.recieverName = RecieverName;
     }
 
     public String getRecieverPhone() {
-        return RecieverPhone;
+        return recieverPhone;
     }
 
     public void setRecieverPhone(String RecieverPhone) {
-        this.RecieverPhone = RecieverPhone;
+        this.recieverPhone = RecieverPhone;
     }
 
     public String getRecieverAddress() {
-        return RecieverAddress;
+        return recieverAddress;
     }
 
     public void setRecieverAddress(String RecieverAddress) {
-        this.RecieverAddress = RecieverAddress;
+        this.recieverAddress = RecieverAddress;
     }
 
     public int getTotalPrice() {
-        return TotalPrice;
+        return totalPrice;
     }
 
     public void setTotalPrice(int TotalPrice) {
-        this.TotalPrice = TotalPrice;
+        this.totalPrice = TotalPrice;
     }
 
     public int getOrderStatusID() {
-        return OrderStatusId;
+        return orderStatusId;
     }
 
     public void setOrderStatusID(int OrderStatusID) {
-        this.OrderStatusId = OrderStatusID;
+        this.orderStatusId = OrderStatusID;
     }
 
     @Override
     public String toString() {
-        return "Order{" + "OrderID=" + OrderId + ", CustomerID=" + CustomerId + ", RecieverName=" + RecieverName + ", RecieverPhone=" + RecieverPhone + ", RecieverAddress=" + RecieverAddress + ", TotalPrice=" + TotalPrice + ", OrderStatusID=" + OrderStatusId + '}';
+        return "Order{" + "OrderID=" + orderId + ", CustomerID=" + customerId + ", RecieverName=" + recieverName + ", RecieverPhone=" + recieverPhone + ", RecieverAddress=" + recieverAddress + ", TotalPrice=" + totalPrice + ", OrderStatusID=" + orderStatusId + '}';
     }
     
 }

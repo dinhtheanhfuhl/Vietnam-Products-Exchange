@@ -2,11 +2,11 @@
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
-        <title>Thay đổi mật khẩu</title>
+        <title>Thay đổi mật khẩu </title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
 
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
@@ -31,7 +31,7 @@
         <link rel="stylesheet" href="assets/css/default.css">
 
         <!--====== Style css ======-->
-        <link rel="stylesheet" href="assets/scss/style.css">
+        <link rel="stylesheet" href="../assets/scss/style.css">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -45,7 +45,7 @@
                 <div class="container-fluid">
 
                     <!-- Brand -->
-                    <a class="navbar-brand waves-effect" href="./home.jsp">
+                    <a class="navbar-brand waves-effect" href="../Home">
                         <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                     </a>
 
@@ -62,7 +62,7 @@
                         <!-- Left -->
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active" style="padding-left: 40px;">
-                                <a class="nav-link waves-effect  text-header" href="./home.jsp">Trang chủ
+                                <a class="nav-link waves-effect  text-header" href="../Home">Trang chủ
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
