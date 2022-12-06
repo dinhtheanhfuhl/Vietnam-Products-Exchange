@@ -4,16 +4,17 @@
  */
 package controller;
 
-import dao.CartItemDAO;
 import dao.CategoryDAO;
 import dao.OrderDAO;
 import dao.OrderDetailDAO;
+import dao.ProductDAO;
+import dao.ProductImageDAO;
 import dbconnect.DBConnect;
-import entity.CartItem;
 import entity.Category;
-import entity.Customer;
 import entity.Order;
 import entity.OrderDetail;
+import entity.Product;
+import entity.ProductImage;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.LinkedHashMap;
@@ -23,13 +24,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author ductd
  */
-public class HistoryOrderController extends HttpServlet {
+public class HistoryOrderDetailController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,27 +44,38 @@ public class HistoryOrderController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         Connection connection = DBConnect.getConnection();
-        CategoryDAO categoryDAO = new CategoryDAO(connection);
         OrderDetailDAO orderDetailDAO = new OrderDetailDAO(connection);
         OrderDAO orderDAO = new OrderDAO(connection);
-        
-        HttpSession session = request.getSession();
-        Customer customer = (Customer) session.getAttribute("customer");
-        int customerid = customer.getCustomerId();
-        
-        List<Order> listOrder = orderDAO.getOrderByCusId(customerid);
-
-        Map<Order, List<OrderDetail>> mapOrder = new LinkedHashMap<Order, List<OrderDetail>>();
-        for (Order order : listOrder) {
-            List<OrderDetail> orderDetail = orderDetailDAO.getAllOrderDetailsByOrderId(order.getOrderId());
-            mapOrder.put(order, orderDetail);
-        }
-        request.setAttribute("mapOrder", mapOrder);
+        ProductDAO productDAO = new ProductDAO(connection);
+        ProductImageDAO productImageDAO = new ProductImageDAO(connection);
+        CategoryDAO categoryDAO = new CategoryDAO(connection);
         
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
-        request.getRequestDispatcher("./common/customer-history-order.jsp").forward(request, response);
         
+        int orderId = Integer.parseInt(request.getParameter("oid"));
+        OrderDetail orderDetail = orderDetailDAO.getOrderDetailByOrderId(orderId);
+        request.setAttribute("orderDetail", orderDetail);
+        
+        Order order = orderDAO.getOrderById(orderId);
+        request.setAttribute("order", order);
+        
+        List<OrderDetail> listProInOrder = orderDetailDAO.getAllOrderDetailsByOrderId(orderId);
+        Map<OrderDetail, List<Product>> mapProduct = new LinkedHashMap<OrderDetail, List<Product>>();
+        for (OrderDetail o : listProInOrder) {
+            List<Product> product = productDAO.getAllProductsProductID(o.getProductId());
+            mapProduct.put(o, product);
+        }
+        request.setAttribute("mapProduct", mapProduct);
+        
+        Map<OrderDetail, List<ProductImage>> mapImage = new LinkedHashMap<OrderDetail, List<ProductImage>>();
+        for (OrderDetail o : listProInOrder) {
+            List<ProductImage> image = productImageDAO.getAllProductsImageByProId(o.getProductId());
+            mapImage.put(o, image);
+        }
+        request.setAttribute("mapImage", mapImage);
+        
+        request.getRequestDispatcher("./common/customer-detail-order.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

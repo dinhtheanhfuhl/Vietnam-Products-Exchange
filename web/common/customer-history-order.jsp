@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="en">
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <head>
@@ -78,17 +78,35 @@
                         <th scope="col">Tổng tiền</th>
                         <th scope="col">Trạng thái</th>
                         <th scope="col">Chi tiết</th>
+                       
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach items="${listOrderDetail}" var="o" >
+                    
+                        <c:forEach var="key" items="${mapOrder.keySet()}">
                         <tr>
-                            <td>${o.orderDetailId}</td>
-                            <td>${o.orderDate}</td>
-                            <td>${o.amount}</td>
-                            <td>${o.cost}</td>
-                            <td></td>
-                            <td><a href="customer-detail-order.jsp">Xem chi tiết</a></td>
+                            <td>${key.orderId}</td>
+                            <td>32432</td>
+                            <td>ewrew</td>
+                            <td>
+                                <fmt:formatNumber type = "number" 
+                                                  pattern = "" value = "${key.totalPrice}" /><sup>vnđ</sup>
+                            </td>
+                            <td>
+                                <c:if test="${key.orderStatusId=='1'}">
+                                    Chờ xác nhận
+                                </c:if>
+                                <c:if test="${key.orderStatusId=='2'}">
+                                    Đã xác nhận
+                                </c:if>
+                                <c:if test="${key.orderStatusId=='3'}">
+                                    Từ chối đơn hàng
+                                </c:if>
+                                <c:if test="${key.orderStatusId=='4'}">
+                                    Giao hàng thành công
+                                </c:if>
+                            </td>
+                            <td><a href="HistoryOrderDetailController?oid=${key.orderId}">Xem chi tiết</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

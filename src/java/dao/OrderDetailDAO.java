@@ -64,6 +64,29 @@ public class OrderDetailDAO {
         }
         return orderDetails;
     }
+    
+     public List<OrderDetail> getAllOrderDetailsByOrderId(int orderId) {
+        List<OrderDetail> orderDetails = new ArrayList<>();
+        String strSelectAll = "select * from OrderDetail where OrderID = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setInt(1, orderId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                OrderDetail orderDetail = new OrderDetail();
+                orderDetail.setOrderDetailId(rs.getInt("OrderDetailID"));
+                orderDetail.setOrderId(rs.getInt("OrderID"));
+                orderDetail.setProductId(rs.getInt("ProductID"));
+                orderDetail.setOrderDate(rs.getString("OrderDate"));
+                orderDetail.setAmount(rs.getInt("Amount"));
+                orderDetail.setCost(rs.getInt("Cost"));
+                orderDetails.add(orderDetail);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return orderDetails;
+    }
 
     public OrderDetail getOrderDetailById(int id) {
         OrderDetail orderDetail = null;
@@ -87,6 +110,27 @@ public class OrderDetailDAO {
         return orderDetail;
     }
     
+    public OrderDetail getOrderDetailByOrderId(int id) {
+        OrderDetail orderDetail = null;
+        String strSelectById = "select * from OrderDetail where OrderID=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                orderDetail = new OrderDetail();
+                orderDetail.setOrderDetailId(rs.getInt("OrderDetailID"));
+                orderDetail.setOrderId(rs.getInt("OrderID"));
+                orderDetail.setProductId(rs.getInt("ProductID"));
+                orderDetail.setOrderDate(rs.getString("OrderDate"));
+                orderDetail.setAmount(rs.getInt("Amount"));
+                orderDetail.setCost(rs.getInt("Cost"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return orderDetail;
+    }
     public List<OrderDetail> getOrderDetailByCusId(int customerId) {
         List<OrderDetail> orderDetails = new ArrayList<>();
         String strSelectAll = "select * from OrderDetail inner join [Order] on OrderDetail.OrderID = [Order].OrderID where [Order].CustomerID = ? order by OrderDate desc";

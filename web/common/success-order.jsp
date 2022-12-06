@@ -5,7 +5,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
     
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
@@ -30,7 +30,7 @@
         <link rel="stylesheet" href="assets/css/default.css">
     
         <!--====== Style css ======-->
-        <link rel="stylesheet" href="assets/scss/style.css">
+        <link rel="stylesheet" href="../assets/scss/style.css">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -40,18 +40,7 @@
 <body>
    
     <header class="header">
-        <!-- <div class="top-bar">
-            <div class="row">
-                <div class="col">
-                    <ul class="top-entry">
-                        <li class="notify-wrap">
-                            <p><span>Free Shipping</span>
-                            Khi đặt bất kì sản phẩm nào!</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div> -->
+        
         <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar ">
             <div class="container-fluid">
 
