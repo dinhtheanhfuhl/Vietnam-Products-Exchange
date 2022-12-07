@@ -102,6 +102,7 @@ public class OrderDAO {
                 order.setRecieverAddress(rs.getString("RecieverAddress"));
                 order.setTotalPrice(rs.getInt("TotalPrice"));
                 order.setOrderStatusID(rs.getInt("OrderStatusID"));
+                order.setNote(rs.getString("Note"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -139,6 +140,30 @@ public class OrderDAO {
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);
             ps.setInt(1, customerId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Order order = new Order();
+                order.setOrderID(rs.getInt("OrderID"));
+                order.setCustomerID(rs.getInt("CustomerID"));
+                order.setRecieverName(rs.getString("RecieverName"));
+                order.setRecieverPhone(rs.getString("RecieverPhone"));
+                order.setRecieverAddress(rs.getString("RecieverAddress"));
+                order.setTotalPrice(rs.getInt("TotalPrice"));
+                order.setOrderStatusID(rs.getInt("OrderStatusID"));
+                order.setNote(rs.getString("Note"));
+                orders.add(order);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return orders;
+    }
+    public List<Order> getListOrderByStatusId(int statusId) {
+        List<Order> orders = new ArrayList<>();
+        String strSelectAll = "select * from [Order] where OrderStatusID = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setInt(1, statusId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Order order = new Order();

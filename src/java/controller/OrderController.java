@@ -42,8 +42,10 @@ public class OrderController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        request.setCharacterEncoding("UTF-8");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
+
         Connection connection = DBConnect.getConnection();
         OrderDAO orderDAO = new OrderDAO(connection);
         OrderDetailDAO orderDetailDAO = new OrderDetailDAO(connection);
@@ -56,8 +58,7 @@ public class OrderController extends HttpServlet {
         int customerid = customer.getCustomerId();
         int cartId = cartDAO.getCartIdByCustomerId(customerid);
 
-        //int productPrice = Integer.parseInt(request.getParameter("totalprice"));
-        
+        int productPrice = Integer.parseInt(request.getParameter("totalprice"));
         List<CartItem> listCart = cartItemDAO.getAllCartItemsByCustomertId(customerid);
         CartItem cartItem = null;
         for (int i = 0; i < listCart.size(); i++) {
@@ -67,7 +68,12 @@ public class OrderController extends HttpServlet {
             Product p = productDAO.getProductById(productId);
             productDAO.updateAmountByProId(p.getWeight() - cartAmount, productId);
             //orderDetailDAO.insertOrderDetail(cartId, productId, dtf.format(now), cartAmount, productPrice);
-            //orderId - proId - orderDate - amount - cost
+            
+            System.out.println(productId);
+            System.out.println(dtf.format(now));
+            System.out.println(cartAmount);
+            System.out.println(productPrice);
+            //orderId - proId - orderDate - amount moi san pham - cost moi san pham
         }
 
         cartItemDAO.deleteCartByCartId(cartId);
@@ -78,7 +84,6 @@ public class OrderController extends HttpServlet {
         int totalPrice = Integer.parseInt(request.getParameter("totalprice"));
         String note = request.getParameter("note");
 
-        
         orderDAO.insertOrder(customerid, receiverName, receiverAddress, receiverPhone, totalPrice, 1, note);
         request.getRequestDispatcher("HistoryOrderController").forward(request, response);
 

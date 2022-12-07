@@ -8,12 +8,14 @@ import dao.CartItemDAO;
 import dao.CategoryDAO;
 import dao.OrderDAO;
 import dao.OrderDetailDAO;
+import dao.OrderStatusDAO;
 import dbconnect.DBConnect;
 import entity.CartItem;
 import entity.Category;
 import entity.Customer;
 import entity.Order;
 import entity.OrderDetail;
+import entity.OrderStatus;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.LinkedHashMap;
@@ -47,11 +49,12 @@ public class HistoryOrderController extends HttpServlet {
         CategoryDAO categoryDAO = new CategoryDAO(connection);
         OrderDetailDAO orderDetailDAO = new OrderDetailDAO(connection);
         OrderDAO orderDAO = new OrderDAO(connection);
-        
+        OrderStatusDAO orderStatusDAO = new OrderStatusDAO(connection);
+
         HttpSession session = request.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
         int customerid = customer.getCustomerId();
-        
+
         List<Order> listOrder = orderDAO.getOrderByCusId(customerid);
 
         Map<Order, List<OrderDetail>> mapOrder = new LinkedHashMap<Order, List<OrderDetail>>();
@@ -60,11 +63,16 @@ public class HistoryOrderController extends HttpServlet {
             mapOrder.put(order, orderDetail);
         }
         request.setAttribute("mapOrder", mapOrder);
+
+        List<OrderStatus> listOrderStatus = orderStatusDAO.getAllOrderDetails();
+        request.setAttribute("listOrderStatus", listOrderStatus);
+
         
+
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
         request.getRequestDispatcher("./common/customer-history-order.jsp").forward(request, response);
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

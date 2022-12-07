@@ -114,7 +114,7 @@
                                 <div class="col-lg-4 col-md-6">
                                     <div class="single-shop-box">
                                         <div class="thumb text-center">
-                                            <img src="${mapImages.get(key).get(0).getImgPath()}" alt="">
+                                            <img style="height:200px;object-fit: cover" src="${mapImages.get(key).get(0).getImgPath()}" alt="">
 
                                         </div>
                                         <div class="content">
@@ -126,10 +126,10 @@
                                                     ${key.productName}
                                                     ${key.trademark}
                                                     ${key.smell},
-                                                    ${key.color},
-                                                    ${key.packing}
+                                                    ${key.color}
                                                 </h5>
                                             </a>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Từ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;đến
                                             <div class="pricing">
                                                 <c:forEach var="hierarchy" items="${mapHierarchy.get(key)}">
 

@@ -59,8 +59,8 @@ public class CartAmountController extends HttpServlet {
             int amount = cart.getAmount();
             ProductHierarchy proHierachy = null;
             for (int i = 0; i < listProhie.size(); i++) {
-                if (amount <= listProhie.get(i).getQuantity()) {
-                    proHierachy = listProhie.get(i);
+                if (i > 0 && amount < listProhie.get(i).getQuantity()) {
+                    proHierachy = listProhie.get(i-1);
                     break;
                 }
             }
@@ -68,9 +68,8 @@ public class CartAmountController extends HttpServlet {
                 proHierachy = listProhie.get(listProhie.size() - 1);
             }
             int totalMoney = amount * proHierachy.getPrice();
-            request.setAttribute("totalMoney", totalMoney);
             mapProHie.put(cart, totalMoney);
-
+            
             totalCart += totalMoney;
             request.setAttribute("mapProHie", mapProHie);
         }
