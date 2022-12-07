@@ -59,10 +59,11 @@
         </div>
         <div style="float: right;margin-right: 90px;margin-bottom: 20px;">
             <h6>Sắp xếp theo</h6>
-            <form action="SearchProductController" method="post">
-                <select id="selectstatus" name="selectstatus" class="form-control">
+            <form action="HistoryOrderController" method="post">
+                <select onchange="this.form.submit()" id="selectstatus" name="selectstatus" class="form-control">
+                    <option <c:if test="${valueStatus==0}">selected</c:if> value="0">Tất cả trạng thái</option>
                     <c:forEach items="${listOrderStatus}" var="o">
-                        <option value="${o.orderStatusID}">${o.statusName}</option>
+                        <option <c:if test="${valueStatus==o.orderStatusID}">selected=""</c:if> value="${o.orderStatusID}">${o.statusName}</option>
                     </c:forEach>
                 </select>
             </form>
