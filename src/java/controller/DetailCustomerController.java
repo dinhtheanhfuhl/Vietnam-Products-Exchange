@@ -58,9 +58,7 @@ public class DetailCustomerController extends HttpServlet {
             int statusMess = messRejectDAO.saveMessageRejectAccount(ma);
             response.sendRedirect("DetailCustomerController?id="+cusId);
         }
-
     }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
