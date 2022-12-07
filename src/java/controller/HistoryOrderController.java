@@ -50,29 +50,56 @@ public class HistoryOrderController extends HttpServlet {
         OrderDetailDAO orderDetailDAO = new OrderDetailDAO(connection);
         OrderDAO orderDAO = new OrderDAO(connection);
         OrderStatusDAO orderStatusDAO = new OrderStatusDAO(connection);
-
+        
         HttpSession session = request.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
         int customerid = customer.getCustomerId();
-
-        List<Order> listOrder = orderDAO.getOrderByCusId(customerid);
-
-        Map<Order, List<OrderDetail>> mapOrder = new LinkedHashMap<Order, List<OrderDetail>>();
-        for (Order order : listOrder) {
-            List<OrderDetail> orderDetail = orderDetailDAO.getAllOrderDetailsByOrderId(order.getOrderId());
-            mapOrder.put(order, orderDetail);
-        }
-        request.setAttribute("mapOrder", mapOrder);
-
-        List<OrderStatus> listOrderStatus = orderStatusDAO.getAllOrderDetails();
-        request.setAttribute("listOrderStatus", listOrderStatus);
-
+        String valueStatusStr = request.getParameter("selectstatus");
         
-
-        List<Category> allCate = categoryDAO.getAllCategory();
-        request.setAttribute("listCate", allCate);
-        request.getRequestDispatcher("./common/customer-history-order.jsp").forward(request, response);
-
+        if (valueStatusStr == null) {
+            
+            List<Order> listOrder = orderDAO.getOrderByCusId(customerid);
+            
+            Map<Order, List<OrderDetail>> mapOrder = new LinkedHashMap<Order, List<OrderDetail>>();
+            for (Order order : listOrder) {
+                List<OrderDetail> orderDetail = orderDetailDAO.getAllOrderDetailsByOrderId(order.getOrderId());
+                mapOrder.put(order, orderDetail);
+            }
+            request.setAttribute("mapOrder", mapOrder);
+            
+            List<OrderStatus> listOrderStatus = orderStatusDAO.getAllOrderDetails();
+            request.setAttribute("listOrderStatus", listOrderStatus);
+            
+            List<Category> allCate = categoryDAO.getAllCategory();
+            request.setAttribute("listCate", allCate);
+            request.getRequestDispatcher("./common/customer-history-order.jsp").forward(request, response);
+        } else {
+            
+            int valueStatus = Integer.parseInt(valueStatusStr);
+            request.setAttribute("valueStatus", valueStatus);
+            List<Order> listOrderByStatus = null;
+            if (valueStatus == 0) {
+                listOrderByStatus = orderDAO.getOrderByCusId(customerid);
+            } else {
+                listOrderByStatus = orderDAO.getListOrderByStatusId(valueStatus, customerid);
+            }
+            
+            Map<Order, List<OrderDetail>> mapOrder = new LinkedHashMap<Order, List<OrderDetail>>();
+            for (Order order : listOrderByStatus) {
+                List<OrderDetail> orderDetail = orderDetailDAO.getAllOrderDetailsByOrderId(order.getOrderId());
+                mapOrder.put(order, orderDetail);
+            }
+            request.setAttribute("mapOrder", mapOrder);
+            
+            List<OrderStatus> listOrderStatus = orderStatusDAO.getAllOrderDetails();
+            request.setAttribute("listOrderStatus", listOrderStatus);
+            
+            List<Category> allCate = categoryDAO.getAllCategory();
+            request.setAttribute("listCate", allCate);
+            
+            request.getRequestDispatcher("./common/customer-history-order.jsp").forward(request, response);
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

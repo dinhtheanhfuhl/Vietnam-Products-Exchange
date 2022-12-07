@@ -158,12 +158,13 @@ public class OrderDAO {
         }
         return orders;
     }
-    public List<Order> getListOrderByStatusId(int statusId) {
+    public List<Order> getListOrderByStatusId(int statusId,int cusId) {
         List<Order> orders = new ArrayList<>();
-        String strSelectAll = "select * from [Order] where OrderStatusID = ?";
+        String strSelectAll = "select * from [Order] where OrderStatusID = ? and CustomerID = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);
             ps.setInt(1, statusId);
+            ps.setInt(2, cusId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Order order = new Order();
