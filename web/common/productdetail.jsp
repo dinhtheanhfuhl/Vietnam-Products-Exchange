@@ -54,6 +54,7 @@
                 cursor: pointer;
                 margin:0.5rem;
             }
+
         </style>
     </head>
 
@@ -76,7 +77,7 @@
                     <c:if test="${not empty message}">
                         <div class="alert alert-${alert}" role="alert">
                             <i class="fa fa-${icon}"></i>
-                            ${message}
+                            <b>${message}</b>
                         </div>
 
                     </c:if>
@@ -86,7 +87,7 @@
                         <div class="col-lg-6">
                             <div class="shop-details-thumb">
                                 <div class="shop-details-thumb-slider-active">
-                                    <img src="${product.img}" style="height: 70%;width: 70%;object-fit: cover;" alt="" id="mainimage" >
+                                    <img src="${product.img}" style="height: 400px;object-fit: cover;" alt="" id="mainimage" >
                                 </div>
                             </div>
                             <c:forEach items="${listProduct}" var="i">
@@ -98,13 +99,13 @@
                         <div class="col-lg-6">
                             <div class="shop-product-details-content pl-70 mt-35" >
                                 <h2 class="title">${product.productName}</h2>
-                                <span>${min} - ${medium} kg<br>
+                                <span>${min} - ${medium-1} kg<br>
                                     <span><fmt:formatNumber type = "number" 
                                                       pattern = "" value = "${priceMax}" /><sup>vnđ</sup></span></span>
-                                <span>${medium} - ${max} kg<br>
+                                <span>${medium} - ${max-1} kg<br>
                                     <span><fmt:formatNumber type = "number" 
                                                       pattern = "" value = "${priceMedium}" /><sup>vnđ</sup></span></span>
-                                <span> > ${max} kg<br>
+                                <span> &#8805; ${max} kg<br>
                                     <span><fmt:formatNumber type = "number" 
                                                       pattern = "" value = "${priceMin}" /><sup>vnđ</sup></span></span>
                                 <div class="pricing">
@@ -123,8 +124,7 @@
                                 <p>${product.shopName}</p>
                                 <form action="AddToCartController?pid=${product.productId}" method="post">
                                     <div class="shop-buttons d-block d-sm-flex align-items-center">
-                                        <input class="form-control" required="" type="number" placeholder="(Kg)Nhập trọng lượng" min="${min}" max="2000000000" name="amount" style="width: 150px;" />
-
+                                        <input id="inputweight" class="form-control" required="" type="number" placeholder="Nhập Kilogram" min="${min}" max="2000000000" name="amount" style="width: 150px;" />
                                         <input class="main-btn ml-10" type="submit" value="Thêm vào giỏ">
                                         <input type="hidden" name="proId" value="${product.productId}">
                                     </div> 
@@ -145,27 +145,29 @@
 
                     <div id="des" class="tabcontent">
                         <hp>
-                            <h5><b>Thành phần: </b>${product.element}</h5>
+                            <p>Thành phần: ${product.element}</p>
                         </hp>
-                        <br>
                         <hp>
-                            <h5><b>Mô tả: <br></b>${product.description}</h5>
+                            <p>Kiểu đóng gói: ${product.packing}</p>
+                        </hp>
+                        <hp>
+                            <p>Mô tả: ${product.description}</p>
                         </hp>
                     </div>
 
                     <div id="overview" class="tabcontent">
-                        <h5>Tên nhà cung cấp</h5>
+                        <p>Tên nhà cung cấp:</p>
                         <p>${supplier.supplierName}</p> 
-                        <h5>Số điện thoại liên hệ</h5>
+                        <p>Số điện thoại liên hệ:</p>
                         <p>${supplier.phone}</p> 
-                        <h5>Địa chỉ cơ sở chính</h5>
+                        <p>Địa chỉ cơ sở chính:</p>
                         <p>${supplier.mainAddress}</p> 
-                        <h5>Giấy phép kinh doanh</h5>
+                        <p>Giấy phép kinh doanh:</p>
                         <p>giaasy pheepep</p> 
                     </div>
 
                     <div id="licence" class="tabcontent">
-                        <h4>Giấy phép chứng nhận</h4>
+                        <p>Giấy phép chứng nhận</p>
                         <p>giấy phép here</p>
                         <p>giấy phép here</p>
                         <p>giấy phép here</p>
@@ -190,25 +192,23 @@
                         </div>
                     </div>
                     <div class="row shop-related-product-slider-active">
-                        <c:forEach items="${listProBySubCateId}" var="o">
-                        <div class="col-lg-3 col-md-6">
-                            <div class="single-shop-box">
-                                <div class="thumb text-center">
-                                    <img src="assets/images/shop-grid-5.jpg" alt="">
-                                    <div class="reborn">
-                                        <span>New</span>
+                        <c:forEach var="key" items="${mapImages.keySet()}">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="single-shop-box">
+                                    <div class="thumb text-center">
+                                        <img style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="">
+                                        
+
                                     </div>
-                               
-                                </div>
-                                <div class="content">
-                                    <a href="MimartDetailProduct?pid=${o.productId}">${o.productName}</a>
-                                    <div class="pricing">
-                                        <div class="discount-price">21.000đ </div> 
-                                        <div class="regular-price">25.000đ</div>
+                                    <div class="content">
+                                        <a style="text-decoration: none;" href="MimartDetailProduct?pid=${key.productId}"><h4>${key.productName}</h4></a>
+                                        <div class="pricing">
+                                            <div class="discount-price">21.000đ </div> 
+                                            <div class="regular-price">25.000đ</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         </c:forEach>
                         <div class="col-lg-3 col-md-6">
                             <div class="single-shop-box">
@@ -217,7 +217,7 @@
                                     <div class="reborn">
                                         <span>New</span>
                                     </div>
-                               
+
                                 </div>
                                 <div class="content">
                                     <div class="pricing">
@@ -234,7 +234,7 @@
                                     <div class="reborn">
                                         <span>New</span>
                                     </div>
-                               
+
                                 </div>
                                 <div class="content">
                                     <div class="pricing">

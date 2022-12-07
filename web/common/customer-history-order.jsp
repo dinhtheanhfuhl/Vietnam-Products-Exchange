@@ -59,14 +59,13 @@
         </div>
         <div style="float: right;margin-right: 90px;margin-bottom: 20px;">
             <h6>Sắp xếp theo</h6>
-            <select style="width: 190px;" class="form-control">
-                <option>Trạng thái</option>
-                <option value="">Chờ xác nhận</option>
-                <option value="#">Đã xác nhận</option>
-                <option value="#">Từ chối đơn</option>
-                <option value="#">Giao hàng thành công</option>
-                <option value="#">Đã huỷ</option>
-            </select>
+            <form action="SearchProductController" method="post">
+                <select id="selectstatus" name="selectstatus" class="form-control">
+                    <c:forEach items="${listOrderStatus}" var="o">
+                        <option value="${o.orderStatusID}">${o.statusName}</option>
+                    </c:forEach>
+                </select>
+            </form>
         </div>
         <div class="container ">
             <table class="table">
@@ -78,16 +77,16 @@
                         <th scope="col">Tổng tiền</th>
                         <th scope="col">Trạng thái</th>
                         <th scope="col">Chi tiết</th>
-                       
+
                     </tr>
                 </thead>
                 <tbody>
-                    
-                        <c:forEach var="key" items="${mapOrder.keySet()}">
+
+                    <c:forEach var="key" items="${mapOrder.keySet()}">
                         <tr>
                             <td>${key.orderId}</td>
-                            <td>32432</td>
-                            <td>ewrew</td>
+                            <td>${mapOrder.get(key).get(0).getOrderDate()}</td>
+                            <td>${mapOrder.get(key).get(0).getAmount()}</td>
                             <td>
                                 <fmt:formatNumber type = "number" 
                                                   pattern = "" value = "${key.totalPrice}" /><sup>vnđ</sup>

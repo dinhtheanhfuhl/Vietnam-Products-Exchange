@@ -87,6 +87,7 @@
 
                                 </div>
                                 <div class="sumarizePrice ">
+                                    <input type="hidden" value="${totalCart}" name="totalprice">
                                     <p>Tổng tiền: <span class="padding-price"><fmt:formatNumber type = "number" 
                                                       pattern = "" value = "${totalCart}" /><sup>vnđ</sup>&nbsp;&nbsp;</span></p>
                                 </div>

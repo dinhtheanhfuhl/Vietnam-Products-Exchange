@@ -90,62 +90,39 @@
                         </div>
                         <div class="displayProduct pb-3">
                             <ul id="mainCart" class="pb-3">
-
-                                <c:forEach var="key" items="${mapImages.keySet()}" >
-                                    <li>
-                                        <table>
+                                <div class="ordered-detail container">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">&nbsp;</th>
+                                                <th scope="col">Tên sản phẩm</th>
+                                                <th scope="col">Số lượng</th>
+                                                <th scope="col">Đơn giá</th>
+                                                <th scope="col">Thành tiền</th>
+                                                <th scope="col">Xoá</th>
+                                            </tr>
+                                        </thead>
+                                        <c:forEach var="key" items="${mapImages.keySet()}" >
                                             <tbody>
                                                 <tr>
-                                                    <td><div class="img-product ">
-                                                            <img src="${mapImages.get(key).get(0).getImgPath()}" alt="" width="50" height="50" style="object-fit: cover">
-                                                        </div>
+                                                    <td><img src="${mapImages.get(key).get(0).getImgPath()}" alt="" style="object-fit: cover;margin-left: 0px;"></td>
+                                                    <td><a style="text-decoration: none;" href="MimartDetailProduct?pid=${mapProduct.get(key).get(0).productId}">
+                                                            <h6>${mapProduct.get(key).get(0).productName}<br>
+                                                            ${mapProduct.get(key).get(0).trademark}<br>
+                                                            ${mapProduct.get(key).get(0).smell},
+                                                            ${mapProduct.get(key).get(0).color}</h6></a>
                                                     </td>
-                                                    <td>
-                                                        <div class="infor-product pl-3">
-                                                            <b>
-                                                                ${mapProduct.get(key).get(0).productName}<br>
-
-                                                                ${mapProduct.get(key).get(0).trademark}<br>
-
-                                                                ${mapProduct.get(key).get(0).smell},
-                                                                ${mapProduct.get(key).get(0).color}<br>
-                                                                ${mapProduct.get(key).get(0).packing}
-                                                            </b>
-                                                        </div>
-
-                                                    </td>
-                                                    <td>
-                                                        <div class="infor-product pl-3">
-
-                                                            <p><b>${mapSupplier.get(key).get(0).getShopName()}</b></p>
-
-                                                        </div>
-                                                    </td>
-
-                                                    <td>
-                                                        <div class="infor-product pl-3">
-
-                                                            <p><b>${key.amount}Kg</b></p>
-
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div  class="infor-product pl-3" >
-
-                                                            <p> <b><fmt:formatNumber type = "number"
-                                                                              pattern = "" value = "${mapProHie.get(key)}" /><sup>vnđ</sup></b> </p>
-
-                                                        </div>
-                                                    </td>
-
-                                            <b><a style="float: right;" href="DeleteCartController?pid=${mapProduct.get(key).get(0).getProductId()}&&cid=${key.cartId}"><i class="icon-delete1 fas fa-trash-alt"></i></a></b>
-
-                                            </tr>
+                                                    <td>${key.amount}Kg</td>
+                                                    <td><fmt:formatNumber type = "number"
+                                                                      pattern = "" value = "${mapProHie.get(key).price}" /><sup>vnđ/kg</sup></td>
+                                                    <td><fmt:formatNumber type = "number"
+                                                                      pattern = "" value = "${mapProHie.get(key).price*key.amount}" /><sup>vnđ</sup></td>
+                                                    <td><a style="float: right;" href="DeleteCartController?pid=${mapProduct.get(key).get(0).getProductId()}&&cid=${key.cartId}"><i class="icon-delete1 fas fa-trash-alt"></i></a></td>
+                                                </tr>
                                             </tbody>
-                                        </table>
-
-                                    </li>
-                                </c:forEach>
+                                        </c:forEach>
+                                    </table>
+                                </div>
                             </ul>
                         </div>
                     </div>

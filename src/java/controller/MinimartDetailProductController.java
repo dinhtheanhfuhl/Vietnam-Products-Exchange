@@ -7,17 +7,21 @@ package controller;
 import dao.CategoryDAO;
 import dao.ProductDAO;
 import dao.ProductHierarchyDAO;
+import dao.ProductImageDAO;
 import dao.SubCategoryDAO;
 import dao.SupplierDAO;
 import dbconnect.DBConnect;
 import entity.Category;
 import entity.Product;
 import entity.ProductHierarchy;
+import entity.ProductImage;
 import entity.SubCategory;
 import entity.Supplier;
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -46,6 +50,7 @@ public class MinimartDetailProductController extends HttpServlet {
         CategoryDAO categoryDAO = new CategoryDAO(connection);
         SubCategoryDAO subCateDAO = new SubCategoryDAO(connection);
         SupplierDAO supplierDAO = new SupplierDAO(connection);
+        ProductImageDAO productImageDAO = new ProductImageDAO(connection);
         ProductHierarchyDAO proHieDAO = new ProductHierarchyDAO(connection);
         
         String id = request.getParameter("pid");
@@ -65,6 +70,13 @@ public class MinimartDetailProductController extends HttpServlet {
 
         List<Product> listProBySubCateId = productDAO.getAllProductBySubCateID(subcate.getSubCateId());
         request.setAttribute("listProBySubCateId", listProBySubCateId);
+        
+        Map<Product, List<ProductImage>> mapImages = new LinkedHashMap<Product, List<ProductImage>>();
+        for (Product p : listProBySubCateId) {
+            List<ProductImage> images = productImageDAO.getAllProductsImageByProId(p.getProductId());
+            mapImages.put(p, images);
+        }
+        request.setAttribute("mapImages", mapImages);
         
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);

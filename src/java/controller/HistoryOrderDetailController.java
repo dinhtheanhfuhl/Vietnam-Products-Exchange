@@ -9,12 +9,14 @@ import dao.OrderDAO;
 import dao.OrderDetailDAO;
 import dao.ProductDAO;
 import dao.ProductImageDAO;
+import dao.SupplierDAO;
 import dbconnect.DBConnect;
 import entity.Category;
 import entity.Order;
 import entity.OrderDetail;
 import entity.Product;
 import entity.ProductImage;
+import entity.Supplier;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.LinkedHashMap;
@@ -49,6 +51,7 @@ public class HistoryOrderDetailController extends HttpServlet {
         ProductDAO productDAO = new ProductDAO(connection);
         ProductImageDAO productImageDAO = new ProductImageDAO(connection);
         CategoryDAO categoryDAO = new CategoryDAO(connection);
+        SupplierDAO supplierDAO = new SupplierDAO(connection);
         
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
@@ -74,6 +77,13 @@ public class HistoryOrderDetailController extends HttpServlet {
             mapImage.put(o, image);
         }
         request.setAttribute("mapImage", mapImage);
+        
+        Map<OrderDetail, List<Supplier>> mapSupplier = new LinkedHashMap<OrderDetail, List<Supplier>>();
+        for (OrderDetail o : listProInOrder) {
+            List<Supplier> supplier = supplierDAO.getSupplierByProId(o.getProductId());
+            mapSupplier.put(o, supplier);
+        }
+        request.setAttribute("mapSupplier", mapSupplier);
         
         request.getRequestDispatcher("./common/customer-detail-order.jsp").forward(request, response);
     }
