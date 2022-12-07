@@ -234,7 +234,7 @@ body.swal2-iosfix {
     -webkit-box-shadow: 0 0 3px #c4e6f5;
     box-shadow: 0 0 3px #c4e6f5; 
 }
-.swal2-modal .swal2-file:focus, {
+.swal2-modal .swal2-file:focus{
     outline: none;
     -webkit-box-shadow: 0 0 3px #c4e6f5;
     box-shadow: 0 0 3px #c4e6f5; 

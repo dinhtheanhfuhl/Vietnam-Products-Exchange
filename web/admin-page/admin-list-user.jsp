@@ -193,7 +193,7 @@
                                                                     <c:when test="${mapSupplierStatus.get(key)==3}">Tài khoản bị từ chối</c:when>
                                                                 </c:choose>
                                                             </td>
-                                                            <td><a href="DetailSuppilerController?action=detail-supplier&id=${key.supplierId}">Xem chi tiết</a></td>
+                                                            <td><a href="DetailSuppilerController?id=${key.supplierId}">Xem chi tiết</a></td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>

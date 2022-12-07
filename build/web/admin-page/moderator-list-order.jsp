@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -11,18 +12,18 @@
         <link rel="shortcut icon" .href="./image/578b1438ff0a7fc4704aa5ade7625e89.jpeg" type="image/png">
 
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="../assets/css/loader.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/loader.css" rel="stylesheet" type="text/css" />
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/plugins.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/plugins.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-        <link href="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
-        <link href="../plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
-        <link href="../assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />\
-        <link rel="stylesheet" href="../assets/css/style.css">
+        <link href="${pageContext.request.contextPath}/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />\
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
         <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
 
@@ -139,36 +140,39 @@
                                                            type="hidden">
 
                                                     <div id="filter">
-                                                        <input type="text" name="id" placeholder="Mã đơn hàng" value=""
-                                                               class="form-control">
-                                                        <input type="text" name="name" placeholder="Nhà cung cấp" value=""
-                                                               class="form-control">
-                                                        <button class="btn btn-info"
-                                                                style="padding: 0 10px; background: none; border: none;"
-                                                                title="Tìm kiếm">
-                                                            <i class="flaticon-search" aria-hidden="true"
-                                                               style="color:#469408;font-size: 25px;line-height: 42px;"></i>
-                                                        </button>
-
+                                                        <form action="ModeratorOrderController" method="POST">
+                                                            <input type="hidden" name="action" value="search"/>
+                                                            <input type="text" name="id" placeholder="Mã đơn hàng" value=""
+                                                                   class="form-control">
+                                                            <input type="text" name="name" placeholder="Nhà cung cấp" value=""
+                                                                   class="form-control">
+                                                            <button  class="btn btn-info"
+                                                                     style="padding: 0 10px; background: none; border: none;"
+                                                                     title="Tìm kiếm">
+                                                                <i class="flaticon-search" aria-hidden="true"
+                                                                   style="color:#469408;font-size: 25px;line-height: 42px;"></i>
+                                                            </button>
+                                                        </form>
                                                     </div>
                                                 </form>
                                             </div>
 
                                         </div>
                                     </div>
-                                    <select id="selectstatus" onchange="location = this.value;" class="form-control">
-                                        <option>Trạng thái</option>
-                                        <option value="">Chờ xác nhận</option>
-                                        <option value="#">Đã xác nhận</option>
-                                        <option value="#">Từ chối đơn</option>
-                                        <option value="#">Giao hàng thành công</option>
-                                    </select>
+                                    <form action="ModeratorOrderController" method="POST">
+                                        <select name="filter" id="selectstatus" onchange="this.form.submit();" class="form-control">
+                                            <option value="0">Tất cả</option>
+                                            <option value="1">Chờ xác nhận</option>
+                                            <option value="2">Đã xác nhận</option>
+                                            <option value="3">Từ chối đơn</option>
+                                            <option value="4">Giao hàng thành công</option>
+                                        </select>
+                                    </form>
                                     <h6 id="sorttext">Sắp xếp theo</h6>
                                     <div class="table-responsive new-products">
                                         <table class="table">
                                             <thead>
                                                 <tr class="text-center">
-                                                    <th>STT</th>
                                                     <th>Thời gian đặt hàng</th>
                                                     <th>Mã đặt đơn hàng</th>
                                                     <th>Minimart</th>
@@ -181,27 +185,23 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>11/01/2000</td>
-                                                    <td>4520001</td>
-                                                    <td>Nong san dung ha</td>
-                                                    <td>Supper market</td>
-                                                    <td>20</td>
-                                                    <td>500đ</td>
-                                                    <td>TP HCM</td>
-                                                    <td><p class="btn btn-warning status mb-2">fff</p></td>
-                                                    <!-- <td><p class="btn btn-secondary status mb-2">Đã ẩn</p></td>
-                                                    <td><p class="btn btn-danger status mb-2">Từ chối phê duyệt</p></td>
-                                                    <td><p class="btn btn-warning status mb-2">Chờ phê duyệt</p></td>
-                                                    <td><p class="btn btn-success status mb-2">Đã phê duyệt</p></td> -->
-                                                    <td><a href="moderator-view-order.jsp">Xem chi tiết</a></td>
-
-                                                </tr>
+                                                <c:forEach var="o" items="${orders}">
+                                                    <tr>
+                                                        <td>11/01/2000</td>
+                                                        <td>4520001</td>
+                                                        <td>Nong san dung ha</td>
+                                                        <td>Supper market</td>
+                                                        <td>20</td>
+                                                        <td>500đ</td>
+                                                        <td>TP HCM</td>
+                                                        <td><p class="btn btn-warning status mb-2">fff</p></td>
+                                                        <td><a href="moderator-view-order.jsp">Xem chi tiết</a></td>
+                                                    </tr>
+                                                </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -254,7 +254,7 @@
         <aside class="profile-sidebar text-center">
             <div class="profile-content profile-content-scroll">
                 <div class="usr-profile">
-                    <img src="../assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
+                    <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
                 </div>
                 <p class="user-name mt-4 mb-4">Hoàng Thị Xoan</p>
 
@@ -276,39 +276,39 @@
         <!--  BEGIN PROFILE SIDEBAR  -->
     </body>
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="../assets/js/libs/jquery-3.1.1.min.js"></script>
-    <script src="../assets/js/loader.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="../plugins/blockui/jquery.blockUI.min.js"></script>
-    <script src="../assets/js/app.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/loader.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
     <script>
-                                        $(document).ready(function () {
-                                            App.init();
-                                        });
+                                            $(document).ready(function () {
+                                                App.init();
+                                            });
     </script>
-    <script src="../assets/js/custom.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-    <script src="../plugins/charts/chartist/chartist.js"></script>
-    <script src="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
-    <script src="../plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="../plugins/calendar/pignose/moment.latest.min.js"></script>
-    <script src="../plugins/calendar/pignose/pignose.calendar.js"></script>
-    <script src="../plugins/progressbar/progressbar.min.js"></script>
-    <script src="../assets/js/default-dashboard/default-custom.js"></script>
-    <script src="../assets/js/ui-kit/timeline/horizontal-main.js"></script>
-    <script src="../plugins/charts/amcharts/amcharts.js"></script>
-    <script src="../plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
-    <script src="../plugins/maps/vector/ammaps/worldLow.js"></script>
-    <script src="../plugins/charts/amcharts/radar.js"></script>
-    <script src="../plugins/charts/amcharts/pie.js"></script>
-    <script src="../plugins/charts/sparklines/jquery.sparkline.min.js"></script>
-    <script src="../plugins/charts/amcharts/serial.js"></script>
-    <script src="../plugins/charts/amcharts/light.js"></script>
-    <script src="../assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/chartist/chartist.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/calendar/pignose/moment.latest.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/calendar/pignose/pignose.calendar.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/progressbar/progressbar.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/default-dashboard/default-custom.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/ui-kit/timeline/horizontal-main.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/amcharts.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/worldLow.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/radar.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/pie.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/sparklines/jquery.sparkline.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/serial.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/light.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
 
 
 </html>

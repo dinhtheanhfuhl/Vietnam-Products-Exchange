@@ -9,7 +9,6 @@ import entity.Customer;
 import entity.MessageRejectAccount;
 import java.io.IOException;
 import java.sql.Connection;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,29 +36,27 @@ public class DetailCustomerController extends HttpServlet {
             request.setAttribute("acc", acc);
             request.setAttribute("ma", ma);
             request.getRequestDispatcher("admin-page/admin-view-detail-customer.jsp").forward(request, response);
-        } else if (action.equals("accept-account")) {
+        } else if (action.equals("accept")) {
             String accId = request.getParameter("acc-id");
             String cusId = request.getParameter("cus-id");
             Account account = accountDAO.getAccountById(Integer.parseInt(accId));
-            account.setStatus(1);
-            int statusUpdate = accountDAO.updateAccount(account);
             Customer customer = customerDAO.getCustomerById(Integer.parseInt(cusId));
-            Account account1 = accountDAO.getAccountById(customer.getAccId());
-            request.setAttribute("customer", customer);
-            request.setAttribute("account", account1);
-            RequestDispatcher rd = request.getRequestDispatcher("admin-page/admin-view-detail-customer.jsp");
-            rd.forward(request, response);
-
-        } else {
-            String id = request.getParameter("id");
-
-            Customer customer = customerDAO.getCustomerById(Integer.parseInt(id));
-            Account account = accountDAO.getAccountById(customer.getAccId());
-
-            request.setAttribute("customer", customer);
-            request.setAttribute("account", account);
-            RequestDispatcher rd = request.getRequestDispatcher("admin-page/admin-view-detail-customer.jsp");
-            rd.forward(request, response);
+            account.setStatus(2);
+            int statusUpdate = accountDAO.updateAccount(account);
+            request.setAttribute("cus", customer);
+            request.setAttribute("acc", account);
+            request.getRequestDispatcher("admin-page/admin-view-detail-customer.jsp").forward(request, response);
+        } else if(action.equals("reject")) {
+            int accId = Integer.parseInt(request.getParameter("acc-id"));
+            int cusId = Integer.parseInt(request.getParameter("cus-id"));
+            String reason = request.getParameter("reason");
+            Account acc = accountDAO.getAccountById(accId);
+            Customer cus = customerDAO.getCustomerByAccId(cusId);
+            acc.setStatus(3);
+            int status = accountDAO.updateAccount(acc);
+            MessageRejectAccount ma = new MessageRejectAccount(0, accId, reason);
+            int statusMess = messRejectDAO.saveMessageRejectAccount(ma);
+            response.sendRedirect("DetailCustomerController?id="+cusId);
         }
 
     }
