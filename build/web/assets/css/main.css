@@ -3769,7 +3769,7 @@ label.custom-control-label { margin-bottom: .5rem; margin-bottom: 16px; }
 .new-control.new-checkbox.new-checkbox-line-through>input:checked~span.new-chk-content { text-decoration: line-through; }
 
 /*  line through colors   */
-.new-control.new-checkbox.new-checkbox-line-through.>input:checked~span.new-chk-content,
+.new-control.new-checkbox.new-checkbox-line-through>input:checked~span.new-chk-content,
 .new-control.new-checkbox.new-checkbox-line-through.checkbox-outline-default>input:checked~span.new-chk-content { color: #a2a3a3; }
 
 .new-control.new-checkbox.new-checkbox-line-through.checkbox-primary>input:checked~span.new-chk-content,
@@ -3905,7 +3905,7 @@ label.custom-control-label { margin-bottom: .5rem; margin-bottom: 16px; }
 .new-control.new-radio.radio-classic-dark>input:checked~span.new-control-indicator:after { background-color: #4f5163; }
 
 /*  line through colors   */
-.new-control.new-radio.new-radio-line-through.>input:checked~span.new-radio-content,
+.new-control.new-radio.new-radio-line-through>input:checked~span.new-radio-content,
 .new-control.new-radio.new-radio-line-through.radio-classic-default>input:checked~span.new-radio-content { color: #a2a3a3; }
 
 .new-control.new-radio.new-radio-line-through.radio-primary>input:checked~span.new-radio-content,

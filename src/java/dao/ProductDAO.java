@@ -587,4 +587,50 @@ public class ProductDAO {
         return product;
     }
 
+    public List<Product> searchProduct(String id, String shopName, String name, String barCode, String statusFilter) {
+        List<Product> products = new ArrayList<>();
+        String strSearch = "select * from Product where 1 = 1";
+        if(id != null && !id.equals("")){
+            strSearch+=" and ProductId="+id;
+        }
+        if(name != null && !name.equals("")){
+            strSearch+=" and ProductName like N'%"+name+"%'";
+        }
+        if(barCode != null && !barCode.equals("")){
+            strSearch+=" and BarCode like N'%"+barCode+"%'";
+        }
+        if(statusFilter != null && !statusFilter.equals("") && !statusFilter.equals("0")){
+            strSearch+=" and StatusID="+statusFilter;
+        }
+        if(shopName != null && !shopName.equals("")){
+            strSearch+=" and SupplierID IN (select SupplierID from supplier where ShopName like N'%"+shopName+"%')";
+        }
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSearch);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setProductId(rs.getInt("ProductID"));
+                product.setSupplierId(rs.getInt("SupplierID"));
+                product.setSubCateId(rs.getInt("SubCateID"));
+                product.setCreatedDate(rs.getString("CreatedDate"));
+                product.setDescription(rs.getString("Description"));
+                product.setProductName(rs.getString("ProductName"));
+                product.setBarCode(rs.getString("BarCode"));
+                product.setProductCertificate(rs.getString("ProductCertificate"));
+                product.setTrademark(rs.getString("Trademark"));
+                product.setSmell(rs.getString("Smell"));
+                product.setColor(rs.getString("Color"));
+                product.setWeight(rs.getInt("Weight"));
+                product.setPacking(rs.getString("Packing"));
+                product.setElement(rs.getString("Element"));
+                product.setViewNumber(rs.getInt("ViewNumber"));
+                product.setStatusId(rs.getInt("StatusID"));
+                products.add(product);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return products;
+    }
 }

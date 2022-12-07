@@ -153,7 +153,9 @@ public class SupplierAddController extends HttpServlet {
                         }
                         Path path = Paths.get(filename);
                         String storePath = servletContext.getRealPath("/uploads");
-
+                        if (!Files.exists(Paths.get(storePath))) {
+                            Files.createDirectories(Paths.get(storePath));
+                        }
                         if (!Files.exists(Paths.get(storePath))) {
                             Files.createDirectories(Paths.get(storePath));
                         }

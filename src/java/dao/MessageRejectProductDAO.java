@@ -56,4 +56,23 @@ public class MessageRejectProductDAO {
         }
         return messageRejectProduct;
     }
+
+    public MessageRejectProduct getMessageRejectProductByProId(int id) {
+        MessageRejectProduct messageRejectProduct = null;
+        String strSelectById = "select * from MessageRejectProduct where ProductID=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                messageRejectProduct = new MessageRejectProduct();
+                messageRejectProduct.setMessageProductId(rs.getInt("MessageProductID"));
+                messageRejectProduct.setProductId(rs.getInt("ProductID"));
+                messageRejectProduct.setMessageDescribe(rs.getString("MessageDescribe"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return messageRejectProduct;
+    }
 }

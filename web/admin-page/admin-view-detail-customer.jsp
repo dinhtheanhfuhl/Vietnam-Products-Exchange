@@ -116,7 +116,7 @@
 
                                 </div>
                                 <div class="profile-usertitle">
-                                    <div class="profile-usertitle-name">${customer.customerName}</div>
+                                    <div class="profile-usertitle-name">${cus.customerName}</div>
                                 </div>
                             </div>
                         </div>
@@ -258,7 +258,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <c:if test="${ma != null}">
+                                <c:if test="${acc.status==3}">
                                     <div class="col-md-8 col-sm-6 pt-4 pb-4">
                                         <table>
                                             <tbody>
@@ -269,54 +269,55 @@
                                                     </td>
 
                                                     <td class="display-userName-3">
-                                                        <p>Tài khoản không có giấy phép</p>
+                                                        <p>${ma.messageDescribe}p</p>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                 </c:if>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label style="margin-left: -10px"; class="form-label pass-infor">Hành động</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <button href="" class="btn btn-success mb-1">Phê duyệt tài khoản</button>
-                                                    <button href="" class="btn btn-danger mb-1" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Từ chối tài khoản</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <c:if test="${acc.status==1}">
+                                    <div class="col-md-8 col-sm-6 pt-4 pb-4">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td><label style="margin-left: -10px"; class="form-label pass-infor">Hành động</label>
+                                                    </td>
+                                                    <td class="display-userName-3">
+                                                        <a href="DetailCustomerController?action=accept&acc-id=${acc.accId}&cus-id=${cus.customerId}" class="btn btn-success mb-1">Phê duyệt tài khoản</a>
+                                                        <button href="" class="btn btn-danger mb-1" data-toggle="modal" data-target="#exampleModal">Từ chối tài khoản</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
 
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Từ chối tài khoản</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form>
-                                                        
-                                                        <div class="form-group">
-                                                            <label for="message-text" class="col-form-label">Lý do từ chối: </label>
-                                                            <textarea class="form-control" id="message-text"></textarea>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Huỷ</button>
-                                                    <button type="button" class="btn btn-success">Gửi</button>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Từ chối tài khoản</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="DetailCustomerController?action=reject&acc-id=${acc.accId}&cus-id=${cus.customerId}" method="POST" id="reject-form">
+                                                            <div class="form-group">
+                                                                <label for="message-text" class="col-form-label">Lý do từ chối: </label>
+                                                                <textarea name="reason" class="form-control" id="message-text"></textarea>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Huỷ</button>
+                                                        <input type="submit" value="Gửi" class="btn btn-success" form="reject-form"/>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </c:if>
                             </div>
                         </div>
                     </div>
@@ -426,7 +427,7 @@
             var modal = $(this)
             modal.find('.modal-body input').val(recipient)
         })
-            </script>
+    </script>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 </body>
 
