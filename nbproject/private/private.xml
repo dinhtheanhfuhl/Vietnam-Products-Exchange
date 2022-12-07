@@ -2,13 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/MinimartDetailProductController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/header.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/MinimartProductController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/productdetail.jsp</file>
-        </group>
         <group/>
         <group>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/ViewCart.jsp</file>
@@ -34,6 +27,10 @@
             <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/src/java/security/SecurityPassword.java</file>
             <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/src/java/controller/RegisterController.java</file>
             <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/src/java/dao/AccountDAO.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/web/assets/css/pages/landing-page/style.css</file>
+            <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/src/java/controller/RegisterController.java</file>
         </group>
     </open-files>
 </project-private>
