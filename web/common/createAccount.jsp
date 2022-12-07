@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -139,15 +140,16 @@
                     <div class="col-lg-4 col-sm-12">
                         <div class="acc-page">
                             <div class="login">
-                                <form action="index.html">
+                                <form action="RegisterController" method="POST" enctype="multipart/form-data">
                                     <div class="login-form-container">
+                                        <input type="hidden" name="action" value="reg"/>
                                         <div class="title-text ">
                                             <h2>Tạo tài khoản</h2>
                                             <p>Vui lòng đăng kí thông tin vào bên dưới!</p>
                                         </div>
                                         <div class="form-group fill-form log-email">
                                             <label>Tên người dùng*</label>
-                                            <input type="text" required="" class="form-control" id="exampleInputPassword1"
+                                            <input name="name" type="text" required="" class="form-control" id="exampleInputPassword1"
                                                    placeholder="nhập tên người dùng">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
@@ -157,53 +159,61 @@
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
                                             <label for="exampleInputPassword1">Xác nhận mật khẩu*</label>
-                                            <input type="password" required="" name="confirm_password" id="confirm_password" class="form-control" 
+                                            <input type="password" required="" name="re-password" id="confirm_password" class="form-control" 
                                                    placeholder="xác nhận mật khẩu">
                                             <span id='message'></span>
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
                                             <label for="exampleInputPassword1">Ngày sinh*</label>
-                                            <input type="date" required="" class="form-control"
+                                            <input name="date-birth" type="date" required="" class="form-control"
                                                    placeholder="ngày sinh">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
                                             <label for="exampleInputPassword1">Giới tính*</label>
                                             <select class="form-control" name="gender" id="gender">
-                                                <option value="male">Nam</option>
-                                                <option value="female">Nữ</option>
-                                                <option value="other">Khác</option>
+                                                <option value="nam">Nam</option>
+                                                <option value="nữ">Nữ</option>
+                                                <option value="khác">Khác</option>
                                             </select>
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
                                             <label>Email*</label>
-                                            <input required="" type="email" class="form-control"
+                                            <input name="email" required="" type="email" class="form-control"
                                                    placeholder="nhập email">
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
                                             <label>Số điện thoại*</label>
-                                            <input required="" type="text" class="form-control" 
+                                            <input name="phone" required="" type="number" class="form-control" 
                                                    placeholder="nhập số điện thoại">
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
                                             <label >Vai trò*</label>
                                             <select class="form-control" name="role" id="gender">
-                                                <option value="">Nhà cung cấp</option>
-                                                <option value="">Minimart</option>
+                                                <option value="3">Nhà cung cấp</option>
+                                                <option value="4">Minimart</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group fill-form log-lastName">
+                                            <label >Thành phố*</label>
+                                            <select class="form-control" name="city" id="gender">
+                                                <c:forEach var="c" items="${cities}">
+                                                    <option value="${c.cityId}">${c.cityName}</option>
+                                                </c:forEach>
                                             </select>
                                         </div>
                                         <div class="form-group fill-form log-lastName">
                                             <label>Tên cửa hàng*</label>
-                                            <input required="" type="text" class="form-control" 
+                                            <input name="shop-name" required="" type="text" class="form-control" 
                                                    placeholder="nhập tên cửa hàng">
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
                                             <label>Địa chỉ cơ sở chính*</label>
-                                            <input type="password"  required="" class="form-control" 
+                                            <input name="main-address" type="text"  required="" class="form-control" 
                                                    placeholder="nhập địa chỉ cơ sở chính">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
                                             <label>Giấy phép*</label>
-                                            <input type="file" required="" class="form-control-file"
+                                            <input name="lincse" type="file" required="" class="form-control-file"
                                                    id="file-input">
                                         </div> 
                                         <button type="submit" class="btn btn-primary btn-warning form-control">Đăng ký</button>

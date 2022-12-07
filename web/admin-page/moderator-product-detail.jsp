@@ -115,7 +115,7 @@
                             <tr>
                                 <th style="min-width: 300px">Ảnh</th>
                                 <td>
-                                    <c:forEach var="img" items="${listProImgs}">
+                                    <c:forEach var="img" items="${proImgs}">
                                         <img style="width: 100px; height: 100px; object-fit: cover;" class="product-list-img" src="uploads/${img.imgPath}"> 
                                     </c:forEach>
                                 </td>
@@ -127,22 +127,22 @@
                             <tr>
                                 <th>Khoảng giá</th>
                                 <td>
-                                    <c:forEach var="lp" items="${listProHies}">
-                                        > ${lp.quantity} kg: <b>${lp.price} vnd</b><br>
+                                    <c:forEach var="lp" items="${proHies}">
+                                        > ${lp.quantity} kg: ${lp.price} vnd<br>
                                     </c:forEach>
                                 </td>
                             </tr> 
                             <tr>
                                 <th>Khu vực giao hàng</th>
                                 <td>
-                                    <c:forEach var="c" items="${listCities}">
-                                        <b>${c.cityName}</b><br/>
+                                    <c:forEach var="c" items="${cities}">
+                                        ${c.cityName}<br/>
                                     </c:forEach>
                                 </td>
                             </tr> 
                             <tr>
                                 <th>Danh mục hàng</th>
-                                <td>${cate.cateName}</td>
+                                <td>${cate.cateName} - ${subCate.subCateName}</td>
                             </tr>
                             <tr>
                                 <th>Mã Barcode / SKU</th>
@@ -184,6 +184,12 @@
                                 <th>Giấy tờ chứng nhận</th>
                                 <td>${product.productCertificate}</td>
                             </tr>
+                            <c:if test="${mess != null}">
+                                <tr>
+                                    <th>Lý do từ chối: </th>
+                                    <td>${mess.messageDescribe}</td>
+                                </tr>
+                            </c:if>
                             <tr>
                                 <th>Trạng thái</th>
                                 <td>
@@ -197,11 +203,13 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="button-status ">
-                        <h5>Hành động</h5>
-                        <button class="btn btn-success mb-1" class="btn btn-primary" type="submit">Phê duyệt đơn</button>
-                        <button class="btn btn-danger mb-1" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" type="submit">Từ chối đơn</button>
-                    </div>
+                    <c:if test="${product.statusId == 1}">
+                        <div class="button-status ">
+                            <h5>Hành động</h5>
+                            <a href="ModeratorDetailProductController?action=accept&id=${product.productId}" class="btn btn-success mb-1" class="btn btn-primary">Phê duyệt đơn</a>
+                            <button class="btn btn-danger mb-1" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" type="submit">Từ chối đơn</button>
+                        </div>
+                    </c:if>
                 </div>
             </div>
 
@@ -217,17 +225,16 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
-
+                            <form action="ModeratorDetailProductController?action=reject&id=${product.productId}" method="POST" id="reject-form">
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Lý do từ chối: </label>
-                                    <textarea class="form-control" id="message-text"></textarea>
+                                    <textarea name="reason" class="form-control" id="message-text"></textarea>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Huỷ</button>
-                            <button type="button" class="btn btn-success">Gửi</button>
+                            <input form="reject-form" type="submit" value="Gửi" class="btn btn-success"/>
                         </div>
                     </div>
                 </div>
@@ -261,7 +268,7 @@
                     </div>
                 </div>
             </footer>
-            
+
             <!--  END FOOTER  -->
 
             <!--  BEGIN PROFILE SIDEBAR  -->

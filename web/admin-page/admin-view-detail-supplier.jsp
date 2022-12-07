@@ -115,7 +115,7 @@
 
                                 </div>
                                 <div class="profile-usertitle">
-                                    <div class="profile-usertitle-name">${supplier.supplierName}</div>
+                                    <div class="profile-usertitle-name">${sup.supplierName}</div>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${supplier.supplierName}</p>
+                                                       value="" >${sup.supplierName}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -145,7 +145,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${supplier.dateBirth}</p>
+                                                       value="" >${sup.dateBirth}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -161,7 +161,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${supplier.gender}</p>
+                                                       value="" >${sup.gender}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -175,7 +175,7 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${supplier.email}</p>
+                                                       value="" >${sup.email}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -191,7 +191,7 @@
 
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${supplier.phone}</p>
+                                                       value="" >${sup.phone}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -206,7 +206,7 @@
 
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${supplier.shopName}</p>
+                                                       value="" >${sup.shopName}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -221,7 +221,7 @@
 
                                                 <td class="display-userName-3">
                                                     <p type="text" id="inputpass"
-                                                       value="" >${supplier.mainAddress}</p>
+                                                       value="" >${sup.mainAddress}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -234,8 +234,7 @@
                                                 <td><label class="form-label pass-infor">Giấy phép</label>
                                                 </td>
                                                 <td class="display-userName-3">
-                                                    <a type="text" id="inputpass"
-                                                       value="" >Giay phep</a>
+                                                    <a href="#">Tải xuống giấy phép</a>
                                                 </td>
                                             </tr>
 
@@ -250,41 +249,46 @@
                                                 </td>
                                                 <td class="display-userName-3">
                                                     <c:choose>
-                                                        <c:when test="${account.status == true}"><a class="btn btn-success">Đang hoạt động</a></c:when>
-                                                        <c:otherwise><a href="DetailSuppilerController?action=accept-account&sup-id=${customer.customerId}&acc-id=${account.accId}" class="btn btn-success">Chấp thuận tài khoản</a></c:otherwise>
+                                                        <c:when test="${acc.status==1}">Chờ phê duyệt</c:when>
+                                                        <c:when test="${acc.status==2}">Đã chấp thuận</c:when>
+                                                        <c:when test="${acc.status==3}">Từ chối tài khoản</c:when>
                                                     </c:choose>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label style="margin-left: -10px"; class="form-label pass-infor">Lý do bị từ chối</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <p>Tài khoản không có giấy phép </p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label style="margin-left: -10px"; class="form-label pass-infor">Hành động</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <button href="" class="btn btn-success mb-1">Phê duyệt tài khoản</button>
-                                                    <button href="" class="btn btn-danger mb-1" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Từ chối tài khoản</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <c:if test="${acc.status==3}">
+                                    <div class="col-md-8 col-sm-6 pt-4 pb-4">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td><label style="margin-left: -10px"; class="form-label pass-infor">Lý do bị từ chối</label>
+                                                    </td>
+                                                    <td class="display-userName-3">
+                                                        <p>${ma.messageDescribe}</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </c:if>
+                                <c:if test="${acc.status == 1}">
+                                    <div class="col-md-8 col-sm-6 pt-4 pb-4">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td><label style="margin-left: -10px"; class="form-label pass-infor">Hành động</label>
+                                                    </td>
+                                                    <td class="display-userName-3">
+                                                        <a href="DetailSuppilerController?action=accept&sup-id=${sup.supplierId}&acc-id=${acc.accId}" class="btn btn-success mb-1">Phê duyệt tài khoản</a>
+                                                        <button href="" class="btn btn-danger mb-1" data-toggle="modal" data-target="#exampleModal">Từ chối tài khoản</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </c:if>
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -295,17 +299,16 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form>
-
+                                                <form id="reject-form" action="DetailSuppilerController?action=reject&acc-id=${acc.accId}&sup-id=${sup.supplierId}" method="POST">
                                                     <div class="form-group">
                                                         <label for="message-text" class="col-form-label">Lý do từ chối: </label>
-                                                        <textarea class="form-control" id="message-text"></textarea>
+                                                        <textarea name="reason" class="form-control" id="message-text"></textarea>
                                                     </div>
                                                 </form>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Huỷ</button>
-                                                <button type="button" class="btn btn-success">Gửi</button>
+                                                <input form="reject-form" type="submit" value="Gửi" class="btn btn-success"/>
                                             </div>
                                         </div>
                                     </div>
@@ -420,42 +423,42 @@
             var modal = $(this)
             modal.find('.modal-body input').val(recipient)
         })
-            </script>
+    </script>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 </body>
 
 </html>
 <script>
 
-        document.getElementById("btn-edit").onclick = function () {
+    document.getElementById("btn-edit").onclick = function () {
 
-            document.querySelector(".personal-infor .hidden-edit").style.display = 'block';
-            document.querySelector(".personal-infor .hidden-edit").style.margin = '0 0 0 22%';
-            document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 43%';
-            document.querySelector(".personal-infor table .display-userName").style.display = 'none';
-            document.querySelector(".personal-infor #btn-edit").style.display = 'none';
-        };
-        document.querySelector(".exit").onclick = function () {
+        document.querySelector(".personal-infor .hidden-edit").style.display = 'block';
+        document.querySelector(".personal-infor .hidden-edit").style.margin = '0 0 0 22%';
+        document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 43%';
+        document.querySelector(".personal-infor table .display-userName").style.display = 'none';
+        document.querySelector(".personal-infor #btn-edit").style.display = 'none';
+    };
+    document.querySelector(".exit").onclick = function () {
 
-            document.querySelector(".personal-infor .hidden-edit").style.display = 'none';
-            document.querySelector(".personal-infor table .display-userName").style.display = 'block';
-            document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 24%';
-            document.querySelector(".personal-infor #btn-edit").style.display = 'block';
-        };
-        document.getElementById("btn-edit-2").onclick = function () {
+        document.querySelector(".personal-infor .hidden-edit").style.display = 'none';
+        document.querySelector(".personal-infor table .display-userName").style.display = 'block';
+        document.querySelector(".personal-infor .name-infor").style.padding = '0 0 0 24%';
+        document.querySelector(".personal-infor #btn-edit").style.display = 'block';
+    };
+    document.getElementById("btn-edit-2").onclick = function () {
 
-            document.querySelector(".personal-infor .hidden-pass").style.display = 'block';
-            document.querySelector(".personal-infor .hidden-pass").style.margin = '0 0 0 22%';
-            document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 43%';
-            document.querySelector(".personal-infor table .display-userName-3").style.display = 'none';
-            document.querySelector(".personal-infor #btn-edit-2").style.display = 'none';
-        };
-        document.querySelector(".exit-pass").onclick = function () {
-            document.querySelector(".personal-infor .hidden-pass").style.display = 'none';
-            document.querySelector(".personal-infor table .display-userName-3").style.display = 'block';
-            document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 24%';
-            document.querySelector(".personal-infor #btn-edit-2").style.display = 'block';
-        };
+        document.querySelector(".personal-infor .hidden-pass").style.display = 'block';
+        document.querySelector(".personal-infor .hidden-pass").style.margin = '0 0 0 22%';
+        document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 43%';
+        document.querySelector(".personal-infor table .display-userName-3").style.display = 'none';
+        document.querySelector(".personal-infor #btn-edit-2").style.display = 'none';
+    };
+    document.querySelector(".exit-pass").onclick = function () {
+        document.querySelector(".personal-infor .hidden-pass").style.display = 'none';
+        document.querySelector(".personal-infor table .display-userName-3").style.display = 'block';
+        document.querySelector(".personal-infor .pass-infor").style.padding = '0 0 0 24%';
+        document.querySelector(".personal-infor #btn-edit-2").style.display = 'block';
+    };
 </script>
 
 </html>

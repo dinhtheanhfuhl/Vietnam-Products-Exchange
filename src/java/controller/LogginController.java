@@ -2,10 +2,12 @@ package controller;
 
 import dao.AccountDAO;
 import dao.CustomerDAO;
+import dao.SupplierDAO;
 import dao.SystemManagerDAO;
 import dbconnect.DBConnect;
 import entity.Account;
 import entity.Customer;
+import entity.Supplier;
 import entity.SystemManager;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -26,24 +28,22 @@ public class LogginController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, NoSuchAlgorithmException {
+        request.setCharacterEncoding("UTF-8");
+        Connection connection = DBConnect.getConnection();
+        AccountDAO accountDAO = new AccountDAO(connection);
+
         String action = request.getParameter("action");
         if (action == null) {
-            RequestDispatcher rd = request.getRequestDispatcher("./common/login.jsp");
-            rd.forward(request, response);
+            request.getRequestDispatcher("./common/login.jsp").forward(request, response);
         } else if (action.equals("show-login-form")) {
-            RequestDispatcher rd = request.getRequestDispatcher("./common/login.jsp");
-            rd.forward(request, response);
+            request.getRequestDispatcher("./common/login.jsp").forward(request, response);
         } else if (action.equals("login")) {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-
             String passwordEnr = SecurityPassword.encrypt(password);
-            Connection connection = DBConnect.getConnection();
-            AccountDAO accountDAO = new AccountDAO(connection);
             Account account = accountDAO.getAccountByInfo(email, passwordEnr);
             if (account == null) {
-                RequestDispatcher rd = request.getRequestDispatcher("./common/login.jsp");
-                rd.forward(request, response);
+                request.getRequestDispatcher("./common/login.jsp").forward(request, response);
             } else {
                 HttpSession session = request.getSession();
                 session.setAttribute("email", email);
@@ -63,7 +63,9 @@ public class LogginController extends HttpServlet {
                         response.sendRedirect("ModeratorController");
                         break;
                     case 3:
-                        response.sendRedirect("./common/login.jsp");
+                        SupplierDAO supDAO = new SupplierDAO(connection);
+                        Supplier sup = supDAO.getSupplierByAccId(account.getAccId());
+                        response.sendRedirect("SupplierController");
                         break;
                     case 4:
                         CustomerDAO customerDAO = new CustomerDAO(connection);

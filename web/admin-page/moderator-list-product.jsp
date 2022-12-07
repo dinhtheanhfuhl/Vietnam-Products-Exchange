@@ -120,7 +120,7 @@
                                         <div class="row">
 
                                             <div class="col-lg-12">
-                                                <form class="top-action" method="GET" action="">
+                                                <form class="top-action" method="POST" action="ModeratorController">
 
                                                     <input name="sorts[]" value="" class="sort sort-name" type="hidden">
                                                     <input name="sorts[]" value="" class="sort sort-type" type="hidden">
@@ -138,15 +138,16 @@
                                                            type="hidden">
 
                                                     <div id="filter">
-                                                        <input type="text" name="id" placeholder="Mã yêu cầu phê duyệt" value=""
+                                                        <input type="hidden" name="action" value="search"/>
+                                                        <input type="text" name="id" placeholder="Mã yêu cầu phê duyệt" value="${id}"
                                                                class="form-control">
-                                                        <input type="text" name="id" placeholder="Nhà cung cấp" value=""
+                                                        <input type="text" name="shopName" placeholder="Nhà cung cấp" value="${shopName}"
                                                                class="form-control">
-                                                        <input type="text" name="name" placeholder="Tên sản phẩm" value=""
+                                                        <input type="text" name="name" placeholder="Tên sản phẩm" value="${name}"
                                                                class="form-control">
-                                                        <input type="text" name="danh mục" placeholder="Mã Barcode/SKU" value=""
+                                                        <input type="text" name="barCode" placeholder="Mã Barcode/SKU" value="${barCode}"
                                                                class="form-control"> 
-                                                        <button class="btn btn-info"
+                                                        <button type="submit" class="btn btn-info"
                                                                 style="padding: 0 10px; background: none; border: none;"
                                                                 title="Tìm kiếm">
                                                             <i class="flaticon-search" aria-hidden="true"
@@ -158,50 +159,59 @@
 
                                         </div>
                                     </div>
-
-                                    <select id="selectstatus" onchange="location = this.value;" class="form-control">
-                                        <option>Trạng thái</option>
-                                        <option value="">Đã phê duyệt</option>
-                                        <option value="#">Chờ phê duyệt</option>
-                                        <option value="#">Từ chối phê duyệt</option>
-                                        <option value="#">Đã ẩn</option>
-                                    </select>
-                                    <h6 id="sorttext">Sắp xếp theo</h6>
-                                    <div class="table-responsive new-products">
-                                        <table class="table">
-                                            <thead>
-                                                <tr class="text-center">
-                                                    <th>Mã yêu cầu duyệt</th>
-                                                    <th>Thời gian gửi yêu cầu</th>
-                                                    <th>Nhà cung cấp</th>
-                                                    <th>Tên sản phẩm</th>
-                                                    <th>Mã Barcode/SKU</th>
-                                                    <th>Trạng thái</th>
-                                                    <th>Chi tiết</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="text-center">
+                                    <form action="ModeratorController" method="POST">
+                                        <c:if test='${ACTION != null && ACTION=="search"}'>
+                                            <input type="hidden" name="id" value="${id}"/>
+                                            <input type="hidden" name="shopName" value="${shopName}"/>
+                                            <input type="hidden" name="name" value="${name}"/>
+                                            <input type="hidden" name="barCode" value="${barCode}"/>
+                                            <input type="hidden" name="action" value="search"/>
+                                        </c:if>
+                                        <select name="filter" id="selectstatus" onchange="this.form.submit();" class="form-control">
+                                            <option <c:if test="${statusFilter==0}">selected</c:if> value="0">Tất cả</option>
+                                            <option <c:if test="${statusFilter==1}">selected</c:if> value="1">Chờ phê duyệt</option>
+                                            <option <c:if test="${statusFilter==2}">selected</c:if> value="2">Đã phê duyệt</option>
+                                            <option <c:if test="${statusFilter==3}">selected</c:if> value="3">Từ chối phê duyệt</option>
+                                            <option <c:if test="${statusFilter==4}">selected</c:if> value="4">Đã ẩn</option>
+                                            </select>
+                                        </form>
+                                        <h6 id="sorttext">Sắp xếp theo</h6>
+                                        <div class="table-responsive new-products">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr class="text-center">
+                                                        <th>Mã yêu cầu duyệt ${ACTION != null && ACTION=="search"}</th>
+                                                        <th>Thời gian gửi yêu cầu</th>
+                                                        <th>Nhà cung cấp</th>
+                                                        <th>Tên sản phẩm</th>
+                                                        <th>Mã Barcode/SKU</th>
+                                                        <th>Trạng thái</th>
+                                                        <th>Chi tiết</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-center">
                                                 <c:forEach items="${resultProducts}" var="product" >
                                                     <tr>
                                                         <td>#${product.productId}</td>
                                                         <td>${product.createdDate}</td>
-                                                        <td>${mapProductSupplier.get(product).shopName}</td>
+                                                        <td>${mapProSupp.get(product).shopName}</td>
                                                         <td>${product.productName}</td>
                                                         <td>${product.barCode}</td>
-                                                      
-                                                        <td><p class="btn btn-warning status mb-2">${product.statusId}</p></td>
-                                                        <!-- <td><p class="btn btn-secondary status mb-2">Đã ẩn</p></td>
-                                                        <td><p class="btn btn-danger status mb-2">Từ chối phê duyệt</p></td>
-                                                        <td><p class="btn btn-warning status mb-2">Chờ phê duyệt</p></td>
-                                                        <td><p class="btn btn-success status mb-2">Đã phê duyệt</p></td> -->
-
+                                                        <td>
+                                                            <c:choose>
+                                                                <c:when test="${product.statusId==1}">Chờ phê duyệt</c:when>
+                                                                <c:when test="${product.statusId==2}">Đã phê duyệt</c:when>
+                                                                <c:when test="${product.statusId==3}">Từ chối phê duyệt</c:when>
+                                                                <c:when test="${product.statusId==4}">Đã ẩn</c:when>
+                                                            </c:choose>
+                                                        </td>
                                                         <td><a href="ModeratorDetailProductController?id=${product.productId}">Xem chi tiết</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -284,9 +294,9 @@
     <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
     <script>
-                                        $(document).ready(function () {
-                                            App.init();
-                                        });
+                                            $(document).ready(function () {
+                                                App.init();
+                                            });
     </script>
     <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
