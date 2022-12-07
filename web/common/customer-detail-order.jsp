@@ -56,7 +56,7 @@
         <div class="container ">
         </div>
         <div class="container ">
-            <h3>Chi tiết đơn hàng</h3>
+            <h3>Chi tiết đơn hàng - Mã đơn ${order.orderId}</h3>
 
 
             <div class="container">
@@ -75,7 +75,7 @@
                                     Giao hàng thành công
                                 </c:if></span></p>
 
-                        <p><b>Mã đơn hàng: </b><span>${order.orderId}</span></p>
+                        <p><b>Tổng tiền: </b><span>tổng tiền here</span></p>
                         <p><b>Ngày đặt hàng: </b><span>${orderDetail.orderDate}</span></p>
                         <p><b>Ghi chú: </b><span>${order.note}</span></p>
                     </div>
@@ -97,24 +97,28 @@
                     <tr>
                         <th scope="col"></th>
                         <th scope="col">Tên sản phẩm</th>
+                        <th scope="col">Nhà cung cấp</th>
                         <th scope="col">Số lượng</th>
-                        <th scope="col">Giá</th>
+                        <th scope="col">Đơn giá</th>
+                         <th scope="col">Thành tiền</th>
                     </tr>
                 </thead>
                 <c:forEach var="key" items="${mapProduct.keySet()}">
                     <tbody>
                         <tr>
-                            <td><img style="margin-right: 100px;position: relative" src="${mapImage.get(key).get(0).getImgPath()}" alt=""></td>
-                            <td><b>${mapProduct.get(key).get(0).getProductName()}
-                                ${mapProduct.get(key).get(0).productName}
-                                ${mapProduct.get(key).get(0).trademark}
-                                ${mapProduct.get(key).get(0).smell},
-                                ${mapProduct.get(key).get(0).color},
-                                ${mapProduct.get(key).get(0).packing}</b>
+                            <td><img style="margin-left: 0px;object-fit: cover;" src="${mapImage.get(key).get(0).getImgPath()}" alt=""></td>
+                            <td><p style="width: 200px"><b>${mapProduct.get(key).get(0).getProductName()}
+                                    ${mapProduct.get(key).get(0).productName}
+                                    ${mapProduct.get(key).get(0).trademark}
+                                    ${mapProduct.get(key).get(0).smell},
+                                    ${mapProduct.get(key).get(0).color},
+                                    ${mapProduct.get(key).get(0).packing}</b></p>
                             </td>
-                            <td><span><b>${key.amount}Kg</b></span></td>
-                            <td><span><b><fmt:formatNumber type = "number" 
-                                              pattern = "" value = "${key.cost}" /><sup>vnđ</sup>&nbsp;&nbsp;</b></span></td>
+                            <td>${mapSupplier.get(key).get(0).getSupplierName()}</td>
+                            <td><span>${key.amount}Kg</span></td>
+                            <td>duudrtrtudu</td>
+                            <td><span><fmt:formatNumber type = "number" 
+                                              pattern = "" value = "${key.cost}" /><sup>vnđ</sup>&nbsp;&nbsp;</span></td>
                         </tr>
                     </tbody>
                 </c:forEach>

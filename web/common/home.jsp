@@ -149,9 +149,11 @@
                         <c:forEach var="key" items="${mapImages.keySet()}">
                             <div class="col-md-2">
                                 <div class="card">
-                                    <img class="card-img-top" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
+                                    <img class="card-img-top" style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
                                     <div class="card-body">
-                                        <h5 class="card-title">${key.trademark}</h5>
+                                        <a style="text-decoration: none;" href="MimartDetailProduct?pid=${key.productId}">
+                                            <h5 class="card-title">${key.productName} ${key.trademark}</h5>
+                                        </a>
                                         <h6>${mapSuppliers.get(key).get(0).getShopName()}</h6>
                                     </div>
                                 </div>
@@ -176,15 +178,14 @@
                             <div class="pro-loop">
                                 <div class="product-block product-resize">
                                     <div class="product-img">
-                                        <img class="w-100" src="${mapImages2.get(key).get(0).getImgPath()}" alt="">
+                                        <img class="w-100" style="object-fit: cover;height: 200px;width: 100px" src="${mapImages2.get(key).get(0).getImgPath()}" alt="">
                                         <div class="box-pro-detail ">
-                                            <h3 class="pro-name">
-                                                <a href="#">
-                                                </a><a href="#">${key.trademark}</a>
-                                            </h3>
-                                            <div class="box-pro-prices">
-                                                <h6>${mapSupplier2.get(key).get(0).getShopName()}</h6>
-                                            </div>
+                                            <h5 class="card-title">
+                                                <a style="text-decoration: none;margin-top: 25px;" href="MimartDetailProduct?pid=${key.productId}">
+                                                    <h5 class="card-title">${key.productName} ${key.trademark}</h5>
+                                                </a>
+                                            </h5>
+                                            <h6>${mapSupplier2.get(key).get(0).getShopName()}</h6>
 
 
                                         </div>
