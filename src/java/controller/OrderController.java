@@ -9,15 +9,21 @@ import dao.CartItemDAO;
 import dao.OrderDAO;
 import dao.OrderDetailDAO;
 import dao.ProductDAO;
+import dao.ProductHierarchyDAO;
 import dbconnect.DBConnect;
 import entity.CartItem;
 import entity.Customer;
+import entity.Order;
+import entity.OrderDetail;
 import entity.Product;
+import entity.ProductHierarchy;
 import java.io.IOException;
 import java.sql.Connection;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -52,13 +58,13 @@ public class OrderController extends HttpServlet {
         CartItemDAO cartItemDAO = new CartItemDAO(connection);
         CartDAO cartDAO = new CartDAO(connection);
         ProductDAO productDAO = new ProductDAO(connection);
+        ProductHierarchyDAO proHieDAO = new ProductHierarchyDAO(connection);
 
         HttpSession session = request.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
         int customerid = customer.getCustomerId();
         int cartId = cartDAO.getCartIdByCustomerId(customerid);
 
-        int productPrice = Integer.parseInt(request.getParameter("totalprice"));
         List<CartItem> listCart = cartItemDAO.getAllCartItemsByCustomertId(customerid);
         CartItem cartItem = null;
         for (int i = 0; i < listCart.size(); i++) {
@@ -67,17 +73,8 @@ public class OrderController extends HttpServlet {
             int productId = cartItem.getProductId();
             Product p = productDAO.getProductById(productId);
             productDAO.updateAmountByProId(p.getWeight() - cartAmount, productId);
-            //orderDetailDAO.insertOrderDetail(cartId, productId, dtf.format(now), cartAmount, productPrice);
-            
-            System.out.println(productId);
-            System.out.println(dtf.format(now));
-            System.out.println(cartAmount);
-            System.out.println(productPrice);
-            //orderId - proId - orderDate - amount moi san pham - cost moi san pham
         }
-
-        cartItemDAO.deleteCartByCartId(cartId);
-
+        
         String receiverName = request.getParameter("receiverName");
         String receiverAddress = request.getParameter("receiverAddress");
         String receiverPhone = request.getParameter("receiverPhone");
@@ -85,7 +82,40 @@ public class OrderController extends HttpServlet {
         String note = request.getParameter("note");
 
         orderDAO.insertOrder(customerid, receiverName, receiverAddress, receiverPhone, totalPrice, 1, note);
-        request.getRequestDispatcher("HistoryOrderController").forward(request, response);
+        
+        Order order = orderDAO.getNewestOrder();
+        
+        List<CartItem> listCartItem = cartItemDAO.getAllCartItemsByCartId(cartId);
+        Map<CartItem, ProductHierarchy> mapProHie = new LinkedHashMap<>();
+        for (CartItem cartItem1 : listCartItem) {
+            List<ProductHierarchy> listProhie = proHieDAO.getHierarchyByProId(cartItem1.getProductId());
+            int amount = cartItem1.getAmount();
+            ProductHierarchy proHierachy = null;
+            for (int i = 0; i < listProhie.size(); i++) {
+                if (i > 0 && amount < listProhie.get(i).getQuantity()) {
+                    proHierachy = listProhie.get(i-1);
+                    break;
+                }
+            }
+            if (proHierachy == null) {
+                proHierachy = listProhie.get(listProhie.size() - 1);
+            }
+            mapProHie.put(cartItem1, proHierachy);
+           
+            OrderDetail orderDetai = new OrderDetail();
+            orderDetai.setOrderId(order.getOrderID());
+            orderDetai.setProductId(cartItem1.getProductId());
+            orderDetai.setOrderDate(dtf.format(now));
+            orderDetai.setAmount(cartItem1.getAmount());
+            orderDetai.setCost(proHierachy.getPrice()*cartItem1.getAmount());
+            orderDetailDAO.saveOrderDetail(orderDetai);
+            
+        }
+        
+        cartItemDAO.deleteCartByCartId(cartId);
+
+        
+        response.sendRedirect("HistoryOrderController");
 
     }
 

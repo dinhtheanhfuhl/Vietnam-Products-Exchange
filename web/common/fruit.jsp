@@ -97,7 +97,7 @@
                     <div class="col-lg-9 order-1 order-lg-2">
                         <div class="row">
                             <div class="banner-collection pb-5 w-300">
-                                <img src="./image/Nen-chon-loai-hoa-qua-bieu-Tet-2019-nao.jpg"  height="262px" alt="">
+                                <img src="image/slider1-min.jpg" alt=""/>
                             </div>
                         </div>
                         <div class="shop-grid-topbar d-flex justify-content-between align-items-center">

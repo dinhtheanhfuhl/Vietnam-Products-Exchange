@@ -109,6 +109,28 @@ public class OrderDAO {
         }
         return order;
     }
+    public Order getNewestOrder() {
+        Order order = null;
+        String strSelectById = "select top 1 * from [Order] order by OrderID desc";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                order = new Order();
+                order.setOrderID(rs.getInt("OrderID"));
+                order.setCustomerID(rs.getInt("CustomerID"));
+                order.setRecieverName(rs.getString("RecieverName"));
+                order.setRecieverPhone(rs.getString("RecieverPhone"));
+                order.setRecieverAddress(rs.getString("RecieverAddress"));
+                order.setTotalPrice(rs.getInt("TotalPrice"));
+                order.setOrderStatusID(rs.getInt("OrderStatusID"));
+                order.setNote(rs.getString("Note"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return order;
+    }
 
     public Order getOrderByOrderDetailId(int id) {
         Order order = null;
