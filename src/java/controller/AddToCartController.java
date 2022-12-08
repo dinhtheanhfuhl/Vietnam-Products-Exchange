@@ -59,9 +59,7 @@ public class AddToCartController extends HttpServlet {
         int cartId = cartDAO.getCartIdByCustomerId(customerid);
 
         CartItem cartItem = cartItemDAO.getCartItemByProductId(productid, cartId);
-//        if (amount + cartItem.getAmount() > product.getWeight()) {
-//
-//        }
+
         if (amount > product.getWeight()) {
             request.setAttribute("message", "Bạn đã nhập quá trọng lượng sản phẩm có trong kho");
             request.setAttribute("alert", "danger");

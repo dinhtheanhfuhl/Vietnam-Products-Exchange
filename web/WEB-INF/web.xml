@@ -48,6 +48,22 @@
         <servlet-name>CheckOutController</servlet-name>
         <servlet-class>controller.CheckOutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ConditionController</servlet-name>
+        <servlet-class>controller.ConditionController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContactController</servlet-name>
+        <servlet-class>controller.ContactController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InformationController</servlet-name>
+        <servlet-class>controller.InformationController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PolicyController</servlet-name>
+        <servlet-class>controller.PolicyController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MinimartProductController</servlet-name>
         <url-pattern>/MinimartProductController</url-pattern>
@@ -95,6 +111,22 @@
     <servlet-mapping>
         <servlet-name>CheckOutController</servlet-name>
         <url-pattern>/CheckOutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConditionController</servlet-name>
+        <url-pattern>/ConditionController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactController</servlet-name>
+        <url-pattern>/ContactController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InformationController</servlet-name>
+        <url-pattern>/InformationController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PolicyController</servlet-name>
+        <url-pattern>/PolicyController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

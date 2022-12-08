@@ -71,9 +71,9 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
                                      id="dropdown-collection">
-                                    <a class="dropdown-item" href="./information.jsp">Về chúng tôi</a>
-                                    <a class="dropdown-item" href="./policy.jsp">Chính sách bảo mật</a>
-                                    <a class="dropdown-item" href="./condition.jsp">Điều khoản dịch vụ</a>
+                                    <a class="dropdown-item" href="InformationController">Về chúng tôi</a>
+                                    <a class="dropdown-item" href="PolicyController">Chính sách bảo mật</a>
+                                    <a class="dropdown-item" href="ConditionController">Điều khoản dịch vụ</a>
                                 </div>
                             </div>
                         </li>
@@ -93,7 +93,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link waves-effect text-header" href="./contact.jsp">Liên hệ</a>
+                            <a class="nav-link waves-effect text-header" href="ContactController">Liên hệ</a>
                         </li>
                     </ul>
 
