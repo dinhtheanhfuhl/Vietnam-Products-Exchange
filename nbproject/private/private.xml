@@ -2,25 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-
-        <group>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/customer-detail-order.jsp</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/MinimartDetailProductController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/header.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/MinimartProductController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/OrderController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/ViewCartController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/AddToCartController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/CartAmountController.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HistoryOrderDetailController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/home.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HomeController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/customer-detail-order.jsp</file>
-        </group>
         <group>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HistoryOrderDetailController.java</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/home.jsp</file>
@@ -52,6 +33,17 @@
         <group>
             <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/web/assets/css/pages/landing-page/style.css</file>
             <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/src/java/controller/RegisterController.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/src/java/controller/LogoutController.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/src/java/controller/LogginController.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/web/admin-page/moderator-category.jsp</file>
+            <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/web/admin-page/moderator-list-order.jsp</file>
+            <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/src/java/controller/ModeratorOrderController.java</file>
         </group>
     </open-files>
 </project-private>
