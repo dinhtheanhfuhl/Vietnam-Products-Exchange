@@ -183,4 +183,27 @@ public class OrderDAO {
         }
         return orders;
     }
+
+    public List<Order> searchOrder(String id, String shopName, String filter) {
+        List<Order> orders = new ArrayList<>();
+        String strSelectAll = "select * from [Order]";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Order order = new Order();
+                order.setOrderID(rs.getInt("OrderID"));
+                order.setCustomerID(rs.getInt("CustomerID"));
+                order.setRecieverName(rs.getString("RecieverName"));
+                order.setRecieverPhone(rs.getString("RecieverPhone"));
+                order.setRecieverAddress(rs.getString("RecieverAddress"));
+                order.setTotalPrice(rs.getInt("TotalPrice"));
+                order.setOrderStatusID(rs.getInt("OrderStatusID"));
+                orders.add(order);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return orders;
+    }
 }

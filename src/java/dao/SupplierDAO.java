@@ -282,4 +282,25 @@ public class SupplierDAO {
         }
         return supplier;
     }
+
+    public List<String> getSuppliersNameInOrder(int orderID) {
+        List<String> names = new ArrayList<>();
+        String strSelectAll = "select DISTINCT s.SupplierID as id, s.ShopName as name from [Supplier] as s\n"
+                + "join  [Product] as p on p.SupplierID = s.SupplierID\n"
+                + "join [OrderDetail] as od on od.ProductID = p.ProductID\n"
+                + "join [Order] as o on o.OrderID = od.OrderID\n"
+                + "where o.OrderID = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setInt(1, orderID);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String name = rs.getString("name");
+                names.add(name);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return names;
+    }
 }

@@ -42,4 +42,41 @@ public class OrderStatusDAO {
         }
         return orderStatuses;
     }
+    
+    public List<OrderStatus> getAllOrderStatus() {
+        List<OrderStatus> orderStatuses = new ArrayList<>();
+        String strSelectAll = "select * from OrderStatus";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                OrderStatus orderStatus = new OrderStatus();
+                orderStatus.setOrderStatusID(rs.getInt("OrderStatusID"));
+                orderStatus.setStatusName(rs.getString("StatusName"));
+
+                orderStatuses.add(orderStatus);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return orderStatuses;
+    }
+
+    public OrderStatus getOrderStatusById(int orderStatusId) {
+        OrderStatus orderStatus = null;
+        String strSelectAll = "select * from OrderStatus where OrderStatusID = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setInt(1, orderStatusId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                 orderStatus = new OrderStatus();
+                orderStatus.setOrderStatusID(rs.getInt("OrderStatusID"));
+                orderStatus.setStatusName(rs.getString("StatusName"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return orderStatus;
+    }
 }
