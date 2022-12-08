@@ -136,20 +136,24 @@
                                                         <td>${key.cateName}</td>
                                                         <c:if test="${mapSubcategorys.get(key).size()>0}">
                                                             <td>${mapSubcategorys.get(key).get(0).subCateName} / ${mapSubcategoryStatus.get(mapSubcategorys.get(key).get(0))}</td>
-                                                            <td><a data-toggle="modal" 
+                                                            <td><a class="delete-button-subcate" data-toggle="modal" 
+                                                                   data-link="ModeratorCategoryController?action=delete&id=${mapSubcategorys.get(key).get(0).subCateId}"  
+                                                                   onclick="deleteFunction(this.dataset.link)"   
                                                                    <c:if test="${mapSubcategoryStatus.get(mapSubcategorys.get(key).get(0)) == false}">data-target="#exampleModal1" </c:if>
                                                                    <c:if test="${mapSubcategoryStatus.get(mapSubcategorys.get(key).get(0)) == true}">data-target="#exampleModal2" </c:if>
                                                                        href="#"><i class="flaticon-delete"></i></a></td>
                                                             </tr>
                                                     </c:if>
-                                                    <c:if test="${mapSubcategorys.get(key).size()>0}">
+                                                    <c:if test="${mapSubcategorys.get(key).size()>1}">
                                                         <c:forEach var="subcategory" items="${mapSubcategorys.get(key)}">
                                                             <c:if test="${subcategory!=mapSubcategorys.get(key).get(0)}">
                                                                 <tr>
                                                                     <td></td>
                                                                     <td></td>
                                                                     <td>${subcategory.subCateName} / ${mapSubcategoryStatus.get(subcategory)}</td>
-                                                                    <td><a data-toggle="modal" 
+                                                                    <td><a class="delete-button-subcate" data-toggle="modal" 
+                                                                           data-link="ModeratorCategoryController?action=delete&id=${subcategory.subCateId}"  
+                                                                           onclick="deleteFunction(this.dataset.link)"   
                                                                            <c:if test="${mapSubcategoryStatus.get(subcategory) == false}">data-target="#exampleModal1" </c:if>
                                                                            <c:if test="${mapSubcategoryStatus.get(subcategory) == true}">data-target="#exampleModal2" </c:if>
                                                                                href="#"><i class="flaticon-delete"></i></a></td>
@@ -158,10 +162,16 @@
                                                         </c:forEach>
                                                     </c:if>
                                                 </c:forEach>
+                                            <script>
+                                                function deleteFunction(str) {
+                                                    const linkBtn = document.querySelector("#delete-btn-sub-link");
+                                                    linkBtn.setAttribute("href", str);
+                                                }
+                                            </script>               
                                             </tbody>
                                         </table>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -184,7 +194,7 @@
                         </div>
                         <div class="modal-footer">
                             <a type="button" class="btn btn-danger status mb-2" data-dismiss="modal">Huỷ</a>
-                            <a href="ModeratorCategoryController?action=delete-sub-cate&id" type="button" class="btn btn-warning status mb-2">Có</a>
+                            <a id="delete-btn-sub-link" href="" type="button" class="btn btn-warning status mb-2">Có</a>
                         </div>
                     </div>
                 </div>
@@ -212,7 +222,7 @@
 
             <!--  BEGIN FOOTER  -->
 
-            
+
             <!--  END FOOTER  -->
 
             <!--  BEGIN PROFILE SIDEBAR  -->
@@ -249,9 +259,9 @@
     <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
     <script>
-        $(document).ready(function () {
-            App.init();
-        });
+                                                $(document).ready(function () {
+                                                    App.init();
+                                                });
     </script>
     <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->

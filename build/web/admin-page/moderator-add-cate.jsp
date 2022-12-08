@@ -129,7 +129,7 @@
                                                 <tr>
                                             <form action="ModeratorAddCateController" method="post">
                                                 <td> <input name="name" type="text" placeholder="nhập tên danh mục" required class="form-control" ></td>
-                                                <td><input type="submit" class=" btn btn-warning status mb-2" data-toggle="modal" data-target="#exampleModalLong" id="approved">  Thêm danh mục </input></td>
+                                                <td><input type="submit" value="Thêm danh mục" class=" btn btn-warning status mb-2" data-toggle="modal" data-target="#exampleModalLong" id="approved" /></td>
                                                 <input type="hidden" name="action" value="add"/>
                                             </form>
                                             </tr>

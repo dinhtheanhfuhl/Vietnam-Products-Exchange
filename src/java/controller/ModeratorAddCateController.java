@@ -17,9 +17,9 @@ public class ModeratorAddCateController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
-        if (action.equals("show")) {
+        if (action.equals("show")  || action == null) {
             RequestDispatcher rd = request.getRequestDispatcher("admin-page/moderator-add-cate.jsp");
             rd.forward(request, response);
 
@@ -30,8 +30,7 @@ public class ModeratorAddCateController extends HttpServlet {
             Category category = new Category();
             category.setCateName(name);
             int status = categoryDAO.saveCategory(category);
-            RequestDispatcher rd = request.getRequestDispatcher("ModeratorCategoryController");
-            rd.forward(request, response);
+            response.sendRedirect("ModeratorCategoryController");
         }
     }
 

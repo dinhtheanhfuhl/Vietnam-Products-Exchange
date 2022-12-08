@@ -138,7 +138,7 @@
                                                             </select>
                                                         </td>
                                                         <td><input name="name" class="form-control" placeholder="nhập danh mục con"></td>
-                                                        <td><input type="submit" class=" btn btn-warning status mb-2" data-toggle="modal" data-target="#exampleModalLong" id="approved">  Thêm danh mục con</input>
+                                                        <td><input type="submit" class=" btn btn-warning status mb-2" value="Thêm danh mục con" data-toggle="modal" data-target="#exampleModalLong" id="approved" />
                                                         </td>
                                                     </tr>
                                                 </tbody>

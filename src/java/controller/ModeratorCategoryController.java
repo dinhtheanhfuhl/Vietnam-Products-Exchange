@@ -11,7 +11,6 @@ import java.sql.Connection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +22,7 @@ public class ModeratorCategoryController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
 
         Connection connection = DBConnect.getConnection();
         CategoryDAO categoryDAO = new CategoryDAO(connection);
@@ -33,24 +33,33 @@ public class ModeratorCategoryController extends HttpServlet {
         Map<Category, List<SubCategory>> mapSubcategorys = new LinkedHashMap<Category, List<SubCategory>>();
         Map<SubCategory, Boolean> mapSubcategoryStatus = new LinkedHashMap<SubCategory, Boolean>();
 
-        for (Category category : allCategorys) {
-            List<SubCategory> subCategorys = subCategoryDAO.getSubcategoryByCategoryId(category.getCateId());
-            mapSubcategorys.put(category, subCategorys);
-        }
-        for (Category category : mapSubcategorys.keySet()) {
-            for (SubCategory subCategory : mapSubcategorys.get(category)) {
-                int statsus = productDAO.getProductsBySubCateId(subCategory.getSubCateId());
-                if (statsus == 1) {
-                    mapSubcategoryStatus.put(subCategory, Boolean.TRUE);
-                } else if (statsus == 0) {
-                    mapSubcategoryStatus.put(subCategory, Boolean.FALSE);
+        String action = request.getParameter("action");
+        if (action == null || action.equals("")) {
+            for (Category category : allCategorys) {
+                List<SubCategory> subCategorys = subCategoryDAO.getSubcategoryByCategoryId(category.getCateId());
+                mapSubcategorys.put(category, subCategorys);
+            }
+            for (Category category : mapSubcategorys.keySet()) {
+                for (SubCategory subCategory : mapSubcategorys.get(category)) {
+                    int statsus = productDAO.getProductsBySubCateId(subCategory.getSubCateId());
+                    if (statsus == 1) {
+                        mapSubcategoryStatus.put(subCategory, Boolean.TRUE);
+                    } else if (statsus == 0) {
+                        mapSubcategoryStatus.put(subCategory, Boolean.FALSE);
+                    }
                 }
             }
+            request.setAttribute("mapSubcategorys", mapSubcategorys);
+            request.setAttribute("mapSubcategoryStatus", mapSubcategoryStatus);
+            request.getRequestDispatcher("admin-page/moderator-category.jsp").forward(request, response);;
+        }else if(action.equals("delete")){
+            int id = Integer.parseInt(request.getParameter("id"));
+            SubCategory subCate = subCategoryDAO.getSubCategoryById(id);
+            int status = subCategoryDAO.deleteSubCategory(subCate);
+            if(status > 0){
+                response.sendRedirect("ModeratorCategoryController");
+            }
         }
-        request.setAttribute("mapSubcategorys", mapSubcategorys);
-        request.setAttribute("mapSubcategoryStatus", mapSubcategoryStatus);
-        RequestDispatcher rd = request.getRequestDispatcher("admin-page/moderator-category.jsp");
-        rd.forward(request, response);
     }
 
     @Override

@@ -20,9 +20,10 @@ public class ModeratorAddSubCateController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         Connection connection = DBConnect.getConnection();
         String action = request.getParameter("action");
-        if (action.equals("show")) {
+        if (action.equals("show") || action == null) {
             CategoryDAO categoryDAO = new CategoryDAO(connection);
             List<Category> allCategories = categoryDAO.getAllCategory();
             request.setAttribute("allCategories", allCategories);
@@ -37,8 +38,7 @@ public class ModeratorAddSubCateController extends HttpServlet {
             subCategory.setCateId(Integer.parseInt(idCate));
             subCategory.setSubCateName(nameSubCate);
             int status = subCategoryDAO.saveSubCategory(subCategory);
-            RequestDispatcher rd = request.getRequestDispatcher("ModeratorCategoryController");
-            rd.forward(request, response);
+            response.sendRedirect("ModeratorCategoryController");
         }
     }
 
