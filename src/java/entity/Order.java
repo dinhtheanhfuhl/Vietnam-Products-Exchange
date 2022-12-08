@@ -14,27 +14,18 @@ public class Order {
     private String recieverName, recieverPhone, recieverAddress;
     private int totalPrice, orderStatusId;
     private String note;
+
     public Order() {
     }
 
-    public Order(int OrderID, int CustomerID, String RecieverName, String RecieverPhone, String RecieverAddress, int TotalPrice, int OrderStatusID) {
-        this.orderId = OrderID;
-        this.customerId = CustomerID;
-        this.recieverName = RecieverName;
-        this.recieverPhone = RecieverPhone;
-        this.recieverAddress = RecieverAddress;
-        this.totalPrice = TotalPrice;
-        this.orderStatusId = OrderStatusID;
-    }
-
-    public Order(int OrderId, int CustomerId, String RecieverName, String RecieverPhone, String RecieverAddress, int TotalPrice, int OrderStatusId, String note) {
-        this.orderId = OrderId;
-        this.customerId = CustomerId;
-        this.recieverName = RecieverName;
-        this.recieverPhone = RecieverPhone;
-        this.recieverAddress = RecieverAddress;
-        this.totalPrice = TotalPrice;
-        this.orderStatusId = OrderStatusId;
+    public Order(int orderId, int customerId, String recieverName, String recieverPhone, String recieverAddress, int totalPrice, int orderStatusId, String note) {
+        this.orderId = orderId;
+        this.customerId = customerId;
+        this.recieverName = recieverName;
+        this.recieverPhone = recieverPhone;
+        this.recieverAddress = recieverAddress;
+        this.totalPrice = totalPrice;
+        this.orderStatusId = orderStatusId;
         this.note = note;
     }
 
@@ -42,24 +33,56 @@ public class Order {
         return orderId;
     }
 
-    public void setOrderId(int OrderId) {
-        this.orderId = OrderId;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
     public int getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int CustomerId) {
-        this.customerId = CustomerId;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getRecieverName() {
+        return recieverName;
+    }
+
+    public void setRecieverName(String recieverName) {
+        this.recieverName = recieverName;
+    }
+
+    public String getRecieverPhone() {
+        return recieverPhone;
+    }
+
+    public void setRecieverPhone(String recieverPhone) {
+        this.recieverPhone = recieverPhone;
+    }
+
+    public String getRecieverAddress() {
+        return recieverAddress;
+    }
+
+    public void setRecieverAddress(String recieverAddress) {
+        this.recieverAddress = recieverAddress;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public int getOrderStatusId() {
         return orderStatusId;
     }
 
-    public void setOrderStatusId(int OrderStatusId) {
-        this.orderStatusId = OrderStatusId;
+    public void setOrderStatusId(int orderStatusId) {
+        this.orderStatusId = orderStatusId;
     }
 
     public String getNote() {
@@ -70,65 +93,10 @@ public class Order {
         this.note = note;
     }
 
-    public int getOrderID() {
-        return orderId;
-    }
-
-    public void setOrderID(int OrderID) {
-        this.orderId = OrderID;
-    }
-
-    public int getCustomerID() {
-        return customerId;
-    }
-
-    public void setCustomerID(int CustomerID) {
-        this.customerId = CustomerID;
-    }
-
-    public String getRecieverName() {
-        return recieverName;
-    }
-
-    public void setRecieverName(String RecieverName) {
-        this.recieverName = RecieverName;
-    }
-
-    public String getRecieverPhone() {
-        return recieverPhone;
-    }
-
-    public void setRecieverPhone(String RecieverPhone) {
-        this.recieverPhone = RecieverPhone;
-    }
-
-    public String getRecieverAddress() {
-        return recieverAddress;
-    }
-
-    public void setRecieverAddress(String RecieverAddress) {
-        this.recieverAddress = RecieverAddress;
-    }
-
-    public int getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(int TotalPrice) {
-        this.totalPrice = TotalPrice;
-    }
-
-    public int getOrderStatusID() {
-        return orderStatusId;
-    }
-
-    public void setOrderStatusID(int OrderStatusID) {
-        this.orderStatusId = OrderStatusID;
-    }
-
     @Override
     public String toString() {
-        return "Order{" + "OrderID=" + orderId + ", CustomerID=" + customerId + ", RecieverName=" + recieverName + ", RecieverPhone=" + recieverPhone + ", RecieverAddress=" + recieverAddress + ", TotalPrice=" + totalPrice + ", OrderStatusID=" + orderStatusId + '}';
+        return "Order{" + "orderId=" + orderId + ", customerId=" + customerId + ", recieverName=" + recieverName + ", recieverPhone=" + recieverPhone + ", recieverAddress=" + recieverAddress + ", totalPrice=" + totalPrice + ", orderStatusId=" + orderStatusId + ", note=" + note + '}';
     }
+    
     
 }

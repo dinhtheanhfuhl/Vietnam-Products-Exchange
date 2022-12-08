@@ -103,7 +103,7 @@ public class OrderController extends HttpServlet {
             mapProHie.put(cartItem1, proHierachy);
            
             OrderDetail orderDetai = new OrderDetail();
-            orderDetai.setOrderId(order.getOrderID());
+            orderDetai.setOrderId(order.getOrderId());
             orderDetai.setProductId(cartItem1.getProductId());
             orderDetai.setOrderDate(dtf.format(now));
             orderDetai.setAmount(cartItem1.getAmount());
@@ -114,8 +114,7 @@ public class OrderController extends HttpServlet {
         
         cartItemDAO.deleteCartByCartId(cartId);
 
-        
-        response.sendRedirect("HistoryOrderController");
+        request.getRequestDispatcher("HistoryOrderController").forward(request, response);
 
     }
 

@@ -4,30 +4,22 @@
  */
 package controller;
 
-import dao.CartItemDAO;
 import dao.CategoryDAO;
-import dao.ProductHierarchyDAO;
 import dbconnect.DBConnect;
-import entity.CartItem;
 import entity.Category;
-import entity.Customer;
-import entity.ProductHierarchy;
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author ductd
  */
-public class CheckOutController extends HttpServlet {
+public class ConditionController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,42 +35,10 @@ public class CheckOutController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         Connection connection = DBConnect.getConnection();
         CategoryDAO categoryDAO = new CategoryDAO(connection);
-        ProductHierarchyDAO proHieDAO = new ProductHierarchyDAO(connection);
-        CartItemDAO cartItemDAO = new CartItemDAO(connection);
-        HttpSession session = request.getSession();
-        Customer customer = (Customer) session.getAttribute("customer");
-        int customerid = customer.getCustomerId();
-
-        List<CartItem> allCart = cartItemDAO.getAllCartItemsByCustomertId(customerid);
-        request.setAttribute("allCart", allCart);
-
-        Map<CartItem, Integer> mapProHie = new LinkedHashMap<>();
-        int totalCart = 0;
-        for (CartItem cart : allCart) {
-            List<ProductHierarchy> listProhie = proHieDAO.getHierarchyByProId(cart.getProductId());
-            int amount = cart.getAmount();
-            ProductHierarchy proHierachy = null;
-            for (int i = 0; i < listProhie.size(); i++) {
-                if (i > 0 && amount < listProhie.get(i).getQuantity()) {
-                    proHierachy = listProhie.get(i-1);
-                    break;
-                }
-            }
-            if (proHierachy == null) {
-                proHierachy = listProhie.get(listProhie.size() - 1);
-            }
-            int totalMoney = amount * proHierachy.getPrice();
-            mapProHie.put(cart, totalMoney);
-            
-            totalCart += totalMoney;
-            request.setAttribute("mapProHie", mapProHie);
-        }
-        request.setAttribute("totalCart", totalCart);
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
-        request.getRequestDispatcher("./common/payment.jsp").forward(request, response);
-        }
-    
+        request.getRequestDispatcher("./common/condition.jsp").forward(request, response);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

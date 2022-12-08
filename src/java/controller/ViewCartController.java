@@ -4,7 +4,6 @@
  */
 package controller;
 
-import dao.CartDAO;
 import dao.CartItemDAO;
 import dao.CategoryDAO;
 import dao.ProductDAO;

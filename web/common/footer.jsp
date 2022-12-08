@@ -54,10 +54,10 @@
                 <div class="col-lg-2 col-sm-6 col-xs-12">
                     <div class="text-footer">
                         <h4>Liên kết</h4>
-                        <p><a href="./information.jsp">Về chúng tôi</a></p>
-                        <p><a href="./policy.jsp">Chính sách bảo mật</a></p>
-                        <p><a href="./condition.jsp">Điều khoản dịch vụ</a></p>
-                        <p><a href="./contact.jsp">Liên hệ</a></p>
+                        <p><a href="InformationController">Về chúng tôi</a></p>
+                        <p><a href="PolicyController">Chính sách bảo mật</a></p>
+                        <p><a href="ConditionController">Điều khoản dịch vụ</a></p>
+                        <p><a href="ContactController">Liên hệ</a></p>
 
                     </div>
                 </div>

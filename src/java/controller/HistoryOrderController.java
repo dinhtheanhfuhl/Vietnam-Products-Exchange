@@ -4,13 +4,11 @@
  */
 package controller;
 
-import dao.CartItemDAO;
 import dao.CategoryDAO;
 import dao.OrderDAO;
 import dao.OrderDetailDAO;
 import dao.OrderStatusDAO;
 import dbconnect.DBConnect;
-import entity.CartItem;
 import entity.Category;
 import entity.Customer;
 import entity.Order;
