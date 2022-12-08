@@ -73,9 +73,14 @@
                                 </c:if>
                                 <c:if test="${order.orderStatusId=='4'}">
                                     Giao hàng thành công
-                                </c:if></span></p>
+                                </c:if>
+                                <c:if test="${order.orderStatusId=='5'}">
+                                    Đã huỷ
+                                </c:if>
+                            </span></p>
 
-                        <p><b>Tổng tiền: </b><span>tổng tiền here</span></p>
+                        <p><b>Tổng tiền: </b><span><fmt:formatNumber type = "number" 
+                                          pattern = "" value = "${totalPrice}" /><sup>vnđ</sup></span></p>
                         <p><b>Ngày đặt hàng: </b><span>${orderDetail.orderDate}</span></p>
                         <p><b>Ghi chú: </b><span>${order.note}</span></p>
                     </div>
@@ -84,41 +89,42 @@
                         <p><b>Số điện thoại: </b><span>${order.recieverPhone}</span></p>
                         <p><b>Địa chỉ nhận hàng: </b><span>${order.recieverAddress}</span></p>
                     </div>
-                    <div class="col-sm">
-                        <button type="button" style="float: right;" class="btn btn-warning status mb-2">Huỷ đơn</button>
+                    <form action="HistoryOrderDetailController?orderId=${order.orderId}" method="post">
+                        <div class="col-sm">
+                            <c:if test="${order.orderStatusId=='1'}"><button type="submit" style="float: right;" class="btn btn-warning status mb-2">Huỷ đơn</button></c:if>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="ordered-detail container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Tên sản phẩm</th>
-                        <th scope="col">Nhà cung cấp</th>
-                        <th scope="col">Số lượng</th>
-                        <th scope="col">Đơn giá</th>
-                         <th scope="col">Thành tiền</th>
-                    </tr>
-                </thead>
+            <div class="ordered-detail container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Tên sản phẩm</th>
+                            <th scope="col">Nhà cung cấp</th>
+                            <th scope="col">Số lượng</th>
+                            <th scope="col">Đơn giá</th>
+                            <th scope="col">Thành tiền</th>
+                        </tr>
+                    </thead>
                 <c:forEach var="key" items="${mapProduct.keySet()}">
                     <tbody>
                         <tr>
                             <td><img style="margin-left: 0px;object-fit: cover;" src="${mapImage.get(key).get(0).getImgPath()}" alt=""></td>
                             <td><p style="width: 200px"><b>${mapProduct.get(key).get(0).getProductName()}
-                                    ${mapProduct.get(key).get(0).productName}
-                                    ${mapProduct.get(key).get(0).trademark}
-                                    ${mapProduct.get(key).get(0).smell},
-                                    ${mapProduct.get(key).get(0).color},
-                                    ${mapProduct.get(key).get(0).packing}</b></p>
+                                        ${mapProduct.get(key).get(0).trademark}
+                                        ${mapProduct.get(key).get(0).smell},
+                                        ${mapProduct.get(key).get(0).color}</b></p>
                             </td>
                             <td>${mapSupplier.get(key).get(0).getSupplierName()}</td>
                             <td><span>${key.amount}Kg</span></td>
-                            <td>duudrtrtudu</td>
                             <td><span><fmt:formatNumber type = "number" 
-                                              pattern = "" value = "${key.cost}" /><sup>vnđ</sup>&nbsp;&nbsp;</span></td>
+                                              pattern = "" value = "${key.cost/key.amount}" /><sup>vnđ</sup></span></td>
+                            <td><span><fmt:formatNumber type = "number" 
+                                              pattern = "" value = "${key.cost}" /><sup>vnđ</sup></span></td>
                         </tr>
                     </tbody>
                 </c:forEach>

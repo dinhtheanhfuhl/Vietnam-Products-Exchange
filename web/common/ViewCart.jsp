@@ -133,7 +133,7 @@
 
                         </div>
                         <div class="payment">
-                            <a style="margin-left: 50px;" href="CartAmountController"><button id="btn-order" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
+                            <a style="margin-left: 50px;" href="CheckOutController"><button id="btn-order" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
                         </div>
                     </div>
                 </div>

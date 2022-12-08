@@ -7,6 +7,7 @@ package controller;
 import dao.CategoryDAO;
 import dao.OrderDAO;
 import dao.OrderDetailDAO;
+import dao.OrderStatusDAO;
 import dao.ProductDAO;
 import dao.ProductImageDAO;
 import dao.SupplierDAO;
@@ -52,40 +53,92 @@ public class HistoryOrderDetailController extends HttpServlet {
         ProductImageDAO productImageDAO = new ProductImageDAO(connection);
         CategoryDAO categoryDAO = new CategoryDAO(connection);
         SupplierDAO supplierDAO = new SupplierDAO(connection);
-        
-        List<Category> allCate = categoryDAO.getAllCategory();
-        request.setAttribute("listCate", allCate);
-        
-        int orderId = Integer.parseInt(request.getParameter("oid"));
-        OrderDetail orderDetail = orderDetailDAO.getOrderDetailByOrderId(orderId);
-        request.setAttribute("orderDetail", orderDetail);
-        
-        Order order = orderDAO.getOrderById(orderId);
-        request.setAttribute("order", order);
-        
-        List<OrderDetail> listProInOrder = orderDetailDAO.getAllOrderDetailsByOrderId(orderId);
-        Map<OrderDetail, List<Product>> mapProduct = new LinkedHashMap<OrderDetail, List<Product>>();
-        for (OrderDetail o : listProInOrder) {
-            List<Product> product = productDAO.getAllProductsProductID(o.getProductId());
-            mapProduct.put(o, product);
+        OrderStatusDAO orderStatusDAO = new OrderStatusDAO(connection);
+
+        String orderIdUpdateStatusStr = request.getParameter("orderId");
+        if (orderIdUpdateStatusStr == null) {
+            
+            List<Category> allCate = categoryDAO.getAllCategory();
+            request.setAttribute("listCate", allCate);
+
+            int orderId = Integer.parseInt(request.getParameter("oid"));
+            OrderDetail orderDetail = orderDetailDAO.getOrderDetailByOrderId(orderId);
+            request.setAttribute("orderDetail", orderDetail);
+
+            Order order = orderDAO.getOrderById(orderId);
+            request.setAttribute("order", order);
+
+            int totalPrice = orderDAO.sumPrice(orderId);
+            request.setAttribute("totalPrice", totalPrice);
+            
+            List<OrderDetail> listProInOrder = orderDetailDAO.getAllOrderDetailsByOrderId(orderId);
+            Map<OrderDetail, List<Product>> mapProduct = new LinkedHashMap<OrderDetail, List<Product>>();
+            for (OrderDetail o : listProInOrder) {
+                List<Product> product = productDAO.getAllProductsProductID(o.getProductId());
+                mapProduct.put(o, product);
+            }
+            request.setAttribute("mapProduct", mapProduct);
+
+            Map<OrderDetail, List<ProductImage>> mapImage = new LinkedHashMap<OrderDetail, List<ProductImage>>();
+            for (OrderDetail o : listProInOrder) {
+                List<ProductImage> image = productImageDAO.getAllProductsImageByProId(o.getProductId());
+                mapImage.put(o, image);
+            }
+            request.setAttribute("mapImage", mapImage);
+
+            Map<OrderDetail, List<Supplier>> mapSupplier = new LinkedHashMap<OrderDetail, List<Supplier>>();
+            for (OrderDetail o : listProInOrder) {
+                List<Supplier> supplier = supplierDAO.getSupplierByProId(o.getProductId());
+                mapSupplier.put(o, supplier);
+            }
+            request.setAttribute("mapSupplier", mapSupplier);
+
+            request.getRequestDispatcher("./common/customer-detail-order.jsp").forward(request, response);
+        } else {
+            
+            int orderIdUpdateStatus = Integer.parseInt(orderIdUpdateStatusStr);
+            orderStatusDAO.updateOrderStatus(orderIdUpdateStatus);
+            
+            List<Category> allCate = categoryDAO.getAllCategory();
+            request.setAttribute("listCate", allCate);
+
+            int orderId = Integer.parseInt(request.getParameter("orderId"));
+            
+            OrderDetail orderDetail = orderDetailDAO.getOrderDetailByOrderId(orderId);
+            request.setAttribute("orderDetail", orderDetail);
+
+            Order order = orderDAO.getOrderById(orderId);
+            request.setAttribute("order", order);
+
+            int totalPrice = orderDAO.sumPrice(orderId);
+            request.setAttribute("totalPrice", totalPrice);
+            
+            List<OrderDetail> listProInOrder = orderDetailDAO.getAllOrderDetailsByOrderId(orderId);
+            
+            Map<OrderDetail, List<Product>> mapProduct = new LinkedHashMap<OrderDetail, List<Product>>();
+            for (OrderDetail o : listProInOrder) {
+                List<Product> product = productDAO.getAllProductsProductID(o.getProductId());
+                mapProduct.put(o, product);
+            }
+            request.setAttribute("mapProduct", mapProduct);
+
+            Map<OrderDetail, List<ProductImage>> mapImage = new LinkedHashMap<OrderDetail, List<ProductImage>>();
+            for (OrderDetail o : listProInOrder) {
+                List<ProductImage> image = productImageDAO.getAllProductsImageByProId(o.getProductId());
+                mapImage.put(o, image);
+            }
+            request.setAttribute("mapImage", mapImage);
+
+            Map<OrderDetail, List<Supplier>> mapSupplier = new LinkedHashMap<OrderDetail, List<Supplier>>();
+            for (OrderDetail o : listProInOrder) {
+                List<Supplier> supplier = supplierDAO.getSupplierByProId(o.getProductId());
+                mapSupplier.put(o, supplier);
+            }
+            request.setAttribute("mapSupplier", mapSupplier);
+
+            request.getRequestDispatcher("./common/customer-detail-order.jsp").forward(request, response);
         }
-        request.setAttribute("mapProduct", mapProduct);
-        
-        Map<OrderDetail, List<ProductImage>> mapImage = new LinkedHashMap<OrderDetail, List<ProductImage>>();
-        for (OrderDetail o : listProInOrder) {
-            List<ProductImage> image = productImageDAO.getAllProductsImageByProId(o.getProductId());
-            mapImage.put(o, image);
-        }
-        request.setAttribute("mapImage", mapImage);
-        
-        Map<OrderDetail, List<Supplier>> mapSupplier = new LinkedHashMap<OrderDetail, List<Supplier>>();
-        for (OrderDetail o : listProInOrder) {
-            List<Supplier> supplier = supplierDAO.getSupplierByProId(o.getProductId());
-            mapSupplier.put(o, supplier);
-        }
-        request.setAttribute("mapSupplier", mapSupplier);
-        
-        request.getRequestDispatcher("./common/customer-detail-order.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

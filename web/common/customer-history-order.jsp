@@ -55,7 +55,7 @@
             </nav>
         </section>
         <div class="container ">
-            <h3>Lịc sử mua hàng</h3>
+            <h3>Lịch sử mua hàng</h3>
         </div>
         <div style="float: right;margin-right: 90px;margin-bottom: 20px;">
             <h6>Sắp xếp theo</h6>
@@ -104,6 +104,9 @@
                                 </c:if>
                                 <c:if test="${key.orderStatusId=='4'}">
                                     Giao hàng thành công
+                                </c:if>
+                                <c:if test="${key.orderStatusId=='5'}">
+                                    Đã huỷ
                                 </c:if>
                             </td>
                             <td><a href="HistoryOrderDetailController?oid=${key.orderId}">Xem chi tiết</a></td>

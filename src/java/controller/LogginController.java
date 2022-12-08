@@ -14,7 +14,6 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -73,7 +72,7 @@ public class LogginController extends HttpServlet {
                         session.setAttribute("nameUser", customer.getCustomerName());
                         session.setAttribute("roleCusId", account.getRoldId());
                         session.setAttribute("customer", customer);
-                        response.sendRedirect("Home");
+                        response.sendRedirect("CartController");
                         break;
                     default:
                         break;

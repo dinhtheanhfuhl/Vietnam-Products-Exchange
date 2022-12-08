@@ -23,7 +23,7 @@ public class OrderStatusDAO {
     public OrderStatusDAO(Connection connection) {
         this.connection = connection;
     }
-    
+
     public List<OrderStatus> getAllOrderDetails() {
         List<OrderStatus> orderStatuses = new ArrayList<>();
         String strSelectAll = "select * from OrderStatus";
@@ -78,5 +78,18 @@ public class OrderStatusDAO {
             System.out.println(e.getMessage());
         }
         return orderStatus;
+
+
+    public void updateOrderStatus(int orderId) {
+        String query = "UPDATE [Order] SET OrderStatusID= 5 where OrderID= ? ";
+        try {
+            PreparedStatement ps
+                    = connection.prepareStatement(query);
+            ps.setInt(1, orderId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+
     }
 }
