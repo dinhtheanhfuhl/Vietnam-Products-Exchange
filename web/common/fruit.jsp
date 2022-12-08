@@ -101,7 +101,6 @@
                             </div>
                         </div>
                         <div class="shop-grid-topbar d-flex justify-content-between align-items-center">
-                            <span>Hiện thị tổng số <span>12</span> sản phẩm.</span>
                             <select id="product">
                                 <option value="">Mới nhất</option>
                                 <option value="">Bán chạy nhất</option>
@@ -121,7 +120,7 @@
 
                                             <input type="hidden" id="productId" value="1">
 
-                                            <a href="MimartDetailProduct?pid=${key.productId}">
+                                            <a style="text-decoration: none" href="MimartDetailProduct?pid=${key.productId}">
                                                 <h5>
                                                     ${key.productName}
                                                     ${key.trademark}
