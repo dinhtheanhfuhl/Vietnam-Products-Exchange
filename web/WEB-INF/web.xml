@@ -33,10 +33,6 @@
         <servlet-class>controller.DeleteCartController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CartAmountController</servlet-name>
-        <servlet-class>controller.CartAmountController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>HistoryOrderController</servlet-name>
         <servlet-class>controller.HistoryOrderController</servlet-class>
     </servlet>
@@ -47,6 +43,10 @@
     <servlet>
         <servlet-name>HistoryOrderDetailController</servlet-name>
         <servlet-class>controller.HistoryOrderDetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckOutController</servlet-name>
+        <servlet-class>controller.CheckOutController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MinimartProductController</servlet-name>
@@ -81,10 +81,6 @@
         <url-pattern>/DeleteCartController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CartAmountController</servlet-name>
-        <url-pattern>/CartAmountController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>HistoryOrderController</servlet-name>
         <url-pattern>/HistoryOrderController</url-pattern>
     </servlet-mapping>
@@ -95,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>HistoryOrderDetailController</servlet-name>
         <url-pattern>/HistoryOrderDetailController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckOutController</servlet-name>
+        <url-pattern>/CheckOutController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

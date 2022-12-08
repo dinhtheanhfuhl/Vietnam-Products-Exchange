@@ -13,6 +13,7 @@ import entity.Category;
 import entity.Customer;
 import entity.ProductHierarchy;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -27,7 +28,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author ductd
  */
-public class CartAmountController extends HttpServlet {
+public class CheckOutController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -77,7 +78,8 @@ public class CartAmountController extends HttpServlet {
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
         request.getRequestDispatcher("./common/payment.jsp").forward(request, response);
-    }
+        }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

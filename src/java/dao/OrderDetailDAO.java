@@ -154,20 +154,5 @@ public class OrderDetailDAO {
         return orderDetails;
     }
     
-    public void insertOrderDetail(int orderId, int proId, String orderdate, int amount, int cost) {
-        String strInsert = "insert into OrderDetail(OrderID,ProductID,OrderDate,Amount,Cost) values(?,?,?,?,?)";
-
-        try {
-            PreparedStatement ps
-                    = connection.prepareStatement(strInsert);
-            ps.setInt(1, orderId);
-            ps.setInt(2, proId);
-            ps.setString(3, orderdate);
-            ps.setInt(4, amount);
-            ps.setInt(5, cost);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            e.getMessage();
-        }
-    }
+    
 }

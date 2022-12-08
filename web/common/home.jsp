@@ -42,11 +42,11 @@
 
     <body>
         <%@include file="header.jsp"%>
-        <div class="banner-top pt-5">
+         <div class="banner-top pt-5">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" style=" transform: scale(1.5);">
-                        <img class="d-block w-100" src="./image/b1.jpg" alt="First slide">
+                        <img class="d-block w-100" src="image/slider1-min.jpg" alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
                             <div class="row">
                                 <div class="col-sm-4 text-title">
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <div class="carousel-item" style=" transform: scale(1.2);">
-                        <img class="d-block w-100" src="./image/b2.jpg" alt="Third slide">
+                        <img class="d-block w-100" src="image/slider1-min.jpg" alt="Third slide">
                         <div class="carousel-caption d-none d-md-block">
                             <div class="row">
                                 <div class="col-sm-4 text-title-diff">
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div class="carousel-item" style=" transform: scale(1.2);">
-                        <img class="d-block w-100" src="./image/b3.jpg" alt="Second slide">
+                        <img class="d-block w-100" src="image/slider1-min.jpg" alt="Second slide">
                         <div class="carousel-caption d-none d-md-block">
                             <div class="row">
                                 <div class="col-sm-4 text-title-diff">
@@ -88,7 +88,7 @@
                         </div>
                     </div>
                     <div class="carousel-item" style=" transform: scale(1.2);">
-                        <img class="d-block w-100" src="./image/b5.jpg" alt="Second slide">
+                        <img class="d-block w-100" src="image/slider1-min.jpg" alt="Second slide">
                         <div class="carousel-caption d-none d-md-block">
                             <div class="row">
                                 <div class="col-sm-4 text-title-diff">
@@ -121,7 +121,7 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-3  ">
                         <div class="banner-block banner-hover">
-                            <img class=" lazyloaded" src="./image/banner2-min.jpg">
+                            <img class=" lazyloaded" src="image/collection.jpg">
                             <div class="banner-content text-left">
                                 <h4 style="color: #232323;">Vegetable Eggplant <br> 100% Fresh food</h4>
                             </div>
@@ -129,7 +129,7 @@
                     </div>
                     <div class="col-md-6 col-sm-3  ">
                         <div class="banner-block banner-hover">
-                            <img class=" lazyloaded" src="./image/banner1.jpg">
+                            <img class=" lazyloaded" src="image/collection.jpg">
                             <div class="banner-content text-left">
                                 <h4 style="color: #232323;">Fresh fruit vegetable <br> on our product</h4>
                             </div>
