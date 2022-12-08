@@ -144,7 +144,7 @@
                                                             <input type="hidden" name="action" value="search"/>
                                                             <input type="text" name="id" placeholder="Mã đơn hàng" value=""
                                                                    class="form-control">
-                                                            <input type="text" name="name" placeholder="Nhà cung cấp" value=""
+                                                            <input type="text" name="shopName" placeholder="Nhà cung cấp" value=""
                                                                    class="form-control">
                                                             <button  class="btn btn-info"
                                                                      style="padding: 0 10px; background: none; border: none;"
@@ -162,10 +162,9 @@
                                     <form action="ModeratorOrderController" method="POST">
                                         <select name="filter" id="selectstatus" onchange="this.form.submit();" class="form-control">
                                             <option value="0">Tất cả</option>
-                                            <option value="1">Chờ xác nhận</option>
-                                            <option value="2">Đã xác nhận</option>
-                                            <option value="3">Từ chối đơn</option>
-                                            <option value="4">Giao hàng thành công</option>
+                                            <c:forEach var="ods" items="${orderStatuses}">
+                                                <option value="${ods.orderStatusID}">${ods.statusName}</option>
+                                            </c:forEach>
                                         </select>
                                     </form>
                                     <h6 id="sorttext">Sắp xếp theo</h6>
@@ -175,11 +174,9 @@
                                                 <tr class="text-center">
                                                     <th>Thời gian đặt hàng</th>
                                                     <th>Mã đặt đơn hàng</th>
-                                                    <th>Minimart</th>
                                                     <th>Nhà cung cấp</th>
-                                                    <th>Số sản phẩm</th>
+                                                    <th>Khối lượng sản phẩm</th>
                                                     <th>Giá trị đơn hàng</th>
-                                                    <th>Địa chỉ giao hàng</th>
                                                     <th>Trạng thái</th>
                                                     <th>Chi tiết</th>
                                                 </tr>
@@ -187,15 +184,17 @@
                                             <tbody class="text-center">
                                                 <c:forEach var="o" items="${orders}">
                                                     <tr>
-                                                        <td>11/01/2000</td>
-                                                        <td>4520001</td>
-                                                        <td>Nong san dung ha</td>
-                                                        <td>Supper market</td>
-                                                        <td>20</td>
-                                                        <td>500đ</td>
-                                                        <td>TP HCM</td>
-                                                        <td><p class="btn btn-warning status mb-2">fff</p></td>
-                                                        <td><a href="moderator-view-order.jsp">Xem chi tiết</a></td>
+                                                        <td>${mapOrderAndOrderDetail.get(o).get(0).orderDate}</td>
+                                                        <td>${o.orderId}</td>
+                                                        <td>
+                                                            <c:forEach var="supName" items="${mapOrderAndSupName.get(o)}">
+                                                                ${supName} <br/>
+                                                            </c:forEach>
+                                                        </td>
+                                                        <td>${mapOrderAndTotalWeight.get(o)} kg</td>
+                                                        <td>${o.totalPrice} vnđ</td>
+                                                        <td>${mapOrderAndOrderStatus.get(o).statusName}</td>
+                                                        <td><a href="#">Xem chi tiết</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>

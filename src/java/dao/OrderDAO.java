@@ -208,6 +208,24 @@ public class OrderDAO {
         return orders;
     }
 
+
+    public List<Order> searchOrder(String id, String shopName, String filter) {
+        List<Order> orders = new ArrayList<>();
+        String strSelectAll = "select * from [Order]";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Order order = new Order();
+                order.setOrderID(rs.getInt("OrderID"));
+                order.setCustomerID(rs.getInt("CustomerID"));
+                order.setRecieverName(rs.getString("RecieverName"));
+                order.setRecieverPhone(rs.getString("RecieverPhone"));
+                order.setRecieverAddress(rs.getString("RecieverAddress"));
+                order.setTotalPrice(rs.getInt("TotalPrice"));
+                order.setOrderStatusID(rs.getInt("OrderStatusID"));
+                orders.add(order);
+
     public int sumPrice(int orderId) {
         Order order = null;
         String query = "SELECT SUM (Cost) FROM OrderDetail WHERE OrderID = ?";
@@ -217,6 +235,7 @@ public class OrderDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 return rs.getInt(1);
+
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
