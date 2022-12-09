@@ -78,7 +78,7 @@ public class OrderStatusDAO {
             System.out.println(e.getMessage());
         }
         return orderStatus;
-
+    }
 
     public void updateOrderStatus(int orderId) {
         String query = "UPDATE [Order] SET OrderStatusID= 5 where OrderID= ? ";
@@ -90,6 +90,5 @@ public class OrderStatusDAO {
         } catch (SQLException e) {
             e.getMessage();
         }
-
     }
 }

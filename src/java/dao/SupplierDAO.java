@@ -228,7 +228,7 @@ public class SupplierDAO {
         }
         if (filter != null && !filter.equals("") && !filter.equals("0")) {
             int status = Integer.parseInt(filter);
-            strSearch += " and AccID in (select AccID from Account where status = " + status + ")";
+            strSearch += " and AccID in (select AccID from Account where StatusID = " + status + ")";
         }
         try {
             PreparedStatement ps = connection.prepareStatement(strSearch);

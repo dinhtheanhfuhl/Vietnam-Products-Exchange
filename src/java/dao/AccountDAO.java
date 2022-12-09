@@ -25,7 +25,7 @@ public class AccountDAO {
 
     public int saveAccount(Account account) {
         int status = 0;
-        String strInsert = "insert into Account(Email,Password,RoleID,Status) values(?,?,?,?)";
+        String strInsert = "insert into Account(Email,Password,RoleID,StatusID) values(?,?,?,?)";
         try {
             PreparedStatement ps
                     = connection.prepareStatement(strInsert);
@@ -42,7 +42,7 @@ public class AccountDAO {
 
     public int updateAccount(Account account) {
         int status = 0;
-        String strUpdate = "update Account set Email=?,Password=?,RoleID=?,Status=? where AccID=?";
+        String strUpdate = "update Account set Email=?,Password=?,RoleID=?,StatusID=? where AccID=?";
         try {
             PreparedStatement ps = connection.prepareStatement(strUpdate);
             ps.setString(1, account.getEmail());
@@ -83,7 +83,7 @@ public class AccountDAO {
                 account.setEmail(rs.getString("Email"));
                 account.setPassWord(rs.getString("Password"));
                 account.setRoldId(rs.getInt("RoleID"));
-                account.setStatus(rs.getInt("Status"));
+                account.setStatus(rs.getInt("StatusID"));
                 accounts.add(account);
             }
         } catch (SQLException e) {
@@ -105,7 +105,7 @@ public class AccountDAO {
                 account.setEmail(rs.getString("Email"));
                 account.setPassWord(rs.getString("Password"));
                 account.setRoldId(rs.getInt("RoleID"));
-                account.setStatus(rs.getInt("Status"));
+                account.setStatus(rs.getInt("StatusID"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -126,7 +126,7 @@ public class AccountDAO {
                 account.setEmail(rs.getString("Email"));
                 account.setPassWord(rs.getString("Password"));
                 account.setRoldId(rs.getInt("RoleID"));
-                account.setStatus(rs.getInt("Status"));
+                account.setStatus(rs.getInt("StatusID"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -147,7 +147,7 @@ public class AccountDAO {
                 account.setEmail(rs.getString("Email"));
                 account.setPassWord(rs.getString("Password"));
                 account.setRoldId(rs.getInt("RoleID"));
-                account.setStatus(rs.getInt("Status"));
+                account.setStatus(rs.getInt("StatusID"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
