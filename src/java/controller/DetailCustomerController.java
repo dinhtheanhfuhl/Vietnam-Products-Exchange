@@ -56,6 +56,8 @@ public class DetailCustomerController extends HttpServlet {
             int status = accountDAO.updateAccount(acc);
             MessageRejectAccount ma = new MessageRejectAccount(0, accId, reason);
             int statusMess = messRejectDAO.saveMessageRejectAccount(ma);
+            // send mail reject 
+            security.SendMail.SendToDeMail(acc.getEmail(), "Từ chối tài khoản", reason);
             response.sendRedirect("DetailCustomerController?id="+cusId);
         }
     }

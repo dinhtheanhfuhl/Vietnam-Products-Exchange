@@ -140,6 +140,10 @@
                                 <td>Hoàng Xoan</td>
                             </tr>
                             <tr>
+                                <th>Tên Khách Hàng: </th>
+                                <td>Hoàng Xoan</td>
+                            </tr>
+                            <tr>
                                 <th>Số Điện Thoại: </th>
                                 <td>0123456789</td>
                             </tr>

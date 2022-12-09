@@ -20,6 +20,8 @@ public class DetailSuppilerController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        request.setCharacterEncoding("UTF-8");
         Connection connection = DBConnect.getConnection();
         SupplierDAO supplierDAO = new SupplierDAO(connection);
         AccountDAO accountDAO = new AccountDAO(connection);
@@ -50,11 +52,16 @@ public class DetailSuppilerController extends HttpServlet {
             int supId = Integer.parseInt(request.getParameter("sup-id"));
             String reason = request.getParameter("reason");
             Account acc = accountDAO.getAccountById(accId);
+            
             Supplier sup = supplierDAO.getSupplierById(supId);
             acc.setStatus(3);
             int status = accountDAO.updateAccount(acc);
             MessageRejectAccount ma = new MessageRejectAccount(0, accId, reason);
             int statusMess = messRejectDAO.saveMessageRejectAccount(ma);
+            
+            // send mail reject 
+            security.SendMail.SendToDeMail(acc.getEmail(), "Từ chối tài khoản", reason);
+            
             response.sendRedirect("DetailSuppilerController?id="+supId);
         }
     }

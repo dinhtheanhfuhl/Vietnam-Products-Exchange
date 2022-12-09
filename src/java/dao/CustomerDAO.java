@@ -194,7 +194,7 @@ public class CustomerDAO {
         }
         if (filter != null && !filter.equals("") && !filter.equals("0")) {
             int status = Integer.parseInt(filter);
-            strSearch += " and AccID in (select AccID from Account where status = " + status + ")";
+            strSearch += " and AccID in (select AccID from Account where statusID = " + status + ")";
         }
         try {
             PreparedStatement ps = connection.prepareStatement(strSearch);

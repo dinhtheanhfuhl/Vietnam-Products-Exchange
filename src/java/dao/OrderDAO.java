@@ -217,15 +217,20 @@ public class OrderDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Order order = new Order();
-                order.setOrderID(rs.getInt("OrderID"));
-                order.setCustomerID(rs.getInt("CustomerID"));
+                order.setOrderId(rs.getInt("OrderID"));
+                order.setCustomerId(rs.getInt("CustomerID"));
                 order.setRecieverName(rs.getString("RecieverName"));
                 order.setRecieverPhone(rs.getString("RecieverPhone"));
                 order.setRecieverAddress(rs.getString("RecieverAddress"));
                 order.setTotalPrice(rs.getInt("TotalPrice"));
-                order.setOrderStatusID(rs.getInt("OrderStatusID"));
+                order.setOrderStatusId(rs.getInt("OrderStatusID"));
                 orders.add(order);
-
+            }
+            } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return orders;
+    }
     public int sumPrice(int orderId) {
         Order order = null;
         String query = "SELECT SUM (Cost) FROM OrderDetail WHERE OrderID = ?";
@@ -241,5 +246,34 @@ public class OrderDAO {
             System.out.println(e.getMessage());
         }
         return 0;
+    }
+
+    public List<Order> searchOrder(String id, String filter) {
+        List<Order> orders = new ArrayList<>();
+        String sqlStr = "select * from [Order]";
+        if(id != null && !id.equals("")){
+            sqlStr += " and id="+id;
+        }
+        if(id != null && !id.equals("")){
+            sqlStr += " and id="+id;
+        }
+        try {
+            PreparedStatement ps = connection.prepareStatement(sqlStr);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Order order = new Order();
+                order.setOrderId(rs.getInt("OrderID"));
+                order.setCustomerId(rs.getInt("CustomerID"));
+                order.setRecieverName(rs.getString("RecieverName"));
+                order.setRecieverPhone(rs.getString("RecieverPhone"));
+                order.setRecieverAddress(rs.getString("RecieverAddress"));
+                order.setTotalPrice(rs.getInt("TotalPrice"));
+                order.setOrderStatusId(rs.getInt("OrderStatusID"));
+                orders.add(order);
+            }
+            } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return orders;
     }
 }

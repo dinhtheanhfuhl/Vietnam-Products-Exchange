@@ -144,8 +144,6 @@
                                                             <input type="hidden" name="action" value="search"/>
                                                             <input type="text" name="id" placeholder="Mã đơn hàng" value=""
                                                                    class="form-control">
-                                                            <input type="text" name="shopName" placeholder="Nhà cung cấp" value=""
-                                                                   class="form-control">
                                                             <button  class="btn btn-info"
                                                                      style="padding: 0 10px; background: none; border: none;"
                                                                      title="Tìm kiếm">
