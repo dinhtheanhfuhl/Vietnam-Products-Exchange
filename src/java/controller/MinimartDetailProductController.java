@@ -81,7 +81,7 @@ public class MinimartDetailProductController extends HttpServlet {
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
         int viewNumber = product.getViewNumber()+1;
-        productDAO.updateProduct(viewNumber,id);
+        productDAO.updateViewProduct(viewNumber,id);
         
         List<ProductHierarchy> listHierarchyByProId = proHieDAO.getHierarchyByProId(productId);
         for (int i = 0; i < listHierarchyByProId.size(); i++) {

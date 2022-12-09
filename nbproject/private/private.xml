@@ -62,5 +62,25 @@
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dao/OrderDAO.java</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/customer-detail-order.jsp</file>
         </group>
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/admin-page/moderator-view-order.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/customer-detail-order.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/admin-page/moderator-product-detail.jsp</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dao/ProductDAO.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HistoryOrderDetailController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/ViewCartController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/CheckCartAmountController.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/CheckCartAmountController.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/MinimartDetailProductController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/ViewCart.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/ViewCartController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/CheckCartAmountController.java</file>
+        </group>
     </open-files>
 </project-private>

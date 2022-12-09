@@ -89,6 +89,13 @@
                             <p class="text-cart  mb-0 ">Giỏ hàng</p>
                         </div>
                         <div class="displayProduct pb-3">
+                            <c:if test="${not empty message}">
+                                <div class="alert alert-${alert}" role="alert">
+                                    <i class="fa fa-${icon}"></i>
+                                    <b>${message}</b>
+                                    <b>${AmountInStore}Kg</b>
+                                </div>
+                            </c:if>
                             <ul id="mainCart" class="pb-3">
                                 <div class="ordered-detail container">
                                     <table class="table">
@@ -96,7 +103,7 @@
                                             <tr>
                                                 <th scope="col">&nbsp;</th>
                                                 <th scope="col">Tên sản phẩm</th>
-                                                <th scope="col">Số lượng</th>
+                                                <th scope="col">Số lượng(Kg)</th>
                                                 <th scope="col">Đơn giá</th>
                                                 <th scope="col">Thành tiền</th>
                                                 <th scope="col">Xoá</th>
@@ -108,11 +115,16 @@
                                                     <td><img src="${mapImages.get(key).get(0).getImgPath()}" alt="" style="object-fit: cover;margin-left: 0px;"></td>
                                                     <td><a style="text-decoration: none;" href="MimartDetailProduct?pid=${mapProduct.get(key).get(0).productId}">
                                                             <h6>${mapProduct.get(key).get(0).productName}<br>
-                                                            ${mapProduct.get(key).get(0).trademark}<br>
-                                                            ${mapProduct.get(key).get(0).smell},
-                                                            ${mapProduct.get(key).get(0).color}</h6></a>
+                                                                ${mapProduct.get(key).get(0).trademark}<br>
+                                                                ${mapProduct.get(key).get(0).smell},
+                                                                ${mapProduct.get(key).get(0).color}</h6></a>
                                                     </td>
-                                                    <td>${key.amount}Kg</td>
+                                                    <td><form action="CheckCartAmountController" method="post">
+                                                            <input type="number" max="2000000000" value="${key.amount}" name="amount" id="amount" onblur="this.form.submit()">
+                                                            <input type="hidden" onblur="this.form.submit()" name="cartItemId" value="${key.cartId}">
+                                                            <input type="hidden"  onblur="this.form.submit()" name="cartProducId" value="${mapProduct.get(key).get(0).productId}">
+                                                        </form>
+                                                    </td>
                                                     <td><fmt:formatNumber type = "number"
                                                                       pattern = "" value = "${mapProHie.get(key).price}" /><sup>vnđ/kg</sup></td>
                                                     <td><fmt:formatNumber type = "number"
@@ -254,6 +266,8 @@
         </footer>
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script>
+        </script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
@@ -291,11 +305,11 @@
         <script src="assets/js/main.js"></script>
         <script src="./cart.js"></script>
         <script type="text/javascript">
-                $(window).load(function () {
-                    showProduct();
-                    immidiateSum();
+            $(window).load(function () {
+                showProduct();
+                immidiateSum();
 
-                });
+            });
 
 
         </script>

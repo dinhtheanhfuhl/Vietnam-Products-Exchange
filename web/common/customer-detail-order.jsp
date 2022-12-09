@@ -91,25 +91,46 @@
                     </div>
                     <form action="HistoryOrderDetailController?orderId=${order.orderId}" method="post">
                         <div class="col-sm">
-                            <c:if test="${order.orderStatusId=='1'}"><button type="submit" style="float: right;" class="btn btn-warning status mb-2">Huỷ đơn</button></c:if>
+                            <c:if test="${order.orderStatusId=='1'}"><button type="button" style="float: right;" class="btn btn-warning status mb-2" data-toggle="modal" data-target="#exampleModal">Huỷ đơn</button></c:if>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <div class="ordered-detail container">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col">Tên sản phẩm</th>
-                            <th scope="col">Nhà cung cấp</th>
-                            <th scope="col">Số lượng</th>
-                            <th scope="col">Đơn giá</th>
-                            <th scope="col">Thành tiền</th>
-                        </tr>
-                    </thead>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Bạn có chắc muốn huỷ đơn?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+                            <form action="HistoryOrderDetailController?orderId=${order.orderId}" method="post">
+                                <button type="submit" class="btn btn-secondary">Có</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>          
+        <div class="ordered-detail container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Tên sản phẩm</th>
+                        <th scope="col">Nhà cung cấp</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Đơn giá</th>
+                        <th scope="col">Thành tiền</th>
+                    </tr>
+                </thead>
                 <c:forEach var="key" items="${mapProduct.keySet()}">
                     <tbody>
                         <tr>
@@ -134,6 +155,11 @@
         <%@include file="footer.jsp"%>  
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script>
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+            })
+        </script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
         </script>
