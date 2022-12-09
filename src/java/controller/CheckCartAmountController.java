@@ -44,23 +44,21 @@ public class CheckCartAmountController extends HttpServlet {
         String cartAmountStr = request.getParameter("amount");
         int cartAmount = Integer.parseInt(cartAmountStr);
         int producId = Integer.parseInt(request.getParameter("cartProducId"));
-        System.out.println("proId: " + producId);
         Product p = productDAO.getProductById(producId);
-        System.out.println("weight: " + p.getWeight());
 
         List<ProductHierarchy> listProhie = proHieDAO.getHierarchyByProId(producId);
-        System.out.println("minquan: ");
-        System.out.println(listProhie.get(0).getQuantity());
         if (cartAmount > p.getWeight()) {
-            System.out.println("khong du so luong");
-            request.setAttribute("message", "Số lượng sản phẩm trong kho chỉ còn:");
+            request.setAttribute("message", "Số lượng sản phẩm");
+            request.setAttribute("productName", p.getProductName());
+            request.setAttribute("message2", "chỉ còn: ");
             request.setAttribute("AmountInStore", p.getWeight());
             request.setAttribute("icon", "exclamation-triangle");
             request.setAttribute("alert", "warning");
             request.getRequestDispatcher("CartController").forward(request, response);
         } else if (cartAmount < listProhie.get(0).getQuantity()) {
-            System.out.println("nho hon so luong cho phep");
-            request.setAttribute("message", "Nhỏ hơn số lượng tối thiểu cho phép mua là:");
+            request.setAttribute("message", "Nhỏ hơn số lượng tối thiểu cho phép mua của ");
+            request.setAttribute("productName", p.getProductName());
+            request.setAttribute("message2", "là: ");
             request.setAttribute("AmountInStore", listProhie.get(0).getQuantity());
             request.setAttribute("icon", "exclamation-triangle");
             request.setAttribute("alert", "warning");
@@ -68,7 +66,6 @@ public class CheckCartAmountController extends HttpServlet {
 
         } else {
             cartItemDAO.updateCartItemAmountByProId(cartAmount, producId);
-            System.out.println("thoa man");
             request.getRequestDispatcher("CartController").forward(request, response);
         }
 

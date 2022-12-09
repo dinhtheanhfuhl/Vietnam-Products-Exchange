@@ -101,7 +101,7 @@ public class OrderController extends HttpServlet {
                 proHierachy = listProhie.get(listProhie.size() - 1);
             }
             mapProHie.put(cartItem1, proHierachy);
-           
+            
             OrderDetail orderDetai = new OrderDetail();
             orderDetai.setOrderId(order.getOrderId());
             orderDetai.setProductId(cartItem1.getProductId());

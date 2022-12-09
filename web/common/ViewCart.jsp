@@ -92,8 +92,10 @@
                             <c:if test="${not empty message}">
                                 <div class="alert alert-${alert}" role="alert">
                                     <i class="fa fa-${icon}"></i>
-                                    <b>${message}</b>
-                                    <b>${AmountInStore}Kg</b>
+                                    ${message}
+                                    "${productName}"
+                                    ${message2}
+                                    ${AmountInStore}Kg
                                 </div>
                             </c:if>
                             <ul id="mainCart" class="pb-3">
@@ -112,7 +114,7 @@
                                         <c:forEach var="key" items="${mapImages.keySet()}" >
                                             <tbody>
                                                 <tr>
-                                                    <td><img src="${mapImages.get(key).get(0).getImgPath()}" alt="" style="object-fit: cover;margin-left: 0px;"></td>
+                                                    <td><img src="${mapImages.get(key).get(0).getImgPath()}" alt="" style="object-fit: cover;margin-left: 0px;height: 100px"></td>
                                                     <td><a style="text-decoration: none;" href="MimartDetailProduct?pid=${mapProduct.get(key).get(0).productId}">
                                                             <h6>${mapProduct.get(key).get(0).productName}<br>
                                                                 ${mapProduct.get(key).get(0).trademark}<br>
@@ -120,10 +122,13 @@
                                                                 ${mapProduct.get(key).get(0).color}</h6></a>
                                                     </td>
                                                     <td><form action="CheckCartAmountController" method="post">
-                                                            <input type="number" max="2000000000" value="${key.amount}" name="amount" id="amount" onblur="this.form.submit()">
-                                                            <input type="hidden" onblur="this.form.submit()" name="cartItemId" value="${key.cartId}">
-                                                            <input type="hidden"  onblur="this.form.submit()" name="cartProducId" value="${mapProduct.get(key).get(0).productId}">
+                                                            <input style="width: 50%;" type="number" max="2000000000" value="${key.amount}" name="amount" id="amount" onblur="this.form.submit()">
+                                                            <input  type="hidden" onblur="this.form.submit()" name="cartItemId" value="${key.cartId}">
+                                                            <input  type="hidden"  onblur="this.form.submit()" name="cartProducId" value="${mapProduct.get(key).get(0).productId}">
                                                         </form>
+                                                        <c:if test="${mapCartItemStatus.get(key)==false}">
+                                                            <p style="color: red;">Số lượng sản phẩm<br>trong kho không đủ</p>
+                                                            </c:if>
                                                     </td>
                                                     <td><fmt:formatNumber type = "number"
                                                                       pattern = "" value = "${mapProHie.get(key).price}" /><sup>vnđ/kg</sup></td>
@@ -139,14 +144,25 @@
                         </div>
                     </div>
                     <div class="col-lg-3 box-fee mt-70 mb-50 pt-3">
-                        <div class="immidiate-fee sum-fee" style="color: rgb(49, 189, 21);">
-                            Tổng tiền: <span class="prices"><fmt:formatNumber type = "number" 
-                                              pattern = "" value = "${totalCart}" /><sup>vnđ</sup>&nbsp;&nbsp;</span>
+                        <c:if test="${totalCart==0}">
+                            <div class="immidiate-fee sum-fee" style="color: rgb(49, 189, 21);">
+                                Tổng tiền: <span class="prices"><fmt:formatNumber type = "number" 
+                                                  pattern = "" value = "0" /><sup>vnđ</sup>&nbsp;&nbsp;</span>
+                            </div>
+                            <div class="payment">
+                                <a style="margin-left: 50px;" href="CheckOutController"><button id="btn-order" disabled="" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
+                            </div>
+                        </c:if>
+                        <c:if test="${totalCart!=0}">
+                            <div class="immidiate-fee sum-fee" style="color: rgb(49, 189, 21);">
+                                Tổng tiền: <span class="prices"><fmt:formatNumber type = "number" 
+                                                  pattern = "" value = "${totalCart}" /><sup>vnđ</sup>&nbsp;&nbsp;</span>
+                            </div>
+                            <div class="payment">
+                                <a style="margin-left: 50px;" href="CheckOutController"><button id="btn-order" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
+                            </div>
+                        </c:if>
 
-                        </div>
-                        <div class="payment">
-                            <a style="margin-left: 50px;" href="CheckOutController"><button id="btn-order" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
-                        </div>
                     </div>
                 </div>
             </div>
