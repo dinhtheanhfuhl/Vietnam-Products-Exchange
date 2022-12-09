@@ -171,5 +171,17 @@ public class CartItemDAO {
         }
         return cartItems;
     }
+    public void updateCartItemAmountByProId( int weight, int productID) {
+        String query = "update CartItem set Amount = ? where ProductID = ? ";
+        try {
+            PreparedStatement ps
+                    = connection.prepareStatement(query);
+            ps.setInt(1, weight);
+            ps.setInt(2, productID);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+    }
 
 }
