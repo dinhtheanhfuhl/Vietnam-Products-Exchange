@@ -3,6 +3,36 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HistoryOrderDetailController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/home.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HomeController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/customer-detail-order.jsp</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HistoryOrderDetailController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/home.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HistoryOrderController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/ViewCartController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HomeController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dbconnect/DBConnect.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/customer-detail-order.jsp</file>
+        </group>
+        <group>
+
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/ViewCart.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/ViewCartController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HomeController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dbconnect/DBConnect.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/payment.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/OrderController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HistoryOrderController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dao/OrderDAO.java</file>
+        </group>
+        <group>
             <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/web/common/createAccount.jsp</file>
             <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/src/java/security/SecurityPassword.java</file>
             <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/src/java/controller/RegisterController.java</file>
