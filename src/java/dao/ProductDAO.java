@@ -389,7 +389,7 @@ public class ProductDAO {
         return products;
     }
 
-    public List<Product> getAllProductsByCartID(int id) {
+    public List<Product> getAllProductsByCartItemID(int id) {
         List<Product> products = new ArrayList<>();
         String strSelectAll = "select * from Product INNER JOIN CartItem ON Product.ProductID = CartItem.ProductID where CartItem.CartID = ?";
         try {
@@ -496,7 +496,7 @@ public class ProductDAO {
         return products;
     }
 
-    public void updateProduct(int viewNumber, String ProductID) {
+    public void updateViewProduct(int viewNumber, String ProductID) {
         String query = "UPDATE Product SET ViewNumber = ? where ProductID = ?";
         try {
             PreparedStatement ps

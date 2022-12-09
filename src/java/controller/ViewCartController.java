@@ -85,7 +85,7 @@ public class ViewCartController extends HttpServlet {
             mapSupplier.put(cart, supplier);
         }
         request.setAttribute("mapSupplier", mapSupplier);
-
+        Map<CartItem, Boolean> mapCartItemStatus = new LinkedHashMap<>();
         Map<CartItem, ProductHierarchy> mapProHie = new LinkedHashMap<>();
         int totalCart = 0;
         for (CartItem cart : allCart) {
@@ -94,7 +94,7 @@ public class ViewCartController extends HttpServlet {
             ProductHierarchy proHierachy = null;
             for (int i = 0; i < listProhie.size(); i++) {
                 if (i > 0 && amount < listProhie.get(i).getQuantity()) {
-                    proHierachy = listProhie.get(i-1);
+                    proHierachy = listProhie.get(i - 1);
                     break;
                 }
             }
@@ -102,11 +102,23 @@ public class ViewCartController extends HttpServlet {
                 proHierachy = listProhie.get(listProhie.size() - 1);
             }
             mapProHie.put(cart, proHierachy);
-           
-            totalCart += amount * proHierachy.getPrice();
+
+            Product product = productDAO.getProductById(cart.getProductId());
+            boolean flag = true;
+            if (cart.getAmount() > product.getWeight()) {
+                flag = false;
+                request.setAttribute("totalCart", 0);
+            } else {
+                totalCart += amount * proHierachy.getPrice();
+                request.setAttribute("totalCart", totalCart);
+            }
+            mapCartItemStatus.put(cart, flag);
+            request.setAttribute("mapCartItemStatus", mapCartItemStatus);
+
             request.setAttribute("mapProHie", mapProHie);
+
         }
-        request.setAttribute("totalCart", totalCart);
+
         request.getRequestDispatcher("./common/ViewCart.jsp").forward(request, response);
     }
 

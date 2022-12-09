@@ -64,6 +64,10 @@
         <servlet-name>PolicyController</servlet-name>
         <servlet-class>controller.PolicyController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckCartAmountController</servlet-name>
+        <servlet-class>controller.CheckCartAmountController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MinimartProductController</servlet-name>
         <url-pattern>/MinimartProductController</url-pattern>
@@ -127,6 +131,10 @@
     <servlet-mapping>
         <servlet-name>PolicyController</servlet-name>
         <url-pattern>/PolicyController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckCartAmountController</servlet-name>
+        <url-pattern>/CheckCartAmountController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

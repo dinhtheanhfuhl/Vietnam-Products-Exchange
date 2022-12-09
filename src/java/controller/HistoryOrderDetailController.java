@@ -57,7 +57,7 @@ public class HistoryOrderDetailController extends HttpServlet {
 
         String orderIdUpdateStatusStr = request.getParameter("orderId");
         if (orderIdUpdateStatusStr == null) {
-            
+
             List<Category> allCate = categoryDAO.getAllCategory();
             request.setAttribute("listCate", allCate);
 
@@ -70,7 +70,7 @@ public class HistoryOrderDetailController extends HttpServlet {
 
             int totalPrice = orderDAO.sumPrice(orderId);
             request.setAttribute("totalPrice", totalPrice);
-            
+
             List<OrderDetail> listProInOrder = orderDetailDAO.getAllOrderDetailsByOrderId(orderId);
             Map<OrderDetail, List<Product>> mapProduct = new LinkedHashMap<OrderDetail, List<Product>>();
             for (OrderDetail o : listProInOrder) {
@@ -95,15 +95,15 @@ public class HistoryOrderDetailController extends HttpServlet {
 
             request.getRequestDispatcher("./common/customer-detail-order.jsp").forward(request, response);
         } else {
-            
+
             int orderIdUpdateStatus = Integer.parseInt(orderIdUpdateStatusStr);
             orderStatusDAO.updateOrderStatus(orderIdUpdateStatus);
-            
+
             List<Category> allCate = categoryDAO.getAllCategory();
             request.setAttribute("listCate", allCate);
 
             int orderId = Integer.parseInt(request.getParameter("orderId"));
-            
+
             OrderDetail orderDetail = orderDetailDAO.getOrderDetailByOrderId(orderId);
             request.setAttribute("orderDetail", orderDetail);
 
@@ -112,9 +112,19 @@ public class HistoryOrderDetailController extends HttpServlet {
 
             int totalPrice = orderDAO.sumPrice(orderId);
             request.setAttribute("totalPrice", totalPrice);
+
+            List<OrderDetail> listCart = orderDetailDAO.getAllOrderDetailsByOrderId(orderId);
+
+            for (int i = 0; i < listCart.size(); i++) {
+                orderDetail = listCart.get(i);
+                int cartAmount = orderDetail.getAmount();
+                int productId = orderDetail.getProductId();
+                Product p = productDAO.getProductById(productId);
+                productDAO.updateAmountByProId(p.getWeight() + cartAmount, productId);
+            }
             
             List<OrderDetail> listProInOrder = orderDetailDAO.getAllOrderDetailsByOrderId(orderId);
-            
+
             Map<OrderDetail, List<Product>> mapProduct = new LinkedHashMap<OrderDetail, List<Product>>();
             for (OrderDetail o : listProInOrder) {
                 List<Product> product = productDAO.getAllProductsProductID(o.getProductId());

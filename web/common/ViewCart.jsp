@@ -89,6 +89,15 @@
                             <p class="text-cart  mb-0 ">Giỏ hàng</p>
                         </div>
                         <div class="displayProduct pb-3">
+                            <c:if test="${not empty message}">
+                                <div class="alert alert-${alert}" role="alert">
+                                    <i class="fa fa-${icon}"></i>
+                                    ${message}
+                                    "${productName}"
+                                    ${message2}
+                                    ${AmountInStore}Kg
+                                </div>
+                            </c:if>
                             <ul id="mainCart" class="pb-3">
                                 <div class="ordered-detail container">
                                     <table class="table">
@@ -96,7 +105,7 @@
                                             <tr>
                                                 <th scope="col">&nbsp;</th>
                                                 <th scope="col">Tên sản phẩm</th>
-                                                <th scope="col">Số lượng</th>
+                                                <th scope="col">Số lượng(Kg)</th>
                                                 <th scope="col">Đơn giá</th>
                                                 <th scope="col">Thành tiền</th>
                                                 <th scope="col">Xoá</th>
@@ -105,14 +114,22 @@
                                         <c:forEach var="key" items="${mapImages.keySet()}" >
                                             <tbody>
                                                 <tr>
-                                                    <td><img src="${mapImages.get(key).get(0).getImgPath()}" alt="" style="object-fit: cover;margin-left: 0px;"></td>
+                                                    <td><img src="${mapImages.get(key).get(0).getImgPath()}" alt="" style="object-fit: cover;margin-left: 0px;height: 100px"></td>
                                                     <td><a style="text-decoration: none;" href="MimartDetailProduct?pid=${mapProduct.get(key).get(0).productId}">
                                                             <h6>${mapProduct.get(key).get(0).productName}<br>
-                                                            ${mapProduct.get(key).get(0).trademark}<br>
-                                                            ${mapProduct.get(key).get(0).smell},
-                                                            ${mapProduct.get(key).get(0).color}</h6></a>
+                                                                ${mapProduct.get(key).get(0).trademark}<br>
+                                                                ${mapProduct.get(key).get(0).smell},
+                                                                ${mapProduct.get(key).get(0).color}</h6></a>
                                                     </td>
-                                                    <td>${key.amount}Kg</td>
+                                                    <td><form action="CheckCartAmountController" method="post">
+                                                            <input style="width: 50%;" type="number" max="2000000000" value="${key.amount}" name="amount" id="amount" onblur="this.form.submit()">
+                                                            <input  type="hidden" onblur="this.form.submit()" name="cartItemId" value="${key.cartId}">
+                                                            <input  type="hidden"  onblur="this.form.submit()" name="cartProducId" value="${mapProduct.get(key).get(0).productId}">
+                                                        </form>
+                                                        <c:if test="${mapCartItemStatus.get(key)==false}">
+                                                            <p style="color: red;">Số lượng sản phẩm<br>trong kho không đủ</p>
+                                                            </c:if>
+                                                    </td>
                                                     <td><fmt:formatNumber type = "number"
                                                                       pattern = "" value = "${mapProHie.get(key).price}" /><sup>vnđ/kg</sup></td>
                                                     <td><fmt:formatNumber type = "number"
@@ -127,14 +144,25 @@
                         </div>
                     </div>
                     <div class="col-lg-3 box-fee mt-70 mb-50 pt-3">
-                        <div class="immidiate-fee sum-fee" style="color: rgb(49, 189, 21);">
-                            Tổng tiền: <span class="prices"><fmt:formatNumber type = "number" 
-                                              pattern = "" value = "${totalCart}" /><sup>vnđ</sup>&nbsp;&nbsp;</span>
+                        <c:if test="${totalCart==0}">
+                            <div class="immidiate-fee sum-fee" style="color: rgb(49, 189, 21);">
+                                Tổng tiền: <span class="prices"><fmt:formatNumber type = "number" 
+                                                  pattern = "" value = "0" /><sup>vnđ</sup>&nbsp;&nbsp;</span>
+                            </div>
+                            <div class="payment">
+                                <a style="margin-left: 50px;" href="CheckOutController"><button id="btn-order" disabled="" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
+                            </div>
+                        </c:if>
+                        <c:if test="${totalCart!=0}">
+                            <div class="immidiate-fee sum-fee" style="color: rgb(49, 189, 21);">
+                                Tổng tiền: <span class="prices"><fmt:formatNumber type = "number" 
+                                                  pattern = "" value = "${totalCart}" /><sup>vnđ</sup>&nbsp;&nbsp;</span>
+                            </div>
+                            <div class="payment">
+                                <a style="margin-left: 50px;" href="CheckOutController"><button id="btn-order" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
+                            </div>
+                        </c:if>
 
-                        </div>
-                        <div class="payment">
-                            <a style="margin-left: 50px;" href="CheckOutController"><button id="btn-order" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -254,6 +282,8 @@
         </footer>
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script>
+        </script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
@@ -291,11 +321,11 @@
         <script src="assets/js/main.js"></script>
         <script src="./cart.js"></script>
         <script type="text/javascript">
-                $(window).load(function () {
-                    showProduct();
-                    immidiateSum();
+            $(window).load(function () {
+                showProduct();
+                immidiateSum();
 
-                });
+            });
 
 
         </script>
