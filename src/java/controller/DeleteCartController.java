@@ -7,7 +7,6 @@ package controller;
 import dao.CartItemDAO;
 import dbconnect.DBConnect;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -32,8 +31,8 @@ public class DeleteCartController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String productId = request.getParameter("pid");
-        String cartId = request.getParameter("cid");
+        int productId = Integer.parseInt(request.getParameter("pid"));
+        int cartId = Integer.parseInt(request.getParameter("cid"));
         Connection connection = DBConnect.getConnection();
         CartItemDAO cartItemDAO = new CartItemDAO(connection);
         cartItemDAO.deleteCartByProId(productId, cartId);
