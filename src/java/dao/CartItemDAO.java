@@ -54,13 +54,13 @@ public class CartItemDAO {
         }
     }
 
-    public void deleteCartByProId(String pid, String cid) {
+    public void deleteCartByProId(int pid, int cid) {
         String query = "delete from CartItem where ProductID = ? and CartID = ?";
         try {
             PreparedStatement ps
                     = connection.prepareStatement(query);
-            ps.setString(1, pid);
-            ps.setString(2, cid);
+            ps.setInt(1, pid);
+            ps.setInt(2, cid);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.getMessage();

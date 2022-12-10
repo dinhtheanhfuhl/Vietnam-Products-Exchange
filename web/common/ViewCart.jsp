@@ -144,25 +144,16 @@
                         </div>
                     </div>
                     <div class="col-lg-3 box-fee mt-70 mb-50 pt-3">
-                        <c:if test="${totalCart==0}">
-                            <div class="immidiate-fee sum-fee" style="color: rgb(49, 189, 21);">
-                                Tổng tiền: <span class="prices"><fmt:formatNumber type = "number" 
-                                                  pattern = "" value = "0" /><sup>vnđ</sup>&nbsp;&nbsp;</span>
-                            </div>
-                            <div class="payment">
-                                <a style="margin-left: 50px;" href="CheckOutController"><button id="btn-order" disabled="" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
-                            </div>
-                        </c:if>
-                        <c:if test="${totalCart!=0}">
-                            <div class="immidiate-fee sum-fee" style="color: rgb(49, 189, 21);">
-                                Tổng tiền: <span class="prices"><fmt:formatNumber type = "number" 
-                                                  pattern = "" value = "${totalCart}" /><sup>vnđ</sup>&nbsp;&nbsp;</span>
-                            </div>
-                            <div class="payment">
-                                <a style="margin-left: 50px;" href="CheckOutController"><button id="btn-order" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
-                            </div>
-                        </c:if>
-
+                        <div class="immidiate-fee sum-fee" style="color: rgb(49, 189, 21);">
+                            Tổng tiền: <span class="prices"><fmt:formatNumber type = "number" 
+                                              pattern = "" value = "${totalCart}" /><sup>vnđ</sup>&nbsp;&nbsp;</span>
+                        </div>
+                        <div class="payment">
+                            <a style="margin-left: 50px;<c:if test="${totalCart==0 || totalCart==null}">pointer-events: none; cursor: default;</c:if>" 
+                               href="CheckOutController"><button  id="btn-order" 
+                               type="submit" class="<c:if test="${totalCart==0 || totalCart==null}">disabled</c:if> btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
+                        
+                        </div>
                     </div>
                 </div>
             </div>

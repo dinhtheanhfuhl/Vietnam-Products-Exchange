@@ -26,7 +26,8 @@ public class OrderDetailDAO {
 
     public int saveOrderDetail(OrderDetail orderDetail) {
         int status = 0;
-        String strInsert = "insert into OrderDetail(OrderID, ProductID, OrderDate, Amount, Cost) values(?,?,?,?,?)";
+        String strInsert = "insert into OrderDetail(OrderID, ProductID, OrderDate, Amount, Cost)"
+                + " values(?,?,?,?,?)";
         try {
             PreparedStatement ps
                     = connection.prepareStatement(strInsert);
