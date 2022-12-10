@@ -89,4 +89,22 @@ public class CategoryDAO {
         }
         return category;
     }
+
+    public Category getCategoryByProId(int productId) {
+        Category category = null;
+        String strSelectById = "select * from Category where CateID = (select CateID from [SubCategory] where SubCateID = (select SubCateID from Product where ProductID = ?))";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                category = new Category();
+                category.setCateId(rs.getInt("CateID"));
+                category.setCateName(rs.getString("CateName"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return category;
+    }
 }

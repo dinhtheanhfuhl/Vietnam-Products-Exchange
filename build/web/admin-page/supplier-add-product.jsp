@@ -29,6 +29,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ecommerce/addedit_product.css">
         <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+        
 
     </head>
 
@@ -307,24 +308,6 @@
                                                                                     </optgroup>
                                                                                 </c:forEach>
                                                                             </select>
-                                                                            <div class="multiselect">
-                                                                                <div class="selectBox" onclick="showCheckboxes()">
-                                                                                    <select class="form-control form-custom mb-4">
-                                                                                        <option >Chọn khu vực</option>
-                                                                                    </select>
-                                                                                    <div class="overSelect"></div>
-                                                                                </div>
-
-                                                                                <div id="checkboxes">
-                                                                                    <label for="one">
-                                                                                        <input type="checkbox" value="${city.cityId}" id="one" /> Tất cả tỉnh thành</label>
-                                                                                        <c:forEach var="city" items="${allCities}">
-                                                                                        <label for="one">
-                                                                                            <input type="checkbox" value="${city.cityId}" id="one" /> ${city.cityName}</label>
-                                                                                        </c:forEach>
-                                                                                </div>
-
-                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -436,7 +419,7 @@
                                                                             <thead>
                                                                                 <tr>
                                                                                     <th scope="col">&nbsp;</th>
-                                                                                    <th scope="col">Đơn vị</th>
+                                                                                    <th style="min-width: 60px" scope="col">Đơn vị</th>
                                                                                     <th scope="col">Số lượng</th>
                                                                                     <th scope="col">Giá</th>
                                                                                 </tr>
@@ -444,10 +427,7 @@
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <th scope="row"></th>
-
-                                                                                    <td><select id="selectunit" onchange="location = this.value;" >
-                                                                                            <option value="">Kg</option>
-                                                                                        </select></td>
+                                                                                    <td>Kg</td>
                                                                                     <td><input name="weight1" type="number" required="" class="form-control"></td>
                                                                                     <td><input name="price1" type="number" required="" class="form-control"></td>
                                                                                 </tr>
@@ -554,20 +534,6 @@
         <script src="${pageContext.request.contextPath}/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
         <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
-        <script>
-                                                                                        var expanded = false;
-
-                                                                                        function showCheckboxes() {
-                                                                                            var checkboxes = document.getElementById("checkboxes");
-                                                                                            if (!expanded) {
-                                                                                                checkboxes.style.display = "block";
-                                                                                                expanded = true;
-                                                                                            } else {
-                                                                                                checkboxes.style.display = "none";
-                                                                                                expanded = false;
-                                                                                            }
-                                                                                        }
-        </script>
         <script>
             $(document).ready(function () {
                 App.init();

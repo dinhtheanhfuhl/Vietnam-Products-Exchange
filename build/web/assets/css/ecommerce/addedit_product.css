@@ -57,8 +57,6 @@
     color: #fff;
     background-color: rgb(245, 171, 30);
     border-color: rgb(245, 171, 30);
-    border-radius: 30px;
-    box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, 0.2);
     will-change: opacity, transform;
     transition: all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
@@ -66,7 +64,6 @@
 .form-control:hover {
     background-color: #fff;
     color: #3232b7;
-    box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, 0.2);
     will-change: opacity, transform;
     transition: all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;

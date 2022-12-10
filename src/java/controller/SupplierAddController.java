@@ -156,10 +156,6 @@ public class SupplierAddController extends HttpServlet {
                         if (!Files.exists(Paths.get(storePath))) {
                             Files.createDirectories(Paths.get(storePath));
                         }
-                        if (!Files.exists(Paths.get(storePath))) {
-                            Files.createDirectories(Paths.get(storePath));
-                        }
-
                         File uploadFile = new File(storePath + "/" + path.getFileName());
                         item.write(uploadFile);
                     }

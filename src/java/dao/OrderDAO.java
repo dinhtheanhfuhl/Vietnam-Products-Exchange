@@ -208,7 +208,6 @@ public class OrderDAO {
         return orders;
     }
 
-
     public List<Order> searchOrder(String id, String shopName, String filter) {
         List<Order> orders = new ArrayList<>();
         String strSelectAll = "select * from [Order]";
@@ -226,11 +225,12 @@ public class OrderDAO {
                 order.setOrderStatusId(rs.getInt("OrderStatusID"));
                 orders.add(order);
             }
-            } catch (SQLException e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return orders;
     }
+
     public int sumPrice(int orderId) {
         Order order = null;
         String query = "SELECT SUM (Cost) FROM OrderDetail WHERE OrderID = ?";
@@ -250,12 +250,12 @@ public class OrderDAO {
 
     public List<Order> searchOrder(String id, String filter) {
         List<Order> orders = new ArrayList<>();
-        String sqlStr = "select * from [Order]";
-        if(id != null && !id.equals("")){
-            sqlStr += " and id="+id;
+        String sqlStr = "select * from [Order] where 1 = 1 ";
+        if (id != null && !id.equals("")) {
+            sqlStr += " and OrderID=" + id;
         }
-        if(id != null && !id.equals("")){
-            sqlStr += " and id="+id;
+        if (filter != null && !filter.equals("") && !filter.equals("0")) {
+            sqlStr += " and OrderStatusID=" + filter;
         }
         try {
             PreparedStatement ps = connection.prepareStatement(sqlStr);
@@ -271,7 +271,7 @@ public class OrderDAO {
                 order.setOrderStatusId(rs.getInt("OrderStatusID"));
                 orders.add(order);
             }
-            } catch (SQLException e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return orders;

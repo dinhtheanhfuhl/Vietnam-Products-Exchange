@@ -43,10 +43,14 @@ public class ModeratorOrderController extends HttpServlet {
         String action = request.getParameter("action");
         String filter = request.getParameter("filter");
         if (action == null) {
-            orders = orderDAO.getAllOrders();
+            orders = orderDAO.searchOrder(null, filter);
+            request.setAttribute("filter", filter);
         }else if(action.equals("search")){
             String id = request.getParameter("id");
             orders = orderDAO.searchOrder(id, filter);
+            request.setAttribute("filter", filter);
+            request.setAttribute("ACTION", "search");
+            request.setAttribute("id", id);
         }
 
         Map<Order, List<OrderDetail>> mapOrderAndOrderDetail = new LinkedHashMap<>();
