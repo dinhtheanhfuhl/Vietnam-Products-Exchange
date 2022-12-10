@@ -143,4 +143,23 @@ public class ProductImageDAO {
         }
         return status;
     }
+
+    public ProductImage getFirstProductImgByProId(int productId) {
+        ProductImage productImage = null;
+        String strSelectById = "select top 1 * from ProductImage where ProductID=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                productImage = new ProductImage();
+                productImage.setProductImageId(rs.getInt("ProductImageID"));
+                productImage.setProducId(rs.getInt("ProductID"));
+                productImage.setImgPath(rs.getString("ImgPath"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return productImage;
+    }
 }

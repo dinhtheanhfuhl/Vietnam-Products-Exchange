@@ -142,7 +142,7 @@
                                                     <div id="filter">
                                                         <form action="ModeratorOrderController" method="POST">
                                                             <input type="hidden" name="action" value="search"/>
-                                                            <input type="text" name="id" placeholder="Mã đơn hàng" value=""
+                                                            <input type="text" name="id" placeholder="Mã đơn hàng" value="${id}"
                                                                    class="form-control">
                                                             <button  class="btn btn-info"
                                                                      style="padding: 0 10px; background: none; border: none;"
@@ -158,10 +158,14 @@
                                         </div>
                                     </div>
                                     <form action="ModeratorOrderController" method="POST">
+                                        <c:if test="${ACTION!=null}">
+                                            <input type="hidden" name="action" value="search"/>
+                                            <input type="hidden" name="id" value="${id}"/>
+                                        </c:if>
                                         <select name="filter" id="selectstatus" onchange="this.form.submit();" class="form-control">
                                             <option value="0">Tất cả</option>
                                             <c:forEach var="ods" items="${orderStatuses}">
-                                                <option value="${ods.orderStatusID}">${ods.statusName}</option>
+                                                <option <c:if test="${filter==ods.orderStatusID}">selected</c:if> value="${ods.orderStatusID}">${ods.statusName}</option>
                                             </c:forEach>
                                         </select>
                                     </form>
@@ -192,7 +196,7 @@
                                                         <td>${mapOrderAndTotalWeight.get(o)} kg</td>
                                                         <td>${o.totalPrice} vnđ</td>
                                                         <td>${mapOrderAndOrderStatus.get(o).statusName}</td>
-                                                        <td><a href="#">Xem chi tiết</a></td>
+                                                        <td><a href="ModeratorDetailOrderController?id=${o.orderId}">Xem chi tiết</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
