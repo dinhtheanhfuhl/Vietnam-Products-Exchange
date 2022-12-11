@@ -234,7 +234,6 @@ public class OrderDAO {
     }
 
     public int sumPrice(int orderId) {
-        Order order = null;
         String query = "SELECT SUM (Cost) FROM OrderDetail WHERE OrderID = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(query);
@@ -277,5 +276,20 @@ public class OrderDAO {
             System.out.println(e.getMessage());
         }
         return orders;
+    }
+    public int sumAmount(int orderId) {
+        String query = "SELECT SUM (Amount) FROM OrderDetail WHERE OrderID = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, orderId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return 0;
     }
 }

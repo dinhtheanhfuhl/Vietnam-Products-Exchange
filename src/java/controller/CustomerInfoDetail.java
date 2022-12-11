@@ -40,7 +40,7 @@ public class CustomerInfoDetail extends HttpServlet {
         int customerid = customer.getCustomerId();
         Customer customerDetail = customerDAO.getCustomerById(customerid);
         request.setAttribute("customerDetail", customerDetail);
-        request.getRequestDispatcher("./admin-page/personal-infor-customer.jsp").forward(request, response);
+        request.getRequestDispatcher("./common/customer-personal-info.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

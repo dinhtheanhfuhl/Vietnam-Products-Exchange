@@ -87,7 +87,7 @@
                         <tr>
                             <td>${key.orderId}</td>
                             <td>${mapOrder.get(key).get(0).getOrderDate()}</td>
-                            <td>${mapOrder.get(key).get(0).getAmount()}</td>
+                            <td>${mapAmount.get(key)} Kg</td>
                             <td>
                                 <fmt:formatNumber type = "number" 
                                                   pattern = "" value = "${key.totalPrice}" /><sup>vnđ</sup>
