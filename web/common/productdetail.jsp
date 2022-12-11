@@ -98,7 +98,12 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="shop-product-details-content pl-70 mt-35" >
-                                <h2 class="title">${product.productName}</h2>
+                                <h2 class="title">
+                                    ${product.productName}
+                                    ${product.trademark}
+                                    ${product.smell},
+                                    ${product.color}
+                                </h2>
                                 <span>${min} - ${medium-1} kg<br>
                                     <span><fmt:formatNumber type = "number" 
                                                       pattern = "" value = "${priceMax}" /><sup>vnđ</sup></span></span>
@@ -196,16 +201,18 @@
                             <div class="col-lg-3 col-md-6">
                                 <div class="single-shop-box">
                                     <div class="thumb text-center">
-                                        <img style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="">
-                                        
-
+                                        <a href="MimartDetailProduct?pid=${key.productId}"><img style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt=""></a>
                                     </div>
                                     <div class="content">
-                                        <a style="text-decoration: none;" href="MimartDetailProduct?pid=${key.productId}"><h4>${key.productName}</h4></a>
-                                        <div class="pricing">
-                                            <div class="discount-price">21.000đ </div> 
-                                            <div class="regular-price">25.000đ</div>
-                                        </div>
+                                        <a style="text-decoration: none;" href="MimartDetailProduct?pid=${key.productId}">
+                                            <h5>${key.productName}
+                                                ${key.trademark},
+                                                ${key.smell},
+                                                ${key.color}
+                                            </h5>
+                                        </a>
+                                        <p>Khối lượng: ${key.weight} Kg</p>
+
                                     </div>
                                 </div>
                             </div>

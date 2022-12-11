@@ -159,7 +159,10 @@ public class OrderDAO {
 
     public List<Order> getOrderByCusId(int customerId) {
         List<Order> orders = new ArrayList<>();
-        String strSelectAll = "select * from [Order] where CustomerID = ?";
+        String strSelectAll = "select distinct o.OrderID,o.CustomerID,o.RecieverName,o.RecieverPhone,\n"
+                + "o.RecieverAddress,o.TotalPrice,o.OrderStatusID,od.OrderDate \n"
+                + "from [Order] as o join OrderDetail as od on o.OrderID = od.OrderID \n"
+                + "where CustomerID = ? order by OrderDate desc ";
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);
             ps.setInt(1, customerId);
@@ -173,7 +176,6 @@ public class OrderDAO {
                 order.setRecieverAddress(rs.getString("RecieverAddress"));
                 order.setTotalPrice(rs.getInt("TotalPrice"));
                 order.setOrderStatusId(rs.getInt("OrderStatusID"));
-                order.setNote(rs.getString("Note"));
                 orders.add(order);
             }
         } catch (SQLException e) {

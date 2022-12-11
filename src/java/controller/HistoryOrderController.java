@@ -51,8 +51,7 @@ public class HistoryOrderController extends HttpServlet {
 
         HttpSession session = request.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
-        //int customerid = customer.getCustomerId();
-        int customerid = 2;
+        int customerid = customer.getCustomerId();
 
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);

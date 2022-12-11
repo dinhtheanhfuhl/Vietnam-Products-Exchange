@@ -112,10 +112,11 @@
                             <c:forEach var="key" items="${mapImages.keySet()}">
                                 <div class="col-lg-4 col-md-6">
                                     <div class="single-shop-box">
+                                        <a href="MimartDetailProduct?pid=${key.productId}">
                                         <div class="thumb text-center">
                                             <img style="height:200px;object-fit: cover" src="${mapImages.get(key).get(0).getImgPath()}" alt="">
-
                                         </div>
+                                        </a>
                                         <div class="content">
 
                                             <input type="hidden" id="productId" value="1">
