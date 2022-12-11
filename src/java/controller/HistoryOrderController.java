@@ -61,11 +61,16 @@ public class HistoryOrderController extends HttpServlet {
         String valueStatusStr = request.getParameter("selectstatus");
         if (valueStatusStr == null) {
             Map<Order, List<OrderDetail>> mapOrder = new LinkedHashMap<Order, List<OrderDetail>>();
+            Map<Order, Integer> mapAmount = new LinkedHashMap<Order, Integer>();
             List<Order> listOrder = orderDAO.getOrderByCusId(customerid);
             for (Order order : listOrder) {
                 List<OrderDetail> orderDetail = orderDetailDAO.getAllOrderDetailsByOrderId(order.getOrderId());
                 mapOrder.put(order, orderDetail);
+                
+                mapAmount.put(order, orderDAO.sumAmount(order.getOrderId()));
+
             }
+            request.setAttribute("mapAmount", mapAmount);
             request.setAttribute("mapOrder", mapOrder);
             request.getRequestDispatcher("./common/customer-history-order.jsp").forward(request, response);
         } else {
