@@ -71,8 +71,8 @@
                                     <h4 class="title">Danh mục cấp 2</h4>
                                     <ul>
                                         <c:forEach items="${allSubCategory}" var="o" >
-                                            <input type="checkbox" id="subcate" name="" value="">
-                                            <label for="subcate">${o.subCateName}</label><br>
+                                            <input type="checkbox" id="subcate${o.subCateName}" name="" value="">
+                                            <label for="subcate${o.subCateName}">${o.subCateName}</label><br>
                                         </c:forEach>
                                     </ul>
                                 </div>
