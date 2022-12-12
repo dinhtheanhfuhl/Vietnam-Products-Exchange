@@ -102,7 +102,7 @@
                                 <div class="profile-userbuttons">
                                     <input class="form-control" type="file" id="formFile">
                                     <button type="button" class="btn btn-success btn-sm"> 
-                                       Lưu
+                                        Lưu
                                     </button>
                                 </div>
                             </div>
@@ -110,76 +110,40 @@
                         <div class="col-md-9 mt-50 mb-50">
                             <div class=" personal-infor ">
                                 <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
+                                    <table class="table">
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Tên người dùng</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <p type="text">Le Van A</p>
-                                                </td>
+                                                <td>Tên người dùng</td>
+                                                <td>Le Van A</td>
+                                                <td> </td>
                                             </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Ngày sinh</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <p type="text">20/12/2222</p>
-                                                </td>
+                                                <td>Ngày sinh</td>
+                                                <td>12/12/2222</td>
+                                                <td> </td>
                                             </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
                                             <tr>
-                                                <td><label for="inputpass" style="margin-left: 7px" class="form-label pass-infor">Giới tính</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <p type="text">Nam</p>
-                                                </td>
+                                                <td>Giới tính</td>
+                                                <td>Nam</td>
+                                                <td> </td>
                                             </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Email</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <p type="text">dsa@gmail.com</p>
-                                                </td>
+                                                <td>Email</td>
+                                                <td>dd@gmail.com</td>
+                                                <td> </td>
                                             </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-3">
-                                    <table>
-                                        <tbody>
                                             <tr>
-                                                <td> <label for="formGroupExampleInput" class="name-infor" style="margin-left: -20px;">Số điện thoại</label>
-                                                </td>
-                                                <td class="display-userName">
-                                                    <p style="margin-left: 22px;" type="text">03240230423</p>
-                                                </td>
-                                                <td> <button type="submit" id="btn-edit" for="formGroupExampleInput"
+                                                <td>Số điện thoại</td>
+                                                <td>6868686868</td>
+                                                <td><button type="submit" id="btn-edit" for="formGroupExampleInput"
                                                              class="btn btn-warning ml-10">Chỉnh sửa</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
+                                </div>
+
+                                <div class="col-md-8 col-sm-6 pt-3">
+                                  
                                     <div class="hidden-edit pt-3" style="height: 170px;">
                                         <div class="form-group ">
                                             <label for="inputName" class="col-sm-6 col-form-label">Số điện thoại mới</label>
