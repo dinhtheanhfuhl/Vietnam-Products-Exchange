@@ -113,7 +113,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
                             <form action="HistoryOrderDetailController?orderId=${order.orderId}" method="post">
-                                <button type="submit" class="btn btn-secondary">Có</button>
+                            <button type="submit" class="btn btn-secondary">Có</button>
                         </form>
                     </div>
                 </div>
@@ -134,11 +134,11 @@
                 <c:forEach var="key" items="${mapProduct.keySet()}">
                     <tbody>
                         <tr>
-                            <td><img style="margin-left: 0px;object-fit: cover;" src="${mapImage.get(key).get(0).getImgPath()}" alt=""></td>
-                            <td><p style="width: 200px"><b>${mapProduct.get(key).get(0).getProductName()}
-                                        ${mapProduct.get(key).get(0).trademark}
-                                        ${mapProduct.get(key).get(0).smell},
-                                        ${mapProduct.get(key).get(0).color}</b></p>
+                            <td><a href="MimartDetailProduct?pid=${key.productId}"><img style="margin-left: 0px;object-fit: cover;" src="${mapImage.get(key).get(0).getImgPath()}" alt=""></a></td>
+                            <td><a href="MimartDetailProduct?pid=${key.productId}"><p style="width: 200px"><b>${mapProduct.get(key).get(0).getProductName()}
+                                            ${mapProduct.get(key).get(0).trademark}
+                                            ${mapProduct.get(key).get(0).smell},
+                                            ${mapProduct.get(key).get(0).color}</b></p></a>
                             </td>
                             <td>${mapSupplier.get(key).get(0).getSupplierName()}</td>
                             <td><span>${key.amount}Kg</span></td>
