@@ -237,8 +237,7 @@
     background-color: #fff !important;
     border: none !important;
     color: blue !important;
-    margin-left: 150px;
-    width: 110px;
+    
     box-shadow: none !important;
 }
 #btn-edit:hover, #btn-edit-2:hover, #btn-edit-3:hover{
