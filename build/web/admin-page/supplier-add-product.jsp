@@ -254,7 +254,7 @@
                                                                         <label class="col-md-4">Mô tả sản phẩm</label>
                                                                         <div class="col-md-8">
 
-                                                                            <textarea required="" maxlength="5000" style="height: 200px;" placeholder="Nhập mô tả sản phẩm. Có thể nhập các thông tin về tính năng, đặc điểm sản phẩm, công dụng, cách dùng, các giấy tờ chứng nhận, Thương hiệu, Kích thước (dài x rộng x cao), Hạn bảo hành, Loại bảo hành, Ngày sản xuất,  Tình trạng hàng,.. Lưu ý: Không để thông tin liên hệ của doanh nghiệp bán tại đây" rows="4" cols="5" name="description"
+                                                                            <textarea required="" maxlength="5000" style="height: 200px;" rows="4" cols="5" name="description"
                                                                                       class="form-control"></textarea>
                                                                             <span style="color: red;float: right">Tối đa 5000 kí tự</span>
                                                                         </div>
@@ -266,7 +266,7 @@
                                                                         <label class="col-md-4">Mã Barcode/SKU</label>
                                                                         <div class="col-md-8">
 
-                                                                            <input class="form-control" required="" placeholder="1234567890123" name="barcode" type="text">
+                                                                            <input class="form-control" required="" name="barcode" type="text">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -346,7 +346,7 @@
                                                                     <label class="col-md-4">Tên loại sản phẩm</label>
                                                                     <div class="col-md-8">
 
-                                                                        <input maxlength="50" required="" class="form-control" placeholder="Nhập tên loại sản phẩm: vải, nước ngọt,..." name="name" type="text">
+                                                                        <input maxlength="50" required="" class="form-control" name="name" type="text">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -356,7 +356,7 @@
                                                                     <label class="col-md-4">Thương hiệu</label>
                                                                     <div class="col-md-8">
 
-                                                                        <input maxlength="50" required="" class="form-control" name="trademark" placeholder="Nhập tên Thương Hiệu: Kinh Đô,..." type="text">
+                                                                        <input maxlength="50" required="" class="form-control" name="trademark" type="text">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -365,7 +365,7 @@
                                                                     <label class="col-md-4">Hương vị</label>
                                                                     <div class="col-md-8">
 
-                                                                        <input maxlength="50" required="" class="form-control" name="taste" placeholder="Nhập loại Hương vị: Chocolate, Đào,..." type="text">
+                                                                        <input maxlength="50" required="" class="form-control" name="taste" type="text">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -373,7 +373,7 @@
                                                                 <div class="row">
                                                                     <label class="col-md-4">Màu sắc</label>
                                                                     <div class="col-md-8">
-                                                                        <input maxlength="50" class="form-control" placeholder="Nhập màu sắc sản phẩm: Đỏ, Xanh " name="color" type="text">
+                                                                        <input maxlength="50" class="form-control" name="color" type="text">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -382,7 +382,7 @@
                                                                     <label class="col-md-4">Trọng lượng</label>
                                                                     <div class="col-md-8">
 
-                                                                        <input type="number" required="" class="form-control" placeholder="Ví dụ: 400g, 20kg,..." name="weight">
+                                                                        <input type="number" required="" class="form-control" name="weight">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -390,7 +390,7 @@
                                                                 <div class="row">
                                                                     <label class="col-md-4">Kiểu đóng gói</label>
                                                                     <div class="col-md-8">
-                                                                        <input maxlength="50" class="form-control" placeholder="Nhập kiểu đóng gói:đóng hộp, đóng bao,..." name="packaging" type="text">
+                                                                        <input maxlength="50" class="form-control" name="packaging" type="text">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -399,7 +399,7 @@
                                                                     <label class="col-md-4">Thành phần</label>
                                                                     <div class="col-md-8">
 
-                                                                        <input maxlength="50"  class="form-control" placeholder="Nhập tỷ lệ và thành phần: 80% Ca cao,..." name="composition" type="text">
+                                                                        <input maxlength="50"  class="form-control" name="composition" type="text">
                                                                     </div>
                                                                 </div>
                                                             </div>
