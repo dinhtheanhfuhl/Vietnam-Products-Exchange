@@ -74,16 +74,16 @@
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/customer-personal-info.jsp</file>
         </group>
         <group>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/controller/SupplierAddController.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/controller/SupplierDetailPController.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/controller/SupplierController.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/web/admin-page/supplier-product-pending.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/ViewCart.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/admin-page/personal-infor-admin.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/productdetail.jsp</file>
         </group>
         <group>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/controller/SupplierAddController.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/controller/SupplierDetailPController.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/controller/SupplierController.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/web/admin-page/supplier-product-pending.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/payment.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/OrderController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/ViewCartController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/CheckOutController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dao/OrderDAO.java</file>
         </group>
     </open-files>
 </project-private>

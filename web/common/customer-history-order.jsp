@@ -90,7 +90,7 @@
                             <td>${mapAmount.get(key)} Kg</td>
                             <td>
                                 <fmt:formatNumber type = "number" 
-                                                  pattern = "" value = "${key.totalPrice}" /><sup>vnđ</sup>
+                                                  pattern = "" value = "${mapPrice.get(key)}" /><sup>vnđ</sup>
                             </td>
                             <td>
                                 <c:if test="${key.orderStatusId=='1'}">

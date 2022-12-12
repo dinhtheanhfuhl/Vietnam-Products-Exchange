@@ -74,7 +74,6 @@
                             </div>
                         </div>
                         <div class="col-lg-5 col-sm-12 payment-left">
-
                             <div class="payment-left-display pr-80">
                                 <div class="showProduct">
                                     <ul id="mainCartPayment">

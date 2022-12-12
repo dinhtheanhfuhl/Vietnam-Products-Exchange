@@ -10,6 +10,7 @@ import dao.OrderDAO;
 import dao.OrderDetailDAO;
 import dao.ProductDAO;
 import dao.ProductHierarchyDAO;
+import dao.SupplierDAO;
 import dbconnect.DBConnect;
 import entity.CartItem;
 import entity.Customer;
@@ -17,6 +18,7 @@ import entity.Order;
 import entity.OrderDetail;
 import entity.Product;
 import entity.ProductHierarchy;
+import entity.Supplier;
 import java.io.IOException;
 import java.sql.Connection;
 import java.time.LocalDateTime;
@@ -57,6 +59,7 @@ public class OrderController extends HttpServlet {
         OrderDetailDAO orderDetailDAO = new OrderDetailDAO(connection);
         CartItemDAO cartItemDAO = new CartItemDAO(connection);
         CartDAO cartDAO = new CartDAO(connection);
+        SupplierDAO supplierDAO = new SupplierDAO(connection);
         ProductDAO productDAO = new ProductDAO(connection);
         ProductHierarchyDAO proHieDAO = new ProductHierarchyDAO(connection);
 
@@ -65,54 +68,53 @@ public class OrderController extends HttpServlet {
         int customerid = customer.getCustomerId();
         int cartId = cartDAO.getCartIdByCustomerId(customerid);
 
+        List<Supplier> listSupplierId = supplierDAO.getSupplierByCartId(cartId);
+
         String receiverName = request.getParameter("receiverName");
         String receiverAddress = request.getParameter("receiverAddress");
         String receiverPhone = request.getParameter("receiverPhone");
         int totalPrice = Integer.parseInt(request.getParameter("totalprice"));
         String note = request.getParameter("note");
 
-        orderDAO.insertOrder(customerid, receiverName, receiverAddress, receiverPhone, totalPrice, 1, note);
+        for (Supplier supplier : listSupplierId) {
+            orderDAO.insertOrder(customerid, supplier.getSupplierId(), receiverName, receiverAddress, receiverPhone, totalPrice, 1, note);
+            Order order = orderDAO.getNewestOrder();
+            List<CartItem> listCartItem = cartItemDAO.getAllCartItemsByCartId(supplier.getSupplierId());
+            Map<CartItem, ProductHierarchy> mapProHie = new LinkedHashMap<>();
+            for (CartItem cartItem : listCartItem) {
+                Product product = productDAO.getProductById(cartItem.getProductId());
+                if (cartItem.getAmount() <= product.getWeight()) {
+                    int cartAmount = cartItem.getAmount();
+                    int productId = cartItem.getProductId();
+                    Product p = productDAO.getProductById(productId);
+                    productDAO.updateAmountByProId(p.getWeight() - cartAmount, productId);
 
-        Order order = orderDAO.getNewestOrder();
-
-        List<CartItem> listCartItem = cartItemDAO.getAllCartItemsByCartId(cartId);
-        Map<CartItem, ProductHierarchy> mapProHie = new LinkedHashMap<>();
-        for (CartItem cartItem : listCartItem) {
-            Product product = productDAO.getProductById(cartItem.getProductId());
-            if (cartItem.getAmount() <= product.getWeight()) {
-                int cartAmount = cartItem.getAmount();
-                int productId = cartItem.getProductId();
-                Product p = productDAO.getProductById(productId);
-                productDAO.updateAmountByProId(p.getWeight() - cartAmount, productId);
-                
-                List<ProductHierarchy> listProhie = proHieDAO.getHierarchyByProId(cartItem.getProductId());
-                int amount = cartItem.getAmount();
-                ProductHierarchy proHierachy = null;
-                for (int i = 0; i < listProhie.size(); i++) {
-                    if (i > 0 && amount < listProhie.get(i).getQuantity()) {
-                        proHierachy = listProhie.get(i - 1);
-                        break;
+                    List<ProductHierarchy> listProhie = proHieDAO.getHierarchyByProId(cartItem.getProductId());
+                    int amount = cartItem.getAmount();
+                    ProductHierarchy proHierachy = null;
+                    for (int i = 0; i < listProhie.size(); i++) {
+                        if (i > 0 && amount < listProhie.get(i).getQuantity()) {
+                            proHierachy = listProhie.get(i - 1);
+                            break;
+                        }
                     }
-                }
-                if (proHierachy == null) {
-                    proHierachy = listProhie.get(listProhie.size() - 1);
-                }
-                mapProHie.put(cartItem, proHierachy);
+                    if (proHierachy == null) {
+                        proHierachy = listProhie.get(listProhie.size() - 1);
+                    }
+                    mapProHie.put(cartItem, proHierachy);
 
-                OrderDetail orderDetai = new OrderDetail();
-                orderDetai.setOrderId(order.getOrderId());
-                orderDetai.setProductId(cartItem.getProductId());
-                orderDetai.setOrderDate(dtf.format(now));
-                orderDetai.setAmount(cartItem.getAmount());
-                orderDetai.setCost(proHierachy.getPrice() * cartItem.getAmount());
-                orderDetailDAO.saveOrderDetail(orderDetai);
+                    OrderDetail orderDetai = new OrderDetail();
+                    orderDetai.setOrderId(order.getOrderId());
+                    orderDetai.setProductId(cartItem.getProductId());
+                    orderDetai.setOrderDate(dtf.format(now));
+                    orderDetai.setAmount(cartItem.getAmount());
+                    orderDetai.setCost(proHierachy.getPrice() * cartItem.getAmount());
+                    orderDetailDAO.saveOrderDetail(orderDetai);
+                }
             }
         }
-
         cartItemDAO.deleteCartByCartId(cartId);
-
         response.sendRedirect("HistoryOrderController");
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

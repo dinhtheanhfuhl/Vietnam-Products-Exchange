@@ -50,11 +50,11 @@
                         <div class="carousel-caption d-none d-md-block">
                             <div class="row">
                                 <div class="col-sm-4 text-title">
-                                    <h2>Farmfood freshbox</h2>
+                                    <h2>Nông trại xanh</h2>
                                     <h6>
-                                        Fresh & Healthy
+                                        Mát mẻ & Sức khoẻ
                                     </h6>
-                                    <a href="./raucusach.jsp">ĐẾN SÀN</a>
+                                    <a href="#">ĐẾN SÀN NGAY</a>
                                 </div>
                             </div>
                         </div>
@@ -64,11 +64,11 @@
                         <div class="carousel-caption d-none d-md-block">
                             <div class="row">
                                 <div class="col-sm-4 text-title-diff">
-                                    <h2>Pure and Organic</h2>
+                                    <h2>Tinh khiết và trong lành</h2>
                                     <h6>
-                                        Honey Flat 20% Off
+                                        Giảm 20%
                                     </h6>
-                                    <a href="./raucusach.jsp">ĐẾN SÀN</a>
+                                    <a href="#">ĐẾN SÀN NGAY</a>
                                 </div>
                             </div>
                         </div>
@@ -78,11 +78,11 @@
                         <div class="carousel-caption d-none d-md-block">
                             <div class="row">
                                 <div class="col-sm-4 text-title-diff">
-                                    <h2>Always Fresh Beans</h2>
+                                    <h2>Sức khoẻ là số 1</h2>
                                     <h6>
-                                        Best collections
+                                        Nông sản xịn
                                     </h6>
-                                    <a href="./raucusach.html">ĐẾN SÀN</a>
+                                    <a href="#">ĐẾN SÀN NGAY</a>
                                 </div>
                             </div>
                         </div>
@@ -92,11 +92,11 @@
                         <div class="carousel-caption d-none d-md-block">
                             <div class="row">
                                 <div class="col-sm-4 text-title-diff">
-                                    <h2>Heathiest Vegestables</h2>
+                                    <h2>Rau xanh, sạch, ngon</h2>
                                     <h6>
-                                        Best collections
+                                        Mua nhanh kẻo hết
                                     </h6>
-                                    <a href="./raucusach.html">GHÉ SHOP</a>
+                                    <a href="#">ĐẾN SÀN NGAY</a>
                                 </div>
                             </div>
                         </div>
@@ -121,17 +121,17 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-3  ">
                         <div class="banner-block banner-hover">
-                            <img class=" lazyloaded" src="image/collection.jpg">
+                            <img style="height: 350px;object-fit: cover" class=" lazyloaded" src="https://suckhoedoisong.qltns.mediacdn.vn/Images/bichvan/2017/04/28/Univadis_27.4_Nhung_loai_thuc_pham_chua_nhieu_nuoc_nen_an_vao_mua_he_BS_Thu_Van.jpg">
                             <div class="banner-content text-left">
-                                <h4 style="color: #232323;">Vegetable Eggplant <br> 100% Fresh food</h4>
+                                <h4 style="color:#ffff00;text-align: center">Dưa hấu <br> 100% Tươi Ngon</h4>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-3  ">
                         <div class="banner-block banner-hover">
-                            <img class=" lazyloaded" src="image/collection.jpg">
+                            <img style="height: 350px;object-fit: cover" class=" lazyloaded" src="https://antican.vn/wp-content/uploads/2020/10/ung-thu-vu-nen-an-qua-gi-1.jpg">
                             <div class="banner-content text-left">
-                                <h4 style="color: #232323;">Fresh fruit vegetable <br> on our product</h4>
+                                <h4 style="color:#cc0000;text-align: center" style="color: #232323;">Cam lòng vàng<br> siêu hot</h4>
                             </div>
                         </div>
                     </div>

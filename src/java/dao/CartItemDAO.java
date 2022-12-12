@@ -66,7 +66,7 @@ public class CartItemDAO {
             e.getMessage();
         }
     }
-    
+
     public void deleteCartByCartId(int cartId) {
         String query = "delete from CartItem where CartID = ?";
         try {
@@ -152,12 +152,35 @@ public class CartItemDAO {
         }
         return cartItem;
     }
-    public List<CartItem> getAllCartItemsByCartId(int cartId) {
+//    public List<CartItem> getAllCartItemsByCartId(int cartId) {
+//        List<CartItem> cartItems = new ArrayList<>();
+//        String strSelectAll = "select * from CartItem where CartID = ?";
+//        try {
+//            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+//            ps.setInt(1, cartId);
+//            ResultSet rs = ps.executeQuery();
+//            while (rs.next()) {
+//                CartItem cartItem = new CartItem();
+//                cartItem.setCartId(rs.getInt("CartID"));
+//                cartItem.setProductId(rs.getInt("ProductID"));
+//                cartItem.setAmount(rs.getInt("Amount"));
+//                cartItems.add(cartItem);
+//            }
+//        } catch (SQLException e) {
+//            System.out.println(e.getMessage());
+//        }
+//        return cartItems;
+//    }
+
+    public List<CartItem> getAllCartItemsByCartId(int supId) {
         List<CartItem> cartItems = new ArrayList<>();
-        String strSelectAll = "select * from CartItem where CartID = ?";
+        String strSelectAll = "select c.* from CartItem as c\n"
+                + "join Product as p on p.ProductID = c.ProductID\n"
+                + "join Supplier as s on p.SupplierID = s.SupplierID\n"
+                + "where s.SupplierID =?";
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);
-            ps.setInt(1, cartId);
+            ps.setInt(1, supId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 CartItem cartItem = new CartItem();
@@ -171,7 +194,8 @@ public class CartItemDAO {
         }
         return cartItems;
     }
-    public void updateCartItemAmountByProId( int weight, int productID) {
+
+    public void updateCartItemAmountByProId(int weight, int productID) {
         String query = "update CartItem set Amount = ? where ProductID = ? ";
         try {
             PreparedStatement ps
