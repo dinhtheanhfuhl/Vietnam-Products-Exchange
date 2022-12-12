@@ -192,7 +192,7 @@ public class SupplierDetailPController extends HttpServlet {
             Product oldProduct = productDAO.getProductById(id);
             Product product = new Product(id, supplierId, subCate, creatDate, description, name,
                     barcode, oldProduct.getProductCertificate(), trademark, smell, color, weight, packing, element, 0, 1);
-            
+
             List<ProductImage> proImgsOld = proImgDAO.getAllProductsImageByProId(id);
             List<Part> proImgsUpdate = new ArrayList<>();
             proImgsUpdate.add(img1Part);
@@ -209,25 +209,32 @@ public class SupplierDetailPController extends HttpServlet {
                 // save new image into folder
                 number++;
                 String filename = Paths.get(proImgsUpdate.get(i).getSubmittedFileName()).getFileName().toString();
-                int indexDot = filename.indexOf(".");
-                SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyyHHmmss");
-                Date date = new Date();
-                filename = formatter.format(date) + number + filename.substring(indexDot);
-                proImgsUpdate.get(i).write(realPath + "/" + filename);
-                ProductImage proImg = new ProductImage(0, id, filename);
-                int statusAdd = proImgDAO.saveProductImage(proImg);
+                if (!filename.equals("")) {
+                    int indexDot = filename.indexOf(".");
+                    SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyyHHmmss");
+                    Date date = new Date();
+                    filename = formatter.format(date) + number + filename.substring(indexDot);
+                    proImgsUpdate.get(i).write(realPath + "/" + filename);
+                    ProductImage proImg = new ProductImage(0, id, filename);
+                    proImgDAO.saveProductImage(proImg);
+                }
                 if (i < proImgsOld.size() && !proImgsUpdate.get(i).getSubmittedFileName().equals("")) {
                     // delete old image 
                     filename = proImgsOld.get(i).getImgPath();
                     Path path = Paths.get(filename);
                     File pathFile = new File(realPath + "/" + path.getFileName());
-                    boolean statusDelFile = pathFile.delete();
-                    int statusDelImgOld = proImgDAO.deleteProductImage(proImgsOld.get(i));
+                    pathFile.delete();
+                    proImgDAO.deleteProductImage(proImgsOld.get(i));
                 }
             }
-               
+
             String filelincse = Paths.get(lincsePart.getSubmittedFileName()).getFileName().toString();
+            String oldFileLincse = oldProduct.getProductCertificate();
             if (!filelincse.equals("")) {
+                // delete old lincse file 
+                File pathLincseFile = new File(realPath + "/" + oldFileLincse);
+                pathLincseFile.delete();
+                // add new file lincse
                 int indexDot = filelincse.indexOf(".");
                 SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyyHHmmss");
                 Date date = new Date();
@@ -235,24 +242,24 @@ public class SupplierDetailPController extends HttpServlet {
                 lincsePart.write(realPath + "/" + filelincse);
                 product.setProductCertificate(filelincse);
             }
-            int statusAddPro = productDAO.updateProduct(product);
+            productDAO.updateProduct(product);
             // delete prohierachy
-            int statusDelProHie = proHieDAO.deleteProductHierarchyByProId(id);
+            proHieDAO.deleteProductHierarchyByProId(id);
             // delete deliveryArea 
-            int statusDelDeli = deliDAO.deleteDeliveryAreaByProId(id);
+            deliDAO.deleteDeliveryAreaByProId(id);
             // add new prohierachy
             ProductHierarchy productHierarchy1 = new ProductHierarchy(id, weight1, price1);
             ProductHierarchy productHierarchy2 = new ProductHierarchy(id, weight2, price2);
             ProductHierarchy productHierarchy3 = new ProductHierarchy(id, weight3, price3);
-            int statusAddHie1 = proHieDAO.saveProductHierarchy(productHierarchy1);
-            int statusAddHie2 = proHieDAO.saveProductHierarchy(productHierarchy2);
-            int statusAddHie3 = proHieDAO.saveProductHierarchy(productHierarchy3);
+            proHieDAO.saveProductHierarchy(productHierarchy1);
+            proHieDAO.saveProductHierarchy(productHierarchy2);
+            proHieDAO.saveProductHierarchy(productHierarchy3);
             // add new deliveryArea
             for (String city : cities) {
                 int cityId = Integer.parseInt(city);
-                int statusAddDeli = deliDAO.saveDeliveryArea(new DeliveryArea(id, cityId));
+                deliDAO.saveDeliveryArea(new DeliveryArea(id, cityId));
             }
-
+            response.sendRedirect("SupplierDetailPController?id=" + id);
         }
     }
 
