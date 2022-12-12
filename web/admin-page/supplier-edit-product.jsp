@@ -218,7 +218,7 @@
                                                                             <div class="col-md-5">
                                                                                 <div class="mb-3">
                                                                                     <div class="custom-file">
-                                                                                        <input required="" type="file" class="form-control-file" name="lincse" id="file-input">
+                                                                                        <input type="file" class="form-control-file" name="lincse" id="file-input">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>

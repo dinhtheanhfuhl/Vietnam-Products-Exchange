@@ -45,28 +45,24 @@ public class SupplierDetailOrderController extends HttpServlet {
         CategoryDAO cateDAO = new CategoryDAO(conn);
         SubCategoryDAO subCateDAO = new SubCategoryDAO(conn);
 
+        int orderId = Integer.parseInt(request.getParameter("id"));
+        Order order = orderDAO.getOrderById(orderId);
+        List<OrderDetail> details = detailDAO.getAllOrderDetailsByOrderId(orderId);
         String action = request.getParameter("action");
         if (action == null) {
-            int id = Integer.parseInt(request.getParameter("id"));
-            Order order = orderDAO.getOrderById(id);
-            List<OrderDetail> details = detailDAO.getAllOrderDetailsByOrderId(id);
             OrderStatus status = statusDAO.getOrderStatusById(order.getOrderStatusId());
-
             Map<OrderDetail, String> mapOrderDetailAndImagePath = new LinkedHashMap<>();
-
             for (OrderDetail detail : details) {
                 ProductImage proImg = proImgDAO.getFirstProductImgByProId(detail.getProductId());
                 mapOrderDetailAndImagePath.put(detail, proImg.getImgPath());
             }
             request.setAttribute("mapOrderAndImagePath", mapOrderDetailAndImagePath);
-
             Map<OrderDetail, String> mapOrderDetailAndProductName = new LinkedHashMap<>();
             for (OrderDetail detail : details) {
                 Product product = productDAO.getProductById(detail.getProductId());
                 mapOrderDetailAndProductName.put(detail, product.getProductName());
             }
             request.setAttribute("mapOrderDetailAndProductName", mapOrderDetailAndProductName);
-
             Map<OrderDetail, String> mapOrderDetailAndCateName = new LinkedHashMap<>();
             Map<OrderDetail, String> mapOrderDetailAndSubCateName = new LinkedHashMap<>();
             for (OrderDetail detail : details) {
@@ -78,25 +74,33 @@ public class SupplierDetailOrderController extends HttpServlet {
             }
             request.setAttribute("mapOrderDetailAndCateName", mapOrderDetailAndCateName);
             request.setAttribute("mapOrderDetailAndSubCateName", mapOrderDetailAndSubCateName);
-
             Map<OrderDetail, String> mapOrderDetailAndCost = new LinkedHashMap<>();
             for (OrderDetail detail : details) {
                 int cost = detail.getCost() / detail.getAmount();
                 mapOrderDetailAndCost.put(detail, String.valueOf(cost));
             }
             request.setAttribute("mapOrderDetailAndCost", mapOrderDetailAndCost);
-
             request.setAttribute("order", order);
             request.setAttribute("details", details);
             request.setAttribute("status", status);
             request.getRequestDispatcher("admin-page/supplier-view-order.jsp").forward(request, response);
         } else if (action.equals("accept")) {
-            int orderId = Integer.parseInt(request.getParameter("id"));
-            Order order = orderDAO.getOrderById(orderId);
             order.setOrderStatusId(2);
             orderDAO.updateStatusOrder(order);
+            response.sendRedirect("SupplierDetailOrderController?id=" + orderId);
         } else if (action.equals("reject")) {
-
+            order.setOrderStatusId(3);
+            orderDAO.updateStatusOrder(order);
+            for (OrderDetail detail : details) {
+                Product product = productDAO.getProductById(detail.getProductId());
+                product.setWeight(product.getWeight() + detail.getAmount());
+                productDAO.updateProduct(product);
+            }
+            response.sendRedirect("SupplierDetailOrderController?id=" + orderId);
+        } else if (action.equals("success")) {
+            order.setOrderStatusId(4);
+            orderDAO.updateStatusOrder(order);
+            response.sendRedirect("SupplierDetailOrderController?id=" + orderId);
         }
     }
 
@@ -105,13 +109,11 @@ public class SupplierDetailOrderController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
     @Override
     public String getServletInfo() {
         return "Short description";
