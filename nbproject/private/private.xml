@@ -3,11 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/OrderController.java</file>
-            <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/web/assets/css/pages/landing-page/style.css</file>
-            <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/src/java/controller/RegisterController.java</file>
-        </group>
-        <group>
             <file>file:/C:/Users/DEKUPAC/Documents/capstone/Vietnam-Products-Exchange/src/java/controller/LogoutController.java</file>
         </group>
         <group>
@@ -80,6 +75,9 @@
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/ViewCartController.java</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/CheckOutController.java</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/DeleteCartController.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/controller/SupplierDetailPController.java</file>
         </group>
     </open-files>
 </project-private>
