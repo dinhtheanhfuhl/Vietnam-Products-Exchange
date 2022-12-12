@@ -303,4 +303,28 @@ public class SupplierDAO {
         }
         return names;
     }
+
+    public List<Supplier> getSupplierByCartId(int cartId) {
+
+        String strSelectAll = "select DISTINCT s.SupplierID from Supplier as s\n"
+                + "join Product as p on p.SupplierID = s.SupplierID\n"
+                + "join CartItem as ci on ci.ProductID = p.ProductID\n"
+                + "join Cart as c on c.CartID = ci.CartID\n"
+                + "where c.CartID = ?";
+        List<Supplier> suplierProduct = new ArrayList<>();
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setInt(1, cartId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Supplier supplier = new Supplier();
+                supplier.setSupplierId(rs.getInt("SupplierID"));
+                suplierProduct.add(supplier);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return suplierProduct;
+    }
+
 }

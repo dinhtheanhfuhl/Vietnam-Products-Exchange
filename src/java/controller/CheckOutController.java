@@ -84,7 +84,7 @@ public class CheckOutController extends HttpServlet {
             request.setAttribute("mapCartItemStatus", mapCartItemStatus);
 
             request.setAttribute("mapProHie", mapProHie);
-
+            
         }
         request.setAttribute("totalCart", totalCart);
 

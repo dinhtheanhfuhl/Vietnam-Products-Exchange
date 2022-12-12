@@ -6,6 +6,7 @@ import java.sql.SQLException;
 // LAPTOP-AFFRQ6U2\SQLEXPRESS
  
 public class DBConnect {
+
     private static final String DB_URL = "jdbc:sqlserver://LAPTOP-AFFRQ6U2\\SQLEXPRESS:1433;"
             + "databaseName=vnprox;"
             + "encrypt=false";
