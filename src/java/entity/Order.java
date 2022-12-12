@@ -10,7 +10,7 @@ package entity;
  */
 public class Order {
 
-    private int orderId, customerId;
+    private int orderId, customerId, supplierId;
     private String recieverName, recieverPhone, recieverAddress;
     private int totalPrice, orderStatusId;
     private String note;
@@ -18,9 +18,10 @@ public class Order {
     public Order() {
     }
 
-    public Order(int orderId, int customerId, String recieverName, String recieverPhone, String recieverAddress, int totalPrice, int orderStatusId, String note) {
+    public Order(int orderId, int customerId, int supplierId, String recieverName, String recieverPhone, String recieverAddress, int totalPrice, int orderStatusId, String note) {
         this.orderId = orderId;
         this.customerId = customerId;
+        this.supplierId = supplierId;
         this.recieverName = recieverName;
         this.recieverPhone = recieverPhone;
         this.recieverAddress = recieverAddress;
@@ -43,6 +44,14 @@ public class Order {
 
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
+    }
+
+    public int getSupplierId() {
+        return supplierId;
+    }
+
+    public void setSupplierId(int supplierId) {
+        this.supplierId = supplierId;
     }
 
     public String getRecieverName() {
@@ -95,8 +104,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "orderId=" + orderId + ", customerId=" + customerId + ", recieverName=" + recieverName + ", recieverPhone=" + recieverPhone + ", recieverAddress=" + recieverAddress + ", totalPrice=" + totalPrice + ", orderStatusId=" + orderStatusId + ", note=" + note + '}';
+        return "Order{" + "orderId=" + orderId + ", customerId=" + customerId + ", supplierId=" + supplierId + ", recieverName=" + recieverName + ", recieverPhone=" + recieverPhone + ", recieverAddress=" + recieverAddress + ", totalPrice=" + totalPrice + ", orderStatusId=" + orderStatusId + ", note=" + note + '}';
     }
-    
-    
+
 }

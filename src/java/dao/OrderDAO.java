@@ -26,17 +26,19 @@ public class OrderDAO {
 
     public int saveOrder(Order order) {
         int status = 0;
-        String strInsert = "insert into [Order](CustomerID,RecieverName,RecieverPhone,RecieverAddress,TotalPrice,OrderStatusID)"
-                + " values(?,?,?,?,?,?)";
+        String strInsert = "insert into [Order](CustomerID,SupplierID,RecieverName,RecieverPhone,RecieverAddress,TotalPrice,OrderStatusID,Note)"
+                + " values(?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps
                     = connection.prepareStatement(strInsert);
             ps.setInt(1, order.getCustomerId());
-            ps.setString(2, order.getRecieverName());
-            ps.setString(3, order.getRecieverPhone());
-            ps.setString(4, order.getRecieverAddress());
-            ps.setInt(5, order.getTotalPrice());
-            ps.setInt(6, order.getOrderStatusId());
+            ps.setInt(2, order.getSupplierId());
+            ps.setString(3, order.getRecieverName());
+            ps.setString(4, order.getRecieverPhone());
+            ps.setString(5, order.getRecieverAddress());
+            ps.setInt(6, order.getTotalPrice());
+            ps.setInt(7, order.getOrderStatusId());
+            ps.setString(8, order.getNote());
             status = ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -44,19 +46,20 @@ public class OrderDAO {
         return status;
     }
 
-    public void insertOrder(int customerId, String receiverName, String receiverAddress, String receiverPhone, int totalPrice, int statusId, String note) {
-        String strInsert = "insert into [Order](CustomerID,RecieverName,RecieverAddress,RecieverPhone,TotalPrice,OrderStatusID,Note) values(?,?,?,?,?,?,?)";
+    public void insertOrder(int customerId,int supplierId, String receiverName, String receiverAddress, String receiverPhone, int totalPrice, int statusId, String note) {
+        String strInsert = "insert into [Order](CustomerID,SupplierID,RecieverName,RecieverAddress,RecieverPhone,TotalPrice,OrderStatusID,Note) values(?,?,?,?,?,?,?,?)";
 
         try {
             PreparedStatement ps
                     = connection.prepareStatement(strInsert);
             ps.setInt(1, customerId);
-            ps.setString(2, receiverName);
-            ps.setString(3, receiverAddress);
-            ps.setString(4, receiverPhone);
-            ps.setInt(5, totalPrice);
-            ps.setInt(6, statusId);
-            ps.setString(7, note);
+            ps.setInt(2, supplierId);
+            ps.setString(3, receiverName);
+            ps.setString(4, receiverAddress);
+            ps.setString(5, receiverPhone);
+            ps.setInt(6, totalPrice);
+            ps.setInt(7, statusId);
+            ps.setString(8, note);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.getMessage();
@@ -73,6 +76,7 @@ public class OrderDAO {
                 Order order = new Order();
                 order.setOrderId(rs.getInt("OrderID"));
                 order.setCustomerId(rs.getInt("CustomerID"));
+                order.setSupplierId(rs.getInt("SupplierID"));
                 order.setRecieverName(rs.getString("RecieverName"));
                 order.setRecieverPhone(rs.getString("RecieverPhone"));
                 order.setRecieverAddress(rs.getString("RecieverAddress"));
@@ -97,6 +101,7 @@ public class OrderDAO {
                 order = new Order();
                 order.setOrderId(rs.getInt("OrderID"));
                 order.setCustomerId(rs.getInt("CustomerID"));
+                order.setSupplierId(rs.getInt("SupplierID"));
                 order.setRecieverName(rs.getString("RecieverName"));
                 order.setRecieverPhone(rs.getString("RecieverPhone"));
                 order.setRecieverAddress(rs.getString("RecieverAddress"));
@@ -120,6 +125,7 @@ public class OrderDAO {
                 order = new Order();
                 order.setOrderId(rs.getInt("OrderID"));
                 order.setCustomerId(rs.getInt("CustomerID"));
+                order.setSupplierId(rs.getInt("SupplierID"));
                 order.setRecieverName(rs.getString("RecieverName"));
                 order.setRecieverPhone(rs.getString("RecieverPhone"));
                 order.setRecieverAddress(rs.getString("RecieverAddress"));
@@ -144,6 +150,7 @@ public class OrderDAO {
                 order = new Order();
                 order.setOrderId(rs.getInt("OrderID"));
                 order.setCustomerId(rs.getInt("CustomerID"));
+                order.setSupplierId(rs.getInt("SupplierID"));
                 order.setRecieverName(rs.getString("RecieverName"));
                 order.setRecieverPhone(rs.getString("RecieverPhone"));
                 order.setRecieverAddress(rs.getString("RecieverAddress"));
@@ -159,7 +166,7 @@ public class OrderDAO {
 
     public List<Order> getOrderByCusId(int customerId) {
         List<Order> orders = new ArrayList<>();
-        String strSelectAll = "select distinct o.OrderID,o.CustomerID,o.RecieverName,o.RecieverPhone,\n"
+        String strSelectAll = "select distinct o.OrderID,o.CustomerID,o.SupplierID,o.RecieverName,o.RecieverPhone,\n"
                 + "o.RecieverAddress,o.TotalPrice,o.OrderStatusID,od.OrderDate \n"
                 + "from [Order] as o join OrderDetail as od on o.OrderID = od.OrderID \n"
                 + "where CustomerID = ? order by OrderDate desc ";
@@ -171,6 +178,7 @@ public class OrderDAO {
                 Order order = new Order();
                 order.setOrderId(rs.getInt("OrderID"));
                 order.setCustomerId(rs.getInt("CustomerID"));
+                order.setSupplierId(rs.getInt("SupplierID"));
                 order.setRecieverName(rs.getString("RecieverName"));
                 order.setRecieverPhone(rs.getString("RecieverPhone"));
                 order.setRecieverAddress(rs.getString("RecieverAddress"));
@@ -196,35 +204,13 @@ public class OrderDAO {
                 Order order = new Order();
                 order.setOrderId(rs.getInt("OrderID"));
                 order.setCustomerId(rs.getInt("CustomerID"));
+                order.setSupplierId(rs.getInt("SupplierID"));
                 order.setRecieverName(rs.getString("RecieverName"));
                 order.setRecieverPhone(rs.getString("RecieverPhone"));
                 order.setRecieverAddress(rs.getString("RecieverAddress"));
                 order.setTotalPrice(rs.getInt("TotalPrice"));
                 order.setOrderStatusId(rs.getInt("OrderStatusID"));
                 order.setNote(rs.getString("Note"));
-                orders.add(order);
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return orders;
-    }
-
-    public List<Order> searchOrder(String id, String shopName, String filter) {
-        List<Order> orders = new ArrayList<>();
-        String strSelectAll = "select * from [Order]";
-        try {
-            PreparedStatement ps = connection.prepareStatement(strSelectAll);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Order order = new Order();
-                order.setOrderId(rs.getInt("OrderID"));
-                order.setCustomerId(rs.getInt("CustomerID"));
-                order.setRecieverName(rs.getString("RecieverName"));
-                order.setRecieverPhone(rs.getString("RecieverPhone"));
-                order.setRecieverAddress(rs.getString("RecieverAddress"));
-                order.setTotalPrice(rs.getInt("TotalPrice"));
-                order.setOrderStatusId(rs.getInt("OrderStatusID"));
                 orders.add(order);
             }
         } catch (SQLException e) {
@@ -265,6 +251,7 @@ public class OrderDAO {
                 Order order = new Order();
                 order.setOrderId(rs.getInt("OrderID"));
                 order.setCustomerId(rs.getInt("CustomerID"));
+                order.setSupplierId(rs.getInt("SupplierID"));
                 order.setRecieverName(rs.getString("RecieverName"));
                 order.setRecieverPhone(rs.getString("RecieverPhone"));
                 order.setRecieverAddress(rs.getString("RecieverAddress"));
@@ -277,6 +264,7 @@ public class OrderDAO {
         }
         return orders;
     }
+
     public int sumAmount(int orderId) {
         String query = "SELECT SUM (Amount) FROM OrderDetail WHERE OrderID = ?";
         try {
@@ -285,11 +273,54 @@ public class OrderDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 return rs.getInt(1);
-
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return 0;
+    }
+
+    public List<Order> searchOrderBySupplierID(int supplierId, String orderID, String filter) {
+        List<Order> orders = new ArrayList<>();
+        String sqlStr = "select * from [Order] where supplierId="+supplierId;
+        if (orderID != null && !orderID.equals("")) {
+            sqlStr += " and OrderID=" + orderID;
+        }
+        if (filter != null && !filter.equals("") && !filter.equals("0")) {
+            sqlStr += " and OrderStatusID=" + filter;
+        }
+        try {
+            PreparedStatement ps = connection.prepareStatement(sqlStr);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Order order = new Order();
+                order.setOrderId(rs.getInt("OrderID"));
+                order.setCustomerId(rs.getInt("CustomerID"));
+                order.setSupplierId(rs.getInt("SupplierID"));
+                order.setRecieverName(rs.getString("RecieverName"));
+                order.setRecieverPhone(rs.getString("RecieverPhone"));
+                order.setRecieverAddress(rs.getString("RecieverAddress"));
+                order.setTotalPrice(rs.getInt("TotalPrice"));
+                order.setOrderStatusId(rs.getInt("OrderStatusID"));
+                orders.add(order);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return orders;
+    }
+
+    public int updateStatusOrder(Order order) {
+        int status = 0;
+        String strUpdate = "update [Order] set OrderStatusID = ? where OrderID = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strUpdate);
+            ps.setInt(1, order.getOrderStatusId());
+            ps.setInt(2, order.getOrderId());
+            status = ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return status;
     }
 }
