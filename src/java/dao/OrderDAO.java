@@ -166,7 +166,7 @@ public class OrderDAO {
 
     public List<Order> getOrderByCusId(int customerId) {
         List<Order> orders = new ArrayList<>();
-        String strSelectAll = "select distinct o.OrderID,o.CustomerID,o.RecieverName,o.RecieverPhone,\n"
+        String strSelectAll = "select distinct o.OrderID,o.CustomerID,o.SupplierID,o.RecieverName,o.RecieverPhone,\n"
                 + "o.RecieverAddress,o.TotalPrice,o.OrderStatusID,od.OrderDate \n"
                 + "from [Order] as o join OrderDetail as od on o.OrderID = od.OrderID \n"
                 + "where CustomerID = ? order by OrderDate desc ";
@@ -178,6 +178,7 @@ public class OrderDAO {
                 Order order = new Order();
                 order.setOrderId(rs.getInt("OrderID"));
                 order.setCustomerId(rs.getInt("CustomerID"));
+                order.setSupplierId(rs.getInt("SupplierID"));
                 order.setRecieverName(rs.getString("RecieverName"));
                 order.setRecieverPhone(rs.getString("RecieverPhone"));
                 order.setRecieverAddress(rs.getString("RecieverAddress"));
