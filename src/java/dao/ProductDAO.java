@@ -155,6 +155,7 @@ public class ProductDAO {
         }
         return products;
     }
+
     public List<Product> getTop4ProductNewest() {
         List<Product> products = new ArrayList<>();
         String strSelectAll = "select top 4 * from Product order by CreatedDate desc";
@@ -255,7 +256,7 @@ public class ProductDAO {
         }
         return product;
     }
-    
+
     public List<Product> getListProductByProductId(String id) {
         List<Product> products = new ArrayList<>();
         String strSelectById = "SELECT *\n"
@@ -326,6 +327,7 @@ public class ProductDAO {
         }
         return products;
     }
+
     public List<Product> getAllProductsProductID(int id) {
         List<Product> products = new ArrayList<>();
         String strSelectAll = "select * from Product where ProductID=?";
@@ -357,6 +359,7 @@ public class ProductDAO {
         }
         return products;
     }
+
     public List<Product> getAllProductBySubCateID(int id) {
         List<Product> products = new ArrayList<>();
         String strSelectAll = "select * from Product where subCateId=?";
@@ -455,7 +458,7 @@ public class ProductDAO {
 
     public List<Product> searchProduct(int SupplierID, String idStr, String nameStr, String barcodeStr) {
         List<Product> products = new ArrayList<>();
-        String strSearch = "select * from Product where SupplierID="+SupplierID;
+        String strSearch = "select * from Product where SupplierID=" + SupplierID;
 
         if (idStr != null && !idStr.trim().isEmpty()) {
             strSearch += "and ProductID = " + idStr;
@@ -508,8 +511,8 @@ public class ProductDAO {
             e.getMessage();
         }
     }
-    
-    public void updateAmountByProId( int weight, int productID) {
+
+    public void updateAmountByProId(int weight, int productID) {
         String query = "update Product set Weight = ? where ProductID = ? ";
         try {
             PreparedStatement ps
@@ -521,7 +524,6 @@ public class ProductDAO {
             e.getMessage();
         }
     }
-
 
     public List<Product> getAllProductBySupplier(int supplierID) {
         List<Product> products = new ArrayList<>();
@@ -590,20 +592,20 @@ public class ProductDAO {
     public List<Product> searchProduct(String id, String shopName, String name, String barCode, String statusFilter) {
         List<Product> products = new ArrayList<>();
         String strSearch = "select * from Product where 1 = 1";
-        if(id != null && !id.equals("")){
-            strSearch+=" and ProductId="+id;
+        if (id != null && !id.equals("")) {
+            strSearch += " and ProductId=" + id;
         }
-        if(name != null && !name.equals("")){
-            strSearch+=" and ProductName like N'%"+name+"%'";
+        if (name != null && !name.equals("")) {
+            strSearch += " and ProductName like N'%" + name + "%'";
         }
-        if(barCode != null && !barCode.equals("")){
-            strSearch+=" and BarCode like N'%"+barCode+"%'";
+        if (barCode != null && !barCode.equals("")) {
+            strSearch += " and BarCode like N'%" + barCode + "%'";
         }
-        if(statusFilter != null && !statusFilter.equals("") && !statusFilter.equals("0")){
-            strSearch+=" and StatusID="+statusFilter;
+        if (statusFilter != null && !statusFilter.equals("") && !statusFilter.equals("0")) {
+            strSearch += " and StatusID=" + statusFilter;
         }
-        if(shopName != null && !shopName.equals("")){
-            strSearch+=" and SupplierID IN (select SupplierID from supplier where ShopName like N'%"+shopName+"%')";
+        if (shopName != null && !shopName.equals("")) {
+            strSearch += " and SupplierID IN (select SupplierID from supplier where ShopName like N'%" + shopName + "%')";
         }
         try {
             PreparedStatement ps = connection.prepareStatement(strSearch);
@@ -632,5 +634,38 @@ public class ProductDAO {
             System.out.println(e.getMessage());
         }
         return products;
+    }
+    public List<Integer> searchProduct(String start, String end, String cityId, String cateId, String subCateId, String sequenSearch) {
+        List<Integer> productIds = new ArrayList<>();
+        String strSearch = "select DISTINCT p.ProductID from Product as p\n";
+
+        if (start != null && !start.equals("") && end != null && !end.equals("")) {
+            strSearch += "join ProductHierarchy as ph on (ph.ProductID=p.ProductID and \n"
+                    + "(select MIN(phh.Price) from ProductHierarchy as phh where phh.ProductID = p.ProductID) BETWEEN " + start + " and " + end + ")\n";
+        }
+        if (cityId != null && !cityId.equals("")) {
+            strSearch += "join DeliveryArea as d on (d.ProductID=p.ProductID and d.CityID=" + cityId + ")\n";
+        }
+        strSearch += "where 1=1\n";
+        if (cateId != null && !cateId.equals("")) {
+            strSearch += "and SubCateID in (select SubCateID from SubCategory where CateID=" + cateId + ")\n";
+        }
+        if (subCateId != null && !subCateId.equals("")) {
+            strSearch += "and p.SubCateID=" + subCateId + "\n";
+        }
+        if (sequenSearch != null && !sequenSearch.equals("")) {
+            strSearch += "and p.ProductName like N'%" + sequenSearch + "%'\n";
+        }
+        System.out.println(strSearch);
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSearch);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                productIds.add(rs.getInt("ProductID"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return productIds;
     }
 }

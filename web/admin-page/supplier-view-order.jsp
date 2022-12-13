@@ -166,12 +166,14 @@
                                 </form>
                                 <form action="SupplierDetailOrderController" method="POST">
                                     <input type="hidden" name="action" value="reject"/>
+                                    <input type="hidden" name="id" value="${order.orderId}"/>
                                     <input type="submit" class="btn btn-danger status mb-2" value="Từ chối đơn hàng"/>
                                 </form>
                             </c:if>
                             <c:if test="${status.orderStatusID==2}">
                                 <form action="SupplierDetailOrderController" method="POST">
                                     <input type="hidden" name="action" value="success"/>
+                                    <input type="hidden" name="id" value="${order.orderId}"/>
                                     <input type="submit" class="btn btn-secondary status mb-2" value="Giao hàng thành công"/>
                                 </form>
                             </c:if>
