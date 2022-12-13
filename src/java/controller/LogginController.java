@@ -1,17 +1,20 @@
 package controller;
 
 import dao.AccountDAO;
+import dao.CategoryDAO;
 import dao.CustomerDAO;
 import dao.SupplierDAO;
 import dao.SystemManagerDAO;
 import dbconnect.DBConnect;
 import entity.Account;
+import entity.Category;
 import entity.Customer;
 import entity.Supplier;
 import entity.SystemManager;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -30,7 +33,9 @@ public class LogginController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         Connection connection = DBConnect.getConnection();
         AccountDAO accountDAO = new AccountDAO(connection);
-
+        CategoryDAO categoryDAO = new CategoryDAO(connection);
+        List<Category> allCate = categoryDAO.getAllCategory();
+        request.setAttribute("listCate", allCate);
         String action = request.getParameter("action");
         if (action == null) {
             request.getRequestDispatcher("./common/login.jsp").forward(request, response);

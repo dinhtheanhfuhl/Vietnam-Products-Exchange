@@ -78,17 +78,25 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <div class="dropdown">
-                                <a class="nav-link waves-effect text-header dropdown-toggle" href="./shop.html"
-                                   target="_blank">Cửa hàng
-
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <c:forEach items="${listCate}" var="o" >
-                                        <a class="dropdown-item" href="MinimartProductController?cid=${o.cateId}">${o.cateName}</a>
-                                    </c:forEach>
+                            <c:if test="${sessionScope.roleCusId==null}">
+                                <div class="dropdown">
+                                    <a class="nav-link waves-effect text-header " data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo href="">Cửa hàng
+                                    </a>
                                 </div>
-                            </div>
+                            </c:if>
+
+                            <c:if test="${sessionScope.roleCusId!=null}">
+                                <div class="dropdown">
+                                    <a class="nav-link waves-effect text-header dropdown-toggle" href="#"
+                                       target="_blank">Cửa hàng
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <c:forEach items="${listCate}" var="o" >
+                                            <a class="dropdown-item" href="MinimartProductController?cid=${o.cateId}">${o.cateName}</a>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </c:if>
 
                         </li>
 
@@ -99,21 +107,45 @@
 
 
                     <!-- Right -->
+
                     <ul class="navbar-nav nav-flex-icons">
-                        <li class="nav-item">
-                            <form action="SearchProductController" method="post">
+                        <c:if test="${sessionScope.roleCusId!=null}">
+                            <li class="nav-item">
+                                <form action="SearchProductController" method="post">
+                                    <div class="input-group rounded">
+                                        <input type="search" class="form-control " required="" name="txtSearch" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" />
+                                        <button type="submit" class="input-group-text border-0" id="search-addon">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </li>
+                        </c:if>
+
+                        <c:if test="${sessionScope.roleCusId==null}">
+                            <li class="nav-item">
                                 <div class="input-group rounded">
                                     <input type="search" class="form-control " required="" name="txtSearch" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" />
                                     <button type="submit" class="input-group-text border-0" id="search-addon">
                                         <i class="fas fa-search"></i>
                                     </button>
                                 </div>
-                            </form>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="CartController"  class="nav-link cart-btn pr-3"><i class="fas fa-shopping-cart"></i>
-                            </a>
-                        </li>
+                            </li>
+                        </c:if>
+
+                        <c:if test="${sessionScope.roleCusId!=null}">
+                            <li class="nav-item ">
+                                <a href="CartController"  class="nav-link cart-btn pr-3"><i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </li>
+                        </c:if>
+                        <c:if test="${sessionScope.roleCusId==null}">
+                            <li class="nav-item ">
+                                <a   class="nav-link cart-btn pr-3"><i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </li>
+                        </c:if>
+
                         <li class="nav-item">
                             <div class="dropdown dropdown-user">
                                 <c:if test="${sessionScope.roleCusId==4}">
@@ -130,7 +162,7 @@
                                     </div>
                                 </c:if>
                                 <c:if test="${sessionScope.roleCusId==null}">
-                                    <a href="LogginController" class="nav-link border border-light rounded waves-effect" target="_blank">
+                                    <a href="LogginController" class="nav-link border border-light rounded waves-effect">
                                         <i class="fas fa-user"></i>Đăng Nhập
                                     </a>
                                 </c:if>
@@ -141,6 +173,39 @@
                 </div>
             </div>
         </nav>
-    </header>
 
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <h4 id="message-text">Vui lòng đăng nhập!</h4>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                        <a href="LogginController"><button class="btn btn-warning" type="button" >Đăng nhập</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script>$('#exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        })</script>
 </html>

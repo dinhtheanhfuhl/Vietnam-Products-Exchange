@@ -91,34 +91,39 @@
                     </div>
                     <form action="HistoryOrderDetailController?orderId=${order.orderId}" method="post">
                         <div class="col-sm">
-                            <c:if test="${order.orderStatusId=='1'}"><button type="button" style="float: right;" class="btn btn-warning status mb-2" data-toggle="modal" data-target="#exampleModal">Huỷ đơn</button></c:if>
+                            <c:if test="${order.orderStatusId=='1'}"><button type="button" style="float: right;" class="btn btn-warning status mb-2" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Huỷ đơn</button></c:if>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc muốn huỷ đơn?</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            Bạn có chắc muốn huỷ đơn?
+                            <form>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Lý do huỷ đơn:</label>
+                                    <textarea class="form-control" id="message-text"></textarea>
+                                </div>
+                            </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
                             <form action="HistoryOrderDetailController?orderId=${order.orderId}" method="post">
-                            <button type="submit" class="btn btn-secondary">Có</button>
+                            <button type="submit" class="btn btn-success">Gửi</button>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>          
+        </div>
+                
         <div class="ordered-detail container">
             <table class="table">
                 <thead>
@@ -156,10 +161,15 @@
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script>
-            $('#myModal').on('shown.bs.modal', function () {
-                $('#myInput').trigger('focus')
+            $('#exampleModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget) // Button that triggered the modal
+                var recipient = button.data('whatever') // Extract info from data-* attributes
+                var modal = $(this)
+                modal.find('.modal-title').text('New message to ' + recipient)
+                modal.find('.modal-body input').val(recipient)
             })
         </script>
+      
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
         </script>

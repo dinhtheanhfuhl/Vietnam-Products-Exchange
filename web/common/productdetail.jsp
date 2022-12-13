@@ -83,7 +83,6 @@
                     </c:if>
 
                     <div class="row ">
-
                         <div class="col-lg-6">
                             <div class="shop-details-thumb">
                                 <div class="shop-details-thumb-slider-active">

@@ -156,15 +156,16 @@
                                             <option <c:if test="${statusFilter==1}">selected</c:if> value="1">Chờ phê duyệt</option>
                                             <option <c:if test="${statusFilter==2}">selected</c:if> value="2">Đã phê duyệt</option>
                                             <option <c:if test="${statusFilter==3}">selected</c:if> value="3">Từ chối phê duyệt</option>
-                                        </select>
-                                    </form>
-                                    <h6 id="sorttext">Sắp xếp theo</h6>
-                                    <h3>Nhà cung cấp</h3>
-                                    <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;">
+                                            </select>
+                                        </form>
+                                        <h6 id="sorttext">Sắp xếp theo</h6>
+                                        <h3>Nhà cung cấp</h3>
+                                        <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;">
                                         <c:if test="${mapSuppliers.keySet().size()!=0}">
-                                            <table id="ecommerce-product-list" class="table  table-bordered">
-                                                <thead>
-                                                    <tr class="text-center">
+                                            <table id="ecommerce-product-list" class="table table-bordered">
+
+                                                <tbody class="text-center">
+                                                    <tr>
                                                         <th>ID</th>
                                                         <th>Tên người dùng</th>
                                                         <th>Tên nhà cung cấp</th>
@@ -175,8 +176,6 @@
                                                         <th>Trạng thái</th>
                                                         <th>Chi tiết</th>
                                                     </tr>
-                                                </thead>
-                                                <tbody class="text-center">
                                                     <c:forEach items="${mapSuppliers.keySet()}" var="key" >
                                                         <tr>
                                                             <td>#${key.supplierId}</td>
@@ -204,8 +203,9 @@
                                     <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;"> 
                                         <c:if test="${mapCustomers.keySet().size()!=0}">
                                             <table id="ecommerce-product-list" class="table  table-bordered" >
-                                                <thead>
-                                                    <tr class="text-center">
+                                                
+                                                <tbody class="text-center">
+                                                    <tr>
                                                         <th>ID</th>
                                                         <th>Tên người dùng</th>
                                                         <th>Tên nhà cung cấp</th>
@@ -216,8 +216,6 @@
                                                         <th>Trạng thái</th>
                                                         <th>Chi tiết</th>
                                                     </tr>
-                                                </thead>
-                                                <tbody class="text-center">
                                                     <c:forEach items="${mapCustomers.keySet()}" var="key" >
                                                         <tr>
                                                             <td>#${key.customerId}</td>
