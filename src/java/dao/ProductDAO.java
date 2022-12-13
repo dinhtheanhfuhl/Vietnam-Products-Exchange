@@ -668,5 +668,4 @@ public class ProductDAO {
         }
         return productIds;
     }
-    
 }
