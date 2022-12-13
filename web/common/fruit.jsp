@@ -52,7 +52,7 @@
                 </ol>
             </nav>
         </section>
-        <div class="orfarm-shop-grid-area pt-100 pb-50">
+        <div class="orfarm-shop-grid-area pb-50">
             <div class="container">
                 <div class="row">
 
@@ -62,33 +62,36 @@
                                 <div class="shop-price-filter">
                                     <h4 class="title">Lọc theo giá</h4>
                                     <div class="price-range">
-                                        <label for="">
-                                            <input type="number" placeholder="Từ" class="form-control"> - 
-                                            <input type="number" placeholder="Đến" class="form-control"></label>                                    
+                                        <div class="row">
+                                            <input class="col-md-4 form-control m-2"  name="begin" type="number" placeholder="Từ"> 
+                                            <input class="col-md-4 form-control m-2" name="end" type="number" placeholder="Đến">    
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="shop-category-widget">
                                     <h4 class="title">Danh mục cấp 2</h4>
                                     <ul>
                                         <c:forEach items="${allSubCategory}" var="o" >
-                                            <input type="checkbox" id="subcate${o.subCateName}" name="" value="">
+                                            <input  name="subCateId" value="${o.subCateId}" type="checkbox" id="subcate${o.subCateName}">
                                             <label for="subcate${o.subCateName}">${o.subCateName}</label><br>
                                         </c:forEach>
                                     </ul>
                                 </div>
                                 <div class="shop-category-widget">
+
                                     <h4 class="title">Khu vực giao hàng</h4>
                                     <ul>
-                                        <select id="city"  class="form-control">
-                                            <option value="">Tất cả thành phố</option>
-                                            <c:forEach items="${allCities}" var="o" >
-                                                <option value="${o.cityId}">${o.cityName}</option>
-                                            </c:forEach>
-                                        </select>
-
+                                        <div class="row">
+                                            <select class="form-control col-md-8 ml-2" name="cityId" id="city">
+                                                <option value="">Tất cả thành phố</option>
+                                                <c:forEach items="${allCities}" var="o" >
+                                                    <option value="${o.cityId}">${o.cityName}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
                                     </ul>
                                 </div>
-                                <button class=" btn btn-warning status" type="submit" id="">  Lọc </button>
+                                <button class="mt-5 btn btn-warning status" type="submit" id="">  Lọc </button>
 
                             </form>
                         </div>
@@ -96,26 +99,21 @@
 
                     <div class="col-lg-9 order-1 order-lg-2">
                         <div class="row">
-                            <div class="banner-collection pb-5 w-300">
-                                <img src="image/slider1-min.jpg" alt=""/>
-                            </div>
-                        </div>
-                        <div class="shop-grid-topbar d-flex justify-content-between align-items-center">
-                            <select id="product">
-                                <option value="">Mới nhất</option>
-                                <option value="">Bán chạy nhất</option>
-                                <option value="">Giá tăng dần</option>
-                                <option value="">Giá giảm dần</option>
-                            </select>
+                        <select class="form-control col-md-3" id="product">
+                            <option value="">Mới nhất</option>
+                            <option value="">Bán chạy nhất</option>
+                            <option value="">Giá tăng dần</option>
+                            <option value="">Giá giảm dần</option>
+                        </select>
                         </div>
                         <div class="row">
                             <c:forEach var="key" items="${mapImages.keySet()}">
                                 <div class="col-lg-4 col-md-6">
                                     <div class="single-shop-box">
                                         <a href="MimartDetailProduct?pid=${key.productId}">
-                                        <div class="thumb text-center">
-                                            <img style="height:200px;object-fit: cover" src="${mapImages.get(key).get(0).getImgPath()}" alt="">
-                                        </div>
+                                            <div class="thumb text-center">
+                                                <img style="height:200px;object-fit: cover" src="${mapImages.get(key).get(0).getImgPath()}" alt="">
+                                            </div>
                                         </a>
                                         <div class="content">
 
