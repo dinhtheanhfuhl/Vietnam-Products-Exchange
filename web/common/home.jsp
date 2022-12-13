@@ -42,7 +42,7 @@
 
     <body>
         <%@include file="header.jsp"%>
-         <div class="banner-top pt-5">
+        <div class="banner-top pt-5">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" style=" transform: scale(1.5);">
@@ -143,24 +143,44 @@
                 <div class="title text-center pb-10  ">
                     <h2>Sản phẩm nổi bật</h2>
                 </div>
-
-                <div class="row">
-                    <div class="product-slider">
-                        <c:forEach var="key" items="${mapImages.keySet()}">
-                            <div class="col-md-2">
-                                <div class="card">
-                                    <img class="card-img-top" style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
-                                    <div class="card-body">
-                                        <a style="text-decoration: none;" href="MimartDetailProduct?pid=${key.productId}">
-                                            <h5 class="card-title">${key.productName} ${key.trademark}</h5>
-                                        </a>
-                                        <h6>${mapSuppliers.get(key).get(0).getShopName()}</h6>
+                <c:if test="${sessionScope.roleCusId==null}">
+                    <div class="row">
+                        <div class="product-slider">
+                            <c:forEach var="key" items="${mapImages.keySet()}">
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <img class="card-img-top" style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
+                                        <div class="card-body">
+                                            <a style="text-decoration: none;" >
+                                                <h5 class="card-title">${key.productName} ${key.trademark}</h5>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </c:forEach>
+                            </c:forEach>
+                        </div>
                     </div>
-                </div>
+                </c:if>
+                <c:if test="${sessionScope.roleCusId!=null}">
+                    <div class="row">
+                        <div class="product-slider">
+                            <c:forEach var="key" items="${mapImages.keySet()}">
+                                <div class="col-md-2">
+                                    <div class="card">
+                                        <img class="card-img-top" style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
+                                        <div class="card-body">
+                                            <a style="text-decoration: none;" href="MimartDetailProduct?pid=${key.productId}">
+                                                <h5 class="card-title">${key.productName} ${key.trademark}</h5>
+                                            </a>
+                                                <h6 style="margin-top: 15px;">${mapSuppliers.get(key).get(0).getShopName()}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </c:if>
+
             </div>
         </section>
         <div class="gallery">
@@ -172,30 +192,53 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <c:forEach var="key" items="${mapImages2.keySet()}">
-                        <div class="col-md-3 col-sm-6 mb-3">
-                            <div class="pro-loop">
-                                <div class="product-block product-resize">
-                                    <div class="product-img">
-                                        <img class="w-100" style="object-fit: cover;height: 200px;width: 100px" src="${mapImages2.get(key).get(0).getImgPath()}" alt="">
-                                        <div class="box-pro-detail ">
-                                            <h5 class="card-title">
-                                                <a style="text-decoration: none;margin-top: 25px;" href="MimartDetailProduct?pid=${key.productId}">
-                                                    <h5 class="card-title">${key.productName} ${key.trademark}</h5>
-                                                </a>
-                                            </h5>
-                                            <h6>${mapSupplier2.get(key).get(0).getShopName()}</h6>
-
-
+                <c:if test="${sessionScope.roleCusId==null}">
+                    <div class="row">
+                        <c:forEach var="key" items="${mapImages2.keySet()}">
+                            <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="pro-loop">
+                                    <div class="product-block product-resize">
+                                        <div class="product-img">
+                                            <img class="w-100" style="object-fit: cover;height: 200px;width: 100px" src="${mapImages2.get(key).get(0).getImgPath()}" alt="">
+                                            <div class="box-pro-detail ">
+                                                <h5 class="card-title">
+                                                    <a style="text-decoration: none;margin-top: 25px;">
+                                                        <h5 class="card-title">${key.productName} ${key.trademark}</h5>
+                                                    </a>
+                                                </h5>
+                                            </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </c:forEach>
-                </div>
+                        </c:forEach>
+                    </div>
+                </c:if>
+                <c:if test="${sessionScope.roleCusId!=null}">
+                    <div class="row">
+                        <c:forEach var="key" items="${mapImages2.keySet()}">
+                            <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="pro-loop">
+                                    <div class="product-block product-resize">
+                                        <div class="product-img">
+                                            <img class="w-100" style="object-fit: cover;height: 200px;width: 100px" src="${mapImages2.get(key).get(0).getImgPath()}" alt="">
+                                            <div class="box-pro-detail ">
+                                                <h5 class="card-title">
+                                                    <a style="text-decoration: none;margin-top: 25px;" href="MimartDetailProduct?pid=${key.productId}">
+                                                        <h5 class="card-title">${key.productName} ${key.trademark}</h5>
+                                                    </a>
+                                                    <h6>${mapSupplier2.get(key).get(0).getShopName()}</h6>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </c:if>
+
+
             </div>
         </div>
 

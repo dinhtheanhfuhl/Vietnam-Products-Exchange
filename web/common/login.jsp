@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
         <title>Đăng nhập</title>
@@ -41,85 +42,7 @@
 
     <body>
 
-        <header class="header">
-            <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar ">
-                <div class="container-fluid">
-
-                    <!-- Brand -->
-                    <a class="navbar-brand waves-effect" href="Home">
-                        <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
-                    </a>
-
-                    <!-- Collapse -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <!-- Links -->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                        <!-- Left -->
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active" style="padding-left: 40px;">
-                                <a class="nav-link waves-effect  text-header" href="Home">Trang chủ
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="nav-link waves-effect text-header dropdown-toggle" href=""
-                                       target="_blank">Giới thiệu
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                                         id="dropdown-collection">
-                                        <a class="dropdown-item" href="./information.jsp">Về chúng tôi</a>
-                                        <a class="dropdown-item" href="./policy.jsp">Chính sách bảo mật</a>
-                                        <a class="dropdown-item" href="./condition.jsp">Điều khoản dịch vụ</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="nav-link waves-effect text-header dropdown-toggle" href="./shop.html"
-                                       target="_blank">Cửa hàng
-
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <c:forEach items="${listCate}" var="o" >
-                                            <a class="dropdown-item" href="MinimartProductController?cid=${o.cateId}">${o.cateName}</a>
-                                        </c:forEach>
-                                    </div>
-                                </div>
-
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link waves-effect text-header" href="./contact.jsp">Liên hệ</a>
-                            </li>
-                        </ul>
-
-
-                        <!-- Right -->
-                        <ul class="navbar-nav nav-flex-icons">
-
-                            <li class="nav-item ">
-                                <a href=""  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown dropdown-user">
-                                    <a href="LogginController" class="nav-link border border-light rounded waves-effect" target="_blank">
-                                        <i class="fas fa-user"></i>Đăng Nhập
-                                    </a>
-
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        <%@include file="header.jsp"%>
 
         <section class="breadcrum">
 
@@ -182,14 +105,14 @@
                                         <span>
                                             <sup>*</sup>
                                         </span>
-                                        <a href="./condition.jsp" target="_blank">Điều khoản dịch vụ</a>
+                                        <a href="ConditionController" target="_blank">Điều khoản dịch vụ</a>
                                     </p>
                                     <p class="pri-pol ">
 
                                         <span> Sự riêng tư và bảo mật của bạn không quan trọng đối với chúng tôi. Để biết thêm thông tin về cách chúng tôi sử dụng dữ liệu của bạn, hãy đọc điều khoản dưới đây.
                                         </span>
                                         <br>
-                                        <a href="policy.jsp" target="_blank" style="margin: 5px"> Chính sách bảo mật</a>
+                                        <a href="PolicyController" target="_blank" style="margin: 5px"> Chính sách bảo mật</a>
                                     </p>
                                 </div>
                             </div>
