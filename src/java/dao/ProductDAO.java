@@ -124,9 +124,9 @@ public class ProductDAO {
         return products;
     }
 
-    public List<Product> getTop5ProductOrderByView() {
+    public List<Product> getTop4ProductOrderByView() {
         List<Product> products = new ArrayList<>();
-        String strSelectAll = "select top 5 * from Product order by ViewNumber desc";
+        String strSelectAll = "select top 4 * from Product order by ViewNumber desc";
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);
             ResultSet rs = ps.executeQuery();

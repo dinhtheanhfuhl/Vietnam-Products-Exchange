@@ -111,7 +111,8 @@
                             </form>
                         </li>
                         <li class="nav-item ">
-                            <a href="CartController"  class="nav-link cart-btn pr-3"><i class="fas fa-shopping-cart"></i>
+                            <a href="CartController"  class="nav-link cart-btn pr-3">
+                                <i class="fas fa-shopping-cart badge-amen" value="5"></i>
                             </a>
                         </li>
                         <li class="nav-item">
