@@ -177,19 +177,17 @@
                                         </form>
                                         <h6 id="sorttext">Sắp xếp theo</h6>
                                         <div class="table-responsive new-products">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr class="text-center">
-                                                        <th>Mã yêu cầu duyệt ${ACTION != null && ACTION=="search"}</th>
-                                                        <th>Thời gian gửi yêu cầu</th>
-                                                        <th>Nhà cung cấp</th>
-                                                        <th>Tên sản phẩm</th>
-                                                        <th>Mã Barcode/SKU</th>
-                                                        <th>Trạng thái</th>
-                                                        <th>Chi tiết</th>
-                                                    </tr>
-                                                </thead>
+                                            <table class="table table-bordered">
                                                 <tbody class="text-center">
+                                                    <tr>
+                                                    <th>Mã yêu cầu duyệt ${ACTION != null && ACTION=="search"}</th>
+                                                    <th>Thời gian gửi yêu cầu</th>
+                                                    <th>Nhà cung cấp</th>
+                                                    <th>Tên sản phẩm</th>
+                                                    <th>Mã Barcode/SKU</th>
+                                                    <th>Trạng thái</th>
+                                                    <th>Chi tiết</th>
+                                                </tr>
                                                 <c:forEach items="${resultProducts}" var="product" >
                                                     <tr>
                                                         <td>#${product.productId}</td>

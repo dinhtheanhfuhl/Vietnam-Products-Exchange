@@ -165,15 +165,15 @@
                                         <div class="table-responsive new-products" style="background-color: white;">
                                             <a href="SupplierAddController"><button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
                                             <select style="float: right;width: 160px;" onchange="location = this.value;" class="form-control">
-                                            <option <c:if test="${status!=null&&status==0}">selected</c:if> value="SupplierController?filter=filter&status=0<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Tất cả sản phẩm</option>
+                                                <option <c:if test="${status!=null&&status==0}">selected</c:if> value="SupplierController?filter=filter&status=0<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Tất cả sản phẩm</option>
                                             <option <c:if test="${status!=null&&status==1}">selected</c:if> value="SupplierController?filter=filter&status=1<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Chờ phê duyệt</option>
                                             <option <c:if test="${status!=null&&status==2}">selected</c:if> value="SupplierController?filter=filter&status=2<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã phê duyệt</option>
                                             <option <c:if test="${status!=null&&status==3}">selected</c:if> value="SupplierController?filter=filter&status=3<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Từ chối phê duyệt</option>
                                             <option <c:if test="${status!=null&&status==4}">selected</c:if> value="SupplierController?filter=filter&status=4<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã ẩn</option>
                                             </select>
-                                            <table class="table">
-                                                <thead>
-                                                    <tr class="text-center">
+                                            <table class="table table-bordered">
+                                                <tbody class="text-center">
+                                                    <tr>
                                                         <th>Mã yêu 
                                                             cầu duyệt</th>
                                                         <th>Thời gian 
@@ -185,8 +185,6 @@
                                                         <th style="min-width: 150px">Chi tiết</th>
                                                         <th>Chỉnh sửa</th>
                                                     </tr>
-                                                </thead>
-                                                <tbody class="text-center">
                                                 <c:forEach var="p" items="${resultP}">
                                                     <tr>
                                                         <td>#${p.productId}</td>

@@ -6,11 +6,6 @@
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/ViewCart.jsp</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/ViewCartController.java</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/CheckCartAmountController.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/ViewCart.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/ViewCartController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/CheckCartAmountController.java</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dbconnect/DBConnect.java</file>
         </group>
         <group>
@@ -106,6 +101,13 @@
             <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/controller/SupplierDetailOrderController.java</file>
             <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/controller/SupplierOrderController.java</file>
             <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/dao/OrderDAO.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/header.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/login.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/home.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HomeController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/LogginController.java</file>
         </group>
     </open-files>
 </project-private>
