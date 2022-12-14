@@ -106,8 +106,9 @@
                 </div>
                 <c:if test="${sessionScope.roleCusId==null}">
                     <div class="row">
+                        <div class="product-slider">
                             <c:forEach var="key" items="${mapImages.keySet()}">
-                                <div class="col-md-3 d-flex align-items-stretch">
+                                <div class="col-md-3">
                                     <div class="card">
                                         <img class="card-img-top" style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
                                         <div class="card-body">
@@ -115,6 +116,7 @@
                                                 <h5 class="card-title">${key.productName} ${key.trademark}</h5>
                                             </a>
                                         </div>
+                                    </div>
                                 </div>
                             </c:forEach>
                         </div>
@@ -122,8 +124,9 @@
                 </c:if>
                 <c:if test="${sessionScope.roleCusId!=null}">
                     <div class="row">
+                        <div class="product-slider">
                             <c:forEach var="key" items="${mapImages.keySet()}">
-                                <div class="col-md-3 d-flex align-items-stretch">
+                                <div class="col-md-3">
                                     <div class="card">
                                         <img class="card-img-top" style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
                                         <div class="card-body">
@@ -132,11 +135,13 @@
                                             </a>
                                             <h6 style="margin-top: 15px;">${mapSuppliers.get(key).get(0).getShopName()}</h6>
                                         </div>
+                                    </div>
                                 </div>
                             </c:forEach>
                         </div>
                     </div>
                 </c:if>
+
             </div>
         </section>
         <div class="gallery">
