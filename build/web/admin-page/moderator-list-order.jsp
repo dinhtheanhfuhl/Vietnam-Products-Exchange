@@ -171,8 +171,8 @@
                                     </form>
                                     <h6 id="sorttext">Sắp xếp theo</h6>
                                     <div class="table-responsive new-products">
-                                        <table class="table">
-                                            <thead>
+                                        <table class="table table-bordered">
+                                            <tbody class="text-center">
                                                 <tr class="text-center">
                                                     <th>Thời gian đặt hàng</th>
                                                     <th>Mã đặt đơn hàng</th>
@@ -182,8 +182,6 @@
                                                     <th>Trạng thái</th>
                                                     <th>Chi tiết</th>
                                                 </tr>
-                                            </thead>
-                                            <tbody class="text-center">
                                                 <c:forEach var="o" items="${orders}">
                                                     <tr>
                                                         <td>${mapOrderAndOrderDetail.get(o).get(0).orderDate}</td>

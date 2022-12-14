@@ -61,7 +61,7 @@
 
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Số điện thoại</label>
-                                    <input required type="number" class="form-control" id="exampleInputAddress" name="receiverPhone" placeholder="nhập số điện thoại">
+                                    <input required type="number" maxlength="13" class="form-control" id="exampleInputAddress" name="receiverPhone" placeholder="nhập số điện thoại">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Ghi chú</label>

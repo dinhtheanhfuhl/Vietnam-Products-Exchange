@@ -120,16 +120,15 @@
                                     <a href="ModeratorAddCateController?action=show"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục cấp 1 </button></a>
                                     <a href="ModeratorAddSubCateController?action=show"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục cấp 2 </button></a>
                                     <div class="table-responsive new-products">
-                                        <table class="table">
-                                            <thead>
-                                                <tr class="text-center">
+                                        <table class="table table-bordered">
+                                         
+                                            <tbody class="text-center">
+                                                <tr>
                                                     <th>ID</th>
                                                     <th>Danh mục cấp 1</th>
                                                     <th>Danh mục cấp 2</th>
                                                     <th>Xoá</th>
                                                 </tr>
-                                            </thead>
-                                            <tbody class="text-center">
                                                 <c:forEach var="key" items="${mapSubcategorys.keySet()}">
                                                     <tr>
                                                         <td>${key.cateId}</td>

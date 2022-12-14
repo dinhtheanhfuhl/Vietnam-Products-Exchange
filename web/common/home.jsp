@@ -45,7 +45,7 @@
         <div class="banner-top pt-5">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active" style=" transform: scale(1.5);">
+                    <div class="carousel-item active" style=" transform: scale(1.2);">
                         <img class="d-block w-100" src="image/slider1-min.jpg" alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
                             <div class="row">
@@ -87,22 +87,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item" style=" transform: scale(1.2);">
-                        <img class="d-block w-100" src="image/slider1-min.jpg" alt="Second slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <div class="row">
-                                <div class="col-sm-4 text-title-diff">
-                                    <h2>Rau xanh, sạch, ngon</h2>
-                                    <h6>
-                                        Mua nhanh kẻo hết
-                                    </h6>
-                                    <a href="#">ĐẾN SÀN NGAY</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -127,7 +111,7 @@
                                     <div class="card">
                                         <img class="card-img-top" style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
                                         <div class="card-body">
-                                            <a style="text-decoration: none;" >
+                                            <a style="text-decoration: none;" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo">
                                                 <h5 class="card-title">${key.productName} ${key.trademark}</h5>
                                             </a>
                                         </div>
@@ -146,7 +130,7 @@
                                             <a style="text-decoration: none;" href="MimartDetailProduct?pid=${key.productId}">
                                                 <h5 class="card-title">${key.productName} ${key.trademark}</h5>
                                             </a>
-                                                <h6 style="margin-top: 15px;">${mapSuppliers.get(key).get(0).getShopName()}</h6>
+                                            <h6 style="margin-top: 15px;">${mapSuppliers.get(key).get(0).getShopName()}</h6>
                                         </div>
                                 </div>
                             </c:forEach>
@@ -174,7 +158,7 @@
                                             <img class="w-100" style="object-fit: cover;height: 200px;width: 100px" src="${mapImages2.get(key).get(0).getImgPath()}" alt="">
                                             <div class="box-pro-detail ">
                                                 <h5 class="card-title">
-                                                    <a style="text-decoration: none;margin-top: 25px;">
+                                                    <a style="text-decoration: none;margin-top: 25px;" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo">
                                                         <h5 class="card-title">${key.productName} ${key.trademark}</h5>
                                                     </a>
                                                 </h5>
@@ -212,40 +196,35 @@
 
 
             </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <h4 id="message-text">Vui lòng đăng nhập!</h4>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                            <a href="LogginController"><button class="btn btn-warning" type="button" >Đăng nhập</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
         <!--====== SHOPPING CART PART START ======-->
 
-        <div class="amm-shopping-cart-wrapper">
-            <div class="amm-shopping-cart-canvas" id="amm-shopping-cart-canvas">
-                <div class="amm-shopping_cart">
-                    <div class="amm-shopping_cart-top-bar d-flex justify-content-between">
-                        <h6>Giỏ hàng</h6>
-                        <button onclick="removeShoppingCart()" class="amm-shopping-cart-close">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div><!-- shopping cart top bar -->
-                    <div class="amm-shopping_cart-list-items mt-30" id="showCart">
-                        <ul>
 
-                        </ul>
-                    </div> <!-- shopping_cart list items -->
-                    <div class="amm-shopping_cart-btn">
-                        <div class="total pt-35 d-flex justify-content-between">
-                            <h5>Tổng tiền:</h5>
-                            <p><span>0 <sup>đ</sup></span></p>
-
-                        </div>
-                        <div class="cart-btn pt-25">
-                            <a class="main-btn" onclick="viewCarts()" href="./ViewCart.html">Xem giỏ hàng</a>
-                            <a class="main-btn main-btn-2" href="./payment.html">Thanh toán</a>
-                        </div>
-                    </div>
-                </div> <!-- shopping_cart -->
-            </div>
-            <div onclick="openOverlay()" class="overlay" id="overlay"></div>
-        </div>
 
         <%@include file="footer.jsp"%>  
 
@@ -289,36 +268,36 @@
         <script src="assets/js/main.js"></script>
         <script src="./cart.js"></script>
         <script type="text/javascript">
-                $(document).ready(function () {
-                    $('.cate-slider').slick({
-                        slidesToShow: 5,
-                        slidesToScroll: 1,
-                        responsive: [{
-                                breakpoint: 1024,
-                                settings: {
-                                    slidesToShow: 5,
-                                    slidesToScroll: 1,
+                    $(document).ready(function () {
+                        $('.cate-slider').slick({
+                            slidesToShow: 5,
+                            slidesToScroll: 1,
+                            responsive: [{
+                                    breakpoint: 1024,
+                                    settings: {
+                                        slidesToShow: 5,
+                                        slidesToScroll: 1,
 
+                                    }
+                                }, {
+                                    breakpoint: 800,
+                                    settings: {
+                                        slidesToShow: 4,
+                                        slidesToScroll: 2,
+                                        dots: false
+                                    }
+                                }, {
+                                    breakpoint: 480,
+                                    settings: {
+                                        slidesToShow: 1,
+                                        slidesToScroll: 1
+                                    }
                                 }
-                            }, {
-                                breakpoint: 800,
-                                settings: {
-                                    slidesToShow: 4,
-                                    slidesToScroll: 2,
-                                    dots: false
-                                }
-                            }, {
-                                breakpoint: 480,
-                                settings: {
-                                    slidesToShow: 1,
-                                    slidesToScroll: 1
-                                }
-                            }
 
-                        ]
+                            ]
 
+                        });
                     });
-                });
         </script>
         <script type="text/javascript">
             $(document).ready(function () {
@@ -402,6 +381,11 @@
             initializeClock('clockdiv', deadline);
             //]]>
         </script>
+        <script>$('#exampleModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget)
+                var recipient = button.data('whatever')
+                var modal = $(this)
+            })</script>
     </body>
 
 </html>

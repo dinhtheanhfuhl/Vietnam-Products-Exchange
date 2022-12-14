@@ -337,7 +337,7 @@
                 <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
                     <ul class="list-inline links ml-sm-5">
                         <li class="list-inline-item">
-                            <a target="_blank" href="#">OrFarm Store</a>
+                            <a target="_blank" href="#">Vietnam Products Exchange</a>
                         </li>
                     </ul>
                 </div>
@@ -345,7 +345,7 @@
                     <ul
                         class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
                         <li class="list-inline-item  mr-3">
-                            <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">OrFarm Store</a></p>
+                            <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
                         </li>
                         <li class="list-inline-item align-self-center">
                             <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
