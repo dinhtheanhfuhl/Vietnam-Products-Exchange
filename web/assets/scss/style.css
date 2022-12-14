@@ -8642,7 +8642,12 @@ blockquote cite {
 .orfarm-shop-sidebar .shop-category-widget {
     margin-top: 37px;
     border-bottom: 1px solid #e7eaef;
-    padding-bottom: 33px;
+    padding-bottom: 15px;
+}
+.orfarm-shop-sidebar .shop-category-widget:last-child {
+    margin-top: 37px;
+    border-bottom: none;
+    padding-bottom: 15px;
 }
 .orfarm-shop-sidebar .shop-category-widget .fruit a{
     color: red;

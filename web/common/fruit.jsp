@@ -1,4 +1,5 @@
 <!doctype html>
+<%@ page errorPage="error.jsp" %>  
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -78,7 +79,6 @@
                                     </ul>
                                 </div>
                                 <div class="shop-category-widget">
-
                                     <h4 class="title">Khu vực giao hàng</h4>
                                     <ul>
                                         <div class="row">
@@ -91,24 +91,31 @@
                                         </div>
                                     </ul>
                                 </div>
-                                <button class="mt-5 btn btn-warning status" type="submit" id="">  Lọc </button>
+                                <div class="shop-category-widget">
+                                    <ul>
+                                        <div class="row">
+                                            <button class="ml-2 col-md-4 btn btn-warning status" type="submit" id="">Lọc</button>
+                                        </div>
+                                    </ul>
+                                </div>
+
 
                             </form>
                         </div>
                     </div>
 
                     <div class="col-lg-9 order-1 order-lg-2">
-                        <div class="row">
-                        <select class="form-control col-md-3" id="product">
-                            <option value="">Mới nhất</option>
-                            <option value="">Bán chạy nhất</option>
-                            <option value="">Giá tăng dần</option>
-                            <option value="">Giá giảm dần</option>
-                        </select>
+                        <div class="d-flex justify-content-end">
+                            <select class="form-control col-md-3 d-inline-flex" id="product">
+                                <option value="">Mới nhất</option>
+                                <option value="">Bán chạy nhất</option>
+                                <option value="">Giá tăng dần</option>
+                                <option value="">Giá giảm dần</option>
+                            </select>
                         </div>
                         <div class="row">
                             <c:forEach var="key" items="${mapImages.keySet()}">
-                                <div class="col-lg-4 col-md-6">
+                                <div class="col-lg-4 d-flex align-items-stretch">
                                     <div class="single-shop-box">
                                         <a href="MimartDetailProduct?pid=${key.productId}">
                                             <div class="thumb text-center">
