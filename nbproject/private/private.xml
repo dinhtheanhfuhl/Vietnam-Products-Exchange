@@ -5,12 +5,6 @@
         <group>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/ViewCart.jsp</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/ViewCartController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/CheckCartAmountController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dbconnect/DBConnect.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/ViewCart.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/ViewCartController.java</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/customer-history-order.jsp</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/CheckCartAmountController.java</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dbconnect/DBConnect.java</file>
@@ -108,15 +102,12 @@
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/home.jsp</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HomeController.java</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/LogginController.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/controller/HomeController.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/entity/SubCategory.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/web/assets/scss/style.css</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/web/common/error.jsp</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/dao/ProductDAO.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/controller/MinimartProductController.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/web/common/home.jsp</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/web/common/productdetail.jsp</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/header.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/home.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/productdetail.jsp</file>
         </group>
     </open-files>
 </project-private>
