@@ -46,15 +46,15 @@ public class HomeController extends HttpServlet {
         ProductImageDAO productImageDAO = new ProductImageDAO(connection);
         ProductDAO productDAO = new ProductDAO(connection);
         SupplierDAO supplierDAO = new SupplierDAO(connection);
-        List<Product> getTop5 = productDAO.getTop5ProductOrderByView();
+        List<Product> getTop4 = productDAO.getTop4ProductOrderByView();
         
         Map<Product, List<ProductImage>> mapImages = new LinkedHashMap<Product, List<ProductImage>>();
-        for (Product product : getTop5) {
+        for (Product product : getTop4) {
             List<ProductImage> images = productImageDAO.getAllProductsImageByProId(product.getProductId());
             mapImages.put(product, images);
         }
         Map<Product, List<Supplier>> mapSuppliers = new LinkedHashMap<Product, List<Supplier>>();
-        for (Product product : getTop5) {
+        for (Product product : getTop4) {
             List<Supplier> supplier = supplierDAO.getSupplierByProId(product.getProductId());
             mapSuppliers.put(product, supplier);
         }

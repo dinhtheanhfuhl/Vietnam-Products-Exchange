@@ -1,4 +1,5 @@
 <!doctype html>
+<%@ page errorPage="error.jsp" %>  
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -78,7 +79,6 @@
                                     </ul>
                                 </div>
                                 <div class="shop-category-widget">
-
                                     <h4 class="title">Khu vực giao hàng</h4>
                                     <ul>
                                         <div class="row">
@@ -97,13 +97,15 @@
                                 <c:if test="${sessionScope.roleCusId!=null}">
                                     <button class="mt-5 btn btn-warning status" type="submit" id="">  Lọc </button>
                                 </c:if>
+
                             </form>
                         </div>
                     </div>
 
                     <div class="col-lg-9 order-1 order-lg-2">
-                        <div class="row">
-                            <select class="form-control col-md-3" id="product">
+
+                        <div class="d-flex justify-content-end">
+                            <select class="form-control col-md-3 d-inline-flex" id="product">
                                 <option value="">Mới nhất</option>
                                 <option value="">Bán chạy nhất</option>
                                 <option value="">Giá tăng dần</option>
@@ -119,6 +121,7 @@
                                                 <div class="thumb text-center">
                                                     <img style="height:200px;object-fit: cover" src="${mapImages.get(key).get(0).getImgPath()}" alt="">
                                                 </div>
+
                                             </a>
                                             <div class="content">
 

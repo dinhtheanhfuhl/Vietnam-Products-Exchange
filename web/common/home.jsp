@@ -99,29 +99,6 @@
             </div>
         </div>
 
-
-        <div class="pt-50">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-3  ">
-                        <div class="banner-block banner-hover">
-                            <img style="height: 350px;object-fit: cover" class=" lazyloaded" src="https://suckhoedoisong.qltns.mediacdn.vn/Images/bichvan/2017/04/28/Univadis_27.4_Nhung_loai_thuc_pham_chua_nhieu_nuoc_nen_an_vao_mua_he_BS_Thu_Van.jpg">
-                            <div class="banner-content text-left">
-                                <h4 style="color:#ffff00;text-align: center">Dưa hấu <br> 100% Tươi Ngon</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-3  ">
-                        <div class="banner-block banner-hover">
-                            <img style="height: 350px;object-fit: cover" class=" lazyloaded" src="https://antican.vn/wp-content/uploads/2020/10/ung-thu-vu-nen-an-qua-gi-1.jpg">
-                            <div class="banner-content text-left">
-                                <h4 style="color:#cc0000;text-align: center" style="color: #232323;">Cam lòng vàng<br> siêu hot</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <section class="mt-5 product">
             <div class="container">
                 <div class="title text-center pb-10  ">
@@ -129,9 +106,8 @@
                 </div>
                 <c:if test="${sessionScope.roleCusId==null}">
                     <div class="row">
-                        <div class="product-slider">
                             <c:forEach var="key" items="${mapImages.keySet()}">
-                                <div class="col-md-2">
+                                <div class="col-md-3 d-flex align-items-stretch">
                                     <div class="card">
                                         <img class="card-img-top" style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
                                         <div class="card-body">
@@ -139,7 +115,6 @@
                                                 <h5 class="card-title">${key.productName} ${key.trademark}</h5>
                                             </a>
                                         </div>
-                                    </div>
                                 </div>
                             </c:forEach>
                         </div>
@@ -147,9 +122,8 @@
                 </c:if>
                 <c:if test="${sessionScope.roleCusId!=null}">
                     <div class="row">
-                        <div class="product-slider">
                             <c:forEach var="key" items="${mapImages.keySet()}">
-                                <div class="col-md-2">
+                                <div class="col-md-3 d-flex align-items-stretch">
                                     <div class="card">
                                         <img class="card-img-top" style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
                                         <div class="card-body">
@@ -158,13 +132,11 @@
                                             </a>
                                             <h6 style="margin-top: 15px;">${mapSuppliers.get(key).get(0).getShopName()}</h6>
                                         </div>
-                                    </div>
                                 </div>
                             </c:forEach>
                         </div>
                     </div>
                 </c:if>
-
             </div>
         </section>
         <div class="gallery">

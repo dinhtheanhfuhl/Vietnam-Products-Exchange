@@ -123,18 +123,20 @@
                                         <i class="fas fa-search"></i>
                                     </button>
                                 </div>
-                            </li>
+                          </li>
                         </c:if>
 
                         <c:if test="${sessionScope.roleCusId!=null}">
                             <li class="nav-item ">
-                                <a href="CartController"  class="nav-link cart-btn pr-3"><i class="fas fa-shopping-cart"></i>
+                                <a href="CartController"  class="nav-link cart-btn pr-3">
+                                <i class="fas fa-shopping-cart"></i>
                                 </a>
                             </li>
                         </c:if>
                         <c:if test="${sessionScope.roleCusId==null}">
                             <li class="nav-item ">
-                                <a   class="nav-link cart-btn pr-3"><i class="fas fa-shopping-cart"></i>
+                                <a class="nav-link cart-btn pr-3">
+                                <i class="fas fa-shopping-cart"></i>
                                 </a>
                             </li>
                         </c:if>
