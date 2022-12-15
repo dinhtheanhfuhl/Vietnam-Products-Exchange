@@ -117,25 +117,25 @@
                             <div class="statbox widget box">
                                 <h3>Danh sách danh mục</h3>
                                 <div class="widget-content-area">
-                                    <a href="ModeratorAddCateController?action=show"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục cấp 1 </button></a>
-                                    <a href="ModeratorAddSubCateController?action=show"><button class=" btn btn-warning status mb-2" id="approved">  Thêm danh mục cấp 2 </button></a>
+                                    <a href="ModeratorAddCateController?action=show"><button style="background-color: #439A97; color: #F5F5F5 !important;" class=" btn status mb-2" id="approved">  Thêm danh mục cấp 1 </button></a>
+                                    <a href="ModeratorAddSubCateController?action=show"><button style="background-color: #439A97; color: #F5F5F5 !important;" class=" btn status mb-2" id="approved">  Thêm danh mục cấp 2 </button></a>
                                     <div class="table-responsive new-products">
-                                        <table class="table table-bordered">
-                                         
+                                        <table class="table table-bordered table-striped">
+
                                             <tbody class="text-center">
-                                                <tr>
+                                                <tr style="background-color: #F5AB1E !important;color: #F5F5F5 !important;">
                                                     <th>ID</th>
                                                     <th>Danh mục cấp 1</th>
                                                     <th>Danh mục cấp 2</th>
                                                     <th>Xoá</th>
                                                 </tr>
                                                 <c:forEach var="key" items="${mapSubcategorys.keySet()}">
-                                                    <tr>
+                                                    <tr style="text-align: left;">
                                                         <td>${key.cateId}</td>
                                                         <td>${key.cateName}</td>
                                                         <c:if test="${mapSubcategorys.get(key).size()>0}">
-                                                            <td>${mapSubcategorys.get(key).get(0).subCateName} / ${mapSubcategoryStatus.get(mapSubcategorys.get(key).get(0))}</td>
-                                                            <td><a class="delete-button-subcate" data-toggle="modal" 
+                                                            <td>${mapSubcategorys.get(key).get(0).subCateName}</td>
+                                                            <td style="text-align: center;" ><a class="delete-button-subcate" data-toggle="modal" 
                                                                    data-link="ModeratorCategoryController?action=delete&id=${mapSubcategorys.get(key).get(0).subCateId}"  
                                                                    onclick="deleteFunction(this.dataset.link)"   
                                                                    <c:if test="${mapSubcategoryStatus.get(mapSubcategorys.get(key).get(0)) == false}">data-target="#exampleModal1" </c:if>
@@ -146,11 +146,11 @@
                                                     <c:if test="${mapSubcategorys.get(key).size()>1}">
                                                         <c:forEach var="subcategory" items="${mapSubcategorys.get(key)}">
                                                             <c:if test="${subcategory!=mapSubcategorys.get(key).get(0)}">
-                                                                <tr>
+                                                                <tr style="text-align: left;">
                                                                     <td></td>
                                                                     <td></td>
-                                                                    <td>${subcategory.subCateName} / ${mapSubcategoryStatus.get(subcategory)}</td>
-                                                                    <td><a class="delete-button-subcate" data-toggle="modal" 
+                                                                    <td>${subcategory.subCateName}</td>
+                                                                    <td style="text-align: center;"><a class="delete-button-subcate" data-toggle="modal" 
                                                                            data-link="ModeratorCategoryController?action=delete&id=${subcategory.subCateId}"  
                                                                            onclick="deleteFunction(this.dataset.link)"   
                                                                            <c:if test="${mapSubcategoryStatus.get(subcategory) == false}">data-target="#exampleModal1" </c:if>
