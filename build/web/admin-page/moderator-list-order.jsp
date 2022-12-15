@@ -173,7 +173,7 @@
                                     <div class="table-responsive new-products">
                                         <table class="table table-bordered table-striped">
                                             <tbody class="text-center">
-                                                <tr style="background-color: #808080 !important; color: #F5F5F5 !important;" class="text-center">
+                                                <tr style="background-color: #F5AB1E !important; color: #F5F5F5 !important;" class="text-center">
                                                     <th>Thời gian đặt hàng</th>
                                                     <th>Mã đặt đơn hàng</th>
                                                     <th>Nhà cung cấp</th>
