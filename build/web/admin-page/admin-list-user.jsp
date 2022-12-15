@@ -165,7 +165,7 @@
                                             <table id="ecommerce-product-list" class="table table-bordered table-striped">
 
                                                 <tbody class="text-center">
-                                                    <tr style="background-color: #808080 !important; color: #F5F5F5 !important;">
+                                                    <tr style="background-color: #F5AB1E !important; color: #F5F5F5 !important;">
                                                         <th>ID</th>
                                                         <th>Tên người dùng</th>
                                                         <th>Tên nhà cung cấp</th>
@@ -201,9 +201,9 @@
                                     <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;"> 
                                         <c:if test="${mapCustomers.keySet().size()!=0}">
                                             <table id="ecommerce-product-list" class="table table-bordered table-striped" >
-                                                
+
                                                 <tbody class="text-center">
-                                                    <tr style="background-color: #808080 !important; color: #F5F5F5 !important;">
+                                                    <tr style="background-color: #F5AB1E !important; color: #F5F5F5 !important;">
                                                         <th>ID</th>
                                                         <th>Tên người dùng</th>
                                                         <th>Tên khách hàng</th>
