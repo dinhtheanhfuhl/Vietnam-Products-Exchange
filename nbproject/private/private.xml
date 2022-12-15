@@ -3,21 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/ViewCart.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/ViewCartController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/customer-history-order.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/CheckCartAmountController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dbconnect/DBConnect.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/payment.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dao/CartItemDAO.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/OrderController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/ViewCartController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/CheckOutController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/DeleteCartController.java</file>
-        </group>
-        <group>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/payment.jsp</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dao/CartItemDAO.java</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/OrderController.java</file>
@@ -108,6 +93,15 @@
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/home.jsp</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/productdetail.jsp</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/home.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/footer.jsp</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/assets/scss/style.css</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/information.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/assets/scss/_orfarm-about.scss</file>
         </group>
     </open-files>
 </project-private>

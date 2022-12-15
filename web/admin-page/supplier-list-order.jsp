@@ -78,7 +78,7 @@
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
-                                <a href="./supplier-product-pending.jsp" class="dropdown-toggle collapsed">
+                                <a href="SupplierController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
                                         <span>Danh sách<br> sản phẩm</span>
@@ -86,18 +86,15 @@
                                 </a>
                             </li>
                             <li class="menu">
-                                <a href="./supplier-list-order.jsp" class="dropdown-toggle collapsed">
+                                <a href="SupplierOrderController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-list2"></i>
                                         <span>Danh sách<br> đơn hàng</span>
                                     </div>
                                 </a>
                             </li>
-
-
                         </ul>
                     </nav>
-
                 </div>
             </div>
             <!--  END MODERN  -->
@@ -110,7 +107,7 @@
                             <div class="statbox widget box">
                                 <div class="widget-content-area">
                                     <h3>Danh sách đơn hàng</h3>
-                                    <div class="widget-header mb-5 mt-5">
+                                    <div class="widget-header m-3">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <form class="top-action" method="POST" action="SupplierOrderController">
@@ -134,23 +131,23 @@
                                                         <input type="text" <c:if test="${id!=null}">value="${id}"</c:if> name="id" placeholder="Mã đơn hàng" 
                                                                class="form-control">
 
-                                                        <button class="btn btn-info"
-                                                                style="padding: 0 10px; background: none; border: none;"
-                                                                title="Tìm kiếm">
-                                                            <i class="flaticon-search" aria-hidden="true"
-                                                               style="color:#469408;font-size: 25px;line-height: 42px;"></i>
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                                            <button class="btn btn-info"
+                                                                    style="padding: 0 10px; background: none; border: none;"
+                                                                    title="Tìm kiếm">
+                                                                <i class="flaticon-search" aria-hidden="true"
+                                                                   style="color:#469408;font-size: 25px;line-height: 42px;"></i>
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
 
+                                            </div>
                                         </div>
-                                    </div>
-                                    <form action="SupplierOrderController" method="POST">
-                                    <c:if test="${action!=null}">
-                                        <input type="hidden" name="id" value="${id}"/>
-                                        <input type="hidden" name="action" value="search"/>
-                                    </c:if>
+                                        <form action="SupplierOrderController" method="POST">
+                                        <c:if test="${action!=null}">
+                                            <input type="hidden" name="id" value="${id}"/>
+                                            <input type="hidden" name="action" value="search"/>
+                                        </c:if>
                                         <select name="filter" id="selectstatus" onchange="this.form.submit()" class="form-control">
                                             <option <c:if test="${filter==0}">selected</c:if> value="0">Tất cả</option>
                                             <c:forEach var="status" items="${allOrderStatus}">
@@ -160,17 +157,17 @@
                                     </form>
                                     <h6 id="sorttext">Sắp xếp theo</h6>
                                     <div class="table-responsive new-products">
-                                        <table class="table">
+                                        <table class="mt-3 table table-bordered table-striped table-color-gray">
                                             <thead>
-                                                <tr class="text-center">
-                                                    <th>Thời gian đặt hàng</th>
-                                                    <th>Mã đặt đơn hàng</th>
-                                                    <th>Minimart</th>
-                                                    <th>Số sản phẩm</th>
-                                                    <th>Giá trị đơn hàng</th>
-                                                    <th>Địa chỉ giao hàng</th>
-                                                    <th>Trạng thái</th>
-                                                    <th>Chi tiết</th>
+                                                <tr style="background-color: #808080 !important; color: #F5F5F5 !important;" class="text-center">
+                                                    <th style="color: #F5F5F5 !important;">Thời gian đặt hàng</th>
+                                                    <th style="color: #F5F5F5 !important;">Mã đặt đơn hàng</th>
+                                                    <th style="color: #F5F5F5 !important;">Minimart</th>
+                                                    <th style="color: #F5F5F5 !important;">Số sản phẩm</th>
+                                                    <th style="color: #F5F5F5 !important;">Giá trị đơn hàng</th>
+                                                    <th style="color: #F5F5F5 !important;">Địa chỉ giao hàng</th>
+                                                    <th style="color: #F5F5F5 !important;">Trạng thái</th>
+                                                    <th style="color: #F5F5F5 !important;">Chi tiết</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">
@@ -245,14 +242,16 @@
                     <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
                 </div>
                 <p class="user-name mt-4 mb-4">Hoàng Thị Xoan</p>
-
                 <div class="user-links text-left">
                     <ul class="list-unstyled">
                         <li>
-                            <a href="./personal-infor-moderator.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                            <a href="./personal-infor-supplier.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                         </li>
                         <li>
-                            <a href="moderator-list-product.jsp"><i class="flaticon-globe"></i> Quản lý</a>
+                            <a href="${pageContext.request.contextPath}/changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                        </li>
+                        <li>
+                            <a href="supplier-product-pending.jsp"><i class="flaticon-globe"></i> Quản lý</a>
                         </li>
                         <li>
                             <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>

@@ -40,49 +40,31 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     </head>
 
-    <body>
+    <body>image/silder3.jpg
         <%@include file="header.jsp"%>
         <div class="banner-top pt-5">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleControls"  class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active" style=" transform: scale(1.2);">
-                        <img class="d-block w-100" src="image/slider1-min.jpg" alt="First slide">
+                    <div class="carousel-item active" >
+                        <img style="height: 545px;object-fit: cover"  class="d-block w-100" src="image/silder3.jpg" alt="First slide">
+                        
+                    </div>
+                    <div class="carousel-item" >
+                        <img class="d-block w-100" style="height: 545px;object-fit: cover" src="image/slider2.jpg" alt="Third slide">
                         <div class="carousel-caption d-none d-md-block">
                             <div class="row">
                                 <div class="col-sm-4 text-title">
-                                    <h2>Nông trại xanh</h2>
-                                    <h6>
-                                        Mát mẻ & Sức khoẻ
-                                    </h6>
-                                    <a href="#">ĐẾN SÀN NGAY</a>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item" style=" transform: scale(1.2);">
-                        <img class="d-block w-100" src="image/slider1-min.jpg" alt="Third slide">
+                    <div class="carousel-item">
+                        <img style="height: 545px;object-fit: cover" class="d-block w-100" src="image/pexels-photo-5273003.jpeg" alt="Second slide">
                         <div class="carousel-caption d-none d-md-block">
                             <div class="row">
                                 <div class="col-sm-4 text-title-diff">
-                                    <h2>Tinh khiết và trong lành</h2>
-                                    <h6>
-                                        Giảm 20%
-                                    </h6>
-                                    <a href="#">ĐẾN SÀN NGAY</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item" style=" transform: scale(1.2);">
-                        <img class="d-block w-100" src="image/slider1-min.jpg" alt="Second slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <div class="row">
-                                <div class="col-sm-4 text-title-diff">
-                                    <h2>Sức khoẻ là số 1</h2>
-                                    <h6>
-                                        Nông sản xịn
-                                    </h6>
-                                    <a href="#">ĐẾN SÀN NGAY</a>
+                                    
                                 </div>
                             </div>
                         </div>
