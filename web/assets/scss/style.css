@@ -7134,7 +7134,7 @@ blockquote cite {
 
 .orfarm-about-page-area {
     padding-top: 462px;
-    padding-bottom: 100px;
+    padding-bottom: 30px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -8634,12 +8634,12 @@ blockquote cite {
 }
 
 .orfarm-shop-sidebar .shop-category-widget {
-    margin-top: 37px;
+    margin-top: 10px;
     border-bottom: 1px solid #e7eaef;
     padding-bottom: 15px;
 }
 .orfarm-shop-sidebar .shop-category-widget:last-child {
-    margin-top: 37px;
+    margin-top: 10px;
     border-bottom: none;
     padding-bottom: 15px;
 }

@@ -5,6 +5,7 @@
 package controller;
 
 import dao.CategoryDAO;
+import dao.MessageRejectOrderDAO;
 import dao.OrderDAO;
 import dao.OrderDetailDAO;
 import dao.OrderStatusDAO;
@@ -46,6 +47,7 @@ public class HistoryOrderDetailController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         Connection connection = DBConnect.getConnection();
         OrderDetailDAO orderDetailDAO = new OrderDetailDAO(connection);
         OrderDAO orderDAO = new OrderDAO(connection);
@@ -54,9 +56,12 @@ public class HistoryOrderDetailController extends HttpServlet {
         CategoryDAO categoryDAO = new CategoryDAO(connection);
         SupplierDAO supplierDAO = new SupplierDAO(connection);
         OrderStatusDAO orderStatusDAO = new OrderStatusDAO(connection);
+        MessageRejectOrderDAO messageRejectOrderDAO = new MessageRejectOrderDAO(connection);
 
         String orderIdUpdateStatusStr = request.getParameter("orderId");
-        if (orderIdUpdateStatusStr == null) {
+
+        String action = request.getParameter("action");
+        if (action == null) {
 
             List<Category> allCate = categoryDAO.getAllCategory();
             request.setAttribute("listCate", allCate);
@@ -94,24 +99,26 @@ public class HistoryOrderDetailController extends HttpServlet {
             request.setAttribute("mapSupplier", mapSupplier);
 
             request.getRequestDispatcher("./common/customer-detail-order.jsp").forward(request, response);
-        } else {
-
-            int orderIdUpdateStatus = Integer.parseInt(orderIdUpdateStatusStr);
-            orderStatusDAO.updateOrderStatus(orderIdUpdateStatus);
-
-            List<Category> allCate = categoryDAO.getAllCategory();
-            request.setAttribute("listCate", allCate);
-
+        } else if (action.equals("success")) {
             int orderId = Integer.parseInt(request.getParameter("orderId"));
-
-            OrderDetail orderDetail = orderDetailDAO.getOrderDetailByOrderId(orderId);
-            request.setAttribute("orderDetail", orderDetail);
-
+            Order order = orderDAO.getOrderById(orderId);
+            int orderIdUpdateStatus = Integer.parseInt(orderIdUpdateStatusStr);
+            if (order.getOrderStatusId() == 4) {
+                orderStatusDAO.updateOrderStatus(6, orderIdUpdateStatus);
+            }
+            response.sendRedirect("HistoryOrderDetailController?oid=" + orderId);
+        } else if (action.equals("reject")) {
+            int orderId = Integer.parseInt(request.getParameter("orderId"));
             Order order = orderDAO.getOrderById(orderId);
             request.setAttribute("order", order);
-
-            int totalPrice = orderDAO.sumPrice(orderId);
-            request.setAttribute("totalPrice", totalPrice);
+            int orderIdUpdateStatus = Integer.parseInt(orderIdUpdateStatusStr);
+            if (order.getOrderStatusId() == 1) {
+                orderStatusDAO.updateOrderStatus(5, orderIdUpdateStatus);
+            }
+            String message = request.getParameter("message");
+            messageRejectOrderDAO.saveMessageRejectOrder(orderIdUpdateStatus, message);
+            OrderDetail orderDetail = orderDetailDAO.getOrderDetailByOrderId(orderId);
+            request.setAttribute("orderDetail", orderDetail);
 
             List<OrderDetail> listCart = orderDetailDAO.getAllOrderDetailsByOrderId(orderId);
 
@@ -122,31 +129,7 @@ public class HistoryOrderDetailController extends HttpServlet {
                 Product p = productDAO.getProductById(productId);
                 productDAO.updateAmountByProId(p.getWeight() + cartAmount, productId);
             }
-            
-            List<OrderDetail> listProInOrder = orderDetailDAO.getAllOrderDetailsByOrderId(orderId);
-
-            Map<OrderDetail, List<Product>> mapProduct = new LinkedHashMap<OrderDetail, List<Product>>();
-            for (OrderDetail o : listProInOrder) {
-                List<Product> product = productDAO.getAllProductsProductID(o.getProductId());
-                mapProduct.put(o, product);
-            }
-            request.setAttribute("mapProduct", mapProduct);
-
-            Map<OrderDetail, List<ProductImage>> mapImage = new LinkedHashMap<OrderDetail, List<ProductImage>>();
-            for (OrderDetail o : listProInOrder) {
-                List<ProductImage> image = productImageDAO.getAllProductsImageByProId(o.getProductId());
-                mapImage.put(o, image);
-            }
-            request.setAttribute("mapImage", mapImage);
-
-            Map<OrderDetail, List<Supplier>> mapSupplier = new LinkedHashMap<OrderDetail, List<Supplier>>();
-            for (OrderDetail o : listProInOrder) {
-                List<Supplier> supplier = supplierDAO.getSupplierByProId(o.getProductId());
-                mapSupplier.put(o, supplier);
-            }
-            request.setAttribute("mapSupplier", mapSupplier);
-
-            request.getRequestDispatcher("./common/customer-detail-order.jsp").forward(request, response);
+            response.sendRedirect("HistoryOrderDetailController?oid=" + orderId);
         }
 
     }

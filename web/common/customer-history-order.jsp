@@ -103,10 +103,13 @@
                                     Từ chối đơn hàng
                                 </c:if>
                                 <c:if test="${key.orderStatusId=='4'}">
-                                    Giao hàng thành công
+                                    Đang giao
                                 </c:if>
                                 <c:if test="${key.orderStatusId=='5'}">
                                     Đã huỷ
+                                </c:if>
+                                <c:if test="${key.orderStatusId=='6'}">
+                                    Đã nhận hàng
                                 </c:if>
                             </td>
                             <td><a href="HistoryOrderDetailController?oid=${key.orderId}">Xem chi tiết</a></td>

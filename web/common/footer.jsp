@@ -72,7 +72,7 @@
                                       d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z">
                                 </path>
                                 </svg><!-- <i class="fas fa-map-marker-alt"></i> --></span>
-                            <p>Toà nhà New Center, ngõ 26, phố Đỗ Quang, phường Trung Hoà, quận Thanh Xuân, Hà Nội </p>
+                            <p>Toà nhà New Center, ngõ 26, phố Đỗ Quang, phường Trung Hoà, quận Cầu Giấy, Hà Nội </p>
                         </div>
                         
                         <div class="d-flex">
@@ -101,13 +101,11 @@
                     <div class="text-footer">
                         <h4>Fanpage</h4>
                         <div>
-                            </iframe>
                             <iframe
-                                src="https://www.facebook.com/profile.php?id=100088443501649"
-                                width="340" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                                allowfullscreen="true"
-                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                            </iframe>
+                src="https://www.facebook.com/profile.php?href=https%3A%2F%2Fwww.facebook.com%2FN%25C3%25B4ng-S%25E1%25BA%25A3n-Vi%25E1%25BB%2587t-OrFar%20m-110915468100836&tabs=timeline&width=280&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=100088443501649"
+                width="340" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                allowfullscreen="true"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                         </div>
                     </div>
                 </div>
@@ -119,22 +117,6 @@
                     <ul class="ft-bottom container">
                         <li class="copy-right">
                             <p style="font-size: 14px;">Copyright © 2022 Powered by VnProx. Powered by VnProx</p>
-                        </li>
-                        <li class="social-media">
-
-                            <a href="">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-
-                            <a href="">
-                                <i class="fab fa-youtube"></i>
-                            </a>
                         </li>
                     </ul>
                 </div>

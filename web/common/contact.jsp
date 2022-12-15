@@ -87,41 +87,21 @@
                     <div class="row contact-cover">
                         <div class="col-lg-5 col-sm-12 form-contact1">
                             <h2 class="text-center">Liên hệ</h2>
-                            <form>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Họ Tên</label>
-                                    <input  required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Họ Tên">
+                            <br>
+                            <p>Email: vnproxservice@gmail.com</p>
+                            <p>Hotline: 1900.636.099</p>
+                            <p>Địa chỉ: Toà nhà New Center, ngõ 26, phố Đỗ Quang, phường Trung Hoà, quận Cầu Giấy, Hà Nội</p>
+                            <a href=""><svg style="height: 25px;width: 25px;margin-top: 40px;color: #9900ff" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                                </svg></a>
 
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email </label>
-                                    <input  required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Điện Thoại </label>
-                                    <input required type="text" class="form-control" id="exampleInputPassword1" placeholder="Điện Thoại">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Địa Chỉ </label>
-                                    <input required type="text" class="form-control" id="exampleInputPassword1" placeholder="Địa Chỉ">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Thông tin</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                </div>
-
-                                <button type="submit" class="btn btn-block btn-warning">Gửi Liên Hệ</button>
-                            </form>
                         </div>
                         <div class="col-lg-6 col-sm-12 form-contact2">
                             <p>
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.827534707655!2d105.78990511423683!3d21.03958568599247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab98e8e55fb7%3A0xb834a420c7ed1b08!2zTmjDoCBCMyBsw6BuZyBxdeG7kWMgdOG6vyB0aMSDbmcgbG9uZw!5e0!3m2!1svi!2s!4v1639970855288!5m2!1svi!2s" width="540" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.559216554315!2d105.79881301480934!3d21.0102989860084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135aca0c1e1598d%3A0x88209cce6e6c4ac4!2zTmcuIDI2IFAuIMSQ4buXIFF1YW5nLCBUcnVuZyBIw7JhIE5ow6JuIENow61uaCwgVHJ1bmcgSG_DoCwgQ-G6p3UgR2nhuqV5LCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1671099221374!5m2!1svi!2s" width="540" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                             </p>
-                            <h3>SHOWROOM ORFARM HÀ NỘI</h3>
-                            <p><strong>Địa chỉ:</strong> Tầng 1, toà B3, Làng quốc tế Thăng Long, Trần Đăng Ninh, Quận Cầu Giấy</p>
 
-                            <p><strong>Điện thoại:</strong> 024 3793 9966 - 091 883 6911</p>
+
                         </div>
                     </div>
                 </div>
