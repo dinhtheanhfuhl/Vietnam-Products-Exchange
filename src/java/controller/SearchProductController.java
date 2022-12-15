@@ -34,13 +34,7 @@ public class SearchProductController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int valueStatus = Integer.parseInt(request.getParameter("selectstatus"));
-        System.out.println(valueStatus);
-        Connection connection = DBConnect.getConnection();
-        OrderDAO orderDAO = new OrderDAO(connection);
-        
-        //List<Order> listOrder = orderDAO.getListOrderByStatusId(valueStatus);
-       // System.out.println(listOrder);
+               request.getRequestDispatcher("common/error.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

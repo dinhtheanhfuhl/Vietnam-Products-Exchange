@@ -7,7 +7,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="css/style.css">
 
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
@@ -32,7 +32,7 @@
         <link rel="stylesheet" href="assets/css/default.css">
 
         <!--====== Style css ======-->
-        <link rel="stylesheet" href="../assets/scss/style.css">
+        <link rel="stylesheet" href="assets/scss/style.css">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -164,7 +164,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center notify-order pt-50 pb-50">
-                        <img style="height: 270px;object-fit: contain" src="../image/360_F_312443281_1GszDmlbh6EIPteBOJ8CIvcXSvl61nus-removebg-preview.png" alt=""/>
+                        <img style="height: 270px;object-fit: contain" src="image/360_F_312443281_1GszDmlbh6EIPteBOJ8CIvcXSvl61nus-removebg-preview.png" alt=""/>
                         <p style="color: #F5AB1E;" class="success-order">404 - TRANG KHÔNG TÌM THẤY</p>
                         <p style="font-size: 19px;">
                             <a class="btn btn-warning" style="color: white" href="../Home">TRỞ VỀ TRANG CHỦ</a>
