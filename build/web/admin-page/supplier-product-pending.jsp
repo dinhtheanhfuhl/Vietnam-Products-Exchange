@@ -83,7 +83,7 @@
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
-                                <a href="./supplier-product-pending.jsp" class="dropdown-toggle collapsed">
+                                <a href="SupplierController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
                                         <span>Danh sách<br> sản phẩm</span>
@@ -91,15 +91,13 @@
                                 </a>
                             </li>
                             <li class="menu">
-                                <a href="./supplier-list-order.jsp" class="dropdown-toggle collapsed">
+                                <a href="SupplierOrderController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-list2"></i>
                                         <span>Danh sách<br> đơn hàng</span>
                                     </div>
                                 </a>
                             </li>
-
-
                         </ul>
                     </nav>
 
@@ -114,9 +112,8 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
                             <div class="statbox widget box">
                                 <div class="widget-content-area">
-                                    <div class="widget-header mb-5 mt-5">
+                                    <div class="widget-header m-3">
                                         <div class="row">
-
                                             <div class="col-lg-12">
                                                 <form class="top-action" method="GET" action="">
 
@@ -159,21 +156,20 @@
                                                         </div>
                                                     </form>
                                                 </div>
-
                                             </div>
                                         </div>
                                         <div class="table-responsive new-products" style="background-color: white;">
                                             <a href="SupplierAddController"><button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
                                             <select style="float: right;width: 160px;" onchange="location = this.value;" class="form-control">
                                                 <option <c:if test="${status!=null&&status==0}">selected</c:if> value="SupplierController?filter=filter&status=0<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Tất cả sản phẩm</option>
-                                            <option <c:if test="${status!=null&&status==1}">selected</c:if> value="SupplierController?filter=filter&status=1<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Chờ phê duyệt</option>
-                                            <option <c:if test="${status!=null&&status==2}">selected</c:if> value="SupplierController?filter=filter&status=2<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã phê duyệt</option>
-                                            <option <c:if test="${status!=null&&status==3}">selected</c:if> value="SupplierController?filter=filter&status=3<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Từ chối phê duyệt</option>
-                                            <option <c:if test="${status!=null&&status==4}">selected</c:if> value="SupplierController?filter=filter&status=4<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã ẩn</option>
-                                            </select>
-                                            <table class="table table-bordered">
+                                                <option <c:if test="${status!=null&&status==1}">selected</c:if> value="SupplierController?filter=filter&status=1<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Chờ phê duyệt</option>
+                                                <option <c:if test="${status!=null&&status==2}">selected</c:if> value="SupplierController?filter=filter&status=2<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã phê duyệt</option>
+                                                <option <c:if test="${status!=null&&status==3}">selected</c:if> value="SupplierController?filter=filter&status=3<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Từ chối phê duyệt</option>
+                                                <option <c:if test="${status!=null&&status==4}">selected</c:if> value="SupplierController?filter=filter&status=4<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã ẩn</option>
+                                                </select>
+                                            <table class="mt-3 table table-bordered table-striped">
                                                 <tbody class="text-center">
-                                                    <tr>
+                                                    <tr style="background-color: #808080 !important; color: #F5F5F5 !important;">
                                                         <th>Mã yêu 
                                                             cầu duyệt</th>
                                                         <th>Thời gian 

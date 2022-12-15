@@ -86,7 +86,7 @@
                                 </a>
                             </li>
                             <li class="menu">
-                                <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorOrderController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-list2"></i>
                                         <span>Danh sách<br> đơn hàng</span>
@@ -116,9 +116,9 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
                             <div class="statbox widget box">
                                 <div class="widget-content-area">
-                                    <div class="widget-header mb-5 mt-5">
+                                    <h3>Danh sách sản phẩm</h3>
+                                    <div class="widget-header mt-3">
                                         <div class="row">
-
                                             <div class="col-lg-12">
                                                 <form class="top-action" method="POST" action="ModeratorController">
 
@@ -177,10 +177,10 @@
                                         </form>
                                         <h6 id="sorttext">Sắp xếp theo</h6>
                                         <div class="table-responsive new-products">
-                                            <table class="table table-bordered">
+                                            <table class="table table-bordered table-striped">
                                                 <tbody class="text-center">
-                                                    <tr>
-                                                    <th>Mã yêu cầu duyệt ${ACTION != null && ACTION=="search"}</th>
+                                                    <tr style="background-color: #808080 !important; color: #F5F5F5 !important;">
+                                                    <th>Mã yêu cầu duyệt</th>
                                                     <th>Thời gian gửi yêu cầu</th>
                                                     <th>Nhà cung cấp</th>
                                                     <th>Tên sản phẩm</th>

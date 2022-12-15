@@ -72,18 +72,9 @@
                                       d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z">
                                 </path>
                                 </svg><!-- <i class="fas fa-map-marker-alt"></i> --></span>
-                            <p>Tầng 1, toà B3, Làng quốc tế Thăng Long, Trần Đăng Ninh, Quận Cầu Giấy.</p>
+                            <p>Toà nhà New Center, ngõ 26, phố Đỗ Quang, phường Trung Hoà, quận Thanh Xuân, Hà Nội </p>
                         </div>
-                        <div class="d-flex">
-                            <span class="mr-2"><svg class="svg-inline--fa fa-phone-alt fa-w-16" aria-hidden="true" focusable="false"
-                                                    data-prefix="fas" data-icon="phone-alt" role="img" xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 512 512" data-fa-i2svg="">
-                                <path fill="currentColor"
-                                      d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z">
-                                </path>
-                                </svg><!-- <i class="fas fa-phone-alt"></i> --></span>
-                            <p>1900.636.099</p>
-                        </div>
+                        
                         <div class="d-flex">
                             <span class="mr-2"><svg class="svg-inline--fa fa-blender-phone fa-w-18" aria-hidden="true"
                                                     focusable="false" data-prefix="fas" data-icon="blender-phone" role="img"
@@ -102,7 +93,7 @@
                                       d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z">
                                 </path>
                                 </svg><!-- <i class="fas fa-paper-plane"></i> --></span>
-                            <p>hi@NongsanViet.com</p>
+                            <p>vnproxservice@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -110,11 +101,13 @@
                     <div class="text-footer">
                         <h4>Fanpage</h4>
                         <div>
+                            </iframe>
                             <iframe
-                                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FN%25C3%25B4ng-S%25E1%25BA%25A3n-Vi%25E1%25BB%2587t-OrFar%20m-110915468100836&tabs=timeline&width=280&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=5834788679872299"
+                                src="https://www.facebook.com/profile.php?id=100088443501649"
                                 width="340" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
                                 allowfullscreen="true"
-                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                            </iframe>
                         </div>
                     </div>
                 </div>

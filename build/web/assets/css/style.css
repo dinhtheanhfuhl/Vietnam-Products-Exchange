@@ -51,9 +51,6 @@
 
     padding: 16px;
 }
-.statbox{
-    margin-top: 50px;
-}
 #filter input,#filter select, #filter button{
     max-width: 200px;
     display: inline-block;

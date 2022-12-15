@@ -86,7 +86,7 @@
                                 </a>
                             </li>
                             <li class="menu">
-                                <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorOrderController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-list2"></i>
                                         <span>Danh sách<br> đơn hàng</span>

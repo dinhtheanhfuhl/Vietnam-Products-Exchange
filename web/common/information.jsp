@@ -42,16 +42,14 @@
     <body>
         <%@include file="header.jsp"%>
         <div class="orfarm-about-top-title-area mt-80">
-            <div class="container">
+            <img style="height: 250px;object-fit: cover" src="image/aboutus.jpg" alt=""/>
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="orfarm-about-top-title">
-                            <h3 class="title">Farmfood Freshbox Fresh & Healthy </h3>
-                            <p>Shop now</p>
+                            <h3 style="margin-top: -230px;margin-left: 10px;" class="title">Sản phẩm của người Việt</h3>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
 
         <!--====== orfarm HEADER PART ENDS ======-->
@@ -64,16 +62,21 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="orfarm-about-page-content">
-                            <h3 class="title">ORFARM – Chuỗi Sản xuất & Phân phối Thực phẩm Chất lượng Cao đạt Chứng nhận Quốc tế
+                            <h3 style="color: #ff9900" class="title">VnProX - Đưa nông sản Việt gần hơn với người tiêu dùng.
                             </h3>
-                            <p>ORFARM được viết tắt từ cụm từ ORGANIC FARM (Trang trại hữu cơ)
-                                Thành lập tại Hà Nội vào tháng 12 năm 2013, ORFARM là Thương hiệu thực phẩm hữu cơ đầu tiên của Việt Nam được cấp chứng nhận Thực phẩm Hữu cơ EM GREEN của tổ chức EMRO Nhật Bản.</p>
-                            <p>
+                            <p style="color: #ff9900">VnProX được viết tắt từ cụm từ VIETNAM PRODUCTS EXCHANGE (Website trao đổi sản phẩm của người Việt).
+                                VnProX được ra đời với mong muốn là một nơi kết nối các nhà cung cấp nông sản Việt và các đơn vị hoặc minmarts có nhu cầu mua nông sản 
+                                với số lượng lớn cùng giá cả ưu đãi. Với thị trường hàng trăm triệu dân, thì nông sản của người nông dân hoàn toàn có thể tiêu thụ trực
+                                tiếp ở thị trường trong nước mà không cần phải phụ thuộc hoàn toàn vào thị trường xuất khẩu sang các nước. 
+                                Mỗi sản phẩm có mặt trên trang web đều có giấy tờ chứng nhận sản phẩm đầy đủ và được cung cấp các nhà cung cấp có giấy phép kinh doanh
+                                được Sở Kế hoạch và Đầu tư cấp phép.Người tiêu dùng hoàn toàn có thể an tâm khi mua hàng trên trang web của chúng tôi. Chúng tôi cam
+                                kết về giá cả, số lượng, đảm bảo chất lượng chi từng sản phẩm xuất hiện trên trang web của chúng tôi.
+                            </p>
+                            <p style="color: #ff9900">
                                 Chúng tôi áp dụng thành công Công nghệ Vi sinh hữu hiệu (EM) của Nhật Bản trong toàn bộ qui trình sản xuất nhằm tạo ra những sản phẩm nông nghiệp chất lượng cao, an toàn nhất 
                                 vì sức khỏe người tiêu dùng và bảo vệ môi trường. 
                                 Để duy trì và đảm bảo cung cấp các dòng sản phẩm hữu cơ, an toàn theo đúng cam kết, chúng tôi chọn giải pháp mở chuỗi cửa hàng thực phẩm ORFARM, chuyên giới thiệu và phân phối
                                 các dòng sản phẩm nông nghiệp chất lượng cao từ TRANG TRẠI tới TAY NGƯỜI TIÊU DÙNG.</p>
-                            <a href="#"> Xem giấy chứng nhận của chúng tôi. <i class="fal fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -265,32 +268,7 @@
                 </div>
             </div>
         </section>
-        <section class="pt-2 mb-3">
-            <div class="container">
-                <div class="ftlink-li footer-newsletter">
-                    <div class="news-letter">
-                        <div class="title">
-
-                            <h2 class="ft-title">Cơ Hội Săn Mã Giảm Giá Cuối Cùng !!!</h2>
-
-
-                            <p class="pb-2">NHẬN NGAY GIẢM GIÁ 20% CHO LẦN MUA HÀNG ĐẦU TIÊN TẠI SHOP!!</p>
-
-                        </div>
-                        <div class="subscribe-content">
-                            <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="contact-form-coupon"><input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="✓">
-                                <input type="hidden" name="contact[tags]" value="newsletter">
-                                <div class="subscribe-block ">
-                                    <input type="email" name="contact[email]" class="email form-control mail text-medium" id="E-mail" value="" placeholder="Enter Your Email Address" autocapitalize="off">
-                                    <button type="submit" class="btn-style1" name="commit" id="Subscribe"><a href="./createAccount.html" style="text-decoration: none; color: #fff;">Đăng Ký</a></button>
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
         <%@include file="footer.jsp"%>  
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -76,11 +76,11 @@
 
             <div class="modernSidebar-nav header header navbar">
                 <div class="">
-                    <nav id="modernSidebar">
+                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
-                                <a href="./supplier-product-pending.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
                                         <span>Danh sách<br> sản phẩm</span>
@@ -88,14 +88,21 @@
                                 </a>
                             </li>
                             <li class="menu">
-                                <a href="./supplier-list-order.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorOrderController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-list2"></i>
                                         <span>Danh sách<br> đơn hàng</span>
                                     </div>
                                 </a>
                             </li>
-
+                            <li class="menu">
+                                <a href="ModeratorCategoryController" class="dropdown-toggle collapsed">
+                                    <div class="">
+                                        <i class="flaticon-saas"></i>
+                                        <span>Danh mục</span>
+                                    </div>
+                                </a>
+                            </li>
 
                         </ul>
                     </nav>
@@ -135,9 +142,10 @@
                             <tr>
                                 <th>Khu vực giao hàng</th>
                                 <td>
-                                    <c:forEach var="c" items="${cities}">
-                                        ${c.cityName}<br/>
+                                    <c:forEach var="c" begin="0" end="${cities.size()-2}">
+                                        ${cities.get(c).cityName} , 
                                     </c:forEach>
+                                        ${cities.get(cities.size()-1).cityName}
                                 </td>
                             </tr> 
                             <tr>

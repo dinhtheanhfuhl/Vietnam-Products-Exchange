@@ -97,16 +97,16 @@
                     <div class="row ">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-                            <div class="statbox widget box box-shadow">
+                            <div style="margin-top: 25px !important;" class="statbox widget box box-shadow">
 
                                 <div class="widget-header">
                                     <div class="page-header ">
-                                        <div class="page-title col-xl-12 col-md-12 col-sm-12 col-12 mb-5">
+                                        <div class="page-title col-xl-12 col-md-12 col-sm-12 col-12 mb-3">
                                             <h3>Quản lý người dùng hệ thống</h3>
                                             <!-- <a href="./add-staff.html" class="btn btn-warning">Thêm nhân viên</a> -->
                                         </div>
                                     </div>
-                                    <div class="widget-header mb-5">
+                                    <div class="widget-header mb-3">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <form class="top-action" method="post" action="AdminController">
@@ -162,16 +162,15 @@
                                         <h3>Nhà cung cấp</h3>
                                         <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;">
                                         <c:if test="${mapSuppliers.keySet().size()!=0}">
-                                            <table id="ecommerce-product-list" class="table table-bordered">
+                                            <table id="ecommerce-product-list" class="table table-bordered table-striped">
 
                                                 <tbody class="text-center">
-                                                    <tr>
+                                                    <tr style="background-color: #808080 !important; color: #F5F5F5 !important;">
                                                         <th>ID</th>
                                                         <th>Tên người dùng</th>
                                                         <th>Tên nhà cung cấp</th>
                                                         <th>Thành phố</th>
                                                         <th>SĐT</th>
-                                                        <th>Vai trò</th>
                                                         <th>Email</th>
                                                         <th>Trạng thái</th>
                                                         <th>Chi tiết</th>
@@ -183,7 +182,6 @@
                                                             <td>${key.shopName}</td>
                                                             <td>${mapSupplierCity.get(key).cityName}</td>
                                                             <td>${key.phone}</td>
-                                                            <td>${mapSuppliers.get(key)}</td>
                                                             <td>${key.email}</td>
                                                             <td>
                                                                 <c:choose>
@@ -202,16 +200,15 @@
                                     <h3>Khách hàng</h3>
                                     <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;"> 
                                         <c:if test="${mapCustomers.keySet().size()!=0}">
-                                            <table id="ecommerce-product-list" class="table  table-bordered" >
+                                            <table id="ecommerce-product-list" class="table table-bordered table-striped" >
                                                 
                                                 <tbody class="text-center">
-                                                    <tr>
+                                                    <tr style="background-color: #808080 !important; color: #F5F5F5 !important;">
                                                         <th>ID</th>
                                                         <th>Tên người dùng</th>
-                                                        <th>Tên nhà cung cấp</th>
+                                                        <th>Tên khách hàng</th>
                                                         <th>Thành phố</th>
                                                         <th>SĐT</th>
-                                                        <th>Vai trò</th>
                                                         <th>Email</th>
                                                         <th>Trạng thái</th>
                                                         <th>Chi tiết</th>
@@ -223,7 +220,6 @@
                                                             <td>${key.shopName}</td>
                                                             <td>${mapCustomerCity.get(key).cityName}</td>
                                                             <td>${key.phone}</td>
-                                                            <td>${mapCustomers.get(key)}</td>
                                                             <td>${key.email}</td>
                                                             <td>
                                                                 <c:choose>
