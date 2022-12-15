@@ -635,26 +635,48 @@ public class ProductDAO {
         }
         return products;
     }
-    public List<Integer> searchProduct(String start, String end, String cityId, String cateId, String subCateId, String sequenSearch) {
+
+    public List<Integer> searchProductForMart(String begin, String end, String cityId, String cateId, String[] subCateIds, String sequenSearch, String filterStr) {
         List<Integer> productIds = new ArrayList<>();
         String strSearch = "select DISTINCT p.ProductID from Product as p\n";
 
-        if (start != null && !start.equals("") && end != null && !end.equals("")) {
-            strSearch += "join ProductHierarchy as ph on (ph.ProductID=p.ProductID and \n"
-                    + "(select MIN(phh.Price) from ProductHierarchy as phh where phh.ProductID = p.ProductID) BETWEEN " + start + " and " + end + ")\n";
+        if(filterStr == null || filterStr.equals("newest")){
+            int i = strSearch.indexOf("p.ProductID");
+            strSearch = strSearch.substring(0,i)+"p.CreatedDate, "+strSearch.substring(i);
+        }else if (filterStr.equals("best-seller")){
+            
+        }else if (filterStr.equals("increment")){
+            
+        }else if (filterStr.equals("descrement")){
+            
         }
-        if (cityId != null && !cityId.equals("")) {
+        
+        if (begin != null && !begin.equals("") && end != null && !end.equals("")) {
+            strSearch += "join ProductHierarchy as ph on (ph.ProductID=p.ProductID and \n"
+                    + "(select MIN(phh.Price) from ProductHierarchy as phh where phh.ProductID = p.ProductID) BETWEEN " + begin + " and " + end + ")\n";
+        }
+        if (cityId != null && !cityId.equals("") && !cityId.equals("0")) {
             strSearch += "join DeliveryArea as d on (d.ProductID=p.ProductID and d.CityID=" + cityId + ")\n";
         }
         strSearch += "where 1=1\n";
         if (cateId != null && !cateId.equals("")) {
             strSearch += "and SubCateID in (select SubCateID from SubCategory where CateID=" + cateId + ")\n";
         }
-        if (subCateId != null && !subCateId.equals("")) {
-            strSearch += "and p.SubCateID=" + subCateId + "\n";
+        if (subCateIds != null && !subCateIds.equals("")) {
+            for (int i = 0; i < subCateIds.length; i++) {
+                if (i == 0) {
+                    strSearch += "and (p.SubCateID=" + subCateIds[i];
+                } else {
+                    strSearch += " or p.SubCateID=" + subCateIds[i];
+                }
+            }
+            strSearch += ")";
         }
         if (sequenSearch != null && !sequenSearch.equals("")) {
-            strSearch += "and p.ProductName like N'%" + sequenSearch + "%'\n";
+            strSearch += "\nand p.ProductName like N'%" + sequenSearch + "%'\n";
+        }
+        if(filterStr == null || filterStr.equals("newest")){
+            strSearch += " order by p.CreatedDate desc";
         }
         System.out.println(strSearch);
         try {

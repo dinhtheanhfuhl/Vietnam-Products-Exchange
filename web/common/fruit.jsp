@@ -1,5 +1,4 @@
 <!doctype html>
-<%@ page errorPage="error.jsp" %>  
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -59,33 +58,42 @@
 
                     <div class="col-lg-3 order-2 order-lg-1">
                         <div class="orfarm-shop-sidebar">
-                            <form>
+                            <form action="MinimartProductController" method="POST">
+                                <c:if test="${cid!=null}">
+                                    <input name="cid" type="hidden" value="${cid}"/>
+                                </c:if>
+                                <c:if test="${txtSearch!=null}">
+                                    <input name="txtSearch" type="hidden" value="${txtSearch}"/>
+                                </c:if>
+                                <input name="filter1" type="hidden" value="filter1"/>
                                 <div class="shop-price-filter">
                                     <h4 class="title">Lọc theo giá</h4>
                                     <div class="price-range">
                                         <div class="row">
-                                            <input class="col-md-4 form-control m-2"  name="begin" type="number" placeholder="Từ"> 
-                                            <input class="col-md-4 form-control m-2" name="end" type="number" placeholder="Đến">    
+                                            <input value="${begin}" class="col-md-4 form-control m-2"  name="begin" type="number" placeholder="Từ"> 
+                                            <input value="${end}" class="col-md-4 form-control m-2" name="end" type="number" placeholder="Đến">    
                                         </div>
                                     </div>
                                 </div>
-                                <div class="shop-category-widget">
-                                    <h4 class="title">Danh mục cấp 2</h4>
-                                    <ul>
-                                        <c:forEach items="${allSubCategory}" var="o" >
-                                            <input  name="subCateId" value="${o.subCateId}" type="checkbox" id="subcate${o.subCateName}">
-                                            <label for="subcate${o.subCateName}">${o.subCateName}</label><br>
-                                        </c:forEach>
-                                    </ul>
-                                </div>
+                                <c:if test="${strSearch==null}">
+                                    <div class="shop-category-widget">
+                                        <h4 class="title">Danh mục cấp 2</h4>
+                                        <ul>
+                                            <c:forEach items="${allSubCategory}" var="o" >
+                                                <input <c:if test="${mapSubCateSelected.get(o.subCateId)!=null}">checked</c:if> name="subCateId" value="${o.subCateId}" type="checkbox" id="subcate${o.subCateName}">
+                                                <label for="subcate${o.subCateName}">${o.subCateName}</label><br>
+                                            </c:forEach>
+                                        </ul>
+                                    </div>
+                                </c:if>
                                 <div class="shop-category-widget">
                                     <h4 class="title">Khu vực giao hàng</h4>
                                     <ul>
                                         <div class="row">
                                             <select class="form-control col-md-8 ml-2" name="cityId" id="city">
-                                                <option value="">Tất cả thành phố</option>
+                                                <option <c:if test="${cityId==0}">selected</c:if> value="0">Tất cả thành phố</option>
                                                 <c:forEach items="${allCities}" var="o" >
-                                                    <option value="${o.cityId}">${o.cityName}</option>
+                                                    <option <c:if test="${cityId==o.cityId}">selected</c:if> value="${o.cityId}">${o.cityName}</option>
                                                 </c:forEach>
                                             </select>
                                         </div>
@@ -97,21 +105,37 @@
                                 <c:if test="${sessionScope.roleCusId!=null}">
                                     <button class="mt-5 btn btn-warning status" type="submit" id="">  Lọc </button>
                                 </c:if>
-
                             </form>
                         </div>
                     </div>
-
                     <div class="col-lg-9 order-1 order-lg-2">
+                        <form action="MinimartProductController" method="POST">
+                            <div class="d-flex justify-content-end">
 
-                        <div class="d-flex justify-content-end">
-                            <select class="form-control col-md-3 d-inline-flex" id="product">
-                                <option value="">Mới nhất</option>
-                                <option value="">Bán chạy nhất</option>
-                                <option value="">Giá tăng dần</option>
-                                <option value="">Giá giảm dần</option>
-                            </select>
-                        </div>
+                                <c:if test="${cid!=null}">
+                                    <input type="hidden" name="cid" value="${cid}"/>
+                                </c:if>
+                                <c:if test="${txtSearch!=null}">
+                                    <input type="hidden" name="txtSearch" value="${txtSearch}"/>
+                                </c:if>
+                                <c:if test="${filter1!=null}">
+                                    <input type="hidden" name="begin" value="${begin}"/>
+                                    <input type="hidden" name="end" value="${end}"/>
+                                    <input type="hidden" name="cityId" value="${cityId}"/>
+                                    <c:if test="${subCateIds!=null}">
+                                        <c:forEach var="cityId" items="${subCateIds}">
+                                            <input type="hidden" name="cityId" value="${cityId}"/>
+                                        </c:forEach>
+                                    </c:if>
+                                </c:if>
+                                <select name="filter2" onchange="this.form.submit()" class="form-control col-md-3 d-inline-flex" id="product">
+                                    <option <c:if test='${filter2 == "newest"}'>selected</c:if> value="newest">Mới nhất</option>
+                                    <option <c:if test='${filter2 == "best-seller"}'>selected</c:if> value="best-seller">Bán chạy nhất</option>
+                                    <option <c:if test='${filter2 == "increment"}'>selected</c:if> value="increment">Giá tăng dần</option>
+                                    <option <c:if test='${filter2 == "descrement"}'>selected</c:if> value="descrement">Giá giảm dần</option>
+                                </select>
+                            </div>
+                        </form>
                         <div class="row">
                             <c:if test="${sessionScope.roleCusId!=null}">
                                 <c:forEach var="key" items="${mapImages.keySet()}">
@@ -210,15 +234,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="bisylms-pagination">
-                                    <c:forEach begin="1" end="${end}" var="i">
-                                        <!-- <span class="current">1</span> -->
-                                        <a href="#">${i}</a>
-                                        <!-- <a class="next" href="#">next<i class="fal fa-arrow-right"></i></a> -->
-                                    </c:forEach>
+                            <c:if test="${mapImages.size()!=0}">
+                                <div class="col-lg-12">
+                                    <div class="bisylms-pagination">
+                                        <c:forEach begin="1" end="4" var="i">
+                                            <!-- <span class="current">1</span> -->
+                                            <a href="#">${i}</a>
+                                            <!-- <a class="next" href="#">next<i class="fal fa-arrow-right"></i></a> -->
+                                        </c:forEach>
+                                    </div>
                                 </div>
-                            </div>
+                            </c:if>
                         </div>
                     </div>
                 </div>
@@ -265,9 +291,9 @@
         <script src="assets/js/main.js"></script>
         <script src="./cart.js"></script>
         <script>$('#exampleModal').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget)
-                var recipient = button.data('whatever')
-                var modal = $(this)
-            })</script>
+                                        var button = $(event.relatedTarget)
+                                        var recipient = button.data('whatever')
+                                        var modal = $(this)
+                                    })</script>
     </body>
 </html>

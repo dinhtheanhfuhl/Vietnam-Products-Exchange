@@ -104,9 +104,9 @@
                     <ul class="navbar-nav nav-flex-icons">
                         <c:if test="${sessionScope.roleCusId!=null}">
                             <li class="nav-item">
-                                <form action="SearchProductController" method="post">
+                                <form action="MinimartProductController" method="post">
                                     <div class="input-group rounded">
-                                        <input type="search" class="form-control " required="" name="txtSearch" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" />
+                                        <input <c:if test="${strSearch!=null}">value="${strSearch}"</c:if> type="search" class="form-control " required="" name="txtSearch" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" />
                                         <button type="submit" class="input-group-text border-0" id="search-addon">
                                             <i class="fas fa-search"></i>
                                         </button>
@@ -118,7 +118,7 @@
                         <c:if test="${sessionScope.roleCusId==null}">
                             <li class="nav-item">
                                 <div class="input-group rounded">
-                                    <input type="search" class="form-control " required="" name="txtSearch" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" />
+                                    <input <c:if test="${strSearch!=null}">value="${strSearch}"</c:if> type="search" class="form-control" required="" name="txtSearch" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" />
                                     <button type="submit" class="input-group-text border-0" id="search-addon">
                                         <i class="fas fa-search"></i>
                                     </button>
