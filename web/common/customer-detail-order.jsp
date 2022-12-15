@@ -198,7 +198,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm">
-                        <p><b>Trạng thái: </b><span> <c:if test="${order.orderStatusId=='1'}">
+                        <p><b>Trạng thái: </b><span> 
+                                <c:if test="${order.orderStatusId=='1'}">
                                     Chờ xác nhận
                                 </c:if>
                                 <c:if test="${order.orderStatusId=='2'}">
@@ -208,10 +209,13 @@
                                     Từ chối đơn hàng
                                 </c:if>
                                 <c:if test="${order.orderStatusId=='4'}">
-                                    Giao hàng thành công
+                                    Đang giao
                                 </c:if>
                                 <c:if test="${order.orderStatusId=='5'}">
                                     Đã huỷ
+                                </c:if>
+                                <c:if test="${order.orderStatusId=='6'}">
+                                    Đã nhận hàng
                                 </c:if>
                             </span></p>
 
@@ -225,37 +229,44 @@
                         <p><b>Số điện thoại: </b><span>${order.recieverPhone}</span></p>
                         <p><b>Địa chỉ nhận hàng: </b><span>${order.recieverAddress}</span></p>
                     </div>
-                    <form action="HistoryOrderDetailController?orderId=${order.orderId}" method="post">
-                        <div class="col-sm">
-                            <c:if test="${order.orderStatusId=='1'}"><button type="button" style="float: right;" class="btn btn-warning status mb-2" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Huỷ đơn</button></c:if>
-                            </div>
-                        </form>
+                    <div class="col-sm">
+                        <c:if test="${order.orderStatusId=='1'}"><button type="button" style="float: right;" class="btn btn-warning status mb-2" data-toggle="modal" data-target="#exampleModal">Huỷ đơn</button></c:if>
+
+                        <c:if test="${order.orderStatusId=='4'}">
+                            <form action="HistoryOrderDetailController?orderId=${order.orderId}" method="post">
+                                <input type="hidden" name="action" value="success">
+                                <button type="submit" style="float: right;" class="btn btn-warning status mb-2">Đã nhận hàng</button>
+                            </form>
+                        </c:if>
+
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc muốn huỷ đơn?</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc muốn huỷ đơn?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="HistoryOrderDetailController?orderId=${order.orderId}" method="post">
+                        <input type="hidden" name="action" value="reject"/>
                         <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="message-text" class="col-form-label">Lý do huỷ đơn:</label>
-                                    <textarea class="form-control" id="message-text"></textarea>
-                                </div>
-                            </form>
+
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Lý do huỷ đơn:</label>
+                                <textarea class="form-control" name="message" id="message-text"></textarea>
+                            </div>
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-                            <form action="HistoryOrderDetailController?orderId=${order.orderId}" method="post">
                             <button type="submit" class="btn btn-success">Gửi</button>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -304,6 +315,9 @@
                 modal.find('.modal-title').text('New message to ' + recipient)
                 modal.find('.modal-body input').val(recipient)
             })
+        </script>
+        <script>
+
         </script>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

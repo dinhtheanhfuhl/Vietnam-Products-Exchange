@@ -43,13 +43,13 @@
         <%@include file="header.jsp"%>
         <div class="orfarm-about-top-title-area mt-80">
             <img style="height: 250px;object-fit: cover" src="image/aboutus.jpg" alt=""/>
-                <div class="row">
-                    <div class="col-lg-7">
-                        <div class="orfarm-about-top-title">
-                            <h3 style="margin-top: -230px;margin-left: 10px;" class="title">Sản phẩm của người Việt</h3>
-                        </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="orfarm-about-top-title">
+                        <h3 style="margin-top: -230px;margin-left: 10px;" class="title">Sản phẩm của người Việt</h3>
                     </div>
                 </div>
+            </div>
         </div>
 
         <!--====== orfarm HEADER PART ENDS ======-->
@@ -64,7 +64,7 @@
                         <div class="orfarm-about-page-content">
                             <h3 style="color: #ff9900" class="title">VnProX - Đưa nông sản Việt gần hơn với người tiêu dùng.
                             </h3>
-                            <p style="color: #ff9900">VnProX được viết tắt từ cụm từ VIETNAM PRODUCTS EXCHANGE (Website trao đổi sản phẩm của người Việt).
+                            <p style="color: black">VnProX được viết tắt từ cụm từ VIETNAM PRODUCTS EXCHANGE (Website trao đổi sản phẩm của người Việt).
                                 VnProX được ra đời với mong muốn là một nơi kết nối các nhà cung cấp nông sản Việt và các đơn vị hoặc minmarts có nhu cầu mua nông sản 
                                 với số lượng lớn cùng giá cả ưu đãi. Với thị trường hàng trăm triệu dân, thì nông sản của người nông dân hoàn toàn có thể tiêu thụ trực
                                 tiếp ở thị trường trong nước mà không cần phải phụ thuộc hoàn toàn vào thị trường xuất khẩu sang các nước. 
@@ -72,11 +72,7 @@
                                 được Sở Kế hoạch và Đầu tư cấp phép.Người tiêu dùng hoàn toàn có thể an tâm khi mua hàng trên trang web của chúng tôi. Chúng tôi cam
                                 kết về giá cả, số lượng, đảm bảo chất lượng chi từng sản phẩm xuất hiện trên trang web của chúng tôi.
                             </p>
-                            <p style="color: #ff9900">
-                                Chúng tôi áp dụng thành công Công nghệ Vi sinh hữu hiệu (EM) của Nhật Bản trong toàn bộ qui trình sản xuất nhằm tạo ra những sản phẩm nông nghiệp chất lượng cao, an toàn nhất 
-                                vì sức khỏe người tiêu dùng và bảo vệ môi trường. 
-                                Để duy trì và đảm bảo cung cấp các dòng sản phẩm hữu cơ, an toàn theo đúng cam kết, chúng tôi chọn giải pháp mở chuỗi cửa hàng thực phẩm ORFARM, chuyên giới thiệu và phân phối
-                                các dòng sản phẩm nông nghiệp chất lượng cao từ TRANG TRẠI tới TAY NGƯỜI TIÊU DÙNG.</p>
+
                         </div>
                     </div>
                 </div>
@@ -122,8 +118,8 @@
                 <div class="row align-items-end">
                     <div class="col-lg-6 col-md-8">
                         <div class="orfarm-section-title">
-                            <h3 class="orfarm-title">Dựa trên nguyên tắc 6 KHÔNG</h3>
-                            <p>Hiểu được tâm lí người mua, cũng như đóng vai trò là người cung cấp các thực phẩm liên quan đến sức khỏe con người
+                            <h3 class="orfarm-title" style="margin-top: -60px;">Dựa trên nguyên tắc 6 KHÔNG</h3>
+                            <p>Hiểu được tâm lí người mua, cũng như đóng vai trò là nơi cung cấp các thực phẩm liên quan đến sức khỏe con người
                                 chúng tôi đã kiểm duyệt nguồn vào rõ ràng theo đúng 6 nguyên tắc đảm bảo an toàn, tốt cho sức khỏe người tiêu dùng.  </p>
                         </div>
                     </div>
@@ -136,7 +132,7 @@
                                 <i class="fal fa-tv"></i>
                             </div>
                             <h4 class="title">Nguyên tắc 1</h4>
-                            <p>Không dùng thuốc diệt cỏ</p>
+                            <p>Giấy chứng nhận sản phẩm</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
@@ -146,7 +142,7 @@
                                 <i class="fal fa-code"></i>
                             </div>
                             <h4 class="title">Nguyên tắc 2</h4>
-                            <p>Không dùng thuốc trừ sâu hóa học</p>
+                            <p>Giấy phép kinh doanh của nhà cung cấp</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
@@ -202,12 +198,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="orfarm-section-title text-center">
-                            <h3 class="orfarm-title">Gặp gỡ các Co-founder của OrFarm</h3>
-                            <p>Những người sáng lập và đem tới sự lựa chọn cho sức khỏe người tiêu dùng.</p>
+                            <h3 class="orfarm-title">Các danh mục sản phẩm của chúng tôi</h3>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div style="margin-top: -60px;" class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="orfarm-team-item orfarm-team-item-about mt-30 wow animated fadeInUp"
                              data-wow-duration="2000ms" data-wow-delay="200ms">
@@ -220,8 +215,8 @@
                                 </ul>
                             </div>
                             <div class="content text-left">
-                                <h5 class="title">Benjamin Evalent</h5>
-                                <span>CEO-Founder</span>
+                                <h5 class="title">Trái cây</h5>
+                                <img style="height: 100px;object-fit: cover" src="image/traicay.jpg" alt=""/>
                             </div>
                         </div>
                     </div>
@@ -237,8 +232,8 @@
                                 </ul>
                             </div>
                             <div class="content text-left">
-                                <h5 class="title">Benjamin Evalent</h5>
-                                <span>CEO-Founder</span>
+                                <h5 class="title">Rau củ</h5>
+                                <img style="height: 100px;object-fit: cover" src="image/raucu.jpg" alt=""/>
                             </div>
                         </div>
                     </div>
@@ -254,21 +249,16 @@
                                 </ul>
                             </div>
                             <div class="content text-left">
-                                <h5 class="title">Benjamin Evalent</h5>
-                                <span>CEO-Founder</span>
+                                <h5 class="title">Hạt</h5>
+                                <img style="height: 100px;object-fit: cover" src="image/hat.jpg" alt=""/>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-12">
-                        <div class="team-btn text-center mt-50">
-                            <a class="main-btn" href="./shop.html"> Xem tất cả các sản phẩm của chúng tôi. <i class="fal fa-arrow-right"></i></a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
-        
+
         <%@include file="footer.jsp"%>  
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

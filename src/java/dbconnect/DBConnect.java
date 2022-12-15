@@ -7,7 +7,7 @@ import java.sql.SQLException;
  
 public class DBConnect {
     private static final String DB_URL = "jdbc:sqlserver://DESKTOP-A0E4T1K\\MAYAO:1433;"
-            + "databaseName=vnprox1;"
+            + "databaseName=vnprox;"
             + "encrypt=false";
     private static final String USER_NAME = "sa";
     private static final String PASSWORD = "Trandinhduc137";
