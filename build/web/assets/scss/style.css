@@ -7050,11 +7050,6 @@ blockquote cite {
     width: 100%;
 }
 
-.orfarm-about-top-title-area {
-    padding-top: 227px;
-    background-image: url("https://cdn.shopify.com/s/files/1/0412/8151/9765/articles/b3-min_1024x1024.jpg?v=1593256250");
-}
-
 .orfarm-about-top-title {
     padding-right: 65px;
 }
@@ -7108,7 +7103,6 @@ blockquote cite {
     bottom: 8px;
     width: 100%;
     height: 20px;
-    background: #ff6e85;
     z-index: -1;
 }
 .orfarm-about-top-title h3{
@@ -7145,7 +7139,7 @@ blockquote cite {
     background-position: center;
     background-repeat: no-repeat;
     margin-top: 345px;
-    background-color:yellowgreen;
+    background-color:#ccffcc;
 
 }
 
@@ -7196,7 +7190,7 @@ blockquote cite {
     top: -710px;
     height: 645px;
     width: 80vw;
-    background-image: url(../images/c837a6_56bbc7d1050d428e9c8bed5d2272e0d3_mv2.webp);
+    background-image: url(https://images.pexels.com/photos/574919/pexels-photo-574919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

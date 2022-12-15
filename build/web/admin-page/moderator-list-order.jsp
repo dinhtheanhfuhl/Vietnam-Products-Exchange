@@ -74,7 +74,7 @@
 
             <div class="modernSidebar-nav header header navbar">
                 <div class="">
-                    <nav id="modernSidebar">
+                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
@@ -86,7 +86,7 @@
                                 </a>
                             </li>
                             <li class="menu">
-                                <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorOrderController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-list2"></i>
                                         <span>Danh sách<br> đơn hàng</span>
@@ -94,7 +94,7 @@
                                 </a>
                             </li>
                             <li class="menu">
-                                <a href="./moderator-category.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorCategoryController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-saas"></i>
                                         <span>Danh mục</span>
@@ -117,7 +117,7 @@
                             <div class="statbox widget box">
                                 <div class="widget-content-area">
                                     <h3>Danh sách đơn hàng</h3>
-                                    <div class="widget-header mb-5 mt-5">
+                                    <div class="widget-header mt-4">
 
                                         <div class="row">
 
@@ -171,9 +171,9 @@
                                     </form>
                                     <h6 id="sorttext">Sắp xếp theo</h6>
                                     <div class="table-responsive new-products">
-                                        <table class="table table-bordered">
+                                        <table class="table table-bordered table-striped">
                                             <tbody class="text-center">
-                                                <tr class="text-center">
+                                                <tr style="background-color: #808080 !important; color: #F5F5F5 !important;" class="text-center">
                                                     <th>Thời gian đặt hàng</th>
                                                     <th>Mã đặt đơn hàng</th>
                                                     <th>Nhà cung cấp</th>

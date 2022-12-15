@@ -85,8 +85,9 @@
                 <div class="">
                     <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
+
                             <li class="menu">
-                                <a href="./supplier-product-pending.jsp" class="dropdown-toggle collapsed">
+                                <a href="SupplierController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-3d-cube"></i>
                                         <span>Danh sách<br> sản phẩm</span>
@@ -94,18 +95,15 @@
                                 </a>
                             </li>
                             <li class="menu">
-                                <a href="./supplier-list-order.jsp" class="dropdown-toggle collapsed">
+                                <a href="SupplierOrderController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-list2"></i>
                                         <span>Danh sách<br> đơn hàng</span>
                                     </div>
                                 </a>
                             </li>
-
-
                         </ul>
                     </nav>
-
                 </div>
             </div>
             <!--  END MODERN  -->
