@@ -105,10 +105,37 @@
             <div id="content" class="main-content container">
                 <p>&nbsp;</p>
                 <h4 class="h3-order">Chi tiết sản phẩm</h4>
+                <p>&nbsp;</p>
+                <span></span>
+                <div class="h3-order"><form action="SupplierDetailPController" method="POST">
+                        <c:choose>
+                            <c:when test="${product.statusId==1}">
+                                <input type="hidden" name="id" value="${product.productId}"/>
+                                <input type="hidden" name="action" value="cancel"/>
+                                <input style="min-width: 200px" type="submit" value="Huỷ yêu cầu" class="btn btn-danger"/>
+                            </c:when>
+                            <c:when test="${product.statusId==2}">
+                                <input type="hidden" name="id" value="${product.productId}"/>
+                                <input type="hidden" name="action" value="hidden"/>
+                                <input style="min-width: 200px" type="submit" value="Ẩn sản phẩm" class="btn btn-secondary"/>
+                            </c:when>
+                            <c:when test="${product.statusId==3}">
+                                <input type="hidden" name="id" value="${product.productId}"/>
+                                <input type="hidden" name="action" value="re-request"/>
+                                <input style="min-width: 200px" type="submit" value="Tạo lại sản phẩm" class="btn btn-secondary"/>
+                            </c:when>
+                            <c:when test="${product.statusId==4}">
+                                <input type="hidden" name="id" value="${product.productId}"/>
+                                <input type="hidden" name="action" value="cancel-hidden"/>
+                                <input style="min-width: 200px" type="submit" value="Bỏ ẩn sản phẩm" class="btn btn-success"/>
+                            </c:when>
+                        </c:choose>
+                    </form></div>
 
                 <div class="view-order">
+
                     <div class="summary-order">
-                        <table>
+                        <table class="table table-borderless">
                             <tr>
                                 <th style="min-width: 300px">Ảnh</th>
                                 <td>
@@ -194,34 +221,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="button-status ">
-                        
-                            <h5>Hành động</h5>
-                            <form action="SupplierDetailPController" method="POST">
-                                <c:choose>
-                                    <c:when test="${product.statusId==1}">
-                                        <input type="hidden" name="id" value="${product.productId}"/>
-                                        <input type="hidden" name="action" value="cancel"/>
-                                        <input style="min-width: 200px" type="submit" value="Huỷ yêu cầu" class="btn btn-danger"/>
-                                    </c:when>
-                                    <c:when test="${product.statusId==2}">
-                                        <input type="hidden" name="id" value="${product.productId}"/>
-                                        <input type="hidden" name="action" value="hidden"/>
-                                        <input style="min-width: 200px" type="submit" value="Ẩn sản phẩm" class="btn btn-secondary"/>
-                                    </c:when>
-                                    <c:when test="${product.statusId==3}">
-                                        <input type="hidden" name="id" value="${product.productId}"/>
-                                        <input type="hidden" name="action" value="re-request"/>
-                                        <input style="min-width: 200px" type="submit" value="Tạo lại sản phẩm" class="btn btn-secondary"/>
-                                    </c:when>
-                                    <c:when test="${product.statusId==4}">
-                                        <input type="hidden" name="id" value="${product.productId}"/>
-                                        <input type="hidden" name="action" value="cancel-hidden"/>
-                                        <input style="min-width: 200px" type="submit" value="Bỏ ẩn sản phẩm" class="btn btn-success"/>
-                                    </c:when>
-                                </c:choose>
-                            </form>
-                    </div>
+
                 </div>
 
 

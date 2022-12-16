@@ -76,7 +76,7 @@
 
             <div class="modernSidebar-nav header header navbar">
                 <div class="">
-                     <nav id="modernSidebar">
+                    <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
@@ -115,10 +115,19 @@
             <div id="content" class="main-content container">
                 <p>&nbsp;</p>
                 <h4 class="h3-order">Chi tiết sản phẩm</h4>
+                <p>&nbsp;</p>
+                <div style="margin-left: 60px;" class="h3-order">
+                    <c:if test="${product.statusId == 1}">
+                        <div class="button-status ">
+                            <a href="ModeratorDetailProductController?action=accept&id=${product.productId}" class="btn btn-success mb-1" class="btn btn-primary">Phê duyệt đơn</a>
+                            <button class="btn btn-danger mb-1" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" type="submit">Từ chối đơn</button>
+                        </div>
+                    </c:if>
+                </div>
 
                 <div class="view-order">
                     <div class="summary-order">
-                        <table>
+                        <table class="table table-borderless">
                             <tr>
                                 <th style="min-width: 300px">Ảnh</th>
                                 <td>
@@ -145,7 +154,7 @@
                                     <c:forEach var="c" begin="0" end="${cities.size()-2}">
                                         ${cities.get(c).cityName} , 
                                     </c:forEach>
-                                        ${cities.get(cities.size()-1).cityName}
+                                    ${cities.get(cities.size()-1).cityName}
                                 </td>
                             </tr> 
                             <tr>
@@ -211,13 +220,7 @@
                             </tr>
                         </table>
                     </div>
-                    <c:if test="${product.statusId == 1}">
-                        <div class="button-status ">
-                            <h5>Hành động</h5>
-                            <a href="ModeratorDetailProductController?action=accept&id=${product.productId}" class="btn btn-success mb-1" class="btn btn-primary">Phê duyệt đơn</a>
-                            <button class="btn btn-danger mb-1" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" type="submit">Từ chối đơn</button>
-                        </div>
-                    </c:if>
+
                 </div>
             </div>
 
