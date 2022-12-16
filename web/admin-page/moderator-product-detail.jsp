@@ -112,9 +112,9 @@
             <!--  END MODERN  -->
 
             <!--  BEGIN CONTENT PART  -->
-            <div id="content" class="main-content container">
+            <div id="content"  class="main-content container">
                 <p>&nbsp;</p>
-                <h4 class="h3-order">Chi tiết sản phẩm</h4>
+                <h3 style="margin-top: 80px;" class="h3-order">Chi tiết sản phẩm</h3>
                 <p>&nbsp;</p>
                 <div style="margin-left: 60px;" class="h3-order">
                     <c:if test="${product.statusId == 1}">

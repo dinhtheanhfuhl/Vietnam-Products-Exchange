@@ -91,7 +91,7 @@
                             <p>Email: vnproxservice@gmail.com</p>
                             <p>Hotline: 1900.636.099</p>
                             <p>Địa chỉ: Toà nhà New Center, ngõ 26, phố Đỗ Quang, phường Trung Hoà, quận Cầu Giấy, Hà Nội</p>
-                            <a href=""><svg style="height: 25px;width: 25px;margin-top: 40px;color: #9900ff" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <a href="https://www.facebook.com/profile.php?id=100088443501649"><svg style="height: 25px;width: 25px;margin-top: 40px;color: #9900ff" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
                                 <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
                                 </svg></a>
 
@@ -100,7 +100,6 @@
                             <p>
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.559216554315!2d105.79881301480934!3d21.0102989860084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135aca0c1e1598d%3A0x88209cce6e6c4ac4!2zTmcuIDI2IFAuIMSQ4buXIFF1YW5nLCBUcnVuZyBIw7JhIE5ow6JuIENow61uaCwgVHJ1bmcgSG_DoCwgQ-G6p3UgR2nhuqV5LCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1671099221374!5m2!1svi!2s" width="540" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                             </p>
-
 
                         </div>
                     </div>

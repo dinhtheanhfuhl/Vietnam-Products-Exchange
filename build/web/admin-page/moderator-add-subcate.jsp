@@ -114,7 +114,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
-                            <div class="statbox widget box">
+                            <div style="margin-top: 80px" class="statbox widget box">
                                 <h3>Thêm danh mục con</h3>
                                 <div class="widget-content-area">
                                     <div class="table-responsive new-products">

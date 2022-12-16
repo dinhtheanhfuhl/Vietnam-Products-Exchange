@@ -114,7 +114,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
-                            <div class="statbox widget box">
+                            <div style="margin-top: 80px;" class="statbox widget box">
                                 <h3>Danh sách danh mục</h3>
                                 <div class="widget-content-area">
                                     <a href="ModeratorAddCateController?action=show"><button style="background-color: #439A97; color: #F5F5F5 !important;" class=" btn status mb-2" id="approved">  Thêm danh mục cấp 1 </button></a>
