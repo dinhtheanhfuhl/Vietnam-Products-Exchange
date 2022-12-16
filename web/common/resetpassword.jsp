@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <head>
-        <title>Đặt lại mật khẩu</title>
+        <title>Thay đổi mật khẩu </title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -45,7 +46,7 @@
                 <div class="container-fluid">
 
                     <!-- Brand -->
-                    <a class="navbar-brand waves-effect" href="Home">
+                    <a class="navbar-brand waves-effect" href="../Home">
                         <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                     </a>
 
@@ -62,8 +63,7 @@
                         <!-- Left -->
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active" style="padding-left: 40px;">
-                                <a class="nav-link waves-effect  text-header" href="Home">Trang chủ
-
+                                <a class="nav-link waves-effect  text-header" href="../Home">Trang chủ
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -74,9 +74,9 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
                                          id="dropdown-collection">
-                                        <a class="dropdown-item" href="./information.jsp">Về chúng tôi</a>
-                                        <a class="dropdown-item" href="./policy.jsp">Chính sách bảo mật</a>
-                                        <a class="dropdown-item" href="./condition.jsp">Điều khoản dịch vụ</a>
+                                        <a class="dropdown-item" href="./information.html">Về chúng tôi</a>
+                                        <a class="dropdown-item" href="./policy.html">Chính sách bảo mật</a>
+                                        <a class="dropdown-item" href="./condition.html">Điều khoản dịch vụ</a>
                                     </div>
                                 </div>
                             </li>
@@ -87,9 +87,10 @@
 
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="./hoaqua.html">Trái cây</a>
+                                        <a class="dropdown-item" href="./fruit.jsp">Trái cây</a>
                                         <a class="dropdown-item" href="./dokho.html">Rau củ sạch</a>
                                         <a class="dropdown-item" href="./dokho.html">Các loại hạt</a>
+                                        <a class="dropdown-item" href="./dokho.html">Tất cả sản phẩm</a>
                                     </div>
                                 </div>
 
@@ -104,7 +105,7 @@
                         <!-- Right -->
                         <ul class="navbar-nav nav-flex-icons">
                             <li class="nav-item ">
-                                <a href="ViewCart.jsp"  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i>
+                                <a href="#"  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i>
                                     <span class="quantity-amm-shopping-cart-open">0</span></a>
 
                             </li>
@@ -114,6 +115,7 @@
                                     <a href="login.jsp" class="nav-link border border-light rounded waves-effect" target="_blank">
                                         <i class="fas fa-user"></i>Đăng Nhập
                                     </a>
+
                                 </div>
                             </li>
                         </ul>
@@ -121,7 +123,35 @@
                 </div>
             </nav>
         </header>
+        <div class="amm-shopping-cart-wrapper">
+            <div class="amm-shopping-cart-canvas">
+                <div class="amm-shopping_cart">
+                    <div class="amm-shopping_cart-top-bar d-flex justify-content-between">
+                        <h6>Giá» hÃ ng</h6>
+                        <button class="amm-shopping-cart-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div><!-- shopping cart top bar -->
+                    <div class="amm-shopping_cart-list-items mt-30">
+                        <ul>
 
+                        </ul>
+                    </div> <!-- shopping_cart list items -->
+                    <div class="amm-shopping_cart-btn">
+                        <div class="total pt-35 d-flex justify-content-between">
+                            <h5>Tá»ng tiá»n:</h5>
+                            <p>0 <span>Ä</span></p>
+
+                        </div>
+                        <div class="cart-btn pt-25">
+                            <a class="main-btn" href="./ViewCart.html">Xem giá» hÃ ng</a>
+                            <a class="main-btn main-btn-2" href="./payment.html">Thanh toÃ¡n</a>
+                        </div>
+                    </div>
+                </div> <!-- shopping_cart -->
+            </div>
+            <div class="overlay"></div>
+        </div>
 
         <!--====== SHOPPING CART PART ENDS ======-->
 
@@ -130,7 +160,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
                     <li class="breadcrumb-item"><a href="./home.jsp">Trang chủ</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Quên mật khẩu</li>
+                    <li class="breadcrumb-item active" aria-current="page">Mật khẩu</li>
                 </ol>
             </nav>
         </section>
@@ -145,20 +175,30 @@
                                     <h2>Đặt lại mật khẩu</h2>
                                 </div>
                                 <form action="EditPassController" method="POST">
-                                    <input type="hidden" name="action" value="fogot-pass"/>
+                                    <c:if test="${accId!=null}">
+                                        <input type="hidden" name="accId" value="${accId}"/>
+                                    </c:if>
+                                    <input type="hidden" name="action" value="editpass"/>
                                     <div class="login-reset">
                                         <ul class="fill-form">
                                             <li class="log-resetEmail input-group ">
-                                                <label for="exampleInputEmail">Email</label>
+                                                <label for="exampleInputEmail">Mật khẩu mới</label>
                                                 <br>
-                                                <input name="email" type="email" class="form-control" id="exampleInputEmail" placeholder="nhập email">
+                                                <input name="pass" type="password" class="form-control" id="exampleInputEmail" placeholder="nhập mật khẩu mới">
+
+                                            </li>
+                                            <li class="log-resetEmail input-group ">
+
+                                                <label for="exampleInputEmail">Nhập lại mật khẩu mới</label>
+                                                <br>
+                                                <input name="rePass" type="password" class="form-control" id="exampleInputEmail" placeholder="nhập lại mật khẩu mới">
+
                                             </li>
                                             <li class="form-btn" >
                                                 <div class="form-action-btn">
                                                     <!-- <div class="form-action-btn"> -->
                                                     <button style="margin-top: 30px; margin-bottom: 15px;" id="submit" type="submit" class="btn btn-warning">Gửi</button>
                                                     <br>
-                                                    <a href="LogginController" id="HideRecoverPasswordLink">Hủy</a> 
                                                 </div>
                                             </li>
                                         </ul>

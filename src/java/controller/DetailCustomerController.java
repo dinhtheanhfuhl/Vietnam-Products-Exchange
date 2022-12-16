@@ -14,12 +14,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "DetailCustomerController", urlPatterns = {"/DetailCustomerController"})
 public class DetailCustomerController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        if (session.getAttribute("roleIdLoggin") == null || (int) session.getAttribute("roleIdLoggin") != 1) {
+            request.getRequestDispatcher("common/error.jsp").forward(request, response);
+            return;
+        }
+        request.setCharacterEncoding("UTF-8");
         Connection connection = DBConnect.getConnection();
         CustomerDAO customerDAO = new CustomerDAO(connection);
         AccountDAO accountDAO = new AccountDAO(connection);
@@ -46,7 +53,7 @@ public class DetailCustomerController extends HttpServlet {
             request.setAttribute("cus", customer);
             request.setAttribute("acc", account);
             request.getRequestDispatcher("admin-page/admin-view-detail-customer.jsp").forward(request, response);
-        } else if(action.equals("reject")) {
+        } else if (action.equals("reject")) {
             int accId = Integer.parseInt(request.getParameter("acc-id"));
             int cusId = Integer.parseInt(request.getParameter("cus-id"));
             String reason = request.getParameter("reason");
@@ -58,9 +65,10 @@ public class DetailCustomerController extends HttpServlet {
             int statusMess = messRejectDAO.saveMessageRejectAccount(ma);
             // send mail reject 
             security.SendMail.SendToDeMail(acc.getEmail(), "Từ chối tài khoản", reason);
-            response.sendRedirect("DetailCustomerController?id="+cusId);
+            response.sendRedirect("DetailCustomerController?id=" + cusId);
         }
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

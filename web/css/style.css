@@ -324,7 +324,6 @@ img{
 
 .login-form-container ul>li:last-child a, #HideRecoverPasswordLink{
     color: #f5ab1e;
-    /* text-align: center; */
     font-weight: 300;
     display: flex;
     margin-bottom: 15px;
@@ -413,7 +412,6 @@ breadcrumb-item .active{
 } */
 /* resetpassword */
 .resetPass .acc-reset{
-    height: 400px;
     width: 418px;
     padding: 30px;
     /* display: flex; */
