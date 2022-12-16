@@ -88,7 +88,7 @@
 
             <div class="modernSidebar-nav header header navbar">
                 <div class="">
-                   <nav id="modernSidebar">
+                    <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
@@ -114,8 +114,34 @@
             <!--  END MODERN  -->
 
             <!--  BEGIN CONTENT PART  -->
-            <div id="content" class="main-content container">
-                <div class="view-order">
+
+
+            <div style="margin-top: 80px" id="content" class="main-content container">
+                <div style="margin-left: 30px;" class="view-order">
+                    <c:if test="${status.orderStatusID!=4 && status.orderStatusID!=3 && status.orderStatusID!=5}">
+                        <h5>Hành động</h5>
+                        <c:if test="${status.orderStatusID==1}">
+                            <form action="SupplierDetailOrderController" method="POST">
+                                <input type="hidden" name="action" value="accept"/>
+                                <input type="hidden" name="id" value="${order.orderId}"/>
+                                <input type="submit" class="btn btn-success status mb-2" value="Xác nhận đơn hàng"/>
+                            </form>
+                            <form action="SupplierDetailOrderController" method="POST">
+                                <input type="hidden" name="action" value="reject"/>
+                                <input type="hidden" name="id" value="${order.orderId}"/>
+                                <input type="submit" class="btn btn-danger status mb-2" value="Từ chối đơn hàng"/>
+                            </form>
+                        </c:if>
+                        <c:if test="${status.orderStatusID==2}">
+                            <form action="SupplierDetailOrderController" method="POST">
+                                <input type="hidden" name="action" value="success"/>
+                                <input type="hidden" name="id" value="${order.orderId}"/>
+                                <input type="submit" class="btn btn-secondary status mb-2" value="Giao hàng thành công"/>
+                            </form>
+                        </c:if>
+                    </c:if>
+                </div>
+                <div style="margin-left: 30px;" class="view-order">
                     <div class="summary-order">
                         <table >
                             <tr>
@@ -148,40 +174,12 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="button-status ">
-                        <h5>Trạng thái đơn hàng</h5>
-                        <a class="btn btn-info status disabled" >${status.statusName}</a>
-                    </div>
-                    <div class="button-status ">
-                        <c:if test="${status.orderStatusID!=4 && status.orderStatusID!=3 && status.orderStatusID!=5}">
-                            <h5>Hành động</h5>
-                            <c:if test="${status.orderStatusID==1}">
-                                <form action="SupplierDetailOrderController" method="POST">
-                                    <input type="hidden" name="action" value="accept"/>
-                                    <input type="hidden" name="id" value="${order.orderId}"/>
-                                    <input type="submit" class="btn btn-success status mb-2" value="Xác nhận đơn hàng"/>
-                                </form>
-                                <form action="SupplierDetailOrderController" method="POST">
-                                    <input type="hidden" name="action" value="reject"/>
-                                    <input type="hidden" name="id" value="${order.orderId}"/>
-                                    <input type="submit" class="btn btn-danger status mb-2" value="Từ chối đơn hàng"/>
-                                </form>
-                            </c:if>
-                            <c:if test="${status.orderStatusID==2}">
-                                <form action="SupplierDetailOrderController" method="POST">
-                                    <input type="hidden" name="action" value="success"/>
-                                    <input type="hidden" name="id" value="${order.orderId}"/>
-                                    <input type="submit" class="btn btn-secondary status mb-2" value="Giao hàng thành công"/>
-                                </form>
-                            </c:if>
 
 
-                        </c:if>
-                    </div>
                 </div>
 
-                <h3 class="h3-order">Danh sách sản phẩm đơn hàng</h3>
-                <div class="widget-content widget-content-area view-order-detail">
+                <h3 style="margin-top: 20px;margin-left: 30px;"  class="h3-order">Danh sách sản phẩm đơn hàng</h3>
+                <div style="margin-left: 30px;" class="widget-content widget-content-area view-order-detail">
                     <div class="table-responsive mb-4">
                         <table id="ecommerce-product-list" class="table  table-bordered">
                             <thead>

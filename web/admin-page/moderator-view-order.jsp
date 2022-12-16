@@ -126,7 +126,7 @@
             <!--  BEGIN CONTENT PART  -->
             <div id="content" class="main-content container">
                 <p>&nbsp;</p>
-                <h3 class="h3-order">Danh sách sản phẩm đơn hàng</h3>
+                <h3 style="margin-top: 80px" class="h3-order">Danh sách sản phẩm đơn hàng</h3>
                 <p>&nbsp;</p>
                 <div class="h3-order">
                     <p><b style="font-size: 15px;">Trạng thái đơn hàng</b><span><c:forEach var="os" items="${allOrderStatuses}">
@@ -171,7 +171,7 @@
 
                 </div>
 
-                <div class="widget-content widget-content-area view-order-detail">
+                <div style="margin-left: 80px" class="widget-content widget-content-area view-order-detail">
                     <div class="table-responsive mb-4">
                         <table id="ecommerce-product-list" class="table table-bordered">
                             <thead>
