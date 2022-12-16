@@ -100,7 +100,7 @@
                                 </a>
                             </li>
                             <li class="menu">
-                                <a href="./moderator-list-order.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorOrderController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-list2"></i>
                                         <span>Danh sách<br> đơn hàng</span>
@@ -108,7 +108,7 @@
                                 </a>
                             </li>
                             <li class="menu">
-                                <a href="./moderator-category.jsp" class="dropdown-toggle collapsed">
+                                <a href="ModeratorCategoryController" class="dropdown-toggle collapsed">
                                     <div class="">
                                         <i class="flaticon-saas"></i>
                                         <span>Danh mục</span>
@@ -125,6 +125,16 @@
 
             <!--  BEGIN CONTENT PART  -->
             <div id="content" class="main-content container">
+                <p>&nbsp;</p>
+                <h3 class="h3-order">Danh sách sản phẩm đơn hàng</h3>
+                <p>&nbsp;</p>
+                <div class="h3-order">
+                    <p><b style="font-size: 15px;">Trạng thái đơn hàng</b><span><c:forEach var="os" items="${allOrderStatuses}">
+                                <c:if test="${order.orderStatusId==os.orderStatusID}">
+                                    <a class=" btn btn-info status mb-2 mt-2">${os.statusName}</a>
+                                </c:if>
+                            </c:forEach></span></p>
+                </div>
                 <div class="view-order">
                     <div class="summary-order">
                         <table >
@@ -158,21 +168,12 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="button-status ">
-                        <h5>Trạng thái đơn hàng</h5>
-                        <c:forEach var="os" items="${allOrderStatuses}">
-                            <c:if test="${order.orderStatusId==os.orderStatusID}">
-                                <a class=" btn btn-info status mb-2 mt-2">${os.statusName}</a>
-                            </c:if>
-                        </c:forEach>
-                    </div>
 
                 </div>
 
-                <h3 class="h3-order">Danh sách sản phẩm đơn hàng</h3>
                 <div class="widget-content widget-content-area view-order-detail">
                     <div class="table-responsive mb-4">
-                        <table id="ecommerce-product-list" class="table  table-bordered">
+                        <table id="ecommerce-product-list" class="table table-bordered">
                             <thead>
                                 <tr class="text-center">
                                     <th>ID</th>

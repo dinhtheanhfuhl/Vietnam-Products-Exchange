@@ -117,24 +117,23 @@
                                 <h3>Thêm danh mục</h3>
                                 <div class="widget-content-area">
                                     <div class="table-responsive new-products">
-                                        <table class="table">
-                                            <thead>
-                                                <tr class="text-center">
-                                                    <th>Nhập danh mục</th>
-                                                    <th></th>
-
-                                                </tr>
-                                            </thead>
-                                            <tbody class="text-center">
-                                                <tr>
-                                            <form action="ModeratorAddCateController" method="post">
-                                                <td> <input name="name" type="text" placeholder="nhập tên danh mục" required class="form-control" ></td>
-                                                <td><input type="submit" value="Thêm danh mục" class=" btn btn-warning status mb-2" data-toggle="modal" data-target="#exampleModalLong" id="approved" /></td>
+                                        <form id="add321" action="ModeratorAddCateController" method="post">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr class="text-center">
+                                                        <th>Nhập danh mục</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-center">
+                                                    <tr>
+                                                        <td> <input name="name" type="text" placeholder="nhập tên danh mục" maxlength="50" required="" class="form-control" ></td>
+                                                        <td><input type="button" value="Thêm danh mục" class=" btn btn-warning status mb-2" data-toggle="modal" data-target="#exampleModalLong" id="approved" /></td>
                                                 <input type="hidden" name="action" value="add"/>
-                                            </form>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </form>
                                     </div>
                                     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
@@ -150,7 +149,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger status mb-2" data-dismiss="modal">Không</button>
-                                                    <button type="button" class="btn btn-warning status mb-2">Thêm</button>
+                                                    <button form="add321" type="submit" class="btn btn-warning status mb-2">Thêm</button>
                                                 </div>
                                             </div>
                                         </div>

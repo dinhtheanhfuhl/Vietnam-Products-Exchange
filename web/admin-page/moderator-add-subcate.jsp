@@ -118,7 +118,7 @@
                                 <h3>Thêm danh mục con</h3>
                                 <div class="widget-content-area">
                                     <div class="table-responsive new-products">
-                                        <form action="ModeratorAddSubCateController" method="post">
+                                        <form action="ModeratorAddSubCateController" method="post" id="add123">
                                             <table class="table">
                                                 <thead>
                                                     <tr class="text-center">
@@ -137,8 +137,8 @@
                                                                 </c:forEach>
                                                             </select>
                                                         </td>
-                                                        <td><input name="name" class="form-control" placeholder="nhập danh mục con"></td>
-                                                        <td><input type="submit" class=" btn btn-warning status mb-2" value="Thêm danh mục con" data-toggle="modal" data-target="#exampleModalLong" id="approved" />
+                                                        <td><input name="name" class="form-control" required="" maxlength="50" placeholder="nhập danh mục con"></td>
+                                                        <td><input type="button" class=" btn btn-warning status mb-2" value="Thêm danh mục con" data-toggle="modal" data-target="#exampleModalLong" id="approved" />
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -159,7 +159,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger status mb-2" data-dismiss="modal">Không</button>
-                                                    <button type="button" class="btn btn-warning status mb-2">Thêm</button>
+                                                    <button type="submit" form="add123" class="btn btn-warning status mb-2">Thêm</button>
                                                 </div>
                                             </div>
                                         </div>

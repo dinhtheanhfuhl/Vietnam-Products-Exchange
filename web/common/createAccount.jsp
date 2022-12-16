@@ -154,7 +154,7 @@
                                         </div>
                                         <div class="form-group fill-form log-lastName">
                                             <label for="exampleInputPassword1">Mật khẩu*</label>
-                                            <input name="password" required="" id="password" type="password" class="form-control" 
+                                            <input name="password" required="" id="password" minlength="8" maxlength="20" type="password" class="form-control" 
                                                    placeholder=" nhập mật khẩu">
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
