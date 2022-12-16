@@ -113,7 +113,9 @@
                 <div class="container main-infor" style="margin-top: 10%">
                     <h1 class="text-center">Thông tin người dùng</h1>
                     <div class="row profile">
+
                         <div class="col-md-3 mt-50 mb-50">
+
                             <div class="profile-sidebars">
                                 <div class="profile-userpic"> <img
                                         src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
@@ -127,174 +129,68 @@
                         </div>
                         <div class="col-md-9 mt-50 mb-50">
                             <div class=" personal-infor ">
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Tên người dùng</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <p type="text" id="inputpass"
-                                                       value="" >${sup.supplierName}</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <table class="table">
 
-                                </div>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tên người dùng</td>
+                                            <td>${sup.supplierName}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ngày sinh</td>
+                                            <td>${sup.dateBirth}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Giới tính</td>
+                                            <td>${sup.gender}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>${sup.email}</td>
+                                        </tr><tr>
+                                            <td>Số điện thoại</td>
+                                            <td>${sup.phone}</td>
+                                        </tr><tr>
+                                            <td>Nhà cung cấp</td>
+                                            <td>${sup.shopName}</td>
+                                        </tr><tr>
+                                            <td>Địa chỉ chính</td>
+                                            <td>${sup.mainAddress}</td>
+                                        </tr><tr>
+                                            <td>Giấy phép</td>
+                                            <td><a href="#">Tải xuống giấy phép</a></td>
+                                        </tr><tr>
+                                            <td>Trạng thái</td>
+                                            <td>
+                                                <c:choose>
+                                                    <c:when test="${acc.status==1}">Chờ phê duyệt</c:when>
+                                                    <c:when test="${acc.status==2}">Đã chấp thuận</c:when>
+                                                    <c:when test="${acc.status==3}">Từ chối tài khoản</c:when>
+                                                </c:choose>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <c:if test="${acc.status==3}">
+                                                <td>Lý do từ chối</td>
+                                                <td>
+                                                    ${ma.messageDescribe}
+                                                </td>
+                                            </c:if>
+                                        </tr>
+                                        <tr>
+                                            <c:if test="${acc.status == 1}">
+                                                <td>Hành động</td>
+                                                <td>
+                                                    <a href="DetailSuppilerController?action=accept&sup-id=${sup.supplierId}&acc-id=${acc.accId}" class="btn btn-success mb-1">Phê duyệt tài khoản</a>
+                                                    <button href="" class="btn btn-danger mb-1" data-toggle="modal" data-target="#exampleModal">Từ chối tài khoản</button>
+                                                </td>
+                                            </c:if>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Ngày sinh</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <p type="text" id="inputpass"
-                                                       value="" >${sup.dateBirth}</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
 
-                                </div>
 
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" style="margin-left: 5px;" class="form-label pass-infor">Giới tính</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <p type="text" id="inputpass"
-                                                       value="" >${sup.gender}</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Email</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <p type="text" id="inputpass"
-                                                       value="" >${sup.email}</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Số điện thoại</label>
-                                                </td>
-
-                                                <td class="display-userName-3">
-                                                    <p type="text" id="inputpass"
-                                                       value="" >${sup.phone}</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Nhà cung cấp</label>
-                                                </td>
-
-                                                <td class="display-userName-3">
-                                                    <p type="text" id="inputpass"
-                                                       value="" >${sup.shopName}</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Địa chỉ chính</label>
-                                                </td>
-
-                                                <td class="display-userName-3">
-                                                    <p type="text" id="inputpass"
-                                                       value="" >${sup.mainAddress}</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label class="form-label pass-infor">Giấy phép</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <a href="#">Tải xuống giấy phép</a>
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label class="form-label pass-infor">Trạng thái</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <c:choose>
-                                                        <c:when test="${acc.status==1}">Chờ phê duyệt</c:when>
-                                                        <c:when test="${acc.status==2}">Đã chấp thuận</c:when>
-                                                        <c:when test="${acc.status==3}">Từ chối tài khoản</c:when>
-                                                    </c:choose>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <c:if test="${acc.status==3}">
-                                    <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td><label style="margin-left: -10px"; class="form-label pass-infor">Lý do bị từ chối</label>
-                                                    </td>
-                                                    <td class="display-userName-3">
-                                                        <p>${ma.messageDescribe}</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </c:if>
-                                <c:if test="${acc.status == 1}">
-                                    <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td><label style="margin-left: -10px"; class="form-label pass-infor">Hành động</label>
-                                                    </td>
-                                                    <td class="display-userName-3">
-                                                        <a href="DetailSuppilerController?action=accept&sup-id=${sup.supplierId}&acc-id=${acc.accId}" class="btn btn-success mb-1">Phê duyệt tài khoản</a>
-                                                        <button href="" class="btn btn-danger mb-1" data-toggle="modal" data-target="#exampleModal">Từ chối tài khoản</button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </c:if>
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
