@@ -367,24 +367,7 @@
     <!--  END FOOTER  -->
 
     <!--  BEGIN PROFILE SIDEBAR  -->
-    <aside class="profile-sidebar text-center">
-        <div class="profile-content profile-content-scroll">
-            <div class="usr-profile">
-                <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
-            </div>
-            <p class="user-name mt-4 mb-4">Hoan</p>
-            <div class="user-links text-left">
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="./personal-infor-admin.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </aside>
+    <%@include file="aside.jsp" %>
 
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="${pageContext.request.contextPath}/assets/js/libs/jquery-3.1.1.min.js"></script>

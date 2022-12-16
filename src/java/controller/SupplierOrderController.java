@@ -46,10 +46,6 @@ public class SupplierOrderController extends HttpServlet {
         CustomerDAO customerDAO = new CustomerDAO(conn);
 
         Supplier supplier = (Supplier) session.getAttribute("supplier");
-        if (supplier == null) {
-            supplier = new Supplier();
-        }
-        supplier.setSupplierId(1);
 
         List<OrderStatus> allOrderStatus = orderStatusDAO.getAllOrderStatus();
         request.setAttribute("allOrderStatus", allOrderStatus);
