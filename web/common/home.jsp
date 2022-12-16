@@ -101,7 +101,7 @@
                             <c:forEach var="key" items="${mapImages.keySet()}">
                                 <div class="col-md-3">
                                     <div class="card">
-                                        <a style="text-decoration: none;" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo"><img class="card-img-top" style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap"></a>
+                                        <a style="text-decoration: none;" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo"><img class="card-img-top" style="object-fit: cover;height: 200px;" src="uploads/${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap"></a>
                                         <div class="card-body">
                                             <a style="text-decoration: none;" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo">
                                                 <h5 class="card-title">${key.productName} ${key.trademark}</h5>
@@ -120,7 +120,7 @@
                                 <div class="col-md-3">
                                     <div class="card">
                                         <a style="text-decoration: none;" href="MimartDetailProduct?pid=${key.productId}">
-                                            <img class="card-img-top" style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
+                                            <img class="card-img-top" style="object-fit: cover;height: 200px;" src="uploads/${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
                                         </a>
                                         <div class="card-body">
                                             <a style="text-decoration: none;" href="MimartDetailProduct?pid=${key.productId}">
@@ -153,7 +153,7 @@
                                     <div class="product-block product-resize">
                                         <div class="product-img">
                                             <a style="text-decoration: none;" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo">
-                                                <img class="w-100" style="object-fit: cover;height: 200px;width: 100px" src="${mapImages2.get(key).get(0).getImgPath()}" alt="">
+                                                <img class="w-100" style="object-fit: cover;height: 200px;width: 100px" src="uploads/${mapImages2.get(key).get(0).getImgPath()}" alt="">
                                             </a>
                                             <div class="box-pro-detail ">
                                                 <h5 class="card-title">
@@ -177,7 +177,7 @@
                                     <div class="product-block product-resize">
                                         <div class="product-img">
                                             <a style="text-decoration: none;" href="MimartDetailProduct?pid=${key.productId}">
-                                                <img class="w-100" style="object-fit: cover;height: 200px;width: 100px" src="${mapImages2.get(key).get(0).getImgPath()}" alt="">
+                                                <img class="w-100" style="object-fit: cover;height: 200px;width: 100px" src="uploads/${mapImages2.get(key).get(0).getImgPath()}" alt="">
                                             </a>
                                             <div class="box-pro-detail ">
                                                 <h5 class="card-title">

@@ -64,6 +64,7 @@ public class SupplierAddController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, FileUploadException, Exception {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         Supplier supplier = (Supplier) session.getAttribute("supplier");
         int supplierId = supplier.getSupplierId();

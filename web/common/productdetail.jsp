@@ -72,7 +72,7 @@
         </section>
 
         <main>
-            <section class="shop-details-area pt-100 pb-100">
+            <section class="shop-details-area pb-100">
                 <div class="container">
                     <c:if test="${not empty message}">
                         <div class="alert alert-${alert}" role="alert">
@@ -86,12 +86,12 @@
                         <div class="col-lg-6">
                             <div class="shop-details-thumb">
                                 <div class="shop-details-thumb-slider-active">
-                                    <img src="${product.img}" style="height: 400px;object-fit: cover;" alt="" id="mainimage" >
+                                    <img src="uploads/${product.img}" style="height: 400px;object-fit: cover;" alt="" id="mainimage" >
                                 </div>
                             </div>
                             <c:forEach items="${listProduct}" var="i">
                                 <div class="side_view">
-                                    <img src="${i.img}" alt="" onclick="change(this.src)">
+                                    <img src="uploads/${i.img}" alt="" onclick="change(this.src)">
                                 </div>
                             </c:forEach>
                         </div>
@@ -201,7 +201,7 @@
                             <div class="col-lg-3 col-md-6">
                                 <div class="single-shop-box">
                                     <div class="thumb text-center">
-                                        <a href="MimartDetailProduct?pid=${key.productId}"><img style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt=""></a>
+                                        <a href="MimartDetailProduct?pid=${key.productId}"><img style="object-fit: cover;height: 200px;" src="uploads/${mapImages.get(key).get(0).getImgPath()}" alt=""></a>
                                     </div>
                                     <div class="content">
                                         <a style="text-decoration: none;" href="MimartDetailProduct?pid=${key.productId}">

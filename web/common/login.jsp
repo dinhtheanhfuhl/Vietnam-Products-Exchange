@@ -94,7 +94,7 @@
                                 <div class="acc-title">
                                     <h6>Bạn chưa có tài khoản? </h6>
                                     <div class="account-option-action">
-                                        <a href="./createAccount.jsp" id="customer_register">
+                                        <a href="RegisterController" id="customer_register">
                                             Tạo tài khoản
                                             <!-- <button type="button" class="btn btn-outline-warning"></button> -->
                                         </a>
