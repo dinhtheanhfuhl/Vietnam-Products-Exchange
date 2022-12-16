@@ -14,13 +14,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "DetailSuppilerController", urlPatterns = {"/DetailSuppilerController"})
 public class DetailSuppilerController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        HttpSession session = request.getSession();
+        if (session.getAttribute("roleIdLoggin") == null || (int) session.getAttribute("roleIdLoggin") != 1) {
+            request.getRequestDispatcher("common/error.jsp").forward(request, response);
+            return;
+        }
         request.setCharacterEncoding("UTF-8");
         Connection connection = DBConnect.getConnection();
         SupplierDAO supplierDAO = new SupplierDAO(connection);
@@ -47,22 +52,22 @@ public class DetailSuppilerController extends HttpServlet {
             request.setAttribute("sup", sup);
             request.setAttribute("acc", acc);
             request.getRequestDispatcher("admin-page/admin-view-detail-supplier.jsp").forward(request, response);
-        } else if(action.equals("reject")) {
+        } else if (action.equals("reject")) {
             int accId = Integer.parseInt(request.getParameter("acc-id"));
             int supId = Integer.parseInt(request.getParameter("sup-id"));
             String reason = request.getParameter("reason");
             Account acc = accountDAO.getAccountById(accId);
-            
+
             Supplier sup = supplierDAO.getSupplierById(supId);
             acc.setStatus(3);
             int status = accountDAO.updateAccount(acc);
             MessageRejectAccount ma = new MessageRejectAccount(0, accId, reason);
             int statusMess = messRejectDAO.saveMessageRejectAccount(ma);
-            
+
             // send mail reject 
             security.SendMail.SendToDeMail(acc.getEmail(), "Từ chối tài khoản", reason);
-            
-            response.sendRedirect("DetailSuppilerController?id="+supId);
+
+            response.sendRedirect("DetailSuppilerController?id=" + supId);
         }
     }
 

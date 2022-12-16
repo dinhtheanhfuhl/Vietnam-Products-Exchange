@@ -81,7 +81,7 @@
 
 
                                         <div class="pt-3">
-                                            <a href="./resetPass.jsp" style="color: #f5ab1e;  " id="recoverPass">Quên mật khẩu?</a>
+                                            <a href="EditPassController?action=show-forgot-pass" style="color: #f5ab1e;  " id="recoverPass">Quên mật khẩu?</a>
                                         </div>
                                     </div>
                                 </form>

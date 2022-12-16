@@ -21,6 +21,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = {"/AdminController"})
 public class AdminController extends HttpServlet {
@@ -28,6 +29,11 @@ public class AdminController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        HttpSession session = request.getSession();
+        if (session.getAttribute("roleIdLoggin") == null || (int) session.getAttribute("roleIdLoggin") != 1) {
+            request.getRequestDispatcher("common/error.jsp").forward(request, response);
+            return;
+        }
         Connection connection = DBConnect.getConnection();
         SupplierDAO supplierDAO = new SupplierDAO(connection);
         CustomerDAO customerDAO = new CustomerDAO(connection);

@@ -63,11 +63,16 @@ public class SupplierAddController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, FileUploadException, Exception {
-        response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
+        if (session.getAttribute("roleIdLoggin") == null || (int) session.getAttribute("roleIdLoggin") != 3) {
+            request.getRequestDispatcher("common/error.jsp").forward(request, response);
+            return;
+        }
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         Supplier supplier = (Supplier) session.getAttribute("supplier");
         int supplierId = supplier.getSupplierId();
-
+        
         Connection conn = dbconnect.DBConnect.getConnection();
         CityDAO cityDAO = new CityDAO(conn);
         CategoryDAO cateDAO = new CategoryDAO(conn);
@@ -76,23 +81,23 @@ public class SupplierAddController extends HttpServlet {
         DeliveryAreaDAO deliveryAreaDAO = new DeliveryAreaDAO(conn);
         ProductImageDAO productImageDAO = new ProductImageDAO(conn);
         ProductHierarchyDAO productHierarchyDAO = new ProductHierarchyDAO(conn);
-
+        
         String action = request.getParameter("action");
         if (action == null || action.equals("")) {
             List<City> allCities = cityDAO.getAllCity();
             List<Category> allCates = cateDAO.getAllCategory();
-
+            
             Map<Category, List<SubCategory>> mapCateSubCate = new LinkedHashMap<>();
-
+            
             for (Category c : allCates) {
                 List<SubCategory> subCategorys = subCateDAO.getSubcategoryByCategoryId(c.getCateId());
                 mapCateSubCate.put(c, subCategorys);
             }
-
+            
             request.setAttribute("allCities", allCities);
             request.setAttribute("mapCateSubCate", mapCateSubCate);
             request.getRequestDispatcher("admin-page/supplier-add-product.jsp").forward(request, response);
-
+            
         } else if (action.equals("add")) {
             // add file anh va file giay phep vao uploads
             // Create a factory for disk-based file items
@@ -110,10 +115,10 @@ public class SupplierAddController extends HttpServlet {
             List<FileItem> items = upload.parseRequest(request);
             // Process the uploaded items
             Iterator<FileItem> iter = items.iterator();
-
+            
             List<String> fileImages = new ArrayList<>();
             String fileLincse = "";
-
+            
             String description = null;
             String barcode = null;
             int subCateId = 0;
@@ -131,7 +136,7 @@ public class SupplierAddController extends HttpServlet {
             int price1 = 0;
             int price2 = 0;
             int price3 = 0;
-
+            
             int number = 0;
             while (iter.hasNext()) {
                 FileItem item = iter.next();
@@ -145,7 +150,7 @@ public class SupplierAddController extends HttpServlet {
                         SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyyHHmmss");
                         Date date = new Date();
                         filename = formatter.format(date) + number + filename.substring(indexDot);
-
+                        
                         if (item.getFieldName().equals("lincse")) {
                             fileLincse = filename;
                         } else {
@@ -200,23 +205,23 @@ public class SupplierAddController extends HttpServlet {
                     }
                     if (name.equals("weight2")) {
                         weight2 = Integer.valueOf(value);
-
+                        
                     }
                     if (name.equals("weight3")) {
                         weight3 = Integer.valueOf(value);
-
+                        
                     }
                     if (name.equals("price1")) {
                         price1 = Integer.valueOf(value);
-
+                        
                     }
                     if (name.equals("price2")) {
                         price2 = Integer.valueOf(value);
-
+                        
                     }
                     if (name.equals("price3")) {
                         price3 = Integer.valueOf(value);
-
+                        
                     }
                 }
             }
@@ -241,10 +246,10 @@ public class SupplierAddController extends HttpServlet {
             product.setViewNumber(0);
             product.setStatusId(1);
             int status = productDAO.saveProduct(product);
-
+            
             Product productNewest = productDAO.getTop1ProductNewest();
             int productNewestId = productNewest.getProductId();
-
+            
             for (String cityId : cities) {
                 DeliveryArea deliveryArea = new DeliveryArea();
                 deliveryArea.setProductId(productNewestId);

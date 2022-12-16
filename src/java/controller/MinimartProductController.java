@@ -88,8 +88,10 @@ public class MinimartProductController extends HttpServlet {
 
         List<Product> resultProducts = new ArrayList<>();
         for (int id : productIds) {
-            Product pro = productDAO.getProductById(id);
-            resultProducts.add(pro);
+            Product pro = productDAO.getProductByIdNotHidden(id);
+            if (pro != null) {
+                resultProducts.add(pro);
+            }
         }
 
         Map<Product, List<ProductImage>> mapImages = new LinkedHashMap<>();

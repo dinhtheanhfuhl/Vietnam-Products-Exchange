@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
         <title>Thay đổi mật khẩu </title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="css/style.css">
 
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
@@ -31,7 +32,7 @@
         <link rel="stylesheet" href="assets/css/default.css">
 
         <!--====== Style css ======-->
-        <link rel="stylesheet" href="../assets/scss/style.css">
+        <link rel="stylesheet" href="assets/scss/style.css">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -39,89 +40,7 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     </head>
     <body>
-
-        <header class="header">
-            <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar ">
-                <div class="container-fluid">
-
-                    <!-- Brand -->
-                    <a class="navbar-brand waves-effect" href="../Home">
-                        <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
-                    </a>
-
-                    <!-- Collapse -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <!-- Links -->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                        <!-- Left -->
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active" style="padding-left: 40px;">
-                                <a class="nav-link waves-effect  text-header" href="../Home">Trang chủ
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="nav-link waves-effect text-header dropdown-toggle" href=""
-                                       target="_blank">Giới thiệu
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                                         id="dropdown-collection">
-                                        <a class="dropdown-item" href="./information.html">Về chúng tôi</a>
-                                        <a class="dropdown-item" href="./policy.html">Chính sách bảo mật</a>
-                                        <a class="dropdown-item" href="./condition.html">Điều khoản dịch vụ</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="nav-link waves-effect text-header dropdown-toggle" href="./shop.html"
-                                       target="_blank">Cửa hàng
-
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="./fruit.jsp">Trái cây</a>
-                                        <a class="dropdown-item" href="./dokho.html">Rau củ sạch</a>
-                                        <a class="dropdown-item" href="./dokho.html">Các loại hạt</a>
-                                        <a class="dropdown-item" href="./dokho.html">Tất cả sản phẩm</a>
-                                    </div>
-                                </div>
-
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link waves-effect text-header" href="./contact.html">Liên hệ</a>
-                            </li>
-                        </ul>
-
-
-                        <!-- Right -->
-                        <ul class="navbar-nav nav-flex-icons">
-                            <li class="nav-item ">
-                                <a href="#"  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i>
-                                    <span class="quantity-amm-shopping-cart-open">0</span></a>
-
-                            </li>
-
-                            <li class="nav-item">
-                                <div class="dropdown dropdown-user">
-                                    <a href="login.jsp" class="nav-link border border-light rounded waves-effect" target="_blank">
-                                        <i class="fas fa-user"></i>Đăng Nhập
-                                    </a>
-
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        <%@include file="header.jsp"%>
         <div class="amm-shopping-cart-wrapper">
             <div class="amm-shopping-cart-canvas">
                 <div class="amm-shopping_cart">
@@ -139,7 +58,7 @@
                     <div class="amm-shopping_cart-btn">
                         <div class="total pt-35 d-flex justify-content-between">
                             <h5>Tá»ng tiá»n:</h5>
-                            <p>0 <span>Ä</span></p>
+                            <p>0</p>
 
                         </div>
                         <div class="cart-btn pt-25">
@@ -173,41 +92,47 @@
                                 <div class="reset-title">
                                     <h2>Thay đổi mật khẩu</h2>
                                 </div>
-                                <div class="login-reset">
+                                <form action="EditPassController" method="POST">
+                                    <input type="hidden" name="action" value="change-pass"
+                                           <div class="login-reset">
                                     <ul class="fill-form">
                                         <li class="log-resetEmail input-group ">
-
                                             <label for="exampleInputEmail">Mật khẩu cũ</label>
-                                            <br>
-                                            <input type="password" class="form-control" id="exampleInputEmail" placeholder="nhập mật khẩu cũ">
-
+                                            <br/>
+                                            <input name="oldPass" type="password" class="form-control" id="exampleInputEmail" placeholder="nhập mật khẩu cũ">
+                                            <br/>
+                                        </li>
+                                        <li>
+                                            <span class="mt-2 mb-3 text-danger">${errorOldPass}</span>
                                         </li>
                                         <li class="log-resetEmail input-group ">
-
                                             <label for="exampleInputEmail">Mật khẩu mới</label>
-                                            <br>
-                                            <input type="password" class="form-control" id="exampleInputEmail" placeholder="nhập mật khẩu mới">
-
+                                            <br/>
+                                            <input name="newPass" type="password" class="form-control" id="exampleInputEmail" placeholder="nhập mật khẩu mới">
+                                            <br/>
+                                        </li>
+                                        <li>
+                                            <span class="mt-2 mb-3 text-danger">${errorRePass}</span>
                                         </li>
                                         <li class="log-resetEmail input-group ">
-
                                             <label for="exampleInputEmail">Nhập lại mật khẩu mới</label>
                                             <br>
-                                            <input type="password" class="form-control" id="exampleInputEmail" placeholder="nhập lại mật khẩu mới">
+                                            <input name="reNewPass" type="password" class="form-control" id="exampleInputEmail" placeholder="nhập lại mật khẩu mới">
 
                                         </li>
                                         <li class="form-btn" >
                                             <div class="form-action-btn">
                                                 <!-- <div class="form-action-btn"> -->
-                                                <button style="margin-top: 30px; margin-bottom: 15px;" id="submit" type="button" class="btn btn-warning">Gửi</button>
+                                                <button style="margin-top: 30px; margin-bottom: 15px;" id="submit" type="submit" class="btn btn-warning">Gửi</button>
                                                 <br>
                                             </div>
                                         </li>
                                     </ul>
-                                </div>
                             </div>
+                            </form>
                         </div>
                     </div>
+                </div>
 
                 </div>
             </section>

@@ -14,12 +14,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "ModeratorAddSubCateController", urlPatterns = {"/ModeratorAddSubCateController"})
 public class ModeratorAddSubCateController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        if (session.getAttribute("roleIdLoggin") == null || (int) session.getAttribute("roleIdLoggin") != 2) {
+            request.getRequestDispatcher("common/error.jsp").forward(request, response);
+            return;
+        }
         request.setCharacterEncoding("UTF-8");
         Connection connection = DBConnect.getConnection();
         String action = request.getParameter("action");

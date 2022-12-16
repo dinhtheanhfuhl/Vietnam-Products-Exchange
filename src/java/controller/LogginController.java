@@ -34,6 +34,8 @@ public class LogginController extends HttpServlet {
         Connection connection = DBConnect.getConnection();
         AccountDAO accountDAO = new AccountDAO(connection);
         CategoryDAO categoryDAO = new CategoryDAO(connection);
+        SystemManagerDAO systemManagerDAO = new SystemManagerDAO(connection);
+
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
         String action = request.getParameter("action");
@@ -50,25 +52,24 @@ public class LogginController extends HttpServlet {
                 request.getRequestDispatcher("./common/login.jsp").forward(request, response);
             } else {
                 HttpSession session = request.getSession();
-                session.setAttribute("email", email);
-                session.setAttribute("password", password);
-                session.setAttribute("roleId", account.getRoldId());
+                session.setAttribute("emailLoggin", email);
+                session.setAttribute("passwordLoggin", password);
+                session.setAttribute("roleIdLoggin", account.getRoldId());
                 switch (account.getRoldId()) {
                     case 1:
-                        SystemManagerDAO systemManagerDAO = new SystemManagerDAO(connection);
                         SystemManager systemManager = systemManagerDAO.getSystemManagerByAccId(account.getAccId());
-                        session.setAttribute("systemManager", systemManager);
+                        session.setAttribute("admin", systemManager);
                         response.sendRedirect("AdminController");
                         break;
                     case 2:
-                        SystemManagerDAO systemManagerDAO1 = new SystemManagerDAO(connection);
-                        SystemManager systemManager1 = systemManagerDAO1.getSystemManagerByAccId(account.getAccId());
-                        session.setAttribute("systemManager", systemManager1);
+                        systemManager = systemManagerDAO.getSystemManagerByAccId(account.getAccId());
+                        session.setAttribute("moder", systemManager);
                         response.sendRedirect("ModeratorController");
                         break;
                     case 3:
                         SupplierDAO supDAO = new SupplierDAO(connection);
-                        Supplier sup = supDAO.getSupplierByAccId(account.getAccId());
+                        Supplier supplier = supDAO.getSupplierByAccId(account.getAccId());
+                        session.setAttribute("supplier", supplier);
                         response.sendRedirect("SupplierController");
                         break;
                     case 4:
