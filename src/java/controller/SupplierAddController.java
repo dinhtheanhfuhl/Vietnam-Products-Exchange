@@ -19,36 +19,33 @@ import entity.ProductHierarchy;
 import entity.ProductImage;
 import entity.SubCategory;
 import entity.Supplier;
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.apache.commons.fileupload.FileItem;
+import javax.servlet.http.Part;
 import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
  *
  * @author DEKUPAC
  */
+@MultipartConfig
 @WebServlet(name = "SupplierAddController", urlPatterns = {"/SupplierAddController"})
 public class SupplierAddController extends HttpServlet {
 
@@ -72,7 +69,7 @@ public class SupplierAddController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         Supplier supplier = (Supplier) session.getAttribute("supplier");
         int supplierId = supplier.getSupplierId();
-        
+
         Connection conn = dbconnect.DBConnect.getConnection();
         CityDAO cityDAO = new CityDAO(conn);
         CategoryDAO cateDAO = new CategoryDAO(conn);
@@ -81,190 +78,98 @@ public class SupplierAddController extends HttpServlet {
         DeliveryAreaDAO deliveryAreaDAO = new DeliveryAreaDAO(conn);
         ProductImageDAO productImageDAO = new ProductImageDAO(conn);
         ProductHierarchyDAO productHierarchyDAO = new ProductHierarchyDAO(conn);
-        
+
         String action = request.getParameter("action");
         if (action == null || action.equals("")) {
             List<City> allCities = cityDAO.getAllCity();
             List<Category> allCates = cateDAO.getAllCategory();
-            
+
             Map<Category, List<SubCategory>> mapCateSubCate = new LinkedHashMap<>();
-            
+
             for (Category c : allCates) {
                 List<SubCategory> subCategorys = subCateDAO.getSubcategoryByCategoryId(c.getCateId());
                 mapCateSubCate.put(c, subCategorys);
             }
-            
             request.setAttribute("allCities", allCities);
             request.setAttribute("mapCateSubCate", mapCateSubCate);
             request.getRequestDispatcher("admin-page/supplier-add-product.jsp").forward(request, response);
-            
         } else if (action.equals("add")) {
-            // add file anh va file giay phep vao uploads
-            // Create a factory for disk-based file items
-            DiskFileItemFactory factory = new DiskFileItemFactory();
+            List<Part> listPartsImg = new ArrayList<>();
+            Part img1Part = request.getPart("photo1");
+            Part img2Part = request.getPart("photo2");
+            Part img3Part = request.getPart("photo3");
+            Part img4Part = request.getPart("photo4");
+            Part img5Part = request.getPart("photo5");
+            listPartsImg.add(img1Part);
+            listPartsImg.add(img2Part);
+            listPartsImg.add(img3Part);
+            listPartsImg.add(img4Part);
+            listPartsImg.add(img5Part);
+            String description = request.getParameter("description");
+            String barcode = request.getParameter("barcode");
+            Part lincsePart = request.getPart("lincse");
+            int subCate = Integer.parseInt(request.getParameter("subCate"));
+            String[] cities = request.getParameterValues("cities");
+            String name = request.getParameter("name");
+            String trademark = request.getParameter("trademark");
+            String smell = request.getParameter("smell");
+            String color = request.getParameter("color");
+            int weight = Integer.parseInt(request.getParameter("weight"));
+            String packing = request.getParameter("packing");
+            String element = request.getParameter("element");
+            int weight1 = Integer.parseInt(request.getParameter("weight1"));
+            int weight2 = Integer.parseInt(request.getParameter("weight2"));
+            int weight3 = Integer.parseInt(request.getParameter("weight3"));
+            int price1 = Integer.parseInt(request.getParameter("price1"));
+            int price2 = Integer.parseInt(request.getParameter("price2"));
+            int price3 = Integer.parseInt(request.getParameter("price3"));
+            String creatDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date());
 
-            // Configure a repository (to ensure a secure temp location is used)
-            javax.servlet.ServletContext servletContext = this.getServletConfig().getServletContext();
-            File repository = (File) servletContext.getAttribute("javax.servlet.context.tempdir");
-            factory.setRepository(repository);
+            String realPath = request.getServletContext().getRealPath("/uploads");
+            if (!Files.exists(Paths.get(realPath))) {
+                Files.createDirectories(Paths.get(realPath));
+            }
 
-            // Create a new file upload handler
-            ServletFileUpload upload = new ServletFileUpload(factory);
+            Product product = new Product(1, supplierId, subCate, creatDate, description, name, barcode,
+                    "lincse", trademark, smell, color, weight, packing, element, 0, 1);
 
-            // Parse the request
-            List<FileItem> items = upload.parseRequest(request);
-            // Process the uploaded items
-            Iterator<FileItem> iter = items.iterator();
-            
-            List<String> fileImages = new ArrayList<>();
-            String fileLincse = "";
-            
-            String description = null;
-            String barcode = null;
-            int subCateId = 0;
-            List<String> cities = new ArrayList<>();
-            String nameP = null;
-            String trademark = null;
-            String taste = null;
-            String color = null;
-            int weight = 0;
-            String packaging = null;
-            String composition = null;
-            int weight1 = 0;
-            int weight2 = 0;
-            int weight3 = 0;
-            int price1 = 0;
-            int price2 = 0;
-            int price3 = 0;
-            
             int number = 0;
-            while (iter.hasNext()) {
-                FileItem item = iter.next();
-                if (!item.isFormField()) {
-                    number++;
-                    String filename = item.getName();
-                    if (filename == null || filename.equals("")) {
-                        continue;
-                    } else {
-                        int indexDot = filename.indexOf(".");
-                        SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyyHHmmss");
-                        Date date = new Date();
-                        filename = formatter.format(date) + number + filename.substring(indexDot);
-                        
-                        if (item.getFieldName().equals("lincse")) {
-                            fileLincse = filename;
-                        } else {
-                            fileImages.add(filename);
-                        }
-                        Path path = Paths.get(filename);
-                        String storePath = servletContext.getRealPath("/uploads");
-                        if (!Files.exists(Paths.get(storePath))) {
-                            Files.createDirectories(Paths.get(storePath));
-                        }
-                        File uploadFile = new File(storePath + "/" + path.getFileName());
-                        item.write(uploadFile);
-                    }
-                } else {
-                    String name = item.getFieldName();
-                    String value = item.getString();
-                    if (name.equals("description")) {
-                        description = value;
-                    }
-                    if (name.equals("barcode")) {
-                        barcode = value;
-                    }
-                    if (name.equals("category")) {
-                        subCateId = Integer.parseInt(value);
-                    }
-                    if (name.equals("cities")) {
-                        cities.add(value);
-                    }
-                    if (name.equals("name")) {
-                        nameP = value;
-                    }
-                    if (name.equals("trademark")) {
-                        trademark = value;
-                    }
-                    if (name.equals("taste")) {
-                        taste = value;
-                    }
-                    if (name.equals("color")) {
-                        color = value;
-                    }
-                    if (name.equals("weight")) {
-                        weight = Integer.parseInt(value);
-                    }
-                    if (name.equals("packaging")) {
-                        packaging = value;
-                    }
-                    if (name.equals("composition")) {
-                        composition = value;
-                    }
-                    if (name.equals("weight1")) {
-                        weight1 = Integer.valueOf(value);
-                    }
-                    if (name.equals("weight2")) {
-                        weight2 = Integer.valueOf(value);
-                        
-                    }
-                    if (name.equals("weight3")) {
-                        weight3 = Integer.valueOf(value);
-                        
-                    }
-                    if (name.equals("price1")) {
-                        price1 = Integer.valueOf(value);
-                        
-                    }
-                    if (name.equals("price2")) {
-                        price2 = Integer.valueOf(value);
-                        
-                    }
-                    if (name.equals("price3")) {
-                        price3 = Integer.valueOf(value);
-                        
-                    }
+            String filelincse = Paths.get(lincsePart.getSubmittedFileName()).getFileName().toString();
+            if (!filelincse.equals("")) {
+                int indexDot = filelincse.indexOf(".");
+                SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyyHHmmss");
+                Date date = new Date();
+                filelincse = formatter.format(date) + number + filelincse.substring(indexDot);
+                lincsePart.write(realPath + "/" + filelincse);
+                product.setProductCertificate(filelincse);
+            }
+
+            productDAO.saveProduct(product);
+            product = productDAO.getTop1ProductNewest();
+
+            for (Part part : listPartsImg) {
+                number++;
+                String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+                if (!filename.equals("")) {
+                    int indexDot = filename.indexOf(".");
+                    SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyyHHmmss");
+                    Date date = new Date();
+                    filename = formatter.format(date) + number + filename.substring(indexDot);
+                    part.write(realPath + "/" + filename);
+                    ProductImage proImg = new ProductImage(0, product.getProductId(), filename);
+                    productImageDAO.saveProductImage(proImg);
                 }
             }
 
-            // add nhung field la field form
-            Product product = new Product();
-            product.setSupplierId(supplierId);
-            product.setSubCateId(subCateId);
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-            String dateStr = df.format(new Date());
-            product.setCreatedDate(dateStr);
-            product.setDescription(description);
-            product.setProductName(nameP);
-            product.setBarCode(barcode);
-            product.setProductCertificate(fileLincse);
-            product.setTrademark(trademark);
-            product.setSmell(taste);
-            product.setColor(color);
-            product.setWeight(weight);
-            product.setPacking(packaging);
-            product.setElement(composition);
-            product.setViewNumber(0);
-            product.setStatusId(1);
-            int status = productDAO.saveProduct(product);
-            
-            Product productNewest = productDAO.getTop1ProductNewest();
-            int productNewestId = productNewest.getProductId();
-            
             for (String cityId : cities) {
                 DeliveryArea deliveryArea = new DeliveryArea();
-                deliveryArea.setProductId(productNewestId);
+                deliveryArea.setProductId(product.getProductId());
                 deliveryArea.setCityId(Integer.parseInt(cityId));
-                int statusC = deliveryAreaDAO.saveDeliveryArea(deliveryArea);
+                deliveryAreaDAO.saveDeliveryArea(deliveryArea);
             }
-            for (String image : fileImages) {
-                ProductImage productImage = new ProductImage();
-                productImage.setProducId(productNewestId);
-                productImage.setImgPath(image);
-                int statusI = productImageDAO.saveProductImage(productImage);
-            }
-            ProductHierarchy productHierarchy1 = new ProductHierarchy(productNewestId, weight1, price1);
-            ProductHierarchy productHierarchy2 = new ProductHierarchy(productNewestId, weight2, price2);
-            ProductHierarchy productHierarchy3 = new ProductHierarchy(productNewestId, weight3, price3);
+            ProductHierarchy productHierarchy1 = new ProductHierarchy(product.getProductId(), weight1, price1);
+            ProductHierarchy productHierarchy2 = new ProductHierarchy(product.getProductId(), weight2, price2);
+            ProductHierarchy productHierarchy3 = new ProductHierarchy(product.getProductId(), weight3, price3);
             productHierarchyDAO.saveProductHierarchy(productHierarchy1);
             productHierarchyDAO.saveProductHierarchy(productHierarchy2);
             productHierarchyDAO.saveProductHierarchy(productHierarchy3);
