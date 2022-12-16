@@ -156,6 +156,19 @@
                                         </div>
                                     </div>
                                 </c:if>
+                                <c:if test="${sessionScope.roleCusId==3}">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            ${sessionScope.supplier}
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="CustomerInfoDetail">Thông tin cá nhân</a>
+                                            <a class="dropdown-item" href="HistoryOrderController">Lịch sử mua hàng</a>
+                                            <a class="dropdown-item" href="EditPassController?action=show-change-pass">Thay đổi mật khẩu</a>
+                                            <a class="dropdown-item" href="LogoutController">Đăng xuất</a>
+                                        </div>
+                                    </div>
+                                </c:if>
                                 <c:if test="${sessionScope.roleCusId==null}">
                                     <a href="LogginController" class="nav-link border border-light rounded waves-effect">
                                         <i class="fas fa-user"></i>Đăng Nhập

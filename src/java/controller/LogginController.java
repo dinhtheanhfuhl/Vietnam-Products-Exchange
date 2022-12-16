@@ -58,12 +58,12 @@ public class LogginController extends HttpServlet {
                 switch (account.getRoldId()) {
                     case 1:
                         SystemManager systemManager = systemManagerDAO.getSystemManagerByAccId(account.getAccId());
-                        session.setAttribute("admin", systemManager);
+                        session.setAttribute("systemManager", systemManager);
                         response.sendRedirect("AdminController");
                         break;
                     case 2:
                         systemManager = systemManagerDAO.getSystemManagerByAccId(account.getAccId());
-                        session.setAttribute("moder", systemManager);
+                        session.setAttribute("systemManager", systemManager);
                         response.sendRedirect("ModeratorController");
                         break;
                     case 3:
