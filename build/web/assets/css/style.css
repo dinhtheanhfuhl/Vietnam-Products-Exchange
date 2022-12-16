@@ -213,9 +213,9 @@
     margin: 0 26%;
     width: 50%;
     height: 50%;
-    -webkit-border-radius: 50% !important;
-    -moz-border-radius: 50% !important;
-    border-radius: 50% !important;
+    -webkit-border-radius: 500px !important;
+    -moz-border-radius: 500px !important;
+    border-radius: 500px !important;
 }
 
 .profile-usertitle {

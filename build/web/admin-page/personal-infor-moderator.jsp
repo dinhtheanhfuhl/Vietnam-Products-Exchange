@@ -7,26 +7,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
         <title>Thông tin tài khoản</title>
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="../assets/css/loader.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/loader.css" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" type="text/css" />
-        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/plugins.css" rel="stylesheet" type="text/css" />
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!--  BEGIN CUSTOM STYLE FILE  -->
-        <link rel="stylesheet" type="text/css" href="../plugins/table/datatable/datatables.css" />
-        <link rel="stylesheet" type="text/css" href="../assets/css/ecommerce/order.css" />
-        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="plugins/table/datatable/datatables.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/ecommerce/order.css" />
+        <link rel="stylesheet" href="assets/css/style.css">
 
         <!--====== Style css ======-->
         <link rel="stylesheet" href="assets/scss/style.css">
         <!--  END CUSTOM STYLE FILE  -->
         <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-        <link href="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
-        <link href="../plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
-        <link href="../assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/ecommerce/addedit_product.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />
+        <link href="plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
+        <link href="plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/ecommerce/addedit_product.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
@@ -206,42 +206,42 @@
     <%@include file="aside.jsp" %>
 
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="../assets/js/libs/jquery-3.1.1.min.js"></script>
-    <script src="../assets/js/loader.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="../plugins/blockui/jquery.blockUI.min.js"></script>
-    <script src="../assets/js/app.js"></script>
+    <script src="assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="plugins/blockui/jquery.blockUI.min.js"></script>
+    <script src="assets/js/app.js"></script>
     <script>
                                         $(document).ready(function () {
                                             App.init();
                                         });
     </script>
-    <script src="../assets/js/custom.js"></script>
+    <script src="assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-    <script src="../plugins/charts/chartist/chartist.js"></script>
-    <script src="../plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
-    <script src="../plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="../plugins/calendar/pignose/moment.latest.min.js"></script>
-    <script src="../plugins/calendar/pignose/pignose.calendar.js"></script>
-    <script src="../plugins/progressbar/progressbar.min.js"></script>
-    <script src="../assets/js/default-dashboard/default-custom.js"></script>
-    <script src="../assets/js/ui-kit/timeline/horizontal-main.js"></script>
-    <script src="../plugins/charts/amcharts/amcharts.js"></script>
-    <script src="../plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
-    <script src="../plugins/maps/vector/ammaps/worldLow.js"></script>
-    <script src="../plugins/charts/amcharts/radar.js"></script>
-    <script src="../plugins/charts/amcharts/pie.js"></script>
-    <script src="../plugins/charts/sparklines/jquery.sparkline.min.js"></script>
-    <script src="../plugins/charts/amcharts/serial.js"></script>
-    <script src="../plugins/charts/amcharts/light.js"></script>
-    <script src="../assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
-    <script src="../plugins/table/datatable/datatables.js"></script>
-    <script src="../plugins/progressbar/progressbar.min.js"></script>
-    <script src="../assets/js/ecommerce/order.js"></script>
+    <script src="plugins/charts/chartist/chartist.js"></script>
+    <script src="plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="plugins/calendar/pignose/moment.latest.min.js"></script>
+    <script src="plugins/calendar/pignose/pignose.calendar.js"></script>
+    <script src="plugins/progressbar/progressbar.min.js"></script>
+    <script src="assets/js/default-dashboard/default-custom.js"></script>
+    <script src="assets/js/ui-kit/timeline/horizontal-main.js"></script>
+    <script src="plugins/charts/amcharts/amcharts.js"></script>
+    <script src="plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
+    <script src="plugins/maps/vector/ammaps/worldLow.js"></script>
+    <script src="plugins/charts/amcharts/radar.js"></script>
+    <script src="plugins/charts/amcharts/pie.js"></script>
+    <script src="plugins/charts/sparklines/jquery.sparkline.min.js"></script>
+    <script src="plugins/charts/amcharts/serial.js"></script>
+    <script src="plugins/charts/amcharts/light.js"></script>
+    <script src="assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
+    <script src="plugins/table/datatable/datatables.js"></script>
+    <script src="plugins/progressbar/progressbar.min.js"></script>
+    <script src="assets/js/ecommerce/order.js"></script>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 </body>
 

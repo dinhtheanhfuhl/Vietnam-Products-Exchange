@@ -52,6 +52,7 @@ public class LogginController extends HttpServlet {
                 request.getRequestDispatcher("./common/login.jsp").forward(request, response);
             } else {
                 HttpSession session = request.getSession();
+                session.setAttribute("accountLoggin", account);
                 session.setAttribute("emailLoggin", email);
                 session.setAttribute("passwordLoggin", password);
                 session.setAttribute("roleIdLoggin", account.getRoldId());

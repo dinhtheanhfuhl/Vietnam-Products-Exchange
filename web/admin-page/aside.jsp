@@ -3,7 +3,13 @@
 <aside class="profile-sidebar text-center">
     <div class="profile-content profile-content-scroll">
         <div class="usr-profile">
-            <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
+            <img style="width: 100px !important; height: 100px !important"
+                <c:choose>
+                    <c:when test="${roleIdLoggin==1}">
+                        src="uploads/${systemManager.avartarImg}" 
+                    </c:when>
+                </c:choose>
+                alt="admin-profile" class="img-fluid" />
         </div>
         <p class="user-name mt-4 mb-4">
             <c:if test="${sessionScope.systemManager!=null}">${sessionScope.systemManager.name}</c:if>
@@ -13,7 +19,7 @@
             <div class="user-links text-left">
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                        <a href="InforController"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                     </li>
                 <c:if test="${sessionScope.supplier!=null}">
                     <li>

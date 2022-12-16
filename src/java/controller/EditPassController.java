@@ -73,15 +73,19 @@ public class EditPassController extends HttpServlet {
             StringBuilder codeBuilder = new StringBuilder("");
             String code;
             for (int i = 0; i < 10; i++) {
-                int index = (int) Math.round(Math.random() * str.length());
+                int index = (int) Math.round(Math.random() * (str.length()-1));
                 codeBuilder.append(str.charAt(index));
             }
             code = codeBuilder.toString();
             ResetPass reset = new ResetPass(acc.getAccId(), code);
             int status = resetDAO.saveResetPass(reset);
             if (status > 0) {
-                String content = "<a href='http://localhost:8080/CapstoneProject/EditPassController?action=verifypass&code=" + code + "'>Bấm vào đây để tạo lại mật khẩu!</a>";
-                security.SendMail.SendToDeMail(email, "Đổi mật khẩu VnProX!", content);
+                String content = "Xin chào quý khách, <br/>"
+                        + "Chúng tôi nhận được yêu cầu thiết lập lại mật khẩu từ bạn.<br/>"
+                        + "<a href='http://localhost:8080/CapstoneProject/EditPassController?action=verifypass&code=" + code + "'>Bấm vào đây để thiết lập   lại mật khẩu!</a><br/>"
+                        + "Cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi<br/>"
+                        + "VnProX Service Team";
+                security.SendMail.SendToDeMail(email, "Thiết lập lại mật khẩu", content);
             }
             request.setAttribute("mess", "Đường dẫn đổi mật khẩu đã được gửi đến địa chỉ mail của bạn!");
             request.getRequestDispatcher("common/resetPass.jsp").forward(request, response);
