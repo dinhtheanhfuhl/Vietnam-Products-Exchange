@@ -286,7 +286,7 @@
                 <c:forEach var="key" items="${mapProduct.keySet()}">
                     <tbody>
                         <tr>
-                            <td><a href="MimartDetailProduct?pid=${key.productId}"><img style="margin-left: 0px;object-fit: cover;" src="${mapImage.get(key).get(0).getImgPath()}" alt=""></a></td>
+                            <td><a href="MimartDetailProduct?pid=${key.productId}"><img style="margin-left: 0px;object-fit: cover;" src="uploads/${mapImage.get(key).get(0).getImgPath()}" alt=""></a></td>
                             <td><a href="MimartDetailProduct?pid=${key.productId}"><p style="width: 200px"><b>${mapProduct.get(key).get(0).getProductName()}
                                             ${mapProduct.get(key).get(0).trademark}
                                             ${mapProduct.get(key).get(0).smell},

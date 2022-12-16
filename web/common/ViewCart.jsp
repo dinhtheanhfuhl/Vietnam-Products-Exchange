@@ -114,7 +114,7 @@
                                         <c:forEach var="key" items="${mapImages.keySet()}" >
                                             <tbody>
                                                 <tr>
-                                                    <td><img src="${mapImages.get(key).get(0).getImgPath()}" alt="" style="object-fit: cover;margin-left: 0px;height: 100px"></td>
+                                                    <td><img src="uploads/${mapImages.get(key).get(0).getImgPath()}" alt="" style="object-fit: cover;margin-left: 0px;height: 100px"></td>
                                                     <td><a style="text-decoration: none;" href="MimartDetailProduct?pid=${mapProduct.get(key).get(0).productId}">
                                                             <h6>${mapProduct.get(key).get(0).productName}<br>
                                                                 ${mapProduct.get(key).get(0).trademark}<br>

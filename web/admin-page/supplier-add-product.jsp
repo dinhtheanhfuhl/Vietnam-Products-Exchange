@@ -262,8 +262,7 @@
                                                                     <div class="row">
                                                                         <label class="col-md-4">Mã Barcode/SKU</label>
                                                                         <div class="col-md-8">
-
-                                                                            <input class="form-control" required="" name="barcode" type="text">
+                                                                            <input class="form-control" type="number" required="" name="barcode" minlength="8" maxlength="13" type="text">
                                                                         </div>
                                                                     </div>
                                                                 </div>

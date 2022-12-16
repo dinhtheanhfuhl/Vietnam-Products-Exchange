@@ -138,7 +138,7 @@
                                         <div class="single-shop-box">
                                             <a href="MimartDetailProduct?pid=${key.productId}">
                                                 <div class="thumb text-center">
-                                                    <img style="height:200px;object-fit: cover" src="${mapImages.get(key).get(0).getImgPath()}" alt="">
+                                                    <img style="height:200px;object-fit: cover" src="uploads/${mapImages.get(key).get(0).getImgPath()}" alt="">
                                                 </div>
 
                                             </a>
@@ -182,7 +182,7 @@
                                         <div class="single-shop-box">
                                             <a href="" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo">
                                                 <div class="thumb text-center">
-                                                    <img style="height:200px;object-fit: cover" src="${mapImages.get(key).get(0).getImgPath()}" alt="">
+                                                    <img style="height:200px;object-fit: cover" src="uploads/${mapImages.get(key).get(0).getImgPath()}" alt="">
                                                 </div>
                                             </a>
                                             <div class="content">
