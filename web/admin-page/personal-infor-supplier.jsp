@@ -37,35 +37,7 @@
         </div>
 
         <!--  BEGIN NAVBAR  -->
-        <header class="desktop-nav header navbar fixed-top">
-            <div class="nav-logo mr-sm-5 ml-sm-4">
-                
-                <a class="navbar-brand waves-effect" href="Home">
-                    <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
-                </a>
-            </div>
-            <ul class="navbar-nav flex-row mr-auto">
-                <li class="nav-item ml-4 d-lg-none d-sm-block d-none">
-                    <form class="form-inline search-full form-inline search animated-search" role="search">
-                        <i class="flaticon-search-1 d-lg-none d-block"></i>
-                        <input type="text" class="form-control search-form-control ml-lg-auto" placeholder="">
-                    </form>
-                </li>
-
-            </ul>
-
-            <ul class="navbar-nav flex-row ml-lg-auto">
-                <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
-                    <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
-                        <div class="user-profile d-lg-block d-none">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6p1uHt5NGPGppq1t48xlKt18PfNiIX5zCYQ&usqp=CAU"
-                                 alt="admin-profile" class="img-fluid">
-                        </div>
-                        <i class="flaticon-user-7 d-lg-none d-block"></i>
-                    </a>
-                </li>
-            </ul>
-        </header>
+        <%@include file="header.jsp" %>
         <!--  END NAVBAR  -->
 
         <!--  BEGIN MAIN CONTAINER  -->
@@ -78,20 +50,27 @@
 
             <!--  BEGIN MODERN  -->
 
-            
+
             <!--  END MODERN  -->
 
             <!--  BEGIN CONTENT PART  -->
             <div id="content" class="main-content">
                 <!--  BEGIN CONTENT PART  -->
 
-                <div class="container main-infor" style="margin-top: 10%">
+                <div class="container main-infor" style="margin-top: 4%">
                     <h1 class="text-center">Thông tin người dùng</h1>
                     <div class="row profile">
                         <div class="col-md-3 mt-50 mb-50">
                             <div class="profile-sidebars">
-                                <div class="profile-userpic"> <img
-                                        src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
+                                <div class="profile-userpic"> <img style="width: 150px;height: 150px;object-fit: cover;" 
+                                        <c:choose>
+                                            <c:when test='${supplier.avartarImg==null||supplier.avartarImg==""}'>
+                                                src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
+                                            </c:when>
+                                            <c:otherwise>
+                                                src="uploads/${supplier.avartarImg}"
+                                            </c:otherwise>
+                                        </c:choose>
                                         class="img-responsive " alt="ThÃ´ng tin cÃ¡ nhÃ¢n">
 
                                 </div>
@@ -99,7 +78,11 @@
                                     <div class="profile-usertitle-name">${supplier.supplierName}</div>
                                 </div>
                                 <div class="profile-userbuttons">
-                                    <button type="button" class="btn btn-success btn-sm"> Upload Image</button>
+                                    <form action="InforController" method="POST" enctype="multipart/form-data">
+                                        <input type="hidden" name="action" value="uploadImg"/>
+                                        <input type="file" name="img" class="form-control"/>
+                                        <button type="submit" class="btn btn-success btn-sm mt-3">Cập nhật</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -118,9 +101,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-
                                 </div>
-
                                 <div class="col-md-8 col-sm-6 pt-4 pb-4">
                                     <table>
                                         <tbody>
@@ -134,9 +115,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-
                                 </div>
-
                                 <div class="col-md-8 col-sm-6 pt-4 pb-4">
                                     <table>
                                         <tbody>
@@ -164,7 +143,6 @@
                                             </tr>
                                         </tbody>
                                     </table>
-
                                 </div>
                                 <div class="col-md-8 col-sm-6 pt-4 pb-4">
                                     <table>

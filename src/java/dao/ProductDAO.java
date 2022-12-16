@@ -607,6 +607,7 @@ public class ProductDAO {
         if (shopName != null && !shopName.equals("")) {
             strSearch += " and SupplierID IN (select SupplierID from supplier where ShopName like N'%" + shopName + "%')";
         }
+        strSearch += " order by CreatedDate desc";
         try {
             PreparedStatement ps = connection.prepareStatement(strSearch);
             ResultSet rs = ps.executeQuery();

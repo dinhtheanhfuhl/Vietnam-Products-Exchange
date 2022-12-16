@@ -64,7 +64,7 @@
                     <div class="row profile">
                         <div class="col-md-3 mt-50 mb-50">
                             <div class="profile-sidebars">
-                                <div class="row profile-userpic"> <img style="width: 150px;height: 150px;"
+                                <div class="row profile-userpic"> <img style="width: 150px;height: 150px;;object-fit: cover;"
                                         <c:choose>
                                             <c:when test='${sys.avartarImg==""||sys.avartarImg==null}'>
                                                 src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"

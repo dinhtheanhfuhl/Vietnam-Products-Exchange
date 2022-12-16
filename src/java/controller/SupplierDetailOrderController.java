@@ -1,6 +1,7 @@
 package controller;
 
 import dao.CategoryDAO;
+import dao.MessageRejectOrderDAO;
 import dao.OrderDAO;
 import dao.OrderDetailDAO;
 import dao.OrderStatusDAO;
@@ -8,6 +9,7 @@ import dao.ProductDAO;
 import dao.ProductImageDAO;
 import dao.SubCategoryDAO;
 import entity.Category;
+import entity.MessageRejectOrder;
 import entity.Order;
 import entity.OrderDetail;
 import entity.OrderStatus;
@@ -50,13 +52,19 @@ public class SupplierDetailOrderController extends HttpServlet {
         ProductDAO productDAO = new ProductDAO(conn);
         CategoryDAO cateDAO = new CategoryDAO(conn);
         SubCategoryDAO subCateDAO = new SubCategoryDAO(conn);
+        MessageRejectOrderDAO messDAO = new MessageRejectOrderDAO(conn);
 
         int orderId = Integer.parseInt(request.getParameter("id"));
         Order order = orderDAO.getOrderById(orderId);
         List<OrderDetail> details = detailDAO.getAllOrderDetailsByOrderId(orderId);
         String action = request.getParameter("action");
         if (action == null) {
+            
             OrderStatus status = statusDAO.getOrderStatusById(order.getOrderStatusId());
+            if(status.getOrderStatusID()==5){
+                MessageRejectOrder mess = messDAO.getMessageRejectOrderByOrderId(orderId);
+                request.setAttribute("mess", mess);
+            }
             Map<OrderDetail, String> mapOrderDetailAndImagePath = new LinkedHashMap<>();
             for (OrderDetail detail : details) {
                 ProductImage proImg = proImgDAO.getFirstProductImgByProId(detail.getProductId());

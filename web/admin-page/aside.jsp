@@ -3,49 +3,67 @@
 <aside class="profile-sidebar text-center">
     <div class="profile-content profile-content-scroll">
         <div class="usr-profile">
-            <img style="width: 100px !important; height: 100px !important"
-                <c:choose>
-                    <c:when test="${roleIdLoggin==1}">
-                        src="uploads/${systemManager.avartarImg}" 
-                    </c:when>
-                </c:choose>
-                alt="admin-profile" class="img-fluid" />
-        </div>
-        <p class="user-name mt-4 mb-4">
-            <c:if test="${sessionScope.systemManager!=null}">${sessionScope.systemManager.name}</c:if>
-            <c:if test="${sessionScope.supplier!=null}">${sessionScope.supplier.supplierName}</c:if>
-            </p>
+            <img style="width: 100px !important; height: 100px !important;object-fit: cover;"
+                 <c:choose>
+                     <c:when test="${roleIdLoggin==1||roleIdLoggin==2}">
+                         <c:choose>
+                             <c:when test='${systemManager.avartarImg==null||systemManager.avartarImg==""}'>
+                                 src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
+                             </c:when>
+                             <c:otherwise>
+                                 src="uploads/${systemManager.avartarImg}"
+                             </c:otherwise>
+                         </c:choose>
+                     </c:when>
+                     <c:when test="${roleIdLoggin==3}">
+                         <c:choose>
+                             <c:when test='${supplier.avartarImg==null||supplier.avartarImg==""}'>
+                                 src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
+                             </c:when>
+                             <c:otherwise>
+                                 src="uploads/${supplier.avartarImg}"
+                             </c:otherwise>
+                         </c:choose>
+                     </c:when>
+                 </c:choose>
 
-            <div class="user-links text-left">
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="InforController"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
-                    </li>
-                <c:if test="${sessionScope.supplier!=null}">
-                    <li>
-                        <a href="#"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
-                    </li>
-                </c:if>
-                <c:if test="${sessionScope.roleIdLoggin==1}">
-                    <li>
-                        <a href="AdminController"><i class="flaticon-globe"></i> Quản lý</a>
-                    </li>
-                </c:if>
-                <c:if test="${sessionScope.roleIdLoggin==2}">
-                    <li>
-                        <a href="ModeratorController"><i class="flaticon-globe"></i> Quản lý</a>
-                    </li>
-                </c:if>
-                <c:if test="${sessionScope.roleIdLoggin==3}">
-                    <li>
-                        <a href="SupplierController"><i class="flaticon-globe"></i> Quản lý</a>
-                    </li>
-                </c:if>
+                 alt="admin-profile" class="img-fluid" 
+                 </div>
+            <p class="user-name mt-4 mb-4">
+                <c:if test="${sessionScope.systemManager!=null}">${sessionScope.systemManager.name}</c:if>
+                <c:if test="${sessionScope.supplier!=null}">${sessionScope.supplier.supplierName}</c:if>
+                </p>
 
-                <li>
-                    <a href="LogoutController"><i class="flaticon-power-off"></i> Đăng xuất</a>
-                </li>
-            </ul>
+                <div class="user-links text-left">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="InforController"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                        </li>
+                    <c:if test="${sessionScope.supplier!=null}">
+                        <li>
+                            <a href="#"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                        </li>
+                    </c:if>
+                    <c:if test="${sessionScope.roleIdLoggin==1}">
+                        <li>
+                            <a href="AdminController"><i class="flaticon-globe"></i> Quản lý</a>
+                        </li>
+                    </c:if>
+                    <c:if test="${sessionScope.roleIdLoggin==2}">
+                        <li>
+                            <a href="ModeratorController"><i class="flaticon-globe"></i> Quản lý</a>
+                        </li>
+                    </c:if>
+                    <c:if test="${sessionScope.roleIdLoggin==3}">
+                        <li>
+                            <a href="SupplierController"><i class="flaticon-globe"></i> Quản lý</a>
+                        </li>
+                    </c:if>
+
+                    <li>
+                        <a href="LogoutController"><i class="flaticon-power-off"></i> Đăng xuất</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
 </aside>

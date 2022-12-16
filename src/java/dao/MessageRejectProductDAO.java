@@ -59,7 +59,7 @@ public class MessageRejectProductDAO {
 
     public MessageRejectProduct getMessageRejectProductByProId(int id) {
         MessageRejectProduct messageRejectProduct = null;
-        String strSelectById = "select * from MessageRejectProduct where ProductID=?";
+        String strSelectById = "select top(1) * from MessageRejectProduct where ProductID=? order by MessageProductID desc";
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectById);
             ps.setInt(1, id);

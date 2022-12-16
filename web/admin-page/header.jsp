@@ -28,13 +28,30 @@
         <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
             <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
                 <div class="user-profile d-lg-block d-none">
-                    <img style="width: 40px !important; height: 40px !important"
-                        <c:choose>
-                            <c:when test="${roleIdLoggin==1}">
-                                src="uploads/${systemManager.avartarImg}"
-                            </c:when>
-                        </c:choose>
-                        alt="admin-profile" class="img-fluid">
+                    <img style="width: 40px !important; height: 40px !important;object-fit: cover;"
+                         <c:choose>
+                             <c:when test="${roleIdLoggin==1||roleIdLoggin==2}">
+                                 <c:choose>
+                                     <c:when test='${systemManager.avartarImg==null||systemManager.avartarImg==""}'>
+                                         src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
+                                     </c:when>
+                                     <c:otherwise>
+                                         src="uploads/${systemManager.avartarImg}"
+                                     </c:otherwise>
+                                 </c:choose>
+                             </c:when>
+                             <c:when test="${roleIdLoggin==3}">
+                                 <c:choose>
+                                     <c:when test='${supplier.avartarImg==null||supplier.avartarImg==""}'>
+                                         src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
+                                     </c:when>
+                                     <c:otherwise>
+                                         src="uploads/${supplier.avartarImg}"
+                                     </c:otherwise>
+                                 </c:choose>
+                             </c:when>
+                         </c:choose>
+                         alt="admin-profile" class="img-fluid">
                 </div>
                 <i class="flaticon-user-7 d-lg-none d-block"></i>
             </a>

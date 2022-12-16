@@ -39,41 +39,7 @@
         </div>
 
         <!--  BEGIN NAVBAR  -->
-        <header class="desktop-nav header navbar fixed-top">
-            <div class="nav-logo mr-sm-5 ml-sm-4">
-                <a href="javascript:void(0);" class="nav-link sidebarCollapse d-inline-block mr-sm-5"
-                   data-placement="bottom">
-                    <i class="flaticon-menu-line-3"></i>
-                </a>
-                <a class="navbar-brand waves-effect" href="Home">
-                    <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
-                </a>
-            </div>
-            <ul class="navbar-nav flex-row mr-auto">
-                <li class="nav-item ml-4 d-lg-none d-sm-block d-none">
-                    <form class="form-inline search-full form-inline search animated-search" role="search">
-                        <i class="flaticon-search-1 d-lg-none d-block"></i>
-                        <input type="text" class="form-control search-form-control ml-lg-auto" placeholder="">
-                    </form>
-                </li>
-
-            </ul>
-
-            <ul class="navbar-nav flex-row ml-lg-auto">
-
-
-
-                <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
-                    <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
-                        <div class="user-profile d-lg-block d-none">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6p1uHt5NGPGppq1t48xlKt18PfNiIX5zCYQ&usqp=CAU"
-                                 alt="admin-profile" class="img-fluid">
-                        </div>
-                        <i class="flaticon-user-7 d-lg-none d-block"></i>
-                    </a>
-                </li>
-            </ul>
-        </header>
+        <%@include file="header.jsp" %>
         <!--  END NAVBAR  -->
 
         <!--  BEGIN MAIN CONTAINER  -->
@@ -88,7 +54,7 @@
 
             <div class="modernSidebar-nav header header navbar">
                 <div class="">
-                   <nav id="modernSidebar">
+                    <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
@@ -146,12 +112,19 @@
                                 <th>Ghi Chú:</th>
                                 <td>${order.note}</td>
                             </tr>
+                            <c:if test="${mess!=null}">
+                                <tr>
+                                    <th>Lý do huỷ đơn:</th>
+                                    <td>${mess.messageDescribe}</td>
+                                </tr>
+                            </c:if>
                         </table>
                     </div>
                     <div class="button-status ">
                         <h5>Trạng thái đơn hàng</h5>
                         <a class="btn btn-info status disabled" >${status.statusName}</a>
                     </div>
+
                     <div class="button-status ">
                         <c:if test="${status.orderStatusID!=4 && status.orderStatusID!=3 && status.orderStatusID!=5}">
                             <h5>Hành động</h5>
@@ -180,7 +153,7 @@
                     </div>
                 </div>
 
-                <h3 class="h3-order">Danh sách sản phẩm đơn hàng</h3>
+                <h3 class="h3-order mt-4">Danh sách sản phẩm đơn hàng</h3>
                 <div class="widget-content widget-content-area view-order-detail">
                     <div class="table-responsive mb-4">
                         <table id="ecommerce-product-list" class="table  table-bordered">

@@ -196,6 +196,7 @@ public class CustomerDAO {
             int status = Integer.parseInt(filter);
             strSearch += " and AccID in (select AccID from Account where statusID = " + status + ")";
         }
+        strSearch+=" order by CustomerID desc";
         try {
             PreparedStatement ps = connection.prepareStatement(strSearch);
             ResultSet rs = ps.executeQuery();

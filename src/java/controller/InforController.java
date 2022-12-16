@@ -1,9 +1,10 @@
 package controller;
 
+import dao.SupplierDAO;
 import dao.SystemManagerDAO;
 import entity.Account;
+import entity.Supplier;
 import entity.SystemManager;
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -33,6 +34,7 @@ public class InforController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         Connection conn = dbconnect.DBConnect.getConnection();
         SystemManagerDAO sysDAO = new SystemManagerDAO(conn);
+        SupplierDAO supDAO = new SupplierDAO(conn);
         HttpSession session = request.getSession();
 
         int roleId = (int) session.getAttribute("roleIdLoggin");
@@ -81,6 +83,27 @@ public class InforController extends HttpServlet {
                         sysDAO.updateSystemManager(sys);
                         session.removeAttribute("systemManager");
                         session.setAttribute("systemManager", sys);
+                    }
+                    response.sendRedirect("InforController");
+                    break;
+                case 3:
+                    fileImg = request.getPart("img");
+                    fileName = fileImg.getSubmittedFileName();
+                    if (!fileImg.equals("")) {
+                        String realPath = request.getServletContext().getRealPath("/uploads");
+                        if (!Files.exists(Paths.get(realPath))) {
+                            Files.createDirectories(Paths.get(realPath));
+                        }
+                        int indexDot = fileName.indexOf(".");
+                        SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyyHHmmss");
+                        Date date = new Date();
+                        fileName = formatter.format(date) + fileName.substring(indexDot);
+                        fileImg.write(realPath + "/" + fileName);
+                        Supplier sup = supDAO.getSupplierByAccId(acc.getAccId());
+                        sup.setAvartarImg(fileName);
+                        supDAO.updateSupplier(sup);
+                        session.removeAttribute("supplier");
+                        session.setAttribute("supplier", sup);
                     }
                     response.sendRedirect("InforController");
                     break;

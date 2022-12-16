@@ -230,6 +230,7 @@ public class SupplierDAO {
             int status = Integer.parseInt(filter);
             strSearch += " and AccID in (select AccID from Account where StatusID = " + status + ")";
         }
+        strSearch+=" order by SupplierID desc";
         try {
             PreparedStatement ps = connection.prepareStatement(strSearch);
             ResultSet rs = ps.executeQuery();
