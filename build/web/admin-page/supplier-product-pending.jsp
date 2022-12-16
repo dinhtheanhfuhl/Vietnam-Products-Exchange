@@ -277,16 +277,16 @@
                 <div class="user-links text-left">
                     <ul class="list-unstyled">
                         <li>
-                            <a href="./personal-infor-supplier.jsp"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                            <a href="#"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/changepass.jsp"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                            <a href="#"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
                         </li>
                         <li>
-                            <a href="supplier-product-pending.jsp"><i class="flaticon-globe"></i> Quản lý</a>
+                            <a href="SupplierController"><i class="flaticon-globe"></i> Quản lý</a>
                         </li>
                         <li>
-                            <a href="#"><i class="flaticon-power-off"></i> Đăng xuất</a>
+                            <a href="LogoutController"><i class="flaticon-power-off"></i> Đăng xuất</a>
                         </li>
                     </ul>
                 </div>

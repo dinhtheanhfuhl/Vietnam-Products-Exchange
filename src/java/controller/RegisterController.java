@@ -1,10 +1,12 @@
 package controller;
 
 import dao.AccountDAO;
+import dao.CartDAO;
 import dao.CityDAO;
 import dao.CustomerDAO;
 import dao.SupplierDAO;
 import entity.Account;
+import entity.Cart;
 import entity.City;
 import entity.Customer;
 import entity.Supplier;
@@ -45,11 +47,12 @@ public class RegisterController extends HttpServlet {
         CustomerDAO cusDAO = new CustomerDAO(conn);
         SupplierDAO supDAO = new SupplierDAO(conn);
         CityDAO cityDAO = new CityDAO(conn);
+        CartDAO cartDAO = new CartDAO(conn);
+        List<City> cities = cityDAO.getAllCity();
+        request.setAttribute("cities", cities);
 
         String action = request.getParameter("action");
         if (action == null) {
-            List<City> cities = cityDAO.getAllCity();
-            request.setAttribute("cities", cities);
             request.getRequestDispatcher("common/createAccount.jsp").forward(request, response);
         } else if (action.equals("reg")) {
             String name = request.getParameter("name");
@@ -74,13 +77,12 @@ public class RegisterController extends HttpServlet {
             SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyyHHmmss");
             Date date = new Date();
             filename = formatter.format(date) + filename.substring(indexDot);
-            
+
             Account acc = accDAO.getAccountByEmail(email);
             if (acc != null) {
                 request.setAttribute("messDupMail", "Email đã tồn tại!");
                 request.getRequestDispatcher("common/createAccount.jsp").forward(request, response);
             } else if (acc == null) {
-
                 lincsePart.write(realpath + "/" + filename);
                 if (role.equals("3")) {
                     acc = new Account(0, email, security.SecurityPassword.encrypt(password), 3, 1);
@@ -90,7 +92,7 @@ public class RegisterController extends HttpServlet {
                             email, phone, shopName, mainAddress, Integer.parseInt(cityId), filename, "");
                     int statusSup = supDAO.saveSupplier(sup);
                     if (statusSup > 0) {
-                        response.sendRedirect("common/login.jsp");
+                        response.sendRedirect("LogginController");
                     }
                 } else if (role.equals("4")) {
                     acc = new Account(0, email, security.SecurityPassword.encrypt(password), 4, 1);
@@ -99,8 +101,11 @@ public class RegisterController extends HttpServlet {
                     Customer cus = new Customer(0, name, acc.getAccId(), dateBirth, gender,
                             email, phone, shopName, mainAddress, Integer.parseInt(cityId), filename, "");
                     int statusCus = cusDAO.saveCustomer(cus);
+                    cus = cusDAO.getCustomerByAccId(acc.getAccId());
+                    Cart cart = new Cart(1, cus.getCustomerId());
+                    cartDAO.saveCart(cart);
                     if (statusCus > 0) {
-                        response.sendRedirect("common/login.jsp");
+                        response.sendRedirect("LogginController");
                     }
                 }
             }

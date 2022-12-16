@@ -69,7 +69,7 @@
                             <div class="profile-usertitle-name"> ${customerDetail.customerName}</div>
                         </div>
                         <div class="profile-userbuttons">
-                            <button type="button" class="btn btn-success btn-sm"> <a href="./index.html">Trang
+                            <button type="button" class="btn btn-success btn-sm"> <a href="Home">Trang
                                     chủ</a></button>
 
                         </div>
@@ -107,14 +107,13 @@
                                     </tr>
                                     <tr>
                                         <th>Giấy phép</th>
-                                        <td>Larry</td>
+                                        <td>${customerDetail.businessLicense}</td>
                                     </tr>
                                     <tr>
                                         <th>Trạng thái</th>
-                                        <td><c:choose>
-                                                <c:when test="${account.status == true}"><a class="btn btn-success">Đang hoạt động</a></c:when>
-                                                <c:otherwise><a href="DetailCustomerController?action=accept-account&cus-id=${customer.customerId}&acc-id=${account.accId}" class="btn btn-success">Chấp thuận tài khoản</a></c:otherwise>
-                                            </c:choose></td>
+                                        <td>
+                                            <a style="color: white" class="btn btn-success">Chấp thuận tài khoản</a>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

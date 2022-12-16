@@ -7,7 +7,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="css/style.css">
 
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
@@ -32,7 +32,7 @@
         <link rel="stylesheet" href="assets/css/default.css">
 
         <!--====== Style css ======-->
-        <link rel="stylesheet" href="../assets/scss/style.css">
+        <link rel="stylesheet" href="assets/scss/style.css">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -41,92 +41,8 @@
     </head>
 
     <body>
-
-        <header class="header">
-            <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar ">
-                <div class="container-fluid">
-
-                    <!-- Brand -->
-                    <a class="navbar-brand waves-effect" href="./home.jsp">
-                        <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
-                    </a>
-
-                    <!-- Collapse -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <!-- Links -->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                        <!-- Left -->
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active" style="padding-left: 40px;">
-                                <a class="nav-link waves-effect  text-header" href="./index.html">Trang chủ
-
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="nav-link waves-effect text-header dropdown-toggle" href=""
-                                       target="_blank">Giới thiệu
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                                         id="dropdown-collection">
-                                        <a class="dropdown-item" href="./information.html">Về chúng tôi</a>
-                                        <a class="dropdown-item" href="./policy.html">Chính sách bảo mật</a>
-                                        <a class="dropdown-item" href="./condition.html">Điều khoản dịch vụ</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="nav-link waves-effect text-header dropdown-toggle" href="./shop.html"
-                                       target="_blank">Cửa hàng
-
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="./hoaqua.html">Trái cây</a>
-                                        <a class="dropdown-item" href="./dokho.html">Rau củ sạch</a>
-                                        <a class="dropdown-item" href="./dokho.html">Các loại hạt</a>
-                                    </div>
-                                </div>
-
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link waves-effect text-header" href="./contact.html">Liên hệ</a>
-                            </li>
-                        </ul>
-
-
-                        <!-- Right -->
-                        <ul class="navbar-nav nav-flex-icons">
-                            <li class="nav-item ">
-                                <a href="#"  class="nav-link cart-btn amm-shopping-cart-open pr-3"><i onclick="shoppingCarts()" class="fas fa-shopping-cart"></i>
-                                    <span class="quantity-amm-shopping-cart-open">0</span></a>
-
-                            </li>
-
-                            <li class="nav-item">
-                                <div class="dropdown dropdown-user">
-                                    <a href="login.jsp" class="nav-link border border-light rounded waves-effect" target="_blank">
-                                        <i class="fas fa-user"></i>Đăng Nhập
-                                    </a>
-
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
+        <%@include file="header.jsp"%>
         <section class="breadcrum">
-
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
                     <li class="breadcrumb-item"><a href="./home.jsp">Trang chủ</a></li>
@@ -149,7 +65,7 @@
                                         </div>
                                         <div class="form-group fill-form log-email">
                                             <label>Tên người dùng*</label>
-                                            <input name="name" type="text" required="" class="form-control" id="exampleInputPassword1"
+                                            <input name="name" type="text" required="" class="form-control" 
                                                    placeholder="nhập tên người dùng">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
@@ -181,6 +97,11 @@
                                             <input name="email" required="" type="email" class="form-control"
                                                    placeholder="nhập email">
                                         </div> 
+                                        <c:if test="${messDupMail!=null}">
+                                            <div class="form-group fill-form log-lastName">
+                                                <span class="text-danger">${messDupMail}</span>
+                                            </div> 
+                                        </c:if>
                                         <div class="form-group fill-form log-lastName">
                                             <label>Số điện thoại*</label>
                                             <input name="phone" required="" type="number" class="form-control" 
@@ -228,7 +149,7 @@
                                 <div class="acc-title">
                                     <h6>Bạn đã có tài khoản? </h6>
                                     <div class="account-option-action">
-                                        <a href="./login.jsp" id="customer_register">
+                                        <a href="LogginController" id="customer_register">
                                             Đăng nhập
                                             <!-- <button type="button" class="btn btn-outline-warning"></button> -->
                                         </a>
@@ -328,10 +249,10 @@
         <script src="assets/js/main.js"></script>
         <script src="./cart.js"></script>
         <script>$('#password, #confirm_password').on('keyup', function () {
-                                        if ($('#password').val() == $('#confirm_password').val()) {
-                                            $('#message').html('').css('color', 'green');
-                                        } else
-                                            $('#message').html('Mật khẩu chưa trùng khớp').css('color', 'red');
-                                    });</script>
+                if ($('#password').val() == $('#confirm_password').val()) {
+                    $('#message').html('').css('color', 'green');
+                } else
+                    $('#message').html('Mật khẩu chưa trùng khớp').css('color', 'red');
+            });</script>
     </body>
 </html>

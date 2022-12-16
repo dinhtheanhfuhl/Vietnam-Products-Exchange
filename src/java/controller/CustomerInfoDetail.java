@@ -4,11 +4,14 @@
  */
 package controller;
 
+import dao.CategoryDAO;
 import dao.CustomerDAO;
 import dbconnect.DBConnect;
+import entity.Category;
 import entity.Customer;
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +38,9 @@ public class CustomerInfoDetail extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         Connection connection = DBConnect.getConnection();
         CustomerDAO customerDAO = new CustomerDAO(connection);
+        CategoryDAO categoryDAO = new CategoryDAO(connection);
+        List<Category> allCate = categoryDAO.getAllCategory();
+        request.setAttribute("listCate", allCate);
         HttpSession session = request.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
         int customerid = customer.getCustomerId();
