@@ -294,7 +294,7 @@
                                                                         <label class="col-md-4">Danh mục</label>
                                                                         <div class="col-md-8">
                                                                             <select class="form-control form-custom mb-4"
-                                                                                    name="category">
+                                                                                    name="subCate">
 
                                                                                 <c:forEach var="cate" items="${mapCateSubCate.keySet()}">
                                                                                     <optgroup label="${cate.cateName}">
@@ -361,7 +361,7 @@
                                                                     <label class="col-md-4">Hương vị</label>
                                                                     <div class="col-md-8">
 
-                                                                        <input maxlength="50" required="" class="form-control" name="taste" type="text">
+                                                                        <input maxlength="50" required="" class="form-control" name="smell" type="text">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -386,7 +386,7 @@
                                                                 <div class="row">
                                                                     <label class="col-md-4">Kiểu đóng gói</label>
                                                                     <div class="col-md-8">
-                                                                        <input maxlength="50" class="form-control" name="packaging" type="text">
+                                                                        <input maxlength="50" class="form-control" name="packing" type="text">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -395,7 +395,7 @@
                                                                     <label class="col-md-4">Thành phần</label>
                                                                     <div class="col-md-8">
 
-                                                                        <input maxlength="50"  class="form-control" name="composition" type="text">
+                                                                        <input maxlength="50"  class="form-control" name="element" type="text">
                                                                     </div>
                                                                 </div>
                                                             </div>
