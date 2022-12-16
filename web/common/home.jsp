@@ -40,21 +40,29 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     </head>
 
-    <body>image/silder3.jpg
+    <body>
         <%@include file="header.jsp"%>
         <div class="banner-top pt-5">
             <div id="carouselExampleControls"  class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" >
                         <img style="height: 545px;object-fit: cover"  class="d-block w-100" src="image/silder3.jpg" alt="First slide">
-                        
+                        <div class="carousel-caption d-none d-md-block">
+                            <div class="row">
+                                <div class="col-sm-4 text-title-diff">
+                                    <h2 style="color: white;">100% của người Việt</h2>
+                                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="carousel-item" >
                         <img class="d-block w-100" style="height: 545px;object-fit: cover" src="image/slider2.jpg" alt="Third slide">
                         <div class="carousel-caption d-none d-md-block">
                             <div class="row">
-                                <div class="col-sm-4 text-title">
-                                    
+                                <div class="col-sm-4 text-title-diff">
+                                    <h2 style="color: #00ff00;">Đa Dạng Uy Tín</h2>
+                                    <h4 style="color: #00ff00;">Đảm Bảo Chất Lượng</h4>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +72,9 @@
                         <div class="carousel-caption d-none d-md-block">
                             <div class="row">
                                 <div class="col-sm-4 text-title-diff">
-                                    
+                                    <h2 style="color: white;">Nông sản ngon</h2>
+                                    <h6 style="color: white;">
+                                    </h6>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +90,6 @@
                 </a>
             </div>
         </div>
-
         <section class="mt-5 product">
             <div class="container">
                 <div class="title text-center pb-10  ">
@@ -92,7 +101,7 @@
                             <c:forEach var="key" items="${mapImages.keySet()}">
                                 <div class="col-md-3">
                                     <div class="card">
-                                        <img class="card-img-top" style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
+                                        <a style="text-decoration: none;" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo"><img class="card-img-top" style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap"></a>
                                         <div class="card-body">
                                             <a style="text-decoration: none;" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo">
                                                 <h5 class="card-title">${key.productName} ${key.trademark}</h5>
@@ -110,7 +119,9 @@
                             <c:forEach var="key" items="${mapImages.keySet()}">
                                 <div class="col-md-3">
                                     <div class="card">
-                                        <img class="card-img-top" style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
+                                        <a style="text-decoration: none;" href="MimartDetailProduct?pid=${key.productId}">
+                                            <img class="card-img-top" style="object-fit: cover;height: 200px;" src="${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap">
+                                        </a>
                                         <div class="card-body">
                                             <a style="text-decoration: none;" href="MimartDetailProduct?pid=${key.productId}">
                                                 <h5 class="card-title">${key.productName} ${key.trademark}</h5>
@@ -123,7 +134,6 @@
                         </div>
                     </div>
                 </c:if>
-
             </div>
         </section>
         <div class="gallery">
@@ -142,10 +152,12 @@
                                 <div class="pro-loop">
                                     <div class="product-block product-resize">
                                         <div class="product-img">
-                                            <img class="w-100" style="object-fit: cover;height: 200px;width: 100px" src="${mapImages2.get(key).get(0).getImgPath()}" alt="">
+                                            <a style="text-decoration: none;" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo">
+                                                <img class="w-100" style="object-fit: cover;height: 200px;width: 100px" src="${mapImages2.get(key).get(0).getImgPath()}" alt="">
+                                            </a>
                                             <div class="box-pro-detail ">
                                                 <h5 class="card-title">
-                                                    <a style="text-decoration: none;margin-top: 25px;" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo">
+                                                    <a style="text-decoration: none;" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo">
                                                         <h5 class="card-title">${key.productName} ${key.trademark}</h5>
                                                     </a>
                                                 </h5>
@@ -164,7 +176,9 @@
                                 <div class="pro-loop">
                                     <div class="product-block product-resize">
                                         <div class="product-img">
-                                            <img class="w-100" style="object-fit: cover;height: 200px;width: 100px" src="${mapImages2.get(key).get(0).getImgPath()}" alt="">
+                                            <a style="text-decoration: none;" href="MimartDetailProduct?pid=${key.productId}">
+                                                <img class="w-100" style="object-fit: cover;height: 200px;width: 100px" src="${mapImages2.get(key).get(0).getImgPath()}" alt="">
+                                            </a>
                                             <div class="box-pro-detail ">
                                                 <h5 class="card-title">
                                                     <a style="text-decoration: none;margin-top: 25px;" href="MimartDetailProduct?pid=${key.productId}">

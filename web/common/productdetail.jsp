@@ -105,13 +105,13 @@
                                 </h2>
                                 <span>${min} - ${medium-1} kg<br>
                                     <span><fmt:formatNumber type = "number" 
-                                                      pattern = "" value = "${priceMax}" /><sup>vnđ</sup></span></span>
+                                                      pattern = "" value = "${priceMax}" /><sup>vnđ</sup>/Kg</span></span>
                                 <span>${medium} - ${max-1} kg<br>
                                     <span><fmt:formatNumber type = "number" 
-                                                      pattern = "" value = "${priceMedium}" /><sup>vnđ</sup></span></span>
+                                                      pattern = "" value = "${priceMedium}" /><sup>vnđ</sup>/Kg</span></span>
                                 <span> &#8805; ${max} kg<br>
                                     <span><fmt:formatNumber type = "number" 
-                                                      pattern = "" value = "${priceMin}" /><sup>vnđ</sup></span></span>
+                                                      pattern = "" value = "${priceMin}" /><sup>vnđ</sup>/Kg</span></span>
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Danh mục</span> </div>
                                 </div>
@@ -120,7 +120,8 @@
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Trọng lượng</span> </div>
                                 </div>
-                                <p>${product.weight} Kg</p>
+                                <p><fmt:formatNumber type = "number" 
+                                                      pattern = "" value = "${product.weight}" /> Kg</p>
 
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Nhà cung cấp</span> </div>

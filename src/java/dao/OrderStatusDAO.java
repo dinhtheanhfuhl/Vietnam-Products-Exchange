@@ -80,12 +80,13 @@ public class OrderStatusDAO {
         return orderStatus;
     }
 
-    public void updateOrderStatus(int orderId) {
-        String query = "UPDATE [Order] SET OrderStatusID= 5 where OrderID= ? ";
+    public void updateOrderStatus(int orderStatusId, int orderId) {
+        String query = "UPDATE [Order] SET OrderStatusID= ? where OrderID= ? ";
         try {
             PreparedStatement ps
                     = connection.prepareStatement(query);
-            ps.setInt(1, orderId);
+            ps.setInt(1, orderStatusId);
+            ps.setInt(2, orderId);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.getMessage();

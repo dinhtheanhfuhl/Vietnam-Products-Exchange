@@ -3,6 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+
+
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/ModeratorDetailOrderController.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HistoryOrderController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dao/OrderDetailDAO.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/entity/Product.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/customer-history-order.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dao/OrderDAO.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/productdetail.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/customer-detail-order.jsp</file>
+        </group>
+        <group>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HistoryOrderController.java</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/customer-personal-info.jsp</file>
         </group>
@@ -78,30 +97,25 @@
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/information.jsp</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/assets/scss/_orfarm-about.scss</file>
         </group>
+
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/admin-page/supplier-product-pending.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/SupplierOrderController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/admin-page/supplier-list-order.jsp</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/MinimartDetailProductController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HistoryOrderDetailController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/MinimartProductController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/AdminController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/LogginController.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dao/OrderStatusDAO.java</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/productdetail.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/customer-detail-order.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/SupplierDetailOrderController.java</file>
+        </group>
+
         <group/>
-        <group>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/security/SendMail.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/security/MailConfig.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/dao/ResetPassDAO.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/dao/AccountDAO.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/controller/EditPassController.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/security/SendMail.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/web/common/resetPass.jsp</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/security/MailConfig.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/dao/ResetPassDAO.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/web/common/login.jsp</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/web/css/style.css</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/entity/ResetPass.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/controller/EditPassController.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/controller/LogginController.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/web/common/resetPass.jsp</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/dao/ResetPassDAO.java</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/web/common/login.jsp</file>
-            <file>file:/C:/Users/DEKUPAC/Desktop/CAPSTONE-SEM-9/Vietnam-Products-Exchange/src/java/controller/EditPassController.java</file>
-        </group>
     </open-files>
 </project-private>

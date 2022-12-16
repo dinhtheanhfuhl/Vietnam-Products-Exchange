@@ -70,14 +70,14 @@
                                     <h4 class="title">Lọc theo giá</h4>
                                     <div class="price-range">
                                         <div class="row">
-                                            <input value="${begin}" class="col-md-4 form-control m-2"  name="begin" type="number" placeholder="Từ"> 
-                                            <input value="${end}" class="col-md-4 form-control m-2" name="end" type="number" placeholder="Đến">    
+                                            <input value="${begin}" class="col-md-4 form-control m-2" min="0"  name="begin" type="number" placeholder="Từ"> 
+                                            <input value="${end}" class="col-md-4 form-control m-2" min="0" name="end" type="number" placeholder="Đến">    
                                         </div>
                                     </div>
                                 </div>
                                 <c:if test="${strSearch==null}">
                                     <div class="shop-category-widget">
-                                        <h4 class="title">Danh mục cấp 2</h4>
+                                        <h4 class="title">Danh mục sản phẩm</h4>
                                         <ul>
                                             <c:forEach items="${allSubCategory}" var="o" >
                                                 <input <c:if test="${mapSubCateSelected.get(o.subCateId)!=null}">checked</c:if> name="subCateId" value="${o.subCateId}" type="checkbox" id="subcate${o.subCateName}">
@@ -103,7 +103,7 @@
                                     <button disabled="" class="mt-5 btn btn-warning status" type="submit" id="">  Lọc </button>
                                 </c:if>
                                 <c:if test="${sessionScope.roleCusId!=null}">
-                                    <button class="mt-5 btn btn-warning status" type="submit" id="">  Lọc </button>
+                                    <button class="mt-2 btn btn-warning status" type="submit" id="">  Lọc </button>
                                 </c:if>
                             </form>
                         </div>
@@ -128,12 +128,7 @@
                                         </c:forEach>
                                     </c:if>
                                 </c:if>
-                                <select name="filter2" onchange="this.form.submit()" class="form-control col-md-3 d-inline-flex" id="product">
-                                    <option <c:if test='${filter2 == "newest"}'>selected</c:if> value="newest">Mới nhất</option>
-                                    <option <c:if test='${filter2 == "best-seller"}'>selected</c:if> value="best-seller">Bán chạy nhất</option>
-                                    <option <c:if test='${filter2 == "increment"}'>selected</c:if> value="increment">Giá tăng dần</option>
-                                    <option <c:if test='${filter2 == "descrement"}'>selected</c:if> value="descrement">Giá giảm dần</option>
-                                </select>
+                                
                             </div>
                         </form>
                         <div class="row">
