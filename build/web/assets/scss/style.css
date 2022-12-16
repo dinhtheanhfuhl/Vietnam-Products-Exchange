@@ -9147,7 +9147,7 @@ blockquote cite {
     background: #eef1f6;
     line-height: 26px;
     padding: 0 15px;
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 500;
     color: #0e1133;
     border-radius: 6px;
@@ -9259,7 +9259,7 @@ blockquote cite {
 }
 
 .shop-details-info-area {
-    background: #eef1f6;
+    background: #F3ECB0;
 }
 
 .shop-details-box .nav {

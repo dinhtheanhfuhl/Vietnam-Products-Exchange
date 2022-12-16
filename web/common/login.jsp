@@ -73,7 +73,7 @@
                                         </div>
                                         <div class="form-group fill-form log-lastName">
                                             <label for="exampleInputPassword1">Mật khẩu</label>
-                                            <input name="password" type="password" required="" class="form-control" maxlength="20" id="exampleInputPassword1"
+                                            <input name="password" type="password" required="" class="form-control" minlength="8" maxlength="20" id="exampleInputPassword1"
                                                    placeholder="Nhập mật khẩu">
                                         </div>
 

@@ -48,8 +48,8 @@
                 display: inline-block;
             }
             .side_view img{
-                width: 7rem;
-                height: 7rem;
+                width: 5.5rem;
+                height: 5.5rem;
                 object-fit: cover;
                 cursor: pointer;
                 margin:0.5rem;
@@ -72,7 +72,7 @@
         </section>
 
         <main>
-            <section class="shop-details-area pb-100">
+            <section class="shop-details-area pb-20">
                 <div class="container">
                     <c:if test="${not empty message}">
                         <div class="alert alert-${alert}" role="alert">
@@ -104,13 +104,13 @@
                                     ${product.color}
                                 </h2>
                                 <span>${min} - ${medium-1} kg<br>
-                                    <span><fmt:formatNumber type = "number" 
+                                    <span style="color: #009900"><fmt:formatNumber type = "number" 
                                                       pattern = "" value = "${priceMax}" /><sup>vnđ</sup>/Kg</span></span>
                                 <span>${medium} - ${max-1} kg<br>
-                                    <span><fmt:formatNumber type = "number" 
+                                    <span style="color: #009900"><fmt:formatNumber type = "number" 
                                                       pattern = "" value = "${priceMedium}" /><sup>vnđ</sup>/Kg</span></span>
                                 <span> &#8805; ${max} kg<br>
-                                    <span><fmt:formatNumber type = "number" 
+                                    <span style="color: #009900"><fmt:formatNumber type = "number" 
                                                       pattern = "" value = "${priceMin}" /><sup>vnđ</sup>/Kg</span></span>
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Danh mục</span> </div>
@@ -140,7 +140,7 @@
                 </div>
             </section>
 
-            <div class="shop-details-info-area pt-85 pb-100 ">
+            <div class="shop-details-info-area pt-35 pb-50 ">
                 <div class="container">
                     <div class="tab">
                         <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'des')">Mô tả sản phẩm</button>
@@ -161,21 +161,14 @@
                     </div>
 
                     <div id="overview" class="tabcontent">
-                        <p>Tên nhà cung cấp:</p>
-                        <p>${supplier.supplierName}</p> 
-                        <p>Số điện thoại liên hệ:</p>
-                        <p>${supplier.phone}</p> 
-                        <p>Địa chỉ cơ sở chính:</p>
-                        <p>${supplier.mainAddress}</p> 
-                        <p>Giấy phép kinh doanh:</p>
-                        <p>giaasy pheepep</p> 
+                        <p>Tên nhà cung cấp: ${supplier.supplierName}</p>
+                        <p>Số điện thoại liên hệ: ${supplier.phone}</p>
+                        <p>Địa chỉ cơ sở chính: ${supplier.mainAddress}</p>
+                        <p>Giấy phép kinh doanh: <a href="#">${supplier.businessLicense}</a></p>
                     </div>
 
                     <div id="licence" class="tabcontent">
-                        <p>Giấy phép chứng nhận</p>
-                        <p>giấy phép here</p>
-                        <p>giấy phép here</p>
-                        <p>giấy phép here</p>
+                        <p><a href="#">${product.productCertificate}</a></p>
                     </div>
 
                 </div>
@@ -186,7 +179,7 @@
 
             <!--====== orfarm SHOP RELATED PRODUCT PART ENDS ======-->
 
-            <div class="shop-related-area pt-90 pb-170">
+            <div class="shop-related-area pt-10 pb-80">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
@@ -217,40 +210,8 @@
                                 </div>
                             </div>
                         </c:forEach>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="single-shop-box">
-                                <div class="thumb text-center">
-                                    <img src="assets/images/shop-grid-5.jpg" alt="">
-                                    <div class="reborn">
-                                        <span>New</span>
-                                    </div>
-
-                                </div>
-                                <div class="content">
-                                    <div class="pricing">
-                                        <div class="discount-price">21.000đ </div> 
-                                        <div class="regular-price">25.000đ</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="single-shop-box">
-                                <div class="thumb text-center">
-                                    <img src="assets/images/shop-grid-5.jpg" alt="">
-                                    <div class="reborn">
-                                        <span>New</span>
-                                    </div>
-
-                                </div>
-                                <div class="content">
-                                    <div class="pricing">
-                                        <div class="discount-price">21.000đ </div> 
-                                        <div class="regular-price">25.000đ</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>

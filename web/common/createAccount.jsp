@@ -65,7 +65,7 @@
                                         </div>
                                         <div class="form-group fill-form log-email">
                                             <label>Tên người dùng*</label>
-                                            <input name="name" type="text" required="" class="form-control" 
+                                            <input name="name" type="text" required="" maxlength="50" class="form-control" 
                                                    placeholder="nhập tên người dùng">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
@@ -124,7 +124,7 @@
                                         </div>
                                         <div class="form-group fill-form log-lastName">
                                             <label>Tên cửa hàng*</label>
-                                            <input name="shop-name" required="" type="text" class="form-control" 
+                                            <input name="shop-name" required="" type="text" maxlength="255" class="form-control" 
                                                    placeholder="nhập tên cửa hàng">
                                         </div> 
                                         <div class="form-group fill-form log-lastName">

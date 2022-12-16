@@ -128,295 +128,184 @@
                         </div>
                         <div class="col-md-9 mt-50 mb-50">
                             <div class=" personal-infor ">
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Tên người dùng</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <p type="text" id="inputpass"
-                                                       value="" >${cus.customerName}</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <table class="table">
 
-                                </div>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tên người dùng</td>
+                                            <td>${cus.customerName}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ngày sinh</td>
+                                            <td>${cus.dateBirth}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Giới tính</td>
+                                            <td>${cus.gender}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>${cus.email}</td>
+                                        </tr><tr>
+                                            <td>Số điện thoại</td>
+                                            <td>${cus.phone}</td>
+                                        </tr><tr>
+                                            <td>Tên cửa hàng</td>
+                                            <td>${cus.shopName}</td>
+                                        </tr><tr>
+                                            <td>Địa chỉ chính</td>
+                                            <td>${cus.mainAddress}</td>
+                                        </tr><tr>
+                                            <td>Giấy phép</td>
+                                            <td><a href="#">Tải xuống giấy phép</a></td>
+                                        </tr><tr>
+                                            <td>Trạng thái</td>
+                                            <td>
+                                                <c:choose>
+                                                    <c:when test="${acc.status==1}">Chờ phê duyệt</c:when>
+                                                    <c:when test="${acc.status==2}">Đã chấp thuận</c:when>
+                                                    <c:when test="${acc.status==3}">Từ chối tài khoản</c:when>
+                                                </c:choose>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <c:if test="${acc.status==3}">
+                                                <td>Lý do từ chối</td>
+                                                <td>
+                                                    ${ma.messageDescribe}
+                                                </td>
+                                            </c:if>
+                                        </tr>
+                                        <tr>
+                                            <c:if test="${acc.status == 1}">
+                                                <td>Hành động</td>
+                                                <td>
+                                                    <a href="DetailCustomerController?action=accept&acc-id=${acc.accId}&cus-id=${cus.customerId}" class="btn btn-success mb-1">Phê duyệt tài khoản</a>
+                                                    <button href="" class="btn btn-danger mb-1" data-toggle="modal" data-target="#exampleModal">Từ chối tài khoản</button>
+                                                </td>
+                                            </c:if>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Ngày sinh</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <p type="text" id="inputpass"
-                                                       value="" >${cus.dateBirth}</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" style="margin-left: 5px;" class="form-label pass-infor">Giới tính</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <p type="text" id="inputpass"
-                                                       value="" >${cus.gender}</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Email</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <p type="text" id="inputpass"
-                                                       value="" >${cus.email}</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Số điện thoại</label>
-                                                </td>
-
-                                                <td class="display-userName-3">
-                                                    <p type="text" id="inputpass"
-                                                       value="" >${cus.phone}</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Nhà cung cấp</label>
-                                                </td>
-
-                                                <td class="display-userName-3">
-                                                    <p type="text" id="inputpass"
-                                                       value="" >${cus.shopName}</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Địa chỉ chính</label>
-                                                </td>
-
-                                                <td class="display-userName-3">
-                                                    <p>${cus.mainAddress}</p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label class="form-label pass-infor">Giấy phép</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <a href="">Tải xuống giấy phép</a>
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><label class="form-label pass-infor">Trạng thái</label>
-                                                </td>
-                                                <td class="display-userName-3">
-                                                    <c:choose>
-                                                        <c:when test="${acc.status==1}">Chờ phê duyệt</c:when>
-                                                        <c:when test="${acc.status==2}">Đã chấp thuận</c:when>
-                                                        <c:when test="${acc.status==3}">Từ chối tài khoản</c:when>
-                                                    </c:choose>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <c:if test="${acc.status==3}">
-                                    <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <label style="margin-left: -10px"; class="form-label pass-infor">Lý do bị từ chối</label>
-                                                    </td>
-
-                                                    <td class="display-userName-3">
-                                                        <p>${ma.messageDescribe}p</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </c:if>
-                                <c:if test="${acc.status==1}">
-                                    <div class="col-md-8 col-sm-6 pt-4 pb-4">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td><label style="margin-left: -10px"; class="form-label pass-infor">Hành động</label>
-                                                    </td>
-                                                    <td class="display-userName-3">
-                                                        <a href="DetailCustomerController?action=accept&acc-id=${acc.accId}&cus-id=${cus.customerId}" class="btn btn-success mb-1">Phê duyệt tài khoản</a>
-                                                        <button href="" class="btn btn-danger mb-1" data-toggle="modal" data-target="#exampleModal">Từ chối tài khoản</button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Từ chối tài khoản</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Từ chối tài khoản</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="DetailCustomerController?action=reject&acc-id=${acc.accId}&cus-id=${cus.customerId}" method="POST" id="reject-form">
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="col-form-label">Lý do từ chối: </label>
+                                                        <textarea name="reason" class="form-control" id="message-text"></textarea>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        <form action="DetailCustomerController?action=reject&acc-id=${acc.accId}&cus-id=${cus.customerId}" method="POST" id="reject-form">
-                                                            <div class="form-group">
-                                                                <label for="message-text" class="col-form-label">Lý do từ chối: </label>
-                                                                <textarea name="reason" class="form-control" id="message-text"></textarea>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Huỷ</button>
-                                                        <input type="submit" value="Gửi" class="btn btn-success" form="reject-form"/>
-                                                    </div>
-                                                </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Huỷ</button>
+                                                <input type="submit" value="Gửi" class="btn btn-success" form="reject-form"/>
                                             </div>
                                         </div>
                                     </div>
-                                </c:if>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-            <!--  END CONTENT PART  -->
         </div>
+        <!--  END CONTENT PART  -->
+    </div>
+</div>
+
+<!--  BEGIN FOOTER  -->
+
+<footer class="footer-section theme-footer">
+
+    <div class="footer-section-1  sidebar-theme">
+
     </div>
 
-    <!--  BEGIN FOOTER  -->
-
-    <footer class="footer-section theme-footer">
-
-        <div class="footer-section-1  sidebar-theme">
-
-        </div>
-
-        <div class="footer-section-2 container-fluid">
-            <div class="row">
-                <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
-                    <ul class="list-inline links ml-sm-5">
-                        <li class="list-inline-item">
-                            <a target="_blank" href="#">Vietnam Products Exchange</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-xl-5 col-md-6 col-sm-6 col-12">
-                    <ul
-                        class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
-                        <li class="list-inline-item  mr-3">
-                            <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
-                        </li>
-                        <li class="list-inline-item align-self-center">
-                            <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
-                        </li>
-                    </ul>
-                </div>
+    <div class="footer-section-2 container-fluid">
+        <div class="row">
+            <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
+                <ul class="list-inline links ml-sm-5">
+                    <li class="list-inline-item">
+                        <a target="_blank" href="#">Vietnam Products Exchange</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xl-5 col-md-6 col-sm-6 col-12">
+                <ul
+                    class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
+                    <li class="list-inline-item  mr-3">
+                        <p class="bottom-footer">&#xA9; 2022 <a target="_blank" href="#">VnProX</a></p>
+                    </li>
+                    <li class="list-inline-item align-self-center">
+                        <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
+                    </li>
+                </ul>
             </div>
         </div>
-    </footer>
-    <!--  END FOOTER  -->
+    </div>
+</footer>
+<!--  END FOOTER  -->
 
-    <!--  BEGIN PROFILE SIDEBAR  -->
-    <%@include file="aside.jsp" %>
+<!--  BEGIN PROFILE SIDEBAR  -->
+<%@include file="aside.jsp" %>
 
-    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="${pageContext.request.contextPath}/assets/js/libs/jquery-3.1.1.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/loader.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/popper.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
-    <script>
-        $(document).ready(function () {
-            App.init();
-        });
-    </script>
-    <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
-    <!-- END GLOBAL MANDATORY SCRIPTS -->
+<!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+<script src="${pageContext.request.contextPath}/assets/js/libs/jquery-3.1.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/loader.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/popper.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
+<script>
+    $(document).ready(function () {
+        App.init();
+    });
+</script>
+<script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
+<!-- END GLOBAL MANDATORY SCRIPTS -->
 
-    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-    <script src="${pageContext.request.contextPath}/plugins/charts/chartist/chartist.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/calendar/pignose/moment.latest.min.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/calendar/pignose/pignose.calendar.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/progressbar/progressbar.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/default-dashboard/default-custom.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/ui-kit/timeline/horizontal-main.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/amcharts.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/worldLow.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/radar.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/pie.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/charts/sparklines/jquery.sparkline.min.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/serial.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/charts/amcharts/light.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/table/datatable/datatables.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/progressbar/progressbar.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/ecommerce/order.js"></script>
-    <script>
-        $('#exampleModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var recipient = button.data('whatever') // Extract info from data-* attributes
-            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this)
-            modal.find('.modal-body input').val(recipient)
-        })
-    </script>
-    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+<!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+<script src="${pageContext.request.contextPath}/plugins/charts/chartist/chartist.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/calendar/pignose/moment.latest.min.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/calendar/pignose/pignose.calendar.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/progressbar/progressbar.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/default-dashboard/default-custom.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/ui-kit/timeline/horizontal-main.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/charts/amcharts/amcharts.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/ammap_amcharts_extension.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/maps/vector/ammaps/worldLow.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/charts/amcharts/radar.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/charts/amcharts/pie.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/charts/sparklines/jquery.sparkline.min.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/charts/amcharts/serial.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/charts/amcharts/light.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/ecommerce-dashboard/ecommerce-custom.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/table/datatable/datatables.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/progressbar/progressbar.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/ecommerce/order.js"></script>
+<script>
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-body input').val(recipient)
+    })
+</script>
+<!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 </body>
 
 </html>
