@@ -112,7 +112,7 @@
 
                             <li class="nav-item">
                                 <div class="dropdown dropdown-user">
-                                    <a href="../LogginController" class="nav-link border border-light rounded waves-effect" target="_blank">
+                                    <a href="LogginController" class="nav-link border border-light rounded waves-effect" >
                                         <i class="fas fa-user"></i>Đăng Nhập
                                     </a>
 

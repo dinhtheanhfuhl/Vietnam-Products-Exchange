@@ -43,7 +43,7 @@
                    data-placement="bottom">
                     <i class="flaticon-menu-line-3"></i>
                 </a>
-                <a class="navbar-brand waves-effect" href="${pageContext.request.contextPath}/home.jsp">
+                <a class="navbar-brand waves-effect" href="Home">
 
                     <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
                 </a>
@@ -267,31 +267,7 @@
         <!--  END FOOTER  -->
 
         <!--  BEGIN PROFILE SIDEBAR  -->
-        <aside class="profile-sidebar text-center">
-            <div class="profile-content profile-content-scroll">
-                <div class="usr-profile">
-                    <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
-                </div>
-                <p class="user-name mt-4 mb-4">Hoàng Thị Xoan</p>
-
-                <div class="user-links text-left">
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
-                        </li>
-                        <li>
-                            <a href="SupplierController"><i class="flaticon-globe"></i> Quản lý</a>
-                        </li>
-                        <li>
-                            <a href="LogoutController"><i class="flaticon-power-off"></i> Đăng xuất</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </aside>
+        <%@include file="aside.jsp" %>
         <!--  BEGIN PROFILE SIDEBAR  -->
     </body>
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
