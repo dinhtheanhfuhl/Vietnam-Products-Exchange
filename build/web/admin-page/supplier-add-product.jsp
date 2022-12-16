@@ -124,7 +124,7 @@
                                 <div class="widget-content widget-content-area add-manage-product-2">
                                     <form method="post" action="SupplierAddController?action=add" enctype="multipart/form-data">
                                         <div class="row">
-                                            <div class="col-xl-7 col-md-12">
+                                            <div class="col-xl-6 col-md-12">
                                                 <div class="card card-default">
                                                     <div class="card-heading">
                                                         <h2 class="card-title"><span>THÔNG TIN CƠ BẢN</span></h2>
@@ -330,7 +330,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-xl-5 col-md-12">
+                                            <div class="col-xl-6 col-md-12">
                                                 <div class="card card-default">
                                                     <div class="card-heading">
                                                         <h2 class="card-title"><span>THÔNG TIN CHI TIẾT</span></h2>

@@ -20,30 +20,14 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "SupplierController", urlPatterns = {"/SupplierController"})
 public class SupplierController extends HttpServlet {
 
-    private static void convertDate(List<Product> products) {
-        SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        SimpleDateFormat formatter2 = new SimpleDateFormat("dd/MM/yyyy");
-        for (Product p : products) {
-            try {
-                Date date = formatter1.parse(p.getCreatedDate());
-                String strDate = formatter2.format(date);
-                p.setCreatedDate(strDate);
-            } catch (ParseException ex) {
-                System.out.println(ex.getMessage());
-            }
-        }
-    }
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-
-        // fake session supplier
-        Supplier supplierFake = new Supplier();
-        supplierFake.setSupplierId(1);
-        session.setAttribute("supplier", supplierFake);
-
+        if (session.getAttribute("roleIdLoggin") == null || (int) session.getAttribute("roleIdLoggin") != 3) {
+            request.getRequestDispatcher("common/error.jsp").forward(request, response);
+            return;
+        }
         Supplier supplier = (Supplier) session.getAttribute("supplier");
 
         Connection conn = dbconnect.DBConnect.getConnection();

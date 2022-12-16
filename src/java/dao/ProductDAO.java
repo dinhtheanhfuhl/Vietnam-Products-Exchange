@@ -690,4 +690,36 @@ public class ProductDAO {
         }
         return productIds;
     }
+
+    public Product getProductByIdNotHidden(int id) {
+        Product product = null;
+        String strSelectById = "select * from Product where ProductID=? and StatusID=2";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                product = new Product();
+                product.setProductId(rs.getInt("ProductID"));
+                product.setSupplierId(rs.getInt("SupplierID"));
+                product.setSubCateId(rs.getInt("SubCateID"));
+                product.setCreatedDate(rs.getString("CreatedDate"));
+                product.setDescription(rs.getString("Description"));
+                product.setProductName(rs.getString("ProductName"));
+                product.setBarCode(rs.getString("BarCode"));
+                product.setProductCertificate(rs.getString("ProductCertificate"));
+                product.setTrademark(rs.getString("Trademark"));
+                product.setSmell(rs.getString("Smell"));
+                product.setColor(rs.getString("Color"));
+                product.setWeight(rs.getInt("Weight"));
+                product.setPacking(rs.getString("Packing"));
+                product.setElement(rs.getString("Element"));
+                product.setViewNumber(rs.getInt("ViewNumber"));
+                product.setStatusId(rs.getInt("StatusID"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return product;
+    }
 }

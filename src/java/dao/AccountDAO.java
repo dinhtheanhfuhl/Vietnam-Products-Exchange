@@ -154,4 +154,18 @@ public class AccountDAO {
         }
         return account;
     }
+    public boolean isEmailExisted(String email) {
+        String strSelectById = "select * from Account where email=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
 }

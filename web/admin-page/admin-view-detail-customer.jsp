@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<%
+    if (session.getAttribute("roleIdLoggin") == null || (int) session.getAttribute("roleIdLoggin") != 1) {
+        request.getRequestDispatcher("../common/error.jsp").forward(request, response);
+        return;
+    }
+%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -263,7 +269,6 @@
                                         <table>
                                             <tbody>
                                                 <tr>
-
                                                     <td>
                                                         <label style="margin-left: -10px"; class="form-label pass-infor">Lý do bị từ chối</label>
                                                     </td>

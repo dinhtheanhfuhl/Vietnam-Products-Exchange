@@ -166,12 +166,7 @@
                     <div class="col-12 text-center notify-order pt-50 pb-50">
                         <img style="height: 270px;object-fit: contain" src="image/360_F_312443281_1GszDmlbh6EIPteBOJ8CIvcXSvl61nus-removebg-preview.png" alt=""/>
                         <p style="color: #F5AB1E;" class="success-order">404 - TRANG KHÔNG TÌM THẤY</p>
-                        <p style="font-size: 19px;">
-                            <a class="btn btn-warning" style="color: white" href="../Home">TRỞ VỀ TRANG CHỦ</a>
-                        </p>
-
                     </div>
-
                 </div>
             </div>
 

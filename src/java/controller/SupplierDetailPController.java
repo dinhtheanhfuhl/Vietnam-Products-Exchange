@@ -61,7 +61,13 @@ public class SupplierDetailPController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+
         HttpSession session = request.getSession();
+        if (session.getAttribute("roleIdLoggin") == null || (int) session.getAttribute("roleIdLoggin") != 3) {
+            request.getRequestDispatcher("common/error.jsp").forward(request, response);
+            return;
+        }
+        response.setContentType("text/html;charset=UTF-8");
         Supplier supplier = (Supplier) session.getAttribute("supplier");
         int supplierId = supplier.getSupplierId();
 

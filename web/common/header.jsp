@@ -107,36 +107,36 @@
                                 <form action="MinimartProductController" method="post">
                                     <div class="input-group rounded">
                                         <input <c:if test="${txtSearch!=null}">value="${txtSearch}"</c:if> type="search" class="form-control " required="" name="txtSearch" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" />
-                                        <button type="submit" class="input-group-text border-0" id="search-addon">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                </form>
-                            </li>
+                                            <button type="submit" class="input-group-text border-0" id="search-addon">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </li>
                         </c:if>
 
                         <c:if test="${sessionScope.roleCusId==null}">
                             <li class="nav-item">
                                 <div class="input-group rounded">
                                     <input <c:if test="${txtSearch!=null}">value="${txtSearch}"</c:if> type="search" class="form-control" required="" name="txtSearch" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" />
-                                    <button type="submit" class="input-group-text border-0" id="search-addon">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
-                          </li>
+                                        <button type="submit" class="input-group-text border-0" id="search-addon">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </li>
                         </c:if>
 
                         <c:if test="${sessionScope.roleCusId!=null}">
                             <li class="nav-item ">
                                 <a href="CartController"  class="nav-link cart-btn pr-3">
-                                <i class="fas fa-shopping-cart"></i>
+                                    <i class="fas fa-shopping-cart"></i>
                                 </a>
                             </li>
                         </c:if>
                         <c:if test="${sessionScope.roleCusId==null}">
                             <li class="nav-item ">
                                 <a class="nav-link cart-btn pr-3">
-                                <i class="fas fa-shopping-cart"></i>
+                                    <i class="fas fa-shopping-cart"></i>
                                 </a>
                             </li>
                         </c:if>
@@ -151,7 +151,7 @@
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" href="CustomerInfoDetail">Thông tin cá nhân</a>
                                             <a class="dropdown-item" href="HistoryOrderController">Lịch sử mua hàng</a>
-                                            <a class="dropdown-item" href="./common/changepass.jsp">Thay đổi mật khẩu</a>
+                                            <a class="dropdown-item" href="EditPassController?action=show-change-pass">Thay đổi mật khẩu</a>
                                             <a class="dropdown-item" href="LogoutController">Đăng xuất</a>
                                         </div>
                                     </div>
