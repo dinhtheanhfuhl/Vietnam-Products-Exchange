@@ -109,7 +109,7 @@ public class ProductHierarchyDAO {
     }
     public List<ProductHierarchy> getAllHieByProId(int productId) {
 
-        String strSelectAll = "select * from ProductHierarchy where ProductID = ? order by Quantity";
+        String strSelectAll = "select * from ProductHierarchy where ProductID = ? order by Quantity desc";
         List<ProductHierarchy> productImages = new ArrayList<>();
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);

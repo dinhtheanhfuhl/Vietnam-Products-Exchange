@@ -51,16 +51,16 @@
                             <div class="form-group">
                                 <h3>Thông tin đặt hàng</h3>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Tên người nhận hàng</label>
+                                    <label for="exampleInputPassword1">Tên người nhận hàng*</label>
                                     <input required type="text" class="form-control" id="exampleInputPhone" name="receiverName" placeholder="nhập tên người nhận">
                                 </div>
-                                <label>Địa chỉ đặt hàng</label>
+                                <label>Địa chỉ đặt hàng*</label>
                                 <div class="input-group mb-3">
                                     <input required type="text" class="form-control" id="exampleInputAddress" name="receiverAddress" placeholder="nhập địa chỉ đặt hàng">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Số điện thoại</label>
+                                    <label for="exampleFormControlTextarea1">Số điện thoại*</label>
                                     <input required type="number" maxlength="13" class="form-control" id="exampleInputAddress" name="receiverPhone" placeholder="nhập số điện thoại">
                                 </div>
                                 <div class="form-group">
@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="success-order row pb-5 ">
                                     <button id="btn-order" type="submit" class="btn-buy btn btn-success mt-2 ml-3">Đặt hàng</button>
-                                    <a href="CartController" class="back">Quay lại</a>
+                                    <a href="CartController" style="font-size: 20px" class="back">Quay lại</a>
                                 </div>
                                 <p>*Phương thức giao hàng hỗ trợ thời điểm hiện tại là nhà cung cấp giao. Phí giao hàng sẽ được nhà cung cấp liên hệ với người nhận hàng qua số điện thoại.</p>
                                 <p>*Phương thức thanh toán hỗ trợ thời gian thời điểm hiện tại là thanh toán khi nhận hàng(Tiền mặt hoặc chuyển khoản)</p>

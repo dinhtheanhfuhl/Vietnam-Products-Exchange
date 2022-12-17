@@ -41,44 +41,15 @@
     </head>
     <body>
         <%@include file="header.jsp"%>
-        <div class="amm-shopping-cart-wrapper">
-            <div class="amm-shopping-cart-canvas">
-                <div class="amm-shopping_cart">
-                    <div class="amm-shopping_cart-top-bar d-flex justify-content-between">
-                        <h6>Giá» hÃ ng</h6>
-                        <button class="amm-shopping-cart-close">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div><!-- shopping cart top bar -->
-                    <div class="amm-shopping_cart-list-items mt-30">
-                        <ul>
-
-                        </ul>
-                    </div> <!-- shopping_cart list items -->
-                    <div class="amm-shopping_cart-btn">
-                        <div class="total pt-35 d-flex justify-content-between">
-                            <h5>Tá»ng tiá»n:</h5>
-                            <p>0</p>
-
-                        </div>
-                        <div class="cart-btn pt-25">
-                            <a class="main-btn" href="./ViewCart.html">Xem giá» hÃ ng</a>
-                            <a class="main-btn main-btn-2" href="./payment.html">Thanh toÃ¡n</a>
-                        </div>
-                    </div>
-                </div> <!-- shopping_cart -->
-            </div>
-            <div class="overlay"></div>
-        </div>
-
+        
         <!--====== SHOPPING CART PART ENDS ======-->
 
         <section class="breadcrum" >
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
-                    <li class="breadcrumb-item"><a href="./home.jsp">Trang chủ</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Mật khẩu</li>
+                    <li class="breadcrumb-item">Trang chủ</li>
+                    <li class="breadcrumb-item" aria-current="page">Thay đổi mật khẩu</li>
                 </ol>
             </nav>
         </section>

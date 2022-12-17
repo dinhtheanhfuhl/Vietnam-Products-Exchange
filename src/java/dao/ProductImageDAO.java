@@ -75,7 +75,7 @@ public class ProductImageDAO {
 
     public ProductImage getProductImageById(int productId) {
         ProductImage productImage = null;
-        String strSelectById = "select top 1 * from ProductImage where ProductID=?";
+        String strSelectById = "select top 1 * from ProductImage where ProductID=? ";
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectById);
             ps.setInt(1, productId);
@@ -94,7 +94,7 @@ public class ProductImageDAO {
 
     public List<ProductImage> getAllProductsImageByProId(int productId) {
 
-        String strSelectAll = "select * from ProductImage where ProductID = ?";
+        String strSelectAll = "select * from ProductImage where ProductID = ? order by ProductImageID desc";
         List<ProductImage> productImages = new ArrayList<>();
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);

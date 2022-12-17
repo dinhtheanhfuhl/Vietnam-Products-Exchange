@@ -78,7 +78,7 @@ public class LogginController extends HttpServlet {
                         session.setAttribute("nameUser", customer.getCustomerName());
                         session.setAttribute("roleCusId", account.getRoldId());
                         session.setAttribute("customer", customer);
-                        response.sendRedirect("CartController");
+                        response.sendRedirect("Home");
                         break;
                     default:
                         break;
