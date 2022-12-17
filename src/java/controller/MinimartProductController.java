@@ -77,6 +77,9 @@ public class MinimartProductController extends HttpServlet {
                 productIds = productDAO.searchProductForMart(null, null, null, cid, null, null, filter2);
             }
             request.setAttribute("cid", cid);
+            int cidInt = Integer.parseInt(cid);
+            Category cateName = categoryDAO.getCateNameById(cidInt);
+            request.setAttribute("cateName", cateName.getCateName());
         } else if (txtSearch != null && cid == null) {
             if (filter1 != null) {
                 productIds = productDAO.searchProductForMart(begin, end, cityId, null, subCateIds, txtSearch, filter2);
@@ -124,6 +127,7 @@ public class MinimartProductController extends HttpServlet {
 
         List<SubCategory> allSubCategory = subcategoryDAO.getAllSubCateByCateId(cid);
         request.setAttribute("allSubCategory", allSubCategory);
+
         request.getRequestDispatcher("./common/fruit.jsp").forward(request, response);
 
     }

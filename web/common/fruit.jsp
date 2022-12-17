@@ -47,8 +47,8 @@
         <section class="breadcrum">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
-                    <li class="breadcrumb-item"><a href="Home">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Danh mục sản phẩm</li>
+                    <li class="breadcrumb-item">Trang chủ</li>
+                    <li class="breadcrumb-item" aria-current="page">${cateName}</li>
                 </ol>
             </nav>
         </section>

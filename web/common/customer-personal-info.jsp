@@ -48,8 +48,7 @@
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
-                    <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Tài khoản</li>
+                    <li class="breadcrumb-item"><a href="Home">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Thông tin cá nhân</li>
                 </ol>
             </nav>
@@ -68,11 +67,7 @@
                         <div class="profile-usertitle">
                             <div class="profile-usertitle-name"> ${customerDetail.customerName}</div>
                         </div>
-                        <div class="profile-userbuttons">
-                            <button type="button" class="btn btn-success btn-sm"> <a href="Home">Trang
-                                    chủ</a></button>
-
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="col-md-9 mt-50 mb-50">
@@ -112,7 +107,7 @@
                                     <tr>
                                         <th>Trạng thái</th>
                                         <td>
-                                            <a style="color: white" class="btn btn-success">Chấp thuận tài khoản</a>
+                                            <a>Chấp thuận tài khoản</a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -123,36 +118,6 @@
             </div>
         </div>
     </div>
-</div>
-
-<div class="amm-shopping-cart-wrapper">
-    <div class="amm-shopping-cart-canvas">
-        <div class="amm-shopping_cart">
-            <div class="amm-shopping_cart-top-bar d-flex justify-content-between">
-                <h8 col-sm-6>Giỏ hàng</h6>
-                    <button class="amm-shopping-cart-close">
-                        <i class="fas fa-times"></i>
-                    </button>
-            </div><!-- shopping cart top bar -->
-            <div class="amm-shopping_cart-list-items mt-30">
-                <ul>
-
-                </ul>
-            </div> <!-- shopping_cart list items -->
-            <div class="amm-shopping_cart-btn">
-                <div class="total pt-35 d-flex justify-content-between">
-                    <h5>Tổng tiền:</h5>
-                    <p>0 <span>đ</span></p>
-
-                </div>
-                <div class="cart-btn pt-25">
-                    <a class="main-btn" href="./ViewCart.html">Xem giỏ hàng</a>
-                    <a class="main-btn main-btn-2" href="./payment.html">Thanh toán</a>
-                </div>
-            </div>
-        </div> <!-- shopping_cart -->
-    </div>
-    <div class="overlay"></div>
 </div>
 
 <%@include file="footer.jsp"%>   

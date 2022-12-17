@@ -59,9 +59,8 @@
 
                     <!-- Left -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active" style="padding-left: 40px;">
-                            <a class="nav-link waves-effect  text-header" href="Home">Trang chủ
-                                <span class="sr-only">(current)</span>
+                        <li class="nav-item " style="padding-left: 40px;">
+                            <a class="nav-link waves-effect text-header" href="Home">Trang chủ
                             </a>
                         </li>
                         <li class="nav-item">
@@ -82,7 +81,7 @@
 
                             <div class="dropdown">
                                 <a class="nav-link waves-effect text-header dropdown-toggle" href="#"
-                                   target="_blank">Cửa hàng
+                                   >Cửa hàng
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <c:forEach items="${listCate}" var="o" >
@@ -128,8 +127,8 @@
 
                         <c:if test="${sessionScope.roleCusId!=null}">
                             <li class="nav-item ">
-                                <a href="CartController"  class="nav-link cart-btn pr-3">
-                                    <i class="fas fa-shopping-cart"></i>
+                                <a href="CartController"  class="nav-link cart-btn amm-shopping-cart-open pr-3">
+                                    <i class="fas fa-shopping-cart"><span class="quantity-amm-shopping-cart-open">0</span></i>
                                 </a>
                             </li>
                         </c:if>
@@ -156,7 +155,7 @@
                                         </div>
                                     </div>
                                 </c:if>
-                                
+
                                 <c:if test="${sessionScope.roleCusId==null}">
                                     <a href="LogginController" class="nav-link border border-light rounded waves-effect">
                                         <i class="fas fa-user"></i>Đăng Nhập

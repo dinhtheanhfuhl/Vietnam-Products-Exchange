@@ -43,52 +43,18 @@
         <section class="breadcrum">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
-                    <li class="breadcrumb-item"><a href="Home">Trang chủ</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Xem giỏ hàng</li>
+                    <li class="breadcrumb-item">Trang chủ</li>
+                    <li class="breadcrumb-item" aria-current="page">Xem giỏ hàng</li>
                 </ol>
             </nav>
         </section>
-        <!--====== SHOPPING CART PART START ======-->
-
-        <div class="amm-shopping-cart-wrapper">
-            <div class="amm-shopping-cart-canvas" id="amm-shopping-cart-canvas">
-                <div class="amm-shopping_cart">
-                    <div class="amm-shopping_cart-top-bar d-flex justify-content-between">
-                        <h6>Giỏ hàng</h6>
-                        <button onclick="removeShoppingCart()" class="amm-shopping-cart-close">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div><!-- shopping cart top bar -->
-                    <div class="amm-shopping_cart-list-items mt-30" id="showCart">
-                        <ul>
-
-                        </ul>
-                    </div> <!-- shopping_cart list items -->
-                    <div class="amm-shopping_cart-btn">
-                        <div class="total pt-35 d-flex justify-content-between">
-                            <h5>Tổng tiền:</h5>
-                            <p><span>0 <sup>đ</sup></span></p>
-
-                        </div>
-                        <div class="cart-btn pt-25">
-                            <a class="main-btn" onclick="viewCarts()" href="./ViewCart.html">Xem giỏ hàng</a>
-                            <a class="main-btn main-btn-2" href="./payment.html">Thanh toán</a>
-                        </div>
-                    </div>
-                </div> <!-- shopping_cart -->
-            </div>
-            <div onclick="openOverlay()" class="overlay" id="overlay"></div>
-        </div>
-        <!--====== SHOPPING CART PART ENDS ======-->
 
         <main>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-9 mt-70 mb-50">
-                        <div class="common-view-cart pt-4 pb-4">
-                            <p class="text-cart  mb-0 ">Giỏ hàng</p>
-                        </div>
-                        <div class="displayProduct pb-3">
+                    <div class="col-lg-9 mt-10 mb-50">
+                            <h3>Giỏ hàng</h3>
+                        <div class="displayProduct">
                             <c:if test="${not empty message}">
                                 <div class="alert alert-${alert}" role="alert">
                                     <i class="fa fa-${icon}"></i>
@@ -151,8 +117,8 @@
                         <div class="payment">
                             <a style="margin-left: 50px;<c:if test="${totalCart==0 || totalCart==null}">pointer-events: none; cursor: default;</c:if>" 
                                href="CheckOutController"><button  id="btn-order" 
-                               type="submit" class="<c:if test="${totalCart==0 || totalCart==null}">disabled</c:if> btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
-                        
+                                                                   type="submit" class="<c:if test="${totalCart==0 || totalCart==null}">disabled</c:if> btn-buy btn btn-success mt-2 ml-3">Thanh toán</button></a>
+
                         </div>
                     </div>
                 </div>

@@ -64,9 +64,10 @@
         <section class="breadcrum">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
-                    <li class="breadcrumb-item"><a href="./home.jsp">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Danh mục sản phẩm</li>
-                    <li class="breadcrumb-item active" aria-current="page">Sản phẩm</li>
+                    <li class="breadcrumb-item">Trang chủ</li>
+                    <li class="breadcrumb-item " >${cateName}</li>
+                    <li class="breadcrumb-item " aria-current="page"> ${product.productName}
+                        ${product.trademark}</li>
                 </ol>
             </nav>
         </section>
@@ -118,10 +119,10 @@
 
                                 <p>${subcate.subCateName}</p>
                                 <div class="pricing">
-                                    <div class="discount-price mr-15"><span>Trọng lượng</span> </div>
+                                    <div class="discount-price mr-15"><span>Số lượng</span> </div>
                                 </div>
                                 <p><fmt:formatNumber type = "number" 
-                                                      pattern = "" value = "${product.weight}" /> Kg</p>
+                                                  pattern = "" value = "${product.weight}" /> Kg</p>
 
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Nhà cung cấp</span> </div>
@@ -210,8 +211,8 @@
                                 </div>
                             </div>
                         </c:forEach>
-                        
-                        
+
+
                     </div>
                 </div>
             </div>
