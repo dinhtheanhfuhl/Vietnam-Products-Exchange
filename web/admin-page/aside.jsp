@@ -3,7 +3,9 @@
 <aside class="profile-sidebar text-center">
     <div class="profile-content profile-content-scroll">
         <div class="usr-profile">
-            <img src="${pageContext.request.contextPath}/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid" />
+            <img style="width: 100px; height: 100px;"
+                src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
+                class="img-fluid" />
         </div>
         <p class="user-name mt-4 mb-4">
             <c:if test="${sessionScope.systemManager!=null}">${sessionScope.systemManager.name}</c:if>

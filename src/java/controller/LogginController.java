@@ -41,48 +41,52 @@ public class LogginController extends HttpServlet {
         String action = request.getParameter("action");
         if (action == null) {
             request.getRequestDispatcher("./common/login.jsp").forward(request, response);
-        } else if (action.equals("show-login-form")) {
-            request.getRequestDispatcher("./common/login.jsp").forward(request, response);
         } else if (action.equals("login")) {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String passwordEnr = SecurityPassword.encrypt(password);
             Account account = accountDAO.getAccountByInfo(email, passwordEnr);
             if (account == null) {
-                request.getRequestDispatcher("./common/login.jsp").forward(request, response);
-            } else {
-                HttpSession session = request.getSession();
-                session.setAttribute("emailLoggin", email);
-                session.setAttribute("passwordLoggin", password);
-                session.setAttribute("roleIdLoggin", account.getRoldId());
-                switch (account.getRoldId()) {
-                    case 1:
-                        SystemManager systemManager = systemManagerDAO.getSystemManagerByAccId(account.getAccId());
-                        session.setAttribute("systemManager", systemManager);
-                        response.sendRedirect("AdminController");
-                        break;
-                    case 2:
-                        systemManager = systemManagerDAO.getSystemManagerByAccId(account.getAccId());
-                        session.setAttribute("systemManager", systemManager);
-                        response.sendRedirect("ModeratorController");
-                        break;
-                    case 3:
-                        SupplierDAO supDAO = new SupplierDAO(connection);
-                        Supplier supplier = supDAO.getSupplierByAccId(account.getAccId());
-                        session.setAttribute("supplier", supplier);
-                        response.sendRedirect("SupplierController");
-                        break;
-                    case 4:
-                        CustomerDAO customerDAO = new CustomerDAO(connection);
-                        Customer customer = customerDAO.getCustomerByAccId(account.getAccId());
-                        session.setAttribute("nameUser", customer.getCustomerName());
-                        session.setAttribute("roleCusId", account.getRoldId());
-                        session.setAttribute("customer", customer);
-                        response.sendRedirect("Home");
-                        break;
-                    default:
-                        break;
-                }
+                request.setAttribute("error", "Mật khẩu bạn nhập không chính xác!");
+                request.getRequestDispatcher("common/login.jsp").forward(request, response);
+                return;
+            }
+            if (account.getStatus() != 2) {
+                request.setAttribute("error", "Tài khoản của bạn chưa được phê duyệt!");
+                request.getRequestDispatcher("common/login.jsp").forward(request, response);
+                return;
+            }
+            HttpSession session = request.getSession();
+            session.setAttribute("emailLoggin", email);
+            session.setAttribute("passwordLoggin", password);
+            session.setAttribute("roleIdLoggin", account.getRoldId());
+            switch (account.getRoldId()) {
+                case 1:
+                    SystemManager systemManager = systemManagerDAO.getSystemManagerByAccId(account.getAccId());
+                    session.setAttribute("systemManager", systemManager);
+                    response.sendRedirect("AdminController");
+                    break;
+                case 2:
+                    systemManager = systemManagerDAO.getSystemManagerByAccId(account.getAccId());
+                    session.setAttribute("systemManager", systemManager);
+                    response.sendRedirect("ModeratorController");
+                    break;
+                case 3:
+                    SupplierDAO supDAO = new SupplierDAO(connection);
+                    Supplier supplier = supDAO.getSupplierByAccId(account.getAccId());
+                    session.setAttribute("supplier", supplier);
+                    response.sendRedirect("SupplierController");
+                    break;
+                case 4:
+                    CustomerDAO customerDAO = new CustomerDAO(connection);
+                    Customer customer = customerDAO.getCustomerByAccId(account.getAccId());
+                    session.setAttribute("nameUser", customer.getCustomerName());
+                    session.setAttribute("roleCusId", account.getRoldId());
+                    session.setAttribute("customer", customer);
+                    response.sendRedirect("Home");
+                    break;
+                default:
+                    break;
             }
         }
     }
