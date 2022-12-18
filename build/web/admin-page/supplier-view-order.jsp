@@ -102,7 +102,7 @@
                             <form action="SupplierDetailOrderController" method="POST">
                                 <input type="hidden" name="action" value="success"/>
                                 <input type="hidden" name="id" value="${order.orderId}"/>
-                                <input type="submit" class="btn btn-secondary status mb-2" value="Giao hàng thành công"/>
+                                <input type="submit" class="btn btn-secondary status mb-2" value="Đang giao hàng"/>
                             </form>
                         </c:if>
                     </c:if>

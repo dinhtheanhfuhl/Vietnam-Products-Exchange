@@ -171,7 +171,7 @@
                                                                     <c:when test="${mapSupplierStatus.get(key)==3}">Tài khoản bị từ chối</c:when>
                                                                 </c:choose>
                                                             </td>
-                                                            <td><a href="DetailSuppilerController?id=${key.supplierId}">Xem chi tiết</a></td>
+                                                            <td><a style="color: #F5AB1E !important" href="DetailSuppilerController?id=${key.supplierId}">Xem chi tiết</a></td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>
@@ -209,7 +209,7 @@
                                                                     <c:when test="${mapCustomerStatus.get(key)==3}">Tài khoản bị từ chối</c:when>
                                                                 </c:choose>
                                                             </td>
-                                                            <td><a href="DetailCustomerController?id=${key.customerId}">Xem chi tiết</a></td>
+                                                            <td><a style="color: #F5AB1E !important" href="DetailCustomerController?id=${key.customerId}">Xem chi tiết</a></td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>

@@ -3,9 +3,19 @@
 <aside class="profile-sidebar text-center">
     <div class="profile-content profile-content-scroll">
         <div class="usr-profile">
-            <img style="width: 100px; height: 100px;"
-                src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
-                class="img-fluid" />
+            <img style="width: 100px; height: 100px; object-fit: cover;"
+                 <c:choose>
+                     <c:when test='${sessionScope.systemManager!=null && sessionScope.systemManager.avartarImg!=null && sessionScope.systemManager.avartarImg!=""}'>
+                         src="uploads/${sessionScope.systemManager.avartarImg}"
+                     </c:when>
+                     <c:when test='${sessionScope.supplier!=null && sessionScope.supplier.avartarImg!=null && sessionScope.supplier.avartarImg!=""}'>
+                         src="uploads/${sessionScope.supplier.avartarImg}"
+                     </c:when>
+                     <c:otherwise>
+                         src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
+                     </c:otherwise>
+                 </c:choose>
+                 class="img-fluid" />
         </div>
         <p class="user-name mt-4 mb-4">
             <c:if test="${sessionScope.systemManager!=null}">${sessionScope.systemManager.name}</c:if>
@@ -15,7 +25,7 @@
             <div class="user-links text-left">
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
+                        <a href="InforController"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                     </li>
                 <c:if test="${sessionScope.supplier!=null}">
                     <li>

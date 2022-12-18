@@ -87,8 +87,15 @@
 
                             <div class="profile-sidebars">
                                 <div class="profile-userpic"> <img
-                                        src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
-                                        class="img-responsive " alt="ThÃ´ng tin cÃ¡ nhÃ¢n">
+                                        <c:choose>
+                                            <c:when test='${sup.avartarImg!=null && sup.avartarImg!=""}'>
+                                                src="uploads/${sup.avartarImg}"
+                                            </c:when>
+                                            <c:otherwise>
+                                                src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
+                                            </c:otherwise>
+                                        </c:choose>
+                                        class="img-responsive">
 
                                 </div>
                                 <div class="profile-usertitle">
