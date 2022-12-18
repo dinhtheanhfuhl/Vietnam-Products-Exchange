@@ -57,7 +57,7 @@ public class SupplierDAO {
         String strUpdate
                 = "update Supplier set "
                 + "SupplierName=?, AccID=?, DateBirth=?, Gender=?, Email=?, Phone=?, "
-                + "ShopName=?, MainAddress=?, City=?, BusinessLicense=?, AvartarImg=? where SupplierID=?";
+                + "ShopName=?, MainAddress=?, CityID=?, BusinessLicense=?, AvartarImg=? where SupplierID=?";
         try {
             PreparedStatement ps = connection.prepareStatement(strUpdate);
             ps.setString(1, supplier.getSupplierName());

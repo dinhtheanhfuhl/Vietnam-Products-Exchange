@@ -132,7 +132,7 @@
                                             </div>
                                         </div>
                                         <div class="table-responsive new-products" style="background-color: white;">
-                                            <a href="SupplierAddController"><button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
+                                            <a href="SupplierAddController"><button type="button" style="background-color: #F5AB1E;color: #F5F5F5 !important;" class="btn">Thêm sản phẩm</button></a>
                                             <select style="float: right;width: 160px;" onchange="location = this.value;" class="form-control">
                                                 <option <c:if test="${status!=null&&status==0}">selected</c:if> value="SupplierController?filter=filter&status=0<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Tất cả sản phẩm</option>
                                                 <option <c:if test="${status!=null&&status==1}">selected</c:if> value="SupplierController?filter=filter&status=1<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Chờ phê duyệt</option>
@@ -142,7 +142,7 @@
                                                 </select>
                                             <table class="mt-3 table table-bordered table-striped">
                                                 <tbody class="text-center">
-                                                    <tr style="background-color: #808080 !important; color: #F5F5F5 !important;">
+                                                    <tr style="background-color: #F5AB1E !important; color: #F5F5F5 !important;">
                                                         <th>Mã yêu 
                                                             cầu duyệt</th>
                                                         <th>Thời gian 
