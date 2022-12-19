@@ -636,20 +636,9 @@ public class ProductDAO {
         return products;
     }
 
-    public List<Integer> searchProductForMart(String begin, String end, String cityId, String cateId, String[] subCateIds, String sequenSearch, String filterStr) {
+    public List<Integer> searchProductForMart(String begin, String end, String cityId, String cateId, String[] subCateIds, String sequenSearch) {
         List<Integer> productIds = new ArrayList<>();
         String strSearch = "select DISTINCT p.ProductID from Product as p\n";
-
-        if(filterStr == null || filterStr.equals("newest")){
-            int i = strSearch.indexOf("p.ProductID");
-            strSearch = strSearch.substring(0,i)+"p.CreatedDate, "+strSearch.substring(i);
-        }else if (filterStr.equals("best-seller")){
-            
-        }else if (filterStr.equals("increment")){
-            
-        }else if (filterStr.equals("descrement")){
-            
-        }
         
         if (begin != null && !begin.equals("") && end != null && !end.equals("")) {
             strSearch += "join ProductHierarchy as ph on (ph.ProductID=p.ProductID and \n"
@@ -674,9 +663,6 @@ public class ProductDAO {
         }
         if (sequenSearch != null && !sequenSearch.equals("")) {
             strSearch += "\nand p.ProductName like N'%" + sequenSearch + "%'\n";
-        }
-        if(filterStr == null || filterStr.equals("newest")){
-            strSearch += " order by p.CreatedDate desc";
         }
         System.out.println(strSearch);
         try {

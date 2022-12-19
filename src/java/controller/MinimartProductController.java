@@ -45,8 +45,6 @@ public class MinimartProductController extends HttpServlet {
         String cid = request.getParameter("cid");
         String txtSearch = request.getParameter("txtSearch");
         String filter1 = request.getParameter("filter1");
-        String filter2 = request.getParameter("filter2");
-        request.setAttribute("filter2", filter2);
         List<Integer> productIds = new ArrayList<>();
 
         String begin = "", end = "", cityId = "";
@@ -72,9 +70,9 @@ public class MinimartProductController extends HttpServlet {
 
         if (cid != null && txtSearch == null) {
             if (filter1 != null) {
-                productIds = productDAO.searchProductForMart(begin, end, cityId, cid, subCateIds, null, filter2);
+                productIds = productDAO.searchProductForMart(begin, end, cityId, cid, subCateIds, null);
             } else {
-                productIds = productDAO.searchProductForMart(null, null, null, cid, null, null, filter2);
+                productIds = productDAO.searchProductForMart(null, null, null, cid, null, null);
             }
             request.setAttribute("cid", cid);
             int cidInt = Integer.parseInt(cid);
@@ -82,9 +80,9 @@ public class MinimartProductController extends HttpServlet {
             request.setAttribute("cateName", cateName.getCateName());
         } else if (txtSearch != null && cid == null) {
             if (filter1 != null) {
-                productIds = productDAO.searchProductForMart(begin, end, cityId, null, subCateIds, txtSearch, filter2);
+                productIds = productDAO.searchProductForMart(begin, end, cityId, null, subCateIds, txtSearch);
             } else {
-                productIds = productDAO.searchProductForMart(null, null, null, null, null, txtSearch, filter2);
+                productIds = productDAO.searchProductForMart(null, null, null, null, null, txtSearch);
             }
             request.setAttribute("txtSearch", txtSearch);
         }

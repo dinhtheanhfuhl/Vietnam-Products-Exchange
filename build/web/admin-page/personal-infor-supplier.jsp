@@ -260,8 +260,12 @@
                                                 </td>
                                                 <td style="text-align: left; vertical-align: top" class="display-userName-3">
                                                     <c:choose>
-                                                        <c:when test="${account.status == true}"><a class="btn btn-success">Đang hoạt động</a></c:when>
-                                                        <c:otherwise><a href="DetailSuppilerController?action=accept-account&sup-id=${sessionScope.supplierId}&acc-id=${account.accId}" class="btn btn-success">Chấp thuận tài khoản</a></c:otherwise>
+                                                        <c:when test="${account.status == true}">
+                                                            <a class="btn btn-success">Đang hoạt động</a>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <a href="DetailSuppilerController?action=accept-account&sup-id=${sessionScope.supplierId}&acc-id=${account.accId}" class="">Tài khoản đã được thuận</a>
+                                                        </c:otherwise>
                                                     </c:choose>
                                                 </td>
                                             </tr>
