@@ -139,7 +139,6 @@
                                 </a>
                             </li>
                         </c:if>
-
                         <li class="nav-item">
                             <div class="dropdown dropdown-user">
                                 <c:if test="${sessionScope.roleIdLoggin!=null}">
@@ -149,7 +148,7 @@
                                                 ${sessionScope.nameUser}
                                             </button>
                                         </c:if>
-                                        <c:if test="${sessionScope.roleIdLoggin==1||sessionScope.roleCusId==2}">
+                                        <c:if test="${sessionScope.roleIdLoggin==1||sessionScope.roleIdLoggin==2}">
                                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 ${sessionScope.systemManager.name}
                                             </button>

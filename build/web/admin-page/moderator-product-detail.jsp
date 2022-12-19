@@ -97,8 +97,8 @@
                 <div style="margin-left: 60px;" class="h3-order">
                     <c:if test="${product.statusId == 1}">
                         <div class="button-status ">
-                            <a href="ModeratorDetailProductController?action=accept&id=${product.productId}" class="btn btn-success mb-1" class="btn btn-primary">Phê duyệt đơn</a>
-                            <button class="btn btn-danger mb-1" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" type="submit">Từ chối đơn</button>
+                            <a href="ModeratorDetailProductController?action=accept&id=${product.productId}" class="btn btn-success mb-1" class="btn btn-primary">Đồng ý phê duyệt</a>
+                            <button class="btn btn-danger mb-1" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" type="submit">Từ chối phê duyệt</button>
                         </div>
                     </c:if>
                 </div>

@@ -166,7 +166,7 @@
                                         <td>${d.orderDetailId}</td>
                                         <td class="text-center"><img class="product-list-img" src="uploads/${mapOrderDetailAndImagePath.get(d)}"></td>
                                         <td>${mapOrderDetailAndProductName.get(d)}</td>
-                                        <td>${mapOrderDetailAndCateName.get(d)}-${mapOrderDetailAndSubCateName.get(d)}</td>
+                                        <td>${mapOrderDetailAndCateName.get(d)} -- ${mapOrderDetailAndSubCateName.get(d)}</td>
                                         <td>${mapOrderDetailAndCost.get(d)}</td>
                                         <td>${d.amount}</td>
                                     </tr>

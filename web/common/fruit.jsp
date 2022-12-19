@@ -132,7 +132,7 @@
                             </div>
                         </form>
                         <div class="row">
-                            <c:if test="${sessionScope.roleCusId!=null}">
+                            <c:if test="${sessionScope.roleCusId!=null||sessionScope.roleIdLoggin==1||sessionScope.roleIdLoggin==2||sessionScope.roleIdLoggin==3}">
                                 <c:forEach var="key" items="${mapImages.keySet()}">
                                     <div class="col-lg-4 col-md-6">
                                         <div class="single-shop-box">

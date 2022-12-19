@@ -29,7 +29,7 @@
                     </li>
                 <c:if test="${sessionScope.supplier!=null}">
                     <li>
-                        <a href="#"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
+                        <a href="EditPassController"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
                     </li>
                 </c:if>
                 <c:if test="${sessionScope.roleIdLoggin==1}">

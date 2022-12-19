@@ -137,7 +137,7 @@
                                     <div class="table-responsive new-products">
                                         <table class="mt-3 table table-bordered table-striped table-color-gray">
                                             <thead>
-                                                <tr style="background-color: #808080 !important; color: #F5F5F5 !important;" class="text-center">
+                                                <tr style="background-color: #F5AB1E !important; color: #F5F5F5 !important;" class="text-center">
                                                     <th style="color: #F5F5F5 !important;">Thời gian đặt hàng</th>
                                                     <th style="color: #F5F5F5 !important;">Mã đặt đơn hàng</th>
                                                     <th style="color: #F5F5F5 !important;">Minimart</th>

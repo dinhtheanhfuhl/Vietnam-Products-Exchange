@@ -155,7 +155,7 @@
                                 <tbody >
                                     <tr  class="text-center">
                                         <td>${od.orderDetailId}</td>
-                                        <td class="text-center"><img class="product-list-img" src="uploads/${mapOrderDetailAndImg.get(od)}"></td>
+                                        <td class="text-center"><img style="object-fit: cover" class="product-list-img" src="uploads/${mapOrderDetailAndImg.get(od)}"></td>
                                         <td >${mapOrderDetailAndProduct.get(od)}</td>
                                         <td>${mapOrderDetailAndCate.get(od)}</td>
                                         <td>${mapOrderDetailAndPrice.get(od)}</td>

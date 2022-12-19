@@ -48,23 +48,23 @@ public class HomeController extends HttpServlet {
         SupplierDAO supplierDAO = new SupplierDAO(connection);
         List<Product> getTop4 = productDAO.getTop4ProductOrderByView();
         
-        Map<Product, List<ProductImage>> mapImages = new LinkedHashMap<Product, List<ProductImage>>();
+        Map<Product, List<ProductImage>> mapImages = new LinkedHashMap<>();
         for (Product product : getTop4) {
             List<ProductImage> images = productImageDAO.getAllProductsImageByProId(product.getProductId());
             mapImages.put(product, images);
         }
-        Map<Product, List<Supplier>> mapSuppliers = new LinkedHashMap<Product, List<Supplier>>();
+        Map<Product, List<Supplier>> mapSuppliers = new LinkedHashMap<>();
         for (Product product : getTop4) {
             List<Supplier> supplier = supplierDAO.getSupplierByProId(product.getProductId());
             mapSuppliers.put(product, supplier);
         }
         List<Product> getTop4Newest = productDAO.getTop4ProductNewest();
-        Map<Product, List<ProductImage>> mapImages2 = new LinkedHashMap<Product, List<ProductImage>>();
+        Map<Product, List<ProductImage>> mapImages2 = new LinkedHashMap<>();
         for (Product product : getTop4Newest) {
             List<ProductImage> images = productImageDAO.getAllProductsImageByProId(product.getProductId());
             mapImages2.put(product, images);
         }
-        Map<Product, List<Supplier>> mapSuppliers2 = new LinkedHashMap<Product, List<Supplier>>();
+        Map<Product, List<Supplier>> mapSuppliers2 = new LinkedHashMap<>();
         for (Product product : getTop4Newest) {
             List<Supplier> supplier = supplierDAO.getSupplierByProId(product.getProductId());
             mapSuppliers2.put(product, supplier);
