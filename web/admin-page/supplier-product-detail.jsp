@@ -39,29 +39,7 @@
         </div>
 
         <!--  BEGIN NAVBAR  -->
-        <header class="desktop-nav header navbar fixed-top">
-            <div class="nav-logo mr-sm-5 ml-sm-4">
-                <a href="javascript:void(0);" class="nav-link sidebarCollapse d-inline-block mr-sm-5"
-                   data-placement="bottom">
-                    <i class="flaticon-menu-line-3"></i>
-                </a>
-                <a class="navbar-brand waves-effect" href="Home">
-                    <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
-                </a>
-            </div>
-
-            <ul class="navbar-nav flex-row ml-lg-auto">
-                <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
-                    <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
-                        <div class="user-profile d-lg-block d-none">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6p1uHt5NGPGppq1t48xlKt18PfNiIX5zCYQ&usqp=CAU"
-                                 alt="admin-profile" class="img-fluid">
-                        </div>
-                        <i class="flaticon-user-7 d-lg-none d-block"></i>
-                    </a>
-                </li>
-            </ul>
-        </header>
+        <%@include file="header.jsp" %>
         <!--  END NAVBAR  -->
 
         <!--  BEGIN MAIN CONTAINER  -->
@@ -104,37 +82,41 @@
             <!--  BEGIN CONTENT PART  -->
             <div id="content" class="main-content container">
                 <p>&nbsp;</p>
-                <h4 class="h3-order">Chi tiết sản phẩm</h4>
+                
                 <p>&nbsp;</p>
                 <span></span>
-                <div class="h3-order"><form action="SupplierDetailPController" method="POST">
-                        <c:choose>
-                            <c:when test="${product.statusId==1}">
-                                <input type="hidden" name="id" value="${product.productId}"/>
-                                <input type="hidden" name="action" value="cancel"/>
-                                <input style="min-width: 200px" type="submit" value="Huỷ yêu cầu" class="btn btn-danger"/>
-                            </c:when>
-                            <c:when test="${product.statusId==2}">
-                                <input type="hidden" name="id" value="${product.productId}"/>
-                                <input type="hidden" name="action" value="hidden"/>
-                                <input style="min-width: 200px" type="submit" value="Ẩn sản phẩm" class="btn btn-secondary"/>
-                            </c:when>
-                            <c:when test="${product.statusId==3}">
-                                <input type="hidden" name="id" value="${product.productId}"/>
-                                <input type="hidden" name="action" value="re-request"/>
-                                <input style="min-width: 200px" type="submit" value="Tạo lại sản phẩm" class="btn btn-secondary"/>
-                            </c:when>
-                            <c:when test="${product.statusId==4}">
-                                <input type="hidden" name="id" value="${product.productId}"/>
-                                <input type="hidden" name="action" value="cancel-hidden"/>
-                                <input style="min-width: 200px" type="submit" value="Bỏ ẩn sản phẩm" class="btn btn-success"/>
-                            </c:when>
-                        </c:choose>
-                    </form></div>
+
 
                 <div class="view-order">
 
                     <div class="summary-order">
+                        <div style="margin-top: 70px" class="mt-10">
+                            <h4>Chi tiết sản phẩm</h4>
+                            <form style="margin-bottom: 20px" action="SupplierDetailPController" method="POST">
+                                <c:choose>
+                                    <c:when test="${product.statusId==1}">
+                                        <input type="hidden" name="id" value="${product.productId}"/>
+                                        <input type="hidden" name="action" value="cancel"/>
+                                        <input style="min-width: 200px" type="submit" value="Huỷ yêu cầu" class="btn btn-danger"/>
+                                    </c:when>
+                                    <c:when test="${product.statusId==2}">
+                                        <input type="hidden" name="id" value="${product.productId}"/>
+                                        <input type="hidden" name="action" value="hidden"/>
+                                        <input style="min-width: 200px" type="submit" value="Ẩn sản phẩm" class="btn btn-secondary"/>
+                                    </c:when>
+                                    <c:when test="${product.statusId==3}">
+                                        <input type="hidden" name="id" value="${product.productId}"/>
+                                        <input type="hidden" name="action" value="re-request"/>
+                                        <input style="min-width: 200px" type="submit" value="Tạo lại sản phẩm" class="btn btn-secondary"/>
+                                    </c:when>
+                                    <c:when test="${product.statusId==4}">
+                                        <input type="hidden" name="id" value="${product.productId}"/>
+                                        <input type="hidden" name="action" value="cancel-hidden"/>
+                                        <input style="min-width: 200px" type="submit" value="Bỏ ẩn sản phẩm" class="btn btn-success"/>
+                                    </c:when>
+                                </c:choose>
+                            </form>
+                        </div>
                         <table class="table table-borderless">
                             <tr>
                                 <th style="min-width: 300px">Ảnh</th>

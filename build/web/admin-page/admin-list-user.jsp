@@ -41,31 +41,7 @@
         </div>
 
         <!--  BEGIN NAVBAR  -->
-        <header class="desktop-nav header navbar fixed-top">
-            <div class="nav-logo mr-sm-5 ml-sm-4">
-                <a href="javascript:void(0);" class="nav-link sidebarCollapse d-inline-block mr-sm-5"
-                   data-placement="bottom">
-                    <i class="flaticon-menu-line-3"></i>
-                </a>
-                <a class="navbar-brand waves-effect" href="Home">
-                    <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
-                </a>
-            </div>
-
-            <ul class="navbar-nav flex-row ml-lg-auto">
-
-
-                <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
-                    <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
-                        <div class="user-profile d-lg-block d-none">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6p1uHt5NGPGppq1t48xlKt18PfNiIX5zCYQ&usqp=CAU"
-                                 alt="admin-profile" class="img-fluid">
-                        </div>
-                        <i class="flaticon-user-7 d-lg-none d-block"></i>
-                    </a>
-                </li>
-            </ul>
-        </header>
+        <%@include file="header.jsp" %>
         <!--  END NAVBAR  -->
 
         <!--  BEGIN MAIN CONTAINER  -->
@@ -105,7 +81,7 @@
 
                             <div class="statbox widget box box-shadow">
 
-                                <div style="margin-top: 95px " class="widget-header">
+                                <div style="margin-top: 116px;" class="widget-header">
                                     <div class="page-header ">
                                         <div class="page-title col-xl-12 col-md-12 col-sm-12 col-12 mb-3">
                                             <h3>Quản lý người dùng hệ thống</h3>
@@ -126,12 +102,12 @@
                                                                 <option <c:if test="${address==city.cityId}">selected</c:if> value="${city.cityId}">${city.cityName}</option>
                                                             </c:forEach>
                                                         </select>
-                                                        <input type="text" name="phone-search" placeholder="Số điện thoại" value="${phone}"
+                                                                <input type="number" name="phone-search" placeholder="Số điện thoại" value="${phone}"
                                                                class="form-control">
                                                         <input type="email" name="email-search" placeholder="Email" value="${email}"
                                                                class="form-control">
 
-                                                        <button class="btn btn-info"
+                                                        <button class="btn btn-info" type="submit"
                                                                 style="padding: 0 10px; background: none; border: none;"
                                                                 title="Tìm kiếm">
                                                             <i class="flaticon-search" aria-hidden="true"
@@ -156,8 +132,8 @@
                                             <input type="hidden" name="phone-search" value="${phone}"/>
                                             <input type="hidden" name="email-search" value="${email}"/>
                                         </c:if>
-                                        <select name="filter" onchange="this.form.submit()" id="selectstatus" class="form-control">
-                                            <option <c:if test="${statusFilter==0}">selected</c:if> value="0">Tất cả</option>
+                                            <select style="min-width: 186px;" name="filter" onchange="this.form.submit()" id="selectstatus" class="form-control">
+                                            <option <c:if test="${statusFilter==0}">selected</c:if> value="0">Tất cả trạng thái</option>
                                             <option <c:if test="${statusFilter==1}">selected</c:if> value="1">Chờ phê duyệt</option>
                                             <option <c:if test="${statusFilter==2}">selected</c:if> value="2">Đã phê duyệt</option>
                                             <option <c:if test="${statusFilter==3}">selected</c:if> value="3">Từ chối phê duyệt</option>
@@ -165,8 +141,9 @@
                                         </form>
                                         <h6 id="sorttext">Sắp xếp theo</h6>
                                         <h3>Nhà cung cấp</h3>
+                                    <c:if test="${mapSuppliers.keySet().size()!=0}">
                                         <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;">
-                                        <c:if test="${mapSuppliers.keySet().size()!=0}">
+
                                             <table id="ecommerce-product-list" class="table table-bordered table-striped">
 
                                                 <tbody class="text-center">
@@ -195,18 +172,22 @@
                                                                     <c:when test="${mapSupplierStatus.get(key)==3}">Tài khoản bị từ chối</c:when>
                                                                 </c:choose>
                                                             </td>
-                                                            <td><a href="DetailSuppilerController?id=${key.supplierId}">Xem chi tiết</a></td>
+                                                            <td><a style="color: #F5AB1E !important" href="DetailSuppilerController?id=${key.supplierId}">Xem chi tiết</a></td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>
                                             </table>
-                                        </c:if>
-                                    </div>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${mapSuppliers.keySet().size()==0}">
+                                        <div class="mb-5">
+                                            <h5 style="color: #F5AB1E;" class="col-12">Không có dữ liệu!</h5>
+                                        </div>
+                                    </c:if>
                                     <h3>Khách hàng</h3>
-                                    <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;"> 
-                                        <c:if test="${mapCustomers.keySet().size()!=0}">
+                                    <c:if test="${mapCustomers.keySet().size()!=0}">
+                                        <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;"> 
                                             <table id="ecommerce-product-list" class="table table-bordered table-striped" >
-
                                                 <tbody class="text-center">
                                                     <tr style="background-color: #F5AB1E !important; color: #F5F5F5 !important;">
                                                         <th>ID</th>
@@ -233,14 +214,18 @@
                                                                     <c:when test="${mapCustomerStatus.get(key)==3}">Tài khoản bị từ chối</c:when>
                                                                 </c:choose>
                                                             </td>
-                                                            <td><a href="DetailCustomerController?id=${key.customerId}">Xem chi tiết</a></td>
+                                                            <td><a style="color: #F5AB1E !important" href="DetailCustomerController?id=${key.customerId}">Xem chi tiết</a></td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>
                                             </table>
-                                        </c:if>
-                                    </div>
-
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${mapCustomers.keySet().size()==0}">
+                                        <div class="mb-5">
+                                            <h5 style="color: #F5AB1E;" class="col-12">Không có dữ liệu!</h5>
+                                        </div>
+                                    </c:if>
                                 </div>
                             </div>
                         </div>

@@ -37,34 +37,7 @@
         </div>
 
         <!--  BEGIN NAVBAR  -->
-        <header class="desktop-nav header navbar fixed-top">
-            <div class="nav-logo mr-sm-5 ml-sm-4">
-                <a href="javascript:void(0);" class="nav-link sidebarCollapse d-inline-block mr-sm-5"
-                   data-placement="bottom">
-                    <i class="flaticon-menu-line-3"></i>
-                </a>
-                <a class="navbar-brand waves-effect" href="Home">
-
-                    <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
-                </a>
-            </div>
-
-            <ul class="navbar-nav flex-row ml-lg-auto">
-
-
-
-
-                <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
-                    <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
-                        <div class="user-profile d-lg-block d-none">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6p1uHt5NGPGppq1t48xlKt18PfNiIX5zCYQ&usqp=CAU"
-                                 alt="admin-profile" class="img-fluid">
-                        </div>
-                        <i class="flaticon-user-7 d-lg-none d-block"></i>
-                    </a>
-                </li>
-            </ul>
-        </header>
+        <%@include file="header.jsp" %>
         <!--  END NAVBAR  -->
 
         <!--  BEGIN MAIN CONTAINER  -->
@@ -159,17 +132,17 @@
                                             </div>
                                         </div>
                                         <div class="table-responsive new-products" style="background-color: white;">
-                                            <a href="SupplierAddController"><button type="button" class="btn btn-warning">Thêm sản phẩm</button></a>
+                                            <a href="SupplierAddController"><button type="button" style="background-color: #F5AB1E;color: #F5F5F5 !important;" class="btn">Thêm sản phẩm</button></a>
                                             <select style="float: right;width: 160px;" onchange="location = this.value;" class="form-control">
                                                 <option <c:if test="${status!=null&&status==0}">selected</c:if> value="SupplierController?filter=filter&status=0<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Tất cả sản phẩm</option>
-                                                <option <c:if test="${status!=null&&status==1}">selected</c:if> value="SupplierController?filter=filter&status=1<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Chờ phê duyệt</option>
-                                                <option <c:if test="${status!=null&&status==2}">selected</c:if> value="SupplierController?filter=filter&status=2<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã phê duyệt</option>
-                                                <option <c:if test="${status!=null&&status==3}">selected</c:if> value="SupplierController?filter=filter&status=3<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Từ chối phê duyệt</option>
-                                                <option <c:if test="${status!=null&&status==4}">selected</c:if> value="SupplierController?filter=filter&status=4<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã ẩn</option>
-                                                </select>
+                                            <option <c:if test="${status!=null&&status==1}">selected</c:if> value="SupplierController?filter=filter&status=1<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Chờ phê duyệt</option>
+                                            <option <c:if test="${status!=null&&status==2}">selected</c:if> value="SupplierController?filter=filter&status=2<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã phê duyệt</option>
+                                            <option <c:if test="${status!=null&&status==3}">selected</c:if> value="SupplierController?filter=filter&status=3<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Từ chối phê duyệt</option>
+                                            <option <c:if test="${status!=null&&status==4}">selected</c:if> value="SupplierController?filter=filter&status=4<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã ẩn</option>
+                                            </select>
                                             <table class="mt-3 table table-bordered table-striped">
                                                 <tbody class="text-center">
-                                                    <tr style="background-color: #808080 !important; color: #F5F5F5 !important;">
+                                                    <tr style="background-color: #F5AB1E !important; color: #F5F5F5 !important;">
                                                         <th>Mã yêu 
                                                             cầu duyệt</th>
                                                         <th>Thời gian 
@@ -196,13 +169,15 @@
                                                         </c:choose>
                                                         <td>
                                                             <div class="dropdown dropdown-user">
-                                                                <a href="SupplierDetailPController?id=${p.productId}" target="_blank">
+                                                                <a style="color: #F5AB1E !important" href="SupplierDetailPController?id=${p.productId}" target="_blank">
                                                                     Xem chi tiết
                                                                 </a>
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <a href="SupplierEditProductController?id=${p.productId}"><i class="flaticon-edit"></i></a>
+                                                            <a href="SupplierDetailPController?action=re-request&id=${p.productId}">
+                                                                <i class="flaticon-edit"></i>
+                                                            </a>
                                                         </td>
                                                     </tr>
                                                 </c:forEach>

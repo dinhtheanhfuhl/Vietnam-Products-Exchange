@@ -37,29 +37,7 @@
         </div>
 
         <!--  BEGIN NAVBAR  -->
-        <header class="desktop-nav header navbar fixed-top">
-            <div class="nav-logo mr-sm-5 ml-sm-4">
-                <a href="javascript:void(0);" class="nav-link sidebarCollapse d-inline-block mr-sm-5"
-                   data-placement="bottom">
-                    <i class="flaticon-menu-line-3"></i>
-                </a>
-                <a class="navbar-brand waves-effect" href="Home">
-                    <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
-                </a>
-            </div>
-
-            <ul class="navbar-nav flex-row ml-lg-auto">
-                <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
-                    <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
-                        <div class="user-profile d-lg-block d-none">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6p1uHt5NGPGppq1t48xlKt18PfNiIX5zCYQ&usqp=CAU"
-                                 alt="admin-profile" class="img-fluid">
-                        </div>
-                        <i class="flaticon-user-7 d-lg-none d-block"></i>
-                    </a>
-                </li>
-            </ul>
-        </header>
+        <%@include file="header.jsp" %>
         <!--  END NAVBAR  -->
 
         <!--  BEGIN MAIN CONTAINER  -->
@@ -139,13 +117,13 @@
 
                                                     <div id="filter">
                                                         <input type="hidden" name="action" value="search"/>
-                                                        <input type="text" name="id" placeholder="Mã yêu cầu phê duyệt" value="${id}"
+                                                        <input type="number" name="id" placeholder="Mã yêu cầu" value="${id}"
                                                                class="form-control">
                                                         <input type="text" name="shopName" placeholder="Nhà cung cấp" value="${shopName}"
                                                                class="form-control">
                                                         <input type="text" name="name" placeholder="Tên sản phẩm" value="${name}"
                                                                class="form-control">
-                                                        <input type="text" name="barCode" placeholder="Mã Barcode/SKU" value="${barCode}"
+                                                        <input type="number" name="barCode" placeholder="Mã Barcode/SKU" value="${barCode}"
                                                                class="form-control"> 
                                                         <button type="submit" class="btn btn-info"
                                                                 style="padding: 0 10px; background: none; border: none;"
@@ -167,8 +145,8 @@
                                             <input type="hidden" name="barCode" value="${barCode}"/>
                                             <input type="hidden" name="action" value="search"/>
                                         </c:if>
-                                        <select name="filter" id="selectstatus" onchange="this.form.submit();" class="form-control">
-                                            <option <c:if test="${statusFilter==0}">selected</c:if> value="0">Tất cả</option>
+                                            <select style="min-width: 198px" name="filter" id="selectstatus" onchange="this.form.submit();" class="form-control">
+                                            <option <c:if test="${statusFilter==0}">selected</c:if> value="0">Tất cả trạng thái</option>
                                             <option <c:if test="${statusFilter==1}">selected</c:if> value="1">Chờ phê duyệt</option>
                                             <option <c:if test="${statusFilter==2}">selected</c:if> value="2">Đã phê duyệt</option>
                                             <option <c:if test="${statusFilter==3}">selected</c:if> value="3">Từ chối phê duyệt</option>
@@ -189,8 +167,8 @@
                                                     <th>Chi tiết</th>
                                                 </tr>
                                                 <c:forEach items="${resultProducts}" var="product" >
-                                                    <tr>
-                                                        <td>#${product.productId}</td>
+                                                    <tr style="text-align: left;">
+                                                        <td style="text-align: center;">#${product.productId}</td>
                                                         <td>${product.createdDate}</td>
                                                         <td>${mapProSupp.get(product).shopName}</td>
                                                         <td>${product.productName}</td>
@@ -203,7 +181,7 @@
                                                                 <c:when test="${product.statusId==4}">Đã ẩn</c:when>
                                                             </c:choose>
                                                         </td>
-                                                        <td><a href="ModeratorDetailProductController?id=${product.productId}">Xem chi tiết</a></td>
+                                                        <td style="text-align: center;"><a style="color: #F5AB1E !important" href="ModeratorDetailProductController?id=${product.productId}">Xem chi tiết</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>

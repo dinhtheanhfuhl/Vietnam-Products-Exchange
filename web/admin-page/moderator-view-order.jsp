@@ -39,41 +39,7 @@
         </div>
 
         <!--  BEGIN NAVBAR  -->
-        <header class="desktop-nav header navbar fixed-top">
-            <div class="nav-logo mr-sm-5 ml-sm-4">
-                <a href="javascript:void(0);" class="nav-link sidebarCollapse d-inline-block mr-sm-5"
-                   data-placement="bottom">
-                    <i class="flaticon-menu-line-3"></i>
-                </a>
-                <a class="navbar-brand waves-effect" href="Home">
-                    <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
-                </a>
-            </div>
-            <ul class="navbar-nav flex-row mr-auto">
-                <li class="nav-item ml-4 d-lg-none d-sm-block d-none">
-                    <form class="form-inline search-full form-inline search animated-search" role="search">
-                        <i class="flaticon-search-1 d-lg-none d-block"></i>
-                        <input type="text" class="form-control search-form-control ml-lg-auto" placeholder="">
-                    </form>
-                </li>
-
-            </ul>
-
-            <ul class="navbar-nav flex-row ml-lg-auto">
-
-
-
-                <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
-                    <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
-                        <div class="user-profile d-lg-block d-none">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6p1uHt5NGPGppq1t48xlKt18PfNiIX5zCYQ&usqp=CAU"
-                                 alt="admin-profile" class="img-fluid">
-                        </div>
-                        <i class="flaticon-user-7 d-lg-none d-block"></i>
-                    </a>
-                </li>
-            </ul>
-        </header>
+        <%@include file="header.jsp" %>
         <!--  END NAVBAR  -->
 
         <!--  BEGIN MAIN CONTAINER  -->
@@ -189,7 +155,7 @@
                                 <tbody >
                                     <tr  class="text-center">
                                         <td>${od.orderDetailId}</td>
-                                        <td class="text-center"><img class="product-list-img" src="uploads/${mapOrderDetailAndImg.get(od)}"></td>
+                                        <td class="text-center"><img style="object-fit: cover" class="product-list-img" src="uploads/${mapOrderDetailAndImg.get(od)}"></td>
                                         <td >${mapOrderDetailAndProduct.get(od)}</td>
                                         <td>${mapOrderDetailAndCate.get(od)}</td>
                                         <td>${mapOrderDetailAndPrice.get(od)}</td>

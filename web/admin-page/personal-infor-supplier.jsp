@@ -37,35 +37,7 @@
         </div>
 
         <!--  BEGIN NAVBAR  -->
-        <header class="desktop-nav header navbar fixed-top">
-            <div class="nav-logo mr-sm-5 ml-sm-4">
-                
-                <a class="navbar-brand waves-effect" href="Home">
-                    <h2 id="logoheader" style="color: #F5AB1E;font-family: 'Signika Negative';font-weight: 700;">VnProX</h2>
-                </a>
-            </div>
-            <ul class="navbar-nav flex-row mr-auto">
-                <li class="nav-item ml-4 d-lg-none d-sm-block d-none">
-                    <form class="form-inline search-full form-inline search animated-search" role="search">
-                        <i class="flaticon-search-1 d-lg-none d-block"></i>
-                        <input type="text" class="form-control search-form-control ml-lg-auto" placeholder="">
-                    </form>
-                </li>
-
-            </ul>
-
-            <ul class="navbar-nav flex-row ml-lg-auto">
-                <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
-                    <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
-                        <div class="user-profile d-lg-block d-none">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6p1uHt5NGPGppq1t48xlKt18PfNiIX5zCYQ&usqp=CAU"
-                                 alt="admin-profile" class="img-fluid">
-                        </div>
-                        <i class="flaticon-user-7 d-lg-none d-block"></i>
-                    </a>
-                </li>
-            </ul>
-        </header>
+        <%@include file="header.jsp" %>
         <!--  END NAVBAR  -->
 
         <!--  BEGIN MAIN CONTAINER  -->
@@ -78,7 +50,7 @@
 
             <!--  BEGIN MODERN  -->
 
-            
+
             <!--  END MODERN  -->
 
             <!--  BEGIN CONTENT PART  -->
@@ -90,16 +62,30 @@
                     <div class="row profile">
                         <div class="col-md-3 mt-50 mb-50">
                             <div class="profile-sidebars">
-                                <div class="profile-userpic"> <img
-                                        src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
-                                        class="img-responsive " alt="ThÃ´ng tin cÃ¡ nhÃ¢n">
-
+                                <div class="profile-userpic"> 
+                                    <img style="object-fit: cover; width: 150px; height: 150px;"
+                                         <c:choose>
+                                             <c:when test='${sessionScope.systemManager!=null && sessionScope.systemManager.avartarImg!=null && sessionScope.systemManager.avartarImg!=""}'>
+                                                 src="uploads/${sessionScope.systemManager.avartarImg}"
+                                             </c:when>
+                                             <c:when test='${sessionScope.supplier!=null && sessionScope.supplier.avartarImg!=null && sessionScope.supplier.avartarImg!=""}'>
+                                                 src="uploads/${sessionScope.supplier.avartarImg}"
+                                             </c:when>
+                                             <c:otherwise>
+                                                 src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
+                                             </c:otherwise>
+                                         </c:choose>
+                                         class="img-responsive">
                                 </div>
                                 <div class="profile-usertitle">
-                                    <div class="profile-usertitle-name">${supplier.supplierName}</div>
+                                    <div class="profile-usertitle-name">${sessionScope.supplier.supplierName}</div>
+                                    <form action="InforController" method="POST" enctype="multipart/form-data">
+                                        <input type="hidden" name="action" value="changeImg"/>
+                                        <input name="img" class="p-2 bg-white" onchange="this.form.submit()" type="file"/>
+                                    </form>
                                 </div>
                                 <div class="profile-userbuttons">
-                                    <button type="button" class="btn btn-success btn-sm"> Upload Image</button>
+
                                 </div>
                             </div>
                         </div>
@@ -109,11 +95,11 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Tên người dùng</label>
+                                                <td style="text-align: left; vertical-align: top;"><label for="inputpass" class="form-label pass-infor">Tên người dùng</label>
                                                 </td>
-                                                <td class="display-userName-3">
+                                                <td style="text-align: left; vertical-align: top;" class="display-userName-3">
 
-                                                    <p>${supplier.supplierName}</p>
+                                                    <p>${sessionScope.supplier.supplierName}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -125,11 +111,11 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Ngày sinh</label>
+                                                <td style="text-align: left; vertical-align: top;"><label for="inputpass" class="form-label pass-infor">Ngày sinh</label>
                                                 </td>
-                                                <td class="display-userName-3">
+                                                <td style="text-align: left; vertical-align: top;" class="display-userName-3">
 
-                                                    <p>${supplier.dateBirth}</p>
+                                                    <p>${sessionScope.supplier.dateBirth}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -141,11 +127,11 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label id="inputpass" class="form-label pass-infor">Giới tính</label>
+                                                <td style="text-align: left; vertical-align: top;"><label id="inputpass" class="form-label pass-infor">Giới tính</label>
                                                 </td>
-                                                <td class="display-userName-3">
+                                                <td style="text-align: left; vertical-align: top;" class="display-userName-3">
 
-                                                    <p>${supplier.gender}</p>
+                                                    <p>${sessionScope.supplier.gender}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -155,11 +141,11 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputpass" class="form-label pass-infor">Email</label>
+                                                <td style="text-align: left; vertical-align: top;"><label for="inputpass" class="form-label pass-infor">Email</label>
                                                 </td>
-                                                <td class="display-userName-3">
+                                                <td style="text-align: left; vertical-align: top;" class="display-userName-3">
 
-                                                    <p>${supplier.email}</p>
+                                                    <p>${sessionScope.supplier.email}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -170,57 +156,58 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label style="margin-left: -15px;" class="form-label pass-infor">Số điện thoại</label>
+                                                <td style="text-align: left; vertical-align: top;"><label style="margin-left: -15px;" class="form-label pass-infor">Số điện thoại</label>
                                                 </td>
-                                                <td class="display-userName-3">
-                                                    <p style="margin-left: 13px;" >${supplier.phone}</p>
+                                                <td style="text-align: left; vertical-align: top;" class="display-userName-3">
+                                                    <p style="margin-left: 13px;" >${sessionScope.supplier.phone}</p>
                                                 </td>
-                                                <td> <button type="submit" id="btn-edit" for="formGroupExampleInput1"
-                                                             class="btn btn-warning ml-10">Chỉnh sửa</button></td>
+                                                <td style="text-align: left; vertical-align: top;"> <button type="submit" id="btn-edit" for="formGroupExampleInput1"
+                                                                                                            class="btn btn-warning ml-10">Chỉnh sửa</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <div class="hidden-edit pt-3" style="height: 170px;">
-                                        <div class="form-group ">
-                                            <label for="inputName" class="col-sm-6 col-form-label">Số điện thoại mới</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control appear-input mb-3 " id="inputName"
-                                                       placeholder="nhập số điện thoại mới" aria-label="First name">
-
+                                        <form action="InforController" method="POST">
+                                            <input type="hidden" name="action" value="changePhone"/>
+                                            <div class="form-group ">
+                                                <label for="inputName" class="col-sm-6 col-form-label">Số điện thoại mới</label>
+                                                <div class="col-sm-10">
+                                                    <input name="phone" type="text" class="form-control appear-input mb-3 " id="inputName" placeholder="nhập số điện thoại mới" aria-label="First name">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-secondary updated-infor ml-10 mt-25">Cập
-                                            nhật</button>
-                                        <button type="submit" class="btn btn-secondary exit ml-10 mt-25">Hủy</button>
+                                            <button type="submit" class="btn btn-secondary updated-infor ml-10 mt-25">Cập
+                                                nhật</button>
+                                            <button type="button" class="btn btn-secondary exit ml-10 mt-25">Hủy</button>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-sm-6 pt-4 pb-4">
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label id="suppliertext" class="form-label pass-infor">Nhà cung cấp</label>
+                                                <td style="text-align: left; vertical-align: top;"><label id="suppliertext" class="form-label pass-infor">Nhà cung cấp</label>
                                                 </td>
-                                                <td class="display-userName-3">
+                                                <td style="text-align: left; vertical-align: top;" class="display-userName-3">
                                                     <p id="supplierinput"   
-                                                       >${supplier.shopName}</p>
+                                                       >${sessionScope.supplier.shopName}</p>
                                                 </td>
-                                                <td> <button type="submit" id="btn-edit-2" for="formGroupExampleInput"
-                                                             class="btn btn-warning ml-10">Chỉnh sửa</button></td>
+                                                <td style="text-align: left; vertical-align: top;"> <button type="submit" id="btn-edit-2" for="formGroupExampleInput"
+                                                                                                            class="btn btn-warning ml-10">Chỉnh sửa</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <div class="hidden-pass pt-3" style="height: 170px;">
-                                        <div class="form-group ">
-                                            <label for="inputName" class="col-sm-6 col-form-label">Nhà cung cấp</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control appear-input mb-3 " 
-                                                       placeholder="nhập tên nhà cung cấp" aria-label="First name">
-
+                                        <form action="InforController" method="POST">
+                                            <input type="hidden" name="action" value="changeShopName" />
+                                            <div class="form-group ">
+                                                <label for="inputName" class="col-sm-6 col-form-label">Nhà cung cấp</label>
+                                                <div class="col-sm-10">
+                                                    <input name="shopName" type="text" class="form-control appear-input mb-3 " placeholder="nhập tên nhà cung cấp" aria-label="First name">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-secondary updated-infor ml-10 mt-25">Cập
-                                            nhật</button>
-                                        <button type="submit" class="btn btn-secondary exit-pass ml-10 mt-25">Hủy</button>
+                                            <button type="submit" class="btn btn-secondary updated-infor ml-10 mt-25">Cập nhật</button>
+                                            <button type="button" class="btn btn-secondary exit-pass ml-10 mt-25">Hủy</button>
+                                        </form>
                                     </div>
                                 </div>
 
@@ -228,38 +215,38 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label id="suppliertext" class="form-label pass-infor">Địa chỉ chính</label>
+                                                <td style="text-align: left; vertical-align: top;"><label id="suppliertext" class="form-label pass-infor">Địa chỉ chính</label>
                                                 </td>
-                                                <td class="display-userName-3">
-                                                    <p style="margin-left: 13px;">${supplier.mainAddress}</p>
+                                                <td style="text-align: left; vertical-align: top;" class="display-userName-3">
+                                                    <p style="margin-left: 13px;">${sessionScope.supplier.mainAddress}</p>
                                                 </td>
-                                                <td> <button type="submit" id="btn-edit-3" for="formGroupExampleInput"
-                                                             class="btn btn-warning ml-10">Chỉnh sửa</button></td>
+                                                <td style="text-align: left; vertical-align: top;"> <button type="submit" id="btn-edit-3" for="formGroupExampleInput"
+                                                                                                            class="btn btn-warning ml-10">Chỉnh sửa</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <div class="hidden-pass-3 pt-3" style="height: 170px;">
-                                        <div class="form-group ">
-                                            <label for="inputName" class="col-sm-6 col-form-label">Địa chỉ chính</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control appear-input mb-3 " id="inputName"
-                                                       placeholder="nhập tên địa chỉ chính" aria-label="First name">
-
+                                        <form action="InforController" method="POST">
+                                            <input type="hidden" name="action" value="changeMainAddress"/>
+                                            <div class="form-group ">
+                                                <label for="inputName" class="col-sm-6 col-form-label">Địa chỉ chính</label>
+                                                <div class="col-sm-10">
+                                                    <input name="mainAddress" type="text" class="form-control appear-input mb-3 " id="inputName" placeholder="nhập tên địa chỉ chính" aria-label="First name">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-secondary updated-infor ml-10 mt-25">Cập
-                                            nhật</button>
-                                        <button type="submit" class="btn btn-secondary exit-pass-3 ml-10 mt-25">Hủy</button>
+                                            <button type="submit" class="btn btn-secondary updated-infor ml-10 mt-25">Cập nhật</button>
+                                            <button type="button" class="btn btn-secondary exit-pass-3 ml-10 mt-25">Hủy</button>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-sm-6 pt-4 pb-4">
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputName" class="form-label pass-infor">Giấy phép <br> kinh doanh</label>
+                                                <td style="text-align: left; vertical-align: top;"><label for="inputName" class="form-label pass-infor">Giấy phép kinh doanh</label>
                                                 </td>
-                                                <td class="display-userName-3">
-                                                    <a href="#" class="btn btn-info">Tải về giấy phép</a>
+                                                <td style="text-align: left; vertical-align: top;" class="display-userName-3">
+                                                    <a id="click-d  own-load" href="#" style="color: #F5AB1E;">Tải về giấy phép</a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -269,12 +256,16 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><label for="inputName" class="form-label pass-infor">Trạng thái</label>
+                                                <td style="text-align: left; vertical-align: top;"><label for="inputName" class="form-label pass-infor">Trạng thái</label>
                                                 </td>
-                                                <td class="display-userName-3">
+                                                <td style="text-align: left; vertical-align: top" class="display-userName-3">
                                                     <c:choose>
-                                                        <c:when test="${account.status == true}"><a class="btn btn-success">Đang hoạt động</a></c:when>
-                                                        <c:otherwise><a href="DetailSuppilerController?action=accept-account&sup-id=${supplier.supplierId}&acc-id=${account.accId}" class="btn btn-success">Chấp thuận tài khoản</a></c:otherwise>
+                                                        <c:when test="${account.status == true}">
+                                                            <a class="btn btn-success">Đang hoạt động</a>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <a href="DetailSuppilerController?action=accept-account&sup-id=${sessionScope.supplierId}&acc-id=${account.accId}" class="">Tài khoản đã được thuận</a>
+                                                        </c:otherwise>
                                                     </c:choose>
                                                 </td>
                                             </tr>
@@ -336,9 +327,9 @@
     <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
     <script>
-        $(document).ready(function () {
-            App.init();
-        });
+                                            $(document).ready(function () {
+                                                App.init();
+                                            });
     </script>
     <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
@@ -370,17 +361,17 @@
 </html>
 <script>
 
-        document.getElementById("btn-edit").onclick = function () {
+                                            document.getElementById("btn-edit").onclick = function () {
 
-            document.querySelector(".personal-infor .hidden-edit").style.display = 'block';
-            document.querySelector(".personal-infor .hidden-edit").style.margin = '0 0 0 22%';
-            document.querySelector(".personal-infor #btn-edit").style.display = 'none';
-        };
-        document.querySelector(".exit").onclick = function () {
+                                                document.querySelector(".personal-infor .hidden-edit").style.display = 'block';
+                                                document.querySelector(".personal-infor .hidden-edit").style.margin = '0 0 0 22%';
+                                                document.querySelector(".personal-infor #btn-edit").style.display = 'none';
+                                            };
+                                            document.querySelector(".exit").onclick = function () {
 
-            document.querySelector(".personal-infor .hidden-edit").style.display = 'none';
-            document.querySelector(".personal-infor #btn-edit").style.display = 'block';
-        };
+                                                document.querySelector(".personal-infor .hidden-edit").style.display = 'none';
+                                                document.querySelector(".personal-infor #btn-edit").style.display = 'block';
+                                            };
 
 </script>
 <script>

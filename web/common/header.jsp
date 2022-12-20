@@ -139,14 +139,26 @@
                                 </a>
                             </li>
                         </c:if>
-
                         <li class="nav-item">
                             <div class="dropdown dropdown-user">
-                                <c:if test="${sessionScope.roleCusId==4}">
+                                <c:if test="${sessionScope.roleIdLoggin!=null}">
                                     <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            ${sessionScope.nameUser}
-                                        </button>
+                                        <c:if test="${sessionScope.roleIdLoggin==4}">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                ${sessionScope.nameUser}
+                                            </button>
+                                        </c:if>
+                                        <c:if test="${sessionScope.roleIdLoggin==1||sessionScope.roleIdLoggin==2}">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                ${sessionScope.systemManager.name}
+                                            </button>
+                                        </c:if>
+                                        <c:if test="${sessionScope.roleIdLoggin==3}">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                ${sessionScope.supplier.supplierName}
+                                            </button>
+                                        </c:if>
+
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" href="CustomerInfoDetail">Thông tin cá nhân</a>
                                             <a class="dropdown-item" href="HistoryOrderController">Lịch sử mua hàng</a>
@@ -155,11 +167,9 @@
                                         </div>
                                     </div>
                                 </c:if>
-
-                                <c:if test="${sessionScope.roleCusId==null}">
+                                <c:if test="${sessionScope.roleIdLoggin==null}">
                                     <a href="LogginController" class="nav-link border border-light rounded waves-effect">
-                                        <i class="fas fa-user"></i>Đăng Nhập
-                                    </a>
+                                        <i class="fas fa-user"></i>Đăng Nhập</a>
                                 </c:if>
 
                             </div>

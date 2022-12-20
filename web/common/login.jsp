@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
         <title>Đăng nhập</title>
@@ -68,15 +68,19 @@
                                         </div>
                                         <div class="form-group fill-form log-email">
                                             <label for="exampleInputPassword1">Email</label>
-                                            <input name="email" type="email" required="" class="form-control" id="exampleInputPassword1"
+                                            <input style="color: #505056;" name="email" type="email" required="" class="form-control" id="exampleInputPassword1"
                                                    placeholder="Nhập Email">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
                                             <label for="exampleInputPassword1">Mật khẩu</label>
-                                            <input name="password" type="password" required="" class="form-control" minlength="8" maxlength="20" id="exampleInputPassword1"
+                                            <input style="color: #505056;" name="password" type="password" required="" class="form-control" minlength="8" maxlength="20" id="exampleInputPassword1"
                                                    placeholder="Nhập mật khẩu">
                                         </div>
-
+                                        <c:if test="${error!=null}">
+                                            <div class="form-group fill-form log-lastName pb-4">
+                                                <p style="color: #f5ab1e;">${error}</p>
+                                            </div>
+                                        </c:if>
                                         <button type="submit" class="btn btn-primary btn-warning form-control">Đăng nhập</button>
 
 
@@ -124,7 +128,7 @@
             </div>
         </div>
 
-         <%@include file="footer.jsp"%>  
+        <%@include file="footer.jsp"%>  
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
