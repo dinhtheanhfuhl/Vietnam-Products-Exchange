@@ -158,7 +158,7 @@
                                                         <td>${o.totalPrice}</td>
                                                         <td>${o.recieverAddress}</td>
                                                         <td>${MapOrderAndStatus.get(o)}</td>
-                                                        <td><a href="SupplierDetailOrderController?id=${o.orderId}">Xem chi tiết</a></td>
+                                                        <td><a style="color: #F5AB1E !important" href="SupplierDetailOrderController?id=${o.orderId}">Xem chi tiết</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>

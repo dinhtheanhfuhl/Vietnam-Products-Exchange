@@ -169,7 +169,7 @@
                                                         </c:choose>
                                                         <td>
                                                             <div class="dropdown dropdown-user">
-                                                                <a href="SupplierDetailPController?id=${p.productId}" target="_blank">
+                                                                <a style="color: #F5AB1E !important" href="SupplierDetailPController?id=${p.productId}" target="_blank">
                                                                     Xem chi tiết
                                                                 </a>
                                                             </div>

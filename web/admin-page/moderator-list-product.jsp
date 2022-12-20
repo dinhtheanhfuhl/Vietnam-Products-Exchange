@@ -181,7 +181,7 @@
                                                                 <c:when test="${product.statusId==4}">Đã ẩn</c:when>
                                                             </c:choose>
                                                         </td>
-                                                        <td><a href="ModeratorDetailProductController?id=${product.productId}">Xem chi tiết</a></td>
+                                                        <td><a style="color: #F5AB1E !important" href="ModeratorDetailProductController?id=${product.productId}">Xem chi tiết</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
