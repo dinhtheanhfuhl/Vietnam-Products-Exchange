@@ -170,7 +170,7 @@
                                                     <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                                                     </svg>
                                                     ${mapCity.get(key).get(0).getCityName()}</p>
-                                                <p>Số lượng: ${key.weight}Kg</p>
+                                                <p>Số lượng : <fmt:formatNumber type="number" groupingUsed="true" value="${key.weight}" /> Kg</p>
                                             </div>
                                         </div>
                                     </div>

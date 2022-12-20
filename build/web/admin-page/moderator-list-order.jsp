@@ -172,7 +172,7 @@
                                                         <td>${mapOrderAndTotalWeight.get(o)} kg</td>
                                                         <td>${o.totalPrice} vnđ</td>
                                                         <td>${mapOrderAndOrderStatus.get(o).statusName}</td>
-                                                        <td><a href="ModeratorDetailOrderController?id=${o.orderId}">Xem chi tiết</a></td>
+                                                        <td><a style="color: #F5AB1E !important" href="ModeratorDetailOrderController?id=${o.orderId}">Xem chi tiết</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
