@@ -81,7 +81,7 @@
 
                             <div class="statbox widget box box-shadow">
 
-                                <div style="margin-top: 95px " class="widget-header">
+                                <div style="margin-top: 116px;" class="widget-header">
                                     <div class="page-header ">
                                         <div class="page-title col-xl-12 col-md-12 col-sm-12 col-12 mb-3">
                                             <h3>Quản lý người dùng hệ thống</h3>
@@ -102,12 +102,12 @@
                                                                 <option <c:if test="${address==city.cityId}">selected</c:if> value="${city.cityId}">${city.cityName}</option>
                                                             </c:forEach>
                                                         </select>
-                                                        <input type="text" name="phone-search" placeholder="Số điện thoại" value="${phone}"
+                                                                <input type="number" name="phone-search" placeholder="Số điện thoại" value="${phone}"
                                                                class="form-control">
                                                         <input type="email" name="email-search" placeholder="Email" value="${email}"
                                                                class="form-control">
 
-                                                        <button class="btn btn-info"
+                                                        <button class="btn btn-info" type="submit"
                                                                 style="padding: 0 10px; background: none; border: none;"
                                                                 title="Tìm kiếm">
                                                             <i class="flaticon-search" aria-hidden="true"
@@ -132,8 +132,8 @@
                                             <input type="hidden" name="phone-search" value="${phone}"/>
                                             <input type="hidden" name="email-search" value="${email}"/>
                                         </c:if>
-                                        <select name="filter" onchange="this.form.submit()" id="selectstatus" class="form-control">
-                                            <option <c:if test="${statusFilter==0}">selected</c:if> value="0">Tất cả</option>
+                                            <select style="min-width: 186px;" name="filter" onchange="this.form.submit()" id="selectstatus" class="form-control">
+                                            <option <c:if test="${statusFilter==0}">selected</c:if> value="0">Tất cả trạng thái</option>
                                             <option <c:if test="${statusFilter==1}">selected</c:if> value="1">Chờ phê duyệt</option>
                                             <option <c:if test="${statusFilter==2}">selected</c:if> value="2">Đã phê duyệt</option>
                                             <option <c:if test="${statusFilter==3}">selected</c:if> value="3">Từ chối phê duyệt</option>
@@ -141,8 +141,9 @@
                                         </form>
                                         <h6 id="sorttext">Sắp xếp theo</h6>
                                         <h3>Nhà cung cấp</h3>
+                                    <c:if test="${mapSuppliers.keySet().size()!=0}">
                                         <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;">
-                                        <c:if test="${mapSuppliers.keySet().size()!=0}">
+
                                             <table id="ecommerce-product-list" class="table table-bordered table-striped">
 
                                                 <tbody class="text-center">
@@ -176,13 +177,17 @@
                                                     </c:forEach>
                                                 </tbody>
                                             </table>
-                                        </c:if>
-                                    </div>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${mapSuppliers.keySet().size()==0}">
+                                        <div class="mb-5">
+                                            <h5 style="color: #F5AB1E;" class="col-12">Không có dữ liệu!</h5>
+                                        </div>
+                                    </c:if>
                                     <h3>Khách hàng</h3>
-                                    <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;"> 
-                                        <c:if test="${mapCustomers.keySet().size()!=0}">
+                                    <c:if test="${mapCustomers.keySet().size()!=0}">
+                                        <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;"> 
                                             <table id="ecommerce-product-list" class="table table-bordered table-striped" >
-
                                                 <tbody class="text-center">
                                                     <tr style="background-color: #F5AB1E !important; color: #F5F5F5 !important;">
                                                         <th>ID</th>
@@ -214,9 +219,13 @@
                                                     </c:forEach>
                                                 </tbody>
                                             </table>
-                                        </c:if>
-                                    </div>
-
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${mapCustomers.keySet().size()==0}">
+                                        <div class="mb-5">
+                                            <h5 style="color: #F5AB1E;" class="col-12">Không có dữ liệu!</h5>
+                                        </div>
+                                    </c:if>
                                 </div>
                             </div>
                         </div>

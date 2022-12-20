@@ -68,12 +68,12 @@
                                         </div>
                                         <div class="form-group fill-form log-email">
                                             <label for="exampleInputPassword1">Email</label>
-                                            <input name="email" type="email" required="" class="form-control" id="exampleInputPassword1"
+                                            <input style="color: #505056;" name="email" type="email" required="" class="form-control" id="exampleInputPassword1"
                                                    placeholder="Nhập Email">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
                                             <label for="exampleInputPassword1">Mật khẩu</label>
-                                            <input name="password" type="password" required="" class="form-control" minlength="8" maxlength="20" id="exampleInputPassword1"
+                                            <input style="color: #505056;" name="password" type="password" required="" class="form-control" minlength="8" maxlength="20" id="exampleInputPassword1"
                                                    placeholder="Nhập mật khẩu">
                                         </div>
                                         <c:if test="${error!=null}">

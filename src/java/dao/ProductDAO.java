@@ -635,7 +635,7 @@ public class ProductDAO {
         }
         return products;
     }
-
+    
     public List<Integer> searchProductForMart(String begin, String end, String cityId, String cateId, String[] subCateIds, String sequenSearch) {
         List<Integer> productIds = new ArrayList<>();
         String strSearch = "select DISTINCT p.ProductID from Product as p\n";

@@ -132,7 +132,7 @@
                                             <div class="form-group ">
                                                 <label for="inputName" class="col-sm-6 col-form-label">Số điện thoại mới</label>
                                                 <div class="col-sm-10">
-                                                    <input name="phone" minlength="10" maxlength="11" type="text" class="form-control appear-input mb-3 " id="inputName" placeholder="nhập số điện thoại mới" aria-label="First name">
+                                                    <input  name="phone" type="number" class="form-control appear-input mb-3 " id="inputName" placeholder="nhập số điện thoại mới" aria-label="First name">
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-secondary updated-infor ml-10 mt-25">Cập nhật</button>

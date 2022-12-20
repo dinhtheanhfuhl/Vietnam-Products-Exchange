@@ -117,13 +117,13 @@
 
                                                     <div id="filter">
                                                         <input type="hidden" name="action" value="search"/>
-                                                        <input type="text" name="id" placeholder="Mã yêu cầu phê duyệt" value="${id}"
+                                                        <input type="number" name="id" placeholder="Mã yêu cầu" value="${id}"
                                                                class="form-control">
                                                         <input type="text" name="shopName" placeholder="Nhà cung cấp" value="${shopName}"
                                                                class="form-control">
                                                         <input type="text" name="name" placeholder="Tên sản phẩm" value="${name}"
                                                                class="form-control">
-                                                        <input type="text" name="barCode" placeholder="Mã Barcode/SKU" value="${barCode}"
+                                                        <input type="number" name="barCode" placeholder="Mã Barcode/SKU" value="${barCode}"
                                                                class="form-control"> 
                                                         <button type="submit" class="btn btn-info"
                                                                 style="padding: 0 10px; background: none; border: none;"
@@ -145,8 +145,8 @@
                                             <input type="hidden" name="barCode" value="${barCode}"/>
                                             <input type="hidden" name="action" value="search"/>
                                         </c:if>
-                                        <select name="filter" id="selectstatus" onchange="this.form.submit();" class="form-control">
-                                            <option <c:if test="${statusFilter==0}">selected</c:if> value="0">Tất cả</option>
+                                            <select style="min-width: 198px" name="filter" id="selectstatus" onchange="this.form.submit();" class="form-control">
+                                            <option <c:if test="${statusFilter==0}">selected</c:if> value="0">Tất cả trạng thái</option>
                                             <option <c:if test="${statusFilter==1}">selected</c:if> value="1">Chờ phê duyệt</option>
                                             <option <c:if test="${statusFilter==2}">selected</c:if> value="2">Đã phê duyệt</option>
                                             <option <c:if test="${statusFilter==3}">selected</c:if> value="3">Từ chối phê duyệt</option>
@@ -167,8 +167,8 @@
                                                     <th>Chi tiết</th>
                                                 </tr>
                                                 <c:forEach items="${resultProducts}" var="product" >
-                                                    <tr>
-                                                        <td>#${product.productId}</td>
+                                                    <tr style="text-align: left;">
+                                                        <td style="text-align: center;">#${product.productId}</td>
                                                         <td>${product.createdDate}</td>
                                                         <td>${mapProSupp.get(product).shopName}</td>
                                                         <td>${product.productName}</td>
@@ -181,7 +181,7 @@
                                                                 <c:when test="${product.statusId==4}">Đã ẩn</c:when>
                                                             </c:choose>
                                                         </td>
-                                                        <td><a style="color: #F5AB1E !important" href="ModeratorDetailProductController?id=${product.productId}">Xem chi tiết</a></td>
+                                                        <td style="text-align: center;"><a style="color: #F5AB1E !important" href="ModeratorDetailProductController?id=${product.productId}">Xem chi tiết</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>

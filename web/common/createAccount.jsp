@@ -65,37 +65,37 @@
                                             <p>Vui lòng đăng kí thông tin vào bên dưới!</p>
                                         </div>
                                         <div class="form-group fill-form log-email">
-                                            <label>Tên người dùng*</label>
-                                            <input name="name" type="text" required="" maxlength="50" class="form-control" 
+                                            <label style="color: #505056;">Tên người dùng*</label>
+                                            <input style="color: #505056;" name="name" type="text" required maxlength="50" class="form-control" 
                                                    placeholder="nhập tên người dùng">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
-                                            <label for="exampleInputPassword1">Mật khẩu*</label>
-                                            <input name="password" required="" id="password" minlength="8" maxlength="20" type="password" class="form-control" 
+                                            <label style="color: #505056;" for="exampleInputPassword1">Mật khẩu*</label>
+                                            <input style="color: #505056;" name="password" required="" id="password" minlength="8" maxlength="20" type="password" class="form-control" 
                                                    placeholder=" nhập mật khẩu">
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
-                                            <label for="exampleInputPassword1">Xác nhận mật khẩu*</label>
-                                            <input type="password" required="" name="re-password" id="confirm_password" class="form-control" 
+                                            <label style="color: #505056;" for="exampleInputPassword1">Xác nhận mật khẩu*</label>
+                                            <input style="color: #505056;" type="password" required="" name="re-password" id="confirm_password" class="form-control" 
                                                    placeholder="xác nhận mật khẩu">
                                             <span id='message'></span>
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
-                                            <label for="exampleInputPassword1">Ngày sinh*</label>
-                                            <input name="date-birth" type="date" required="" class="form-control"
+                                            <label style="color: #505056;" for="exampleInputPassword1">Ngày sinh*</label>
+                                            <input style="color: #505056;" name="date-birth" placeholder="dd-mm-yyyy" value="" min="1900-01-01" max="2030-12-31" type="date" required="" class="form-control"
                                                    placeholder="ngày sinh">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
-                                            <label for="exampleInputPassword1">Giới tính*</label>
-                                            <select class="form-control" name="gender" id="gender">
+                                            <label style="color: #505056;" for="exampleInputPassword1">Giới tính*</label>
+                                            <select style="color: #505056;" class="form-control" name="gender" id="gender">
                                                 <option value="nam">Nam</option>
                                                 <option value="nữ">Nữ</option>
                                                 <option value="khác">Khác</option>
                                             </select>
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
-                                            <label>Email*</label>
-                                            <input name="email" required="" type="email" class="form-control"
+                                            <label style="color: #505056;">Email*</label>
+                                            <input style="color: #505056;" name="email" required="" type="email" class="form-control"
                                                    placeholder="nhập email">
                                         </div> 
                                         <c:if test="${messDupMail!=null}">
@@ -104,39 +104,39 @@
                                             </div> 
                                         </c:if>
                                         <div class="form-group fill-form log-lastName">
-                                            <label>Số điện thoại*</label>
-                                            <input name="phone" required="" type="number" class="form-control" 
+                                            <label style="color: #505056;">Số điện thoại*</label>
+                                            <input style="color: #505056;" name="phone" required="" type="number" class="form-control" 
                                                    placeholder="nhập số điện thoại">
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
-                                            <label >Vai trò*</label>
-                                            <select class="form-control" name="role" id="gender">
+                                            <label style="color: #505056;">Vai trò*</label>
+                                            <select style="color: #505056;" class="form-control" name="role" id="gender">
                                                 <option value="3">Nhà cung cấp</option>
                                                 <option value="4">Minimart</option>
                                             </select>
                                         </div>
                                         <div class="form-group fill-form log-lastName">
-                                            <label >Thành phố*</label>
-                                            <select class="form-control" name="city" id="gender">
+                                            <label style="color: #505056;">Thành phố*</label>
+                                            <select style="color: #505056;" class="form-control" name="city" id="gender">
                                                 <c:forEach var="c" items="${cities}">
                                                     <option value="${c.cityId}">${c.cityName}</option>
                                                 </c:forEach>
                                             </select>
                                         </div>
                                         <div class="form-group fill-form log-lastName">
-                                            <label>Tên cửa hàng*</label>
-                                            <input name="shop-name" required="" type="text" maxlength="255" class="form-control" 
+                                            <label style="color: #505056;">Tên cửa hàng*</label>
+                                            <input style="color: #505056;" name="shop-name" required="" type="text" maxlength="255" class="form-control" 
                                                    placeholder="nhập tên cửa hàng">
                                         </div> 
                                         <div class="form-group fill-form log-lastName">
-                                            <label>Địa chỉ cơ sở chính*</label>
-                                            <input name="main-address" type="text"  required="" class="form-control" 
+                                            <label style="color: #505056;">Địa chỉ cơ sở chính*</label>
+                                            <input style="color: #505056;" name="main-address" type="text" maxlength="255" required="" class="form-control" 
                                                    placeholder="nhập địa chỉ cơ sở chính">
                                         </div>
                                         <div class="form-group fill-form log-lastName">
-                                            <label>Giấy phép*</label>
-                                            <input name="lincse" type="file" required="" class="form-control-file"
-                                                   id="file-input">
+                                            <label style="color: #505056;">Giấy phép*</label>
+                                            <input style="color: #505056;" name="lincse" type="file" required="" class="form-control-file"
+                                                   accept=".docx,application/pdf,image/jpeg,image/gif,image/png"  id="file-input">
                                         </div> 
                                         <button type="submit" class="btn btn-primary btn-warning form-control">Đăng ký</button>
                                     </div>
