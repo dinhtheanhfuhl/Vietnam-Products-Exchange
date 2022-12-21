@@ -145,24 +145,49 @@
                                     <div class="dropdown">
                                         <c:if test="${sessionScope.roleIdLoggin==4}">
                                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                ${sessionScope.nameUser}
+                                                <i class="fas fa-user"></i>${sessionScope.nameUser}
                                             </button>
                                         </c:if>
                                         <c:if test="${sessionScope.roleIdLoggin==1||sessionScope.roleIdLoggin==2}">
                                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                ${sessionScope.systemManager.name}
+                                                <i class="fas fa-user"></i>${sessionScope.systemManager.name}
                                             </button>
                                         </c:if>
                                         <c:if test="${sessionScope.roleIdLoggin==3}">
                                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                ${sessionScope.supplier.supplierName}
+                                                <i class="fas fa-user"></i>${sessionScope.supplier.supplierName}
                                             </button>
                                         </c:if>
 
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="CustomerInfoDetail">Thông tin cá nhân</a>
-                                            <a class="dropdown-item" href="HistoryOrderController">Lịch sử mua hàng</a>
-                                            <a class="dropdown-item" href="EditPassController?action=show-change-pass">Thay đổi mật khẩu</a>
+                                        <div style="position: absolute;left: -10px !important;" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <c:choose >
+                                                <c:when test="${sessionScope.roleIdLoggin==4}">
+                                                    <a class="dropdown-item" href="CustomerInfoDetail">Thông tin cá nhân</a>
+                                                </c:when>
+                                                    <c:otherwise>
+                                                        <a class="dropdown-item" href="InforController">Thông tin cá nhân</a>
+                                                    </c:otherwise>
+                                            </c:choose>
+                                            <c:if test="${sessionScope.roleIdLoggin==4}">
+                                                <a class="dropdown-item" href="HistoryOrderController">Lịch sử mua hàng</a>
+                                            </c:if>
+                                            <c:if test="${sessionScope.roleIdLoggin!=4}">
+                                                <c:choose>
+                                                    <c:when test="${sessionScope.roleIdLoggin==1}">
+                                                        <a class="dropdown-item" href="AdminController">Quản lý</a>
+                                                    </c:when>
+                                                    <c:when test="${sessionScope.roleIdLoggin==2}">
+                                                        <a class="dropdown-item" href="ModeratorController">Quản lý</a>
+                                                    </c:when>
+                                                    <c:when test="${sessionScope.roleIdLoggin==3}">
+                                                        <a class="dropdown-item" href="SupplierController">Quản lý</a>
+                                                    </c:when>
+                                                </c:choose>
+
+                                            </c:if>
+                                            <c:if test="${sessionScope.roleIdLoggin==3||sessionScope.roleIdLoggin==4}">
+                                                <a class="dropdown-item" href="EditPassController?action=show-change-pass">Thay đổi mật khẩu</a>
+                                            </c:if>
                                             <a class="dropdown-item" href="LogoutController">Đăng xuất</a>
                                         </div>
                                     </div>
@@ -170,7 +195,7 @@
                                 <c:if test="${sessionScope.roleIdLoggin==null}">
                                     <a href="LogginController" class="nav-link border border-light rounded waves-effect">
                                         <i class="fas fa-user"></i>Đăng Nhập</a>
-                                </c:if>
+                                    </c:if>
 
                             </div>
                         </li>

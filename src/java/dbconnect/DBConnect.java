@@ -6,11 +6,11 @@ import java.sql.SQLException;
 // LAPTOP-AFFRQ6U2\SQLEXPRESS, DESKTOP-A0E4T1K\\MAYAO
  
 public class DBConnect {
-    private static final String DB_URL = "jdbc:sqlserver://LAPTOP-AFFRQ6U2\\SQLEXPRESS:1433;"
+    private static final String DB_URL = "jdbc:sqlserver://34.101.193.64:1433;"
             + "databaseName=vnprox;"
             + "encrypt=false";
-    private static final String USER_NAME = "sa";
-    private static final String PASSWORD = "123456";
+    private static final String USER_NAME = "sqlserver";
+    private static final String PASSWORD = "admin";
 
     public static Connection getConnection() {
         Connection conn = null;

@@ -99,10 +99,10 @@
                                         </div>
                                     </ul>
                                 </div>
-                                <c:if test="${sessionScope.roleCusId==null}">
+                                <c:if test="${sessionScope.roleIdLoggin==null}">
                                     <button disabled="" class="mt-5 btn btn-warning status" type="submit" id="">  Lọc </button>
                                 </c:if>
-                                <c:if test="${sessionScope.roleCusId!=null}">
+                                <c:if test="${sessionScope.roleIdLoggin!=null}">
                                     <button class="mt-2 btn btn-warning status" type="submit" id="">  Lọc </button>
                                 </c:if>
                             </form>
@@ -132,7 +132,7 @@
                             </div>
                         </form>
                         <div class="row">
-                            <c:if test="${sessionScope.roleCusId!=null||sessionScope.roleIdLoggin==1||sessionScope.roleIdLoggin==2||sessionScope.roleIdLoggin==3}">
+                            <c:if test="${sessionScope.roleIdLoggin!=null||sessionScope.roleIdLoggin==1||sessionScope.roleIdLoggin==2||sessionScope.roleIdLoggin==3}">
                                 <c:forEach var="key" items="${mapImages.keySet()}">
                                     <div class="col-lg-4 col-md-6">
                                         <div class="single-shop-box">
@@ -176,7 +176,7 @@
                                     </div>
                                 </c:forEach>
                             </c:if>
-                            <c:if test="${sessionScope.roleCusId==null}">
+                            <c:if test="${sessionScope.roleIdLoggin==null}">
                                 <c:forEach var="key" items="${mapImages.keySet()}">
                                     <div class="col-lg-4 col-md-6">
                                         <div class="single-shop-box">

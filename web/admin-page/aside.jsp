@@ -27,7 +27,7 @@
                     <li>
                         <a href="InforController"><i class="flaticon-user-11"></i> Thông tin cá nhân</a>
                     </li>
-                <c:if test="${sessionScope.supplier!=null}">
+                <c:if test="${sessionScope.supplier!=null&&sessionScope.roleIdLoggin==3}">
                     <li>
                         <a href="EditPassController"><i class="flaticon-lock-1"></i> Thay đổi mật khẩu</a>
                     </li>
