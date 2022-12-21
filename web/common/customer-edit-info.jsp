@@ -61,18 +61,18 @@
                     <div class="profile-sidebar">
                         <div style="margin-top: 50px;" class="profile-userpic"> 
                             <img style="object-fit: cover; width: 150px; height: 150px;"
-                                  <c:choose>
-                                      <c:when test='${sessionScope.systemManager!=null && sessionScope.systemManager.avartarImg!=null && sessionScope.systemManager.avartarImg!=""}'>
-                                          src="uploads/${sessionScope.systemManager.avartarImg}"
-                                      </c:when>
-                                      <c:when test='${sessionScope.supplier!=null && sessionScope.supplier.avartarImg!=null && sessionScope.supplier.avartarImg!=""}'>
-                                          src="uploads/${sessionScope.supplier.avartarImg}"
-                                      </c:when>
-                                      <c:otherwise>
-                                          src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
-                                      </c:otherwise>
-                                  </c:choose>
-                                  class="img-responsive">
+                                 <c:choose>
+                                     <c:when test='${sessionScope.systemManager!=null && sessionScope.systemManager.avartarImg!=null && sessionScope.systemManager.avartarImg!=""}'>
+                                         src="uploads/${sessionScope.systemManager.avartarImg}"
+                                     </c:when>
+                                     <c:when test='${sessionScope.supplier!=null && sessionScope.supplier.avartarImg!=null && sessionScope.supplier.avartarImg!=""}'>
+                                         src="uploads/${sessionScope.supplier.avartarImg}"
+                                     </c:when>
+                                     <c:otherwise>
+                                         src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
+                                     </c:otherwise>
+                                 </c:choose>
+                                 class="img-responsive">
                         </div>
                         <div class="profile-usertitle">
                             <div class="profile-usertitle-name"> ${customerDetail.customerName}</div>
@@ -92,46 +92,63 @@
                                 <tbody>
                                     <tr>
                                         <th>Họ tên</th>
-                                        <td>${customerDetail.customerName}</td>
+                                        <td>
+                                            <input class="form-control" value="${customerDetail.customerName}">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Giới tính</th>
-                                        <td>${customerDetail.gender}</td>
+                                        <td>
+                                            <input class="form-control" value="${customerDetail.gender}">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Ngày sinh</th>
-                                        <td>${customerDetail.dateBirth}</td>
+                                        <td>
+                                            <input class="form-control" value="${customerDetail.dateBirth}">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Email</th>
-                                        <td>${customerDetail.email}</td>
+                                        <td>
+                                            <input class="form-control" value="${customerDetail.email}">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>SĐT</th>
-                                        <td>${customerDetail.phone}</td>
+                                        <td>
+                                            <input class="form-control" value="${customerDetail.phone}">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Tên cửa hàng</th>
-                                        <td>${customerDetail.shopName}</td>
+                                        <td>
+                                            <input class="form-control" value="${customerDetail.shopName}">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Địa chỉ chính</th>
-                                        <td>${customerDetail.mainAddress}</td>
+                                        <td>
+                                            <input class="form-control" value="${customerDetail.mainAddress}">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Giấy phép</th>
-                                        <td>${customerDetail.businessLicense}</td>
+                                        <td>
+                                            <input class="form-control" disabled="" value="${customerDetail.businessLicense}">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Trạng thái</th>
                                         <td>
-                                            <a>Chấp thuận tài khoản</a>
+                                            <input class="form-control" disabled="" value="Chấp thuận tài khoản">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>&nbsp;</th>
+                                        <th></th>
                                         <td>
-                                            <a href="#"><button class="btn btn-success">Chỉnh sửa thông tin</button></a>
+                                            <a href="#"><button class="btn btn-success">Lưu</button></a>
+                                            <a href="#"><button class="btn btn-danger">Huỷ</button></a>
                                         </td>
                                     </tr>
                                 </tbody>
