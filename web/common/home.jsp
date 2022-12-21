@@ -95,7 +95,7 @@
                 <div class="title text-center pb-10  ">
                     <h2>Sản phẩm nổi bật</h2>
                 </div>
-                <c:if test="${sessionScope.roleCusId==null}">
+                <c:if test="${sessionScope.roleIdLoggin==null}">
                     <div class="row">
                         <div class="product-slider">
                             <c:forEach var="key" items="${mapImages.keySet()}">
@@ -113,7 +113,7 @@
                         </div>
                     </div>
                 </c:if>
-                <c:if test="${sessionScope.roleCusId!=null}">
+                <c:if test="${sessionScope.roleIdLoggin!=null}">
                     <div class="row">
                         <div class="product-slider">
                             <c:forEach var="key" items="${mapImages.keySet()}">
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                 </div>
-                <c:if test="${sessionScope.roleCusId==null}">
+                <c:if test="${sessionScope.roleIdLoggin==null}">
                    
                     <div class="row">
                         <div class="product-slider">
@@ -166,7 +166,7 @@
                         </div>
                     </div>
                 </c:if>
-                <c:if test="${sessionScope.roleCusId!=null}">
+                <c:if test="${sessionScope.roleIdLoggin!=null}">
                     <div class="row">
                         <div class="product-slider">
                             <c:forEach var="key" items="${mapImages2.keySet()}">
