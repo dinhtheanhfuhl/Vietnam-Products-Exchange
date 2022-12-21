@@ -125,37 +125,34 @@
                                 </li>
                         </c:if>
 
-                        <c:if test="${sessionScope.roleCusId!=null}">
+                        <c:if test="${sessionScope.roleIdLoggin==4}">
                             <li class="nav-item ">
                                 <a href="CartController"  class="nav-link cart-btn amm-shopping-cart-open pr-3">
-                                    <i class="fas fa-shopping-cart"><span class="quantity-amm-shopping-cart-open">0</span></i>
-                                </a>
-                            </li>
-                        </c:if>
-                        <c:if test="${sessionScope.roleCusId==null}">
-                            <li class="nav-item ">
-                                <a class="nav-link cart-btn pr-3">
-                                    <i class="fas fa-shopping-cart"></i>
+                                    <i class="fas fa-shopping-cart">
+                                        <span class="quantity-amm-shopping-cart-open">0</span></i>
                                 </a>
                             </li>
                         </c:if>
                         <li class="nav-item">
-                            <div class="dropdown dropdown-user">
+                            <div  class="dropdown dropdown-user">
                                 <c:if test="${sessionScope.roleIdLoggin!=null}">
                                     <div class="dropdown">
                                         <c:if test="${sessionScope.roleIdLoggin==4}">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-user"></i>${sessionScope.nameUser}
+                                            <button  style="background-color: white !important;color: black;"  class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <img style="height: 30px;width: 30px;border-radius: 500px; display: inline" src="image/giàu.jpg">
+                                                &nbsp;<span style="vertical-align: baseline; display: inline;"> ${sessionScope.nameUser}</span>
                                             </button>
                                         </c:if>
                                         <c:if test="${sessionScope.roleIdLoggin==1||sessionScope.roleIdLoggin==2}">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-user"></i>${sessionScope.systemManager.name}
+                                            <button  style="background-color: white !important;color: black;"  class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <img style="height: 30px;width: 30px;border-radius: 500px; display: inline" src="uploads/${sessionScope.systemManager.avartarImg}">
+                                                &nbsp;<span style="vertical-align: baseline; display: inline;">${sessionScope.systemManager.name}</span>
                                             </button>
                                         </c:if>
                                         <c:if test="${sessionScope.roleIdLoggin==3}">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-user"></i>${sessionScope.supplier.supplierName}
+                                            <button  style="background-color: white !important;color: black;"  class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <img style="height: 30px;width: 30px;border-radius: 500px; display: inline" src="uploads/${sessionScope.supplier.avartarImg}">
+                                                &nbsp;<span style="vertical-align: baseline; display: inline;">${sessionScope.supplier.supplierName}</span>
                                             </button>
                                         </c:if>
 
@@ -164,9 +161,9 @@
                                                 <c:when test="${sessionScope.roleIdLoggin==4}">
                                                     <a class="dropdown-item" href="CustomerInfoDetail">Thông tin cá nhân</a>
                                                 </c:when>
-                                                    <c:otherwise>
-                                                        <a class="dropdown-item" href="InforController">Thông tin cá nhân</a>
-                                                    </c:otherwise>
+                                                <c:otherwise>
+                                                    <a class="dropdown-item" href="InforController">Thông tin cá nhân</a>
+                                                </c:otherwise>
                                             </c:choose>
                                             <c:if test="${sessionScope.roleIdLoggin==4}">
                                                 <a class="dropdown-item" href="HistoryOrderController">Lịch sử mua hàng</a>
