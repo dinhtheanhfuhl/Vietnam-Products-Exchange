@@ -1,6 +1,7 @@
 <!doctype html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -129,7 +130,16 @@
                             <li class="nav-item ">
                                 <a href="CartController"  class="nav-link cart-btn amm-shopping-cart-open pr-3">
                                     <i class="fas fa-shopping-cart">
-                                        <span class="quantity-amm-shopping-cart-open">0</span></i>
+                                        <sql:setDataSource var="datas" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+                                                           url="jdbc:sqlserver://34.101.193.64:1433;databaseName=vnprox;encrypt=false"
+                                                           user="sqlserver" password="admin"/>
+                                        <sql:query dataSource="${datas}" var="result">
+                                            select COUNT(*) as sumCart from CartItem where CartID = 
+                                            (select CartID from cart where CartID = ${sessionScope.customer.customerId})
+                                        </sql:query>
+                                        <c:forEach var = "row" items = "${result.rows}">
+                                        <span class="quantity-amm-shopping-cart-open">${row.sumCart}</span></i>
+                                        </c:forEach>
                                 </a>
                             </li>
                         </c:if>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -126,8 +127,8 @@
                                             <input type="hidden" name="id" value="${id}"/>
                                             <input type="hidden" name="action" value="search"/>
                                         </c:if>
-                                        <select name="filter" id="selectstatus" onchange="this.form.submit()" class="form-control">
-                                            <option <c:if test="${filter==0}">selected</c:if> value="0">Tất cả</option>
+                                        <select style="width: 190px" name="filter" id="selectstatus" onchange="this.form.submit()" class="form-control">
+                                            <option <c:if test="${filter==0}">selected</c:if> value="0">Tất cả trạng thái</option>
                                             <c:forEach var="status" items="${allOrderStatus}">
                                                 <option <c:if test="${filter==status.orderStatusID}">selected</c:if> value="${status.orderStatusID}">${status.statusName}</option>
                                             </c:forEach>
@@ -152,17 +153,21 @@
                                                 <c:forEach var="o" items="${resultOrders}">
                                                     <tr>
                                                         <td>${mapOrderAndCreateTime.get(o)}</td>
-                                                        <td>${o.orderId}</td>
+                                                        <td>#${o.orderId}</td>
                                                         <td>${mapOrderAndCustomerName.get(o)}</td>
                                                         <td>${MapOrderAndNumberProduct.get(o)}</td>
-                                                        <td>${o.totalPrice}</td>
-                                                        <td>${o.recieverAddress}</td>
+                                                        <td> <span><fmt:formatNumber type = "number" 
+                                                                          pattern = "" value = "${o.totalPrice}" /><sup>vnđ</sup>&nbsp;&nbsp;</span></td>
+                                                        <td style="text-align: left">${o.recieverAddress}</td>
                                                         <td>${MapOrderAndStatus.get(o)}</td>
-                                                        <td><a style="color: #F5AB1E !important" href="SupplierDetailOrderController?id=${o.orderId}">Xem chi tiết</a></td>
+                                                        <td><a style="color: #F5AB1E !important;text-decoration-line:underline;" href="SupplierDetailOrderController?id=${o.orderId}">Xem chi tiết</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
                                         </table>
+                                        <c:if test="${resultOrders.size()==0||resultOrders==null}">
+                                            <h5 style="color: #F5AB1E;" class="col-12">Không có dữ liệu!</h5>
+                                        </c:if>
                                     </div>
 
                                 </div>

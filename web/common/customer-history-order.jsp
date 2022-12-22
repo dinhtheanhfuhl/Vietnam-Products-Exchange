@@ -57,7 +57,9 @@
         <div class="container ">
             <h3>Lịch sử mua hàng</h3>
         </div>
-        <div style="float: right;margin-right: 90px;margin-bottom: 20px;">
+        
+        <div class="container ">
+            <div style="float: right;margin-bottom: 20px;">
             <h6>Sắp xếp theo</h6>
             <form action="HistoryOrderController" method="post">
                 <select onchange="this.form.submit()" id="selectstatus" name="selectstatus" class="form-control">
@@ -68,10 +70,9 @@
                 </select>
             </form>
         </div>
-        <div class="container ">
-            <table class="table">
+            <table class="table table-bordered table-striped">
                 <thead>
-                    <tr>
+                    <tr style="background-color: #F5AB1E;color: white;text-align: center;">
                         <th scope="col">Mã đơn</th>
                         <th scope="col">Ngày đặt hàng</th>
                         <th scope="col">Số lượng</th>
@@ -84,10 +85,11 @@
                 <tbody>
 
                     <c:forEach var="key" items="${mapOrder.keySet()}">
-                        <tr>
-                            <td>${key.orderId}</td>
+                        <tr style="text-align: center;">
+                            <td>#${key.orderId}</td>
                             <td>${mapOrder.get(key).get(0).getOrderDate()}</td>
-                            <td>${mapAmount.get(key)} Kg</td>
+                            <td><span><fmt:formatNumber type = "number" 
+                                              pattern = "" value = "${mapAmount.get(key)}" />Kg</span></td>
                             <td>
                                 <fmt:formatNumber type = "number" 
                                                   pattern = "" value = "${mapPrice.get(key)}" /><sup>vnđ</sup>
@@ -112,7 +114,7 @@
                                     Đã nhận hàng
                                 </c:if>
                             </td>
-                            <td><a href="HistoryOrderDetailController?oid=${key.orderId}">Xem chi tiết</a></td>
+                            <td><a style="text-decoration-line:underline;color: orange;" href="HistoryOrderDetailController?oid=${key.orderId}">Xem chi tiết</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

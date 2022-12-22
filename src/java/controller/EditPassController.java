@@ -5,6 +5,7 @@ import dao.ResetPassDAO;
 import entity.Account;
 import entity.Customer;
 import entity.ResetPass;
+import entity.Supplier;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -43,11 +44,18 @@ public class EditPassController extends HttpServlet {
             String newPassEnr = security.SecurityPassword.encrypt(newPass);
             HttpSession session = request.getSession();
             Customer cus = (Customer) session.getAttribute("customer");
-            if (cus == null) {
+            Supplier sup = (Supplier) session.getAttribute("supplier");
+            if (cus == null && sup == null) {
                 request.getRequestDispatcher("common/error.jsp").forward(request, response);
                 return;
             }
-            Account acc = accDAO.getAccountById(cus.getAccId());
+            Account acc = new Account();
+            if (cus != null) {
+                acc = accDAO.getAccountById(cus.getAccId());
+            }
+            if(sup!=null){
+               acc = accDAO.getAccountById(sup.getAccId());
+            }
             if (!acc.getPassWord().equals(oldPassEnr)) {
                 request.setAttribute("errorOldPass", "Mật khẩu không chính xác!");
                 request.getRequestDispatcher("common/changepass.jsp").forward(request, response);

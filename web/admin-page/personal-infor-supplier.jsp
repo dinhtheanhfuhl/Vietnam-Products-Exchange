@@ -104,7 +104,6 @@
                                             </tr>
                                         </tbody>
                                     </table>
-
                                 </div>
 
                                 <div class="col-md-8 col-sm-6 pt-4 pb-4">

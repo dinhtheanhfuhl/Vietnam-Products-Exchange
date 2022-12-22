@@ -52,16 +52,16 @@
                                 <h3>Thông tin đặt hàng</h3>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Tên người nhận hàng*</label>
-                                    <input required type="text" class="form-control" id="exampleInputPhone" name="receiverName" placeholder="nhập tên người nhận">
+                                    <input required type="text" class="form-control" maxlength="50" id="exampleInputPhone" name="receiverName" placeholder="Nhập tên người nhận hàng">
                                 </div>
                                 <label>Địa chỉ đặt hàng*</label>
                                 <div class="input-group mb-3">
-                                    <input required type="text" class="form-control" id="exampleInputAddress" name="receiverAddress" placeholder="nhập địa chỉ đặt hàng">
+                                    <input required type="text" class="form-control" maxlength="255" id="exampleInputAddress" name="receiverAddress" placeholder="Nhập địa chỉ đặt hàng">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Số điện thoại*</label>
-                                    <input required type="number" maxlength="13" class="form-control" id="exampleInputAddress" name="receiverPhone" placeholder="nhập số điện thoại">
+                                    <input required type="number" class="form-control" id="exampleInputAddress" name="receiverPhone" placeholder="Nhập số điện thoại">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Ghi chú</label>

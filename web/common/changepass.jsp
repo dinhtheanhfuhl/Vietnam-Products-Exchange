@@ -70,7 +70,7 @@
                                         <li class="log-resetEmail input-group ">
                                             <label for="exampleInputEmail">Mật khẩu cũ</label>
                                             <br/>
-                                            <input name="oldPass" type="password" class="form-control" id="exampleInputEmail" placeholder="nhập mật khẩu cũ">
+                                            <input name="oldPass" required="" minlength="8" maxlength="20" type="password" class="form-control" id="exampleInputEmail" placeholder="nhập mật khẩu cũ">
                                             <br/>
                                         </li>
                                         <li>
@@ -79,7 +79,7 @@
                                         <li class="log-resetEmail input-group ">
                                             <label for="exampleInputEmail">Mật khẩu mới</label>
                                             <br/>
-                                            <input name="newPass" type="password" class="form-control" id="exampleInputEmail" placeholder="nhập mật khẩu mới">
+                                            <input name="newPass" type="password" required="" minlength="8" maxlength="20" class="form-control" id="exampleInputEmail" placeholder="nhập mật khẩu mới">
                                             <br/>
                                         </li>
                                         <li>
@@ -88,7 +88,7 @@
                                         <li class="log-resetEmail input-group ">
                                             <label for="exampleInputEmail">Nhập lại mật khẩu mới</label>
                                             <br>
-                                            <input name="reNewPass" type="password" class="form-control" id="exampleInputEmail" placeholder="nhập lại mật khẩu mới">
+                                            <input name="reNewPass" type="password" required="" minlength="8" maxlength="20" class="form-control" id="exampleInputEmail" placeholder="nhập lại mật khẩu mới">
 
                                         </li>
                                         <li class="form-btn" >
