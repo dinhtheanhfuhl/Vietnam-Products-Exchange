@@ -116,7 +116,11 @@
                             </tr> 
                             <tr>
                                 <th>Tên</th>
-                                <td>${product.productName}</td>
+                                <td>${product.productName}
+                                ${product.trademark}
+                                ${product.smell},
+                                ${product.color}
+                                </td>
                             </tr> 
                             <tr>
                                 <th>Khoảng giá</th>
@@ -179,7 +183,7 @@
                                 <th>Giấy tờ chứng nhận</th>
                                 <td>${product.productCertificate}</td>
                             </tr>
-                            <c:if test="${mess != null}">
+                            <c:if test="${mess != null&& product.statusId == 3}">
                                 <tr>
                                     <th>Lý do từ chối: </th>
                                     <td>${mess.messageDescribe}</td>

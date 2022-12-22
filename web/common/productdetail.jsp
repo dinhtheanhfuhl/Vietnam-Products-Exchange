@@ -106,13 +106,13 @@
                                 </h2>
                                 <span>${min} - ${medium-1} kg<br>
                                     <span style="color: #009900"><fmt:formatNumber type = "number" 
-                                                      pattern = "" value = "${priceMax}" /><sup>vnđ</sup>/Kg</span></span>
+                                                      pattern = "" value = "${priceMax}" /><sup>vnđ/Kg</sup></span></span>
                                 <span>${medium} - ${max-1} kg<br>
                                     <span style="color: #009900"><fmt:formatNumber type = "number" 
-                                                      pattern = "" value = "${priceMedium}" /><sup>vnđ</sup>/Kg</span></span>
+                                                      pattern = "" value = "${priceMedium}" /><sup>vnđ/Kg</sup></span></span>
                                 <span> &#8805; ${max} kg<br>
                                     <span style="color: #009900"><fmt:formatNumber type = "number" 
-                                                      pattern = "" value = "${priceMin}" /><sup>vnđ</sup>/Kg</span></span>
+                                                      pattern = "" value = "${priceMin}" /><sup>vnđ/Kg</sup></span></span>
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Danh mục</span> </div>
                                 </div>
@@ -129,11 +129,13 @@
                                 </div>
                                 <p>${product.shopName}</p>
                                 <form action="AddToCartController?pid=${product.productId}" method="post">
+                                    <c:if test="${sessionScope.roleIdLoggin==4}">
                                     <div class="shop-buttons d-block d-sm-flex align-items-center">
                                         <input id="inputweight" class="form-control" required="" type="number" placeholder="Nhập Kilogram" min="${min}" max="2000000000" name="amount" style="width: 150px;" />
                                         <input class="main-btn ml-10" type="submit" value="Thêm vào giỏ">
                                         <input type="hidden" name="proId" value="${product.productId}">
-                                    </div> 
+                                    </div>
+                                    </c:if>
                                 </form>
                             </div>
                         </div>
@@ -186,7 +188,7 @@
                         <div class="col-lg-12">
                             <div class="orfarm-section-title text-center">
                                 <h3 class="orfarm-title">Các sản phẩm liên quan</h3>
-                                <p>Khám phá thêm nhiều sản phẩm bên dưới để đưa ra lựa chọn tốt nhất cho bạn và gia đình. </p><i class="fas fa-heart"></i><i class="fas fa-heart"></i><i class="fas fa-heart"></i>
+                                <p>Khám phá thêm nhiều sản phẩm bên dưới để đưa ra lựa chọn tốt nhất cho bạn và gia đình. </p>
                             </div>
                         </div>
                     </div>

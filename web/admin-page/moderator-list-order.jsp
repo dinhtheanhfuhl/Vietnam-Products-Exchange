@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -120,7 +121,7 @@
                                                     <div id="filter">
                                                         <form action="ModeratorOrderController" method="POST">
                                                             <input type="hidden" name="action" value="search"/>
-                                                            <input type="text" name="id" placeholder="Mã đơn hàng" value="${id}"
+                                                            <input type="number" name="id" placeholder="Mã đơn hàng" value="${id}"
                                                                    class="form-control">
                                                             <button  class="btn btn-info"
                                                                      style="padding: 0 10px; background: none; border: none;"
@@ -140,8 +141,8 @@
                                             <input type="hidden" name="action" value="search"/>
                                             <input type="hidden" name="id" value="${id}"/>
                                         </c:if>
-                                        <select name="filter" id="selectstatus" onchange="this.form.submit();" class="form-control">
-                                            <option value="0">Tất cả</option>
+                                            <select name="filter" id="selectstatus" onchange="this.form.submit();" style="width: 190px;" class="form-control">
+                                            <option value="0">Tất cả trạng thái</option>
                                             <c:forEach var="ods" items="${orderStatuses}">
                                                 <option <c:if test="${filter==ods.orderStatusID}">selected</c:if> value="${ods.orderStatusID}">${ods.statusName}</option>
                                             </c:forEach>
@@ -161,18 +162,19 @@
                                                     <th>Chi tiết</th>
                                                 </tr>
                                                 <c:forEach var="o" items="${orders}">
-                                                    <tr>
+                                                    <tr style="text-align: left;">
                                                         <td>${mapOrderAndOrderDetail.get(o).get(0).orderDate}</td>
-                                                        <td>${o.orderId}</td>
+                                                        <td style="text-align: center;">#${o.orderId}</td>
                                                         <td>
                                                             <c:forEach var="supName" items="${mapOrderAndSupName.get(o)}">
                                                                 ${supName} <br/>
                                                             </c:forEach>
                                                         </td>
-                                                        <td>${mapOrderAndTotalWeight.get(o)} kg</td>
-                                                        <td>${o.totalPrice} vnđ</td>
+                                                        <td style="text-align: center;">${mapOrderAndTotalWeight.get(o)} kg</td>
+                                                        <td><span><fmt:formatNumber type = "number" 
+                                                                                  pattern = "" value = "${o.totalPrice}" /><sup>vnđ</sup>&nbsp;&nbsp;</span> </td>
                                                         <td>${mapOrderAndOrderStatus.get(o).statusName}</td>
-                                                        <td><a style="color: #F5AB1E !important" href="ModeratorDetailOrderController?id=${o.orderId}">Xem chi tiết</a></td>
+                                                        <td style="text-align: center;"><a style="color: #F5AB1E !important;text-decoration-line:underline;" href="ModeratorDetailOrderController?id=${o.orderId}">Xem chi tiết</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>

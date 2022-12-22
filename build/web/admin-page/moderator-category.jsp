@@ -109,7 +109,7 @@
                                                 </tr>
                                                 <c:forEach var="key" items="${mapSubcategorys.keySet()}">
                                                     <tr style="text-align: left;">
-                                                        <td>${key.cateId}</td>
+                                                        <td style="text-align: center;">#${key.cateId}</td>
                                                         <td>${key.cateName}</td>
                                                         <c:if test="${mapSubcategorys.get(key).size()>0}">
                                                             <td>${mapSubcategorys.get(key).get(0).subCateName}</td>

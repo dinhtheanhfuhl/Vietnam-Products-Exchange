@@ -101,7 +101,7 @@
                     <!-- Right -->
 
                     <ul class="navbar-nav nav-flex-icons">
-                        <c:if test="${sessionScope.roleCusId!=null}">
+                        <c:if test="${sessionScope.roleIdLoggin!=null}">
                             <li class="nav-item">
                                 <form action="MinimartProductController" method="post">
                                     <div class="input-group rounded">
@@ -114,7 +114,7 @@
                                 </li>
                         </c:if>
 
-                        <c:if test="${sessionScope.roleCusId==null}">
+                        <c:if test="${sessionScope.roleIdLoggin==null}">
                             <li class="nav-item">
                                 <div class="input-group rounded">
                                     <input <c:if test="${txtSearch!=null}">value="${txtSearch}"</c:if> type="search" class="form-control" required="" name="txtSearch" placeholder="Tìm kiếm" aria-label="Search" aria-describedby="search-addon" />

@@ -48,7 +48,12 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
                     <li class="breadcrumb-item">Trang chủ</li>
-                    <li class="breadcrumb-item" aria-current="page">${cateName}</li>
+                        <c:if test="${txtSearch!=null}">
+                        <li class="breadcrumb-item" aria-current="page">Tìm kiếm</li>
+                        </c:if>
+                        <c:if test="${txtSearch==null}">                    
+                        <li class="breadcrumb-item" aria-current="page">${cateName}</li>
+                        </c:if>
                 </ol>
             </nav>
         </section>
@@ -108,7 +113,9 @@
                             </form>
                         </div>
                     </div>
+
                     <div class="col-lg-9 order-1 order-lg-2">
+
                         <form action="MinimartProductController" method="POST">
                             <div class="d-flex justify-content-end">
 
@@ -128,120 +135,127 @@
                                         </c:forEach>
                                     </c:if>
                                 </c:if>
-                                
+
                             </div>
                         </form>
+
                         <div class="row">
-                            <c:if test="${sessionScope.roleIdLoggin!=null||sessionScope.roleIdLoggin==1||sessionScope.roleIdLoggin==2||sessionScope.roleIdLoggin==3}">
-                                <c:forEach var="key" items="${mapImages.keySet()}">
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="single-shop-box">
-                                            <a href="MimartDetailProduct?pid=${key.productId}">
-                                                <div class="thumb text-center">
-                                                    <img style="height:200px;object-fit: cover" src="uploads/${mapImages.get(key).get(0).getImgPath()}" alt="">
-                                                </div>
+                            <c:if test="${resultProducts.size()>0}">
+                                <c:if test="${sessionScope.roleIdLoggin!=null||sessionScope.roleIdLoggin==1||sessionScope.roleIdLoggin==2||sessionScope.roleIdLoggin==3}">
+                                    <c:forEach var="key" items="${mapImages.keySet()}">
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="single-shop-box">
+                                                <a href="MimartDetailProduct?pid=${key.productId}">
+                                                    <div class="thumb text-center">
+                                                        <img style="height:200px;object-fit: cover" src="uploads/${mapImages.get(key).get(0).getImgPath()}" alt="">
+                                                    </div>
 
-                                            </a>
-                                            <div class="content">
-
-                                                <input type="hidden" id="productId" value="1">
-
-                                                <a style="text-decoration: none" href="MimartDetailProduct?pid=${key.productId}">
-                                                    <h5>
-                                                        ${key.productName}
-                                                        ${key.trademark}
-                                                        ${key.smell},
-                                                        ${key.color}
-                                                    </h5>
                                                 </a>
-                                                <div class="pricing">
-                                                    <c:forEach var="hierarchy" items="${mapHierarchy.get(key)}">
+                                                <div class="content">
 
-                                                        <c:if test="${mapHierarchy.get(key).get(1)!=hierarchy}">
-                                                            <div style="color: #009900" class="discount-price"> <span><fmt:formatNumber type = "number" 
-                                                                              pattern = "" value = "${hierarchy.price}" /><sup>vnđ</sup>&nbsp;&nbsp;</span> </div> 
-                                                                </c:if>
-                                                            </c:forEach>
+                                                    <input type="hidden" id="productId" value="1">
+
+                                                    <a style="text-decoration: none" href="MimartDetailProduct?pid=${key.productId}">
+                                                        <h5>
+                                                            ${key.productName}
+                                                            ${key.trademark}
+                                                            ${key.smell},
+                                                            ${key.color}
+                                                        </h5>
+                                                    </a>
+                                                    <div class="pricing">
+                                                        <c:forEach var="hierarchy" items="${mapHierarchy.get(key)}">
+
+                                                            <c:if test="${mapHierarchy.get(key).get(1)!=hierarchy}">
+                                                                <div style="color: #009900" class="discount-price"> <span><fmt:formatNumber type = "number" 
+                                                                                  pattern = "" value = "${hierarchy.price}" /><sup>vnđ</sup>&nbsp;&nbsp;</span> </div> 
+                                                                    </c:if>
+                                                                </c:forEach>
+                                                    </div>
+
+
+                                                    <p><svg style="color: #009900" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                                        </svg>
+                                                        ${mapCity.get(key).get(0).getCityName()}</p>
+                                                    <p>Số lượng : <fmt:formatNumber type="number" groupingUsed="true" value="${key.weight}" /> Kg</p>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
+                                </c:if>
+                                <c:if test="${sessionScope.roleIdLoggin==null}">
+                                    <c:forEach var="key" items="${mapImages.keySet()}">
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="single-shop-box">
+                                                <a href="" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo">
+                                                    <div class="thumb text-center">
+                                                        <img style="height:200px;object-fit: cover" src="uploads/${mapImages.get(key).get(0).getImgPath()}" alt="">
+                                                    </div>
+                                                </a>
+                                                <div class="content">
 
+                                                    <input type="hidden" id="productId" value="1">
 
-                                                <p><svg style="color: #009900" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                                                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                                                    </svg>
-                                                    ${mapCity.get(key).get(0).getCityName()}</p>
-                                                <p>Số lượng : <fmt:formatNumber type="number" groupingUsed="true" value="${key.weight}" /> Kg</p>
+                                                    <a style="text-decoration: none" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo">
+                                                        <h5>
+                                                            ${key.productName}
+                                                            ${key.trademark}
+                                                            ${key.smell},
+                                                            ${key.color}
+                                                        </h5>
+                                                    </a>
+                                                    <p><svg style="color: #009900" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                                        </svg>${mapCity.get(key).get(0).getCityName()}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
+                                </c:if>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <h4 id="message-text">Vui lòng đăng nhập!</h4>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                                                <a href="LogginController"><button class="btn btn-warning" type="button" >Đăng nhập</button></a>
                                             </div>
                                         </div>
                                     </div>
-                                </c:forEach>
-                            </c:if>
-                            <c:if test="${sessionScope.roleIdLoggin==null}">
-                                <c:forEach var="key" items="${mapImages.keySet()}">
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="single-shop-box">
-                                            <a href="" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo">
-                                                <div class="thumb text-center">
-                                                    <img style="height:200px;object-fit: cover" src="uploads/${mapImages.get(key).get(0).getImgPath()}" alt="">
-                                                </div>
-                                            </a>
-                                            <div class="content">
-
-                                                <input type="hidden" id="productId" value="1">
-
-                                                <a style="text-decoration: none" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo">
-                                                    <h5>
-                                                        ${key.productName}
-                                                        ${key.trademark}
-                                                        ${key.smell},
-                                                        ${key.color}
-                                                    </h5>
-                                                </a>
-                                                <p><svg style="color: #009900" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                                                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                                                    </svg>${mapCity.get(key).get(0).getCityName()}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </c:forEach>
-                            </c:if>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form>
-                                                <div class="form-group">
-                                                    <h4 id="message-text">Vui lòng đăng nhập!</h4>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-                                            <a href="LogginController"><button class="btn btn-warning" type="button" >Đăng nhập</button></a>
-                                        </div>
-                                    </div>
                                 </div>
-                            </div>
-                            <c:if test="${mapImages.size()!=0}">
-                                <div class="col-lg-12">
-                                    <div class="bisylms-pagination">
-                                        <c:forEach begin="1" end="4" var="i">
-                                            <!-- <span class="current">1</span> -->
-                                            <a href="#">${i}</a>
-                                            <!-- <a class="next" href="#">next<i class="fal fa-arrow-right"></i></a> -->
-                                        </c:forEach>
+                                <c:if test="${mapImages.size()!=0}">
+                                    <div class="col-lg-12">
+                                        <div class="bisylms-pagination">
+                                            <c:forEach begin="1" end="4" var="i">
+                                                <!-- <span class="current">1</span> -->
+                                                <a href="#">${i}</a>
+                                                <!-- <a class="next" href="#">next<i class="fal fa-arrow-right"></i></a> -->
+                                            </c:forEach>
+                                        </div>
                                     </div>
-                                </div>
+                                </c:if>
+                            </c:if>
+                            <c:if test="${resultProducts.size()==0||resultProducts==null}">
+                                <h3>Không tìm thấy sản phẩm nào</h3>
                             </c:if>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -286,9 +300,9 @@
         <script src="assets/js/main.js"></script>
         <script src="./cart.js"></script>
         <script>$('#exampleModal').on('show.bs.modal', function (event) {
-                                        var button = $(event.relatedTarget)
-                                        var recipient = button.data('whatever')
-                                        var modal = $(this)
-                                    })</script>
+                var button = $(event.relatedTarget)
+                var recipient = button.data('whatever')
+                var modal = $(this)
+            })</script>
     </body>
 </html>
