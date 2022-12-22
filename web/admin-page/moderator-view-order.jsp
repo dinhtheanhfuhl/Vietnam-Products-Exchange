@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -97,19 +99,19 @@
                 <div class="h3-order">
                     <p><b style="font-size: 15px;">Trạng thái đơn hàng</b><span><c:forEach var="os" items="${allOrderStatuses}">
                                 <c:if test="${order.orderStatusId==os.orderStatusID}">
-                                    <a class=" btn btn-info status mb-2 mt-2">${os.statusName}</a>
+                                    <a style="color: white" class="badge bg-danger mb-2 mt-2">${os.statusName}</a>
                                 </c:if>
                             </c:forEach></span></p>
                 </div>
                 <div class="view-order">
                     <div class="summary-order">
-                        <table >
+                        <table class="table table-bordered table-striped ">
                             <tr>
-                                <th>Mã đơn hàng</th>
-                                <td>${order.orderId}</td>
+                                <th>Mã đơn hàng:</th>
+                                <td>#${order.orderId}</td>
                             </tr>
                             <tr>
-                                <th>Ngày đặt hàng</th>
+                                <th>Ngày đặt hàng:</th>
                                 <td>${orderDetails.get(0).orderDate}</td>
                             </tr>
                             <tr>
@@ -126,7 +128,9 @@
                             </tr>
                             <tr>
                                 <th>Tổng Tiền Hóa Đơn: </th>
-                                <td>${order.totalPrice} vnđ</td>
+                                <td><span><fmt:formatNumber type = "number" 
+                                                  pattern = "" value = "${order.totalPrice}" /><sup>vnđ</sup>&nbsp;&nbsp;</span></td>
+
                             </tr>
                             <tr>
                                 <th>Ghi Chú:</th>
@@ -153,12 +157,13 @@
                             </thead>
                             <c:forEach var="od" items="${orderDetails}">
                                 <tbody >
-                                    <tr  class="text-center">
-                                        <td>${od.orderDetailId}</td>
+                                    <tr class="text-center">
+                                        <td>#${od.orderDetailId}</td>
                                         <td class="text-center"><img style="object-fit: cover" class="product-list-img" src="uploads/${mapOrderDetailAndImg.get(od)}"></td>
                                         <td >${mapOrderDetailAndProduct.get(od)}</td>
                                         <td>${mapOrderDetailAndCate.get(od)}</td>
-                                        <td>${mapOrderDetailAndPrice.get(od)}</td>
+                                        <td><span><fmt:formatNumber type = "number" 
+                                                          pattern = "" value = "${mapOrderDetailAndPrice.get(od)}" /><sup>vnđ</sup>&nbsp;&nbsp;</span></td>
                                         <td>${od.amount}</td>
                                     </tr>
                                 </tbody>

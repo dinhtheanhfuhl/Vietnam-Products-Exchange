@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-        <title>Thêm danh mục con </title>
+        <title>Thêm danh mục cấp 2 </title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" .href="./image/578b1438ff0a7fc4704aa5ade7625e89.jpeg" type="image/png">
@@ -93,7 +93,7 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
                             <div style="margin-top: 80px" class="statbox widget box">
-                                <h3>Thêm danh mục con</h3>
+                                <h3>Thêm danh mục cấp 2</h3>
                                 <div class="widget-content-area">
                                     <div class="table-responsive new-products">
                                         <form action="ModeratorAddSubCateController" method="post" id="add123">
@@ -115,7 +115,7 @@
                                                                 </c:forEach>
                                                             </select>
                                                         </td>
-                                                        <td><input name="name" class="form-control" required="" maxlength="50" placeholder="nhập danh mục con"></td>
+                                                        <td><input name="name" class="form-control" required="" maxlength="50" placeholder="Nhập danh mục cấp 2"></td>
                                                         <td><input type="button" class=" btn btn-warning status mb-2" value="Thêm danh mục con" data-toggle="modal" data-target="#exampleModalLong" id="approved" />
                                                         </td>
                                                     </tr>

@@ -83,8 +83,8 @@
 
                                 <div style="margin-top: 116px;" class="widget-header">
                                     <div class="page-header ">
+                                        <h3>Quản lý người dùng hệ thống</h3>
                                         <div class="page-title col-xl-12 col-md-12 col-sm-12 col-12 mb-3">
-                                            <h3>Quản lý người dùng hệ thống</h3>
                                         </div>
                                     </div>
                                     <div class="widget-header mb-3">
@@ -102,7 +102,7 @@
                                                                 <option <c:if test="${address==city.cityId}">selected</c:if> value="${city.cityId}">${city.cityName}</option>
                                                             </c:forEach>
                                                         </select>
-                                                                <input type="number" name="phone-search" placeholder="Số điện thoại" value="${phone}"
+                                                        <input type="number" name="phone-search" placeholder="Số điện thoại" value="${phone}"
                                                                class="form-control">
                                                         <input type="email" name="email-search" placeholder="Email" value="${email}"
                                                                class="form-control">
@@ -132,7 +132,7 @@
                                             <input type="hidden" name="phone-search" value="${phone}"/>
                                             <input type="hidden" name="email-search" value="${email}"/>
                                         </c:if>
-                                            <select style="min-width: 186px;" name="filter" onchange="this.form.submit()" id="selectstatus" class="form-control">
+                                        <select style="min-width: 186px;" name="filter" onchange="this.form.submit()" id="selectstatus" class="form-control">
                                             <option <c:if test="${statusFilter==0}">selected</c:if> value="0">Tất cả trạng thái</option>
                                             <option <c:if test="${statusFilter==1}">selected</c:if> value="1">Chờ phê duyệt</option>
                                             <option <c:if test="${statusFilter==2}">selected</c:if> value="2">Đã phê duyệt</option>
@@ -140,8 +140,7 @@
                                             </select>
                                         </form>
                                         <h6 id="sorttext">Sắp xếp theo</h6>
-                                        <h3>Nhà cung cấp</h3>
-                                    <c:if test="${mapSuppliers.keySet().size()!=0}">
+                                        <h4>Nhà cung cấp</h4>
                                         <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;">
 
                                             <table id="ecommerce-product-list" class="table table-bordered table-striped">
@@ -157,75 +156,74 @@
                                                         <th>Trạng thái</th>
                                                         <th>Chi tiết</th>
                                                     </tr>
-                                                    <c:forEach items="${mapSuppliers.keySet()}" var="key" >
-                                                        <tr>
-                                                            <td>#${key.supplierId}</td>
-                                                            <td>${key.supplierName}</td>
-                                                            <td>${key.shopName}</td>
-                                                            <td>${mapSupplierCity.get(key).cityName}</td>
-                                                            <td>${key.phone}</td>
-                                                            <td>${key.email}</td>
-                                                            <td>
-                                                                <c:choose>
-                                                                    <c:when test="${mapSupplierStatus.get(key)==1}">Chờ phê duyệt</c:when>
-                                                                    <c:when test="${mapSupplierStatus.get(key)==2}">Đã chấp thuận</c:when>
-                                                                    <c:when test="${mapSupplierStatus.get(key)==3}">Tài khoản bị từ chối</c:when>
-                                                                </c:choose>
-                                                            </td>
-                                                            <td><a style="color: #F5AB1E !important" href="DetailSuppilerController?id=${key.supplierId}">Xem chi tiết</a></td>
-                                                        </tr>
-                                                    </c:forEach>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </c:if>
-                                    <c:if test="${mapSuppliers.keySet().size()==0}">
-                                        <div class="mb-5">
-                                            <h5 style="color: #F5AB1E;" class="col-12">Không có dữ liệu!</h5>
-                                        </div>
-                                    </c:if>
-                                    <h3>Khách hàng</h3>
-                                    <c:if test="${mapCustomers.keySet().size()!=0}">
-                                        <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;"> 
-                                            <table id="ecommerce-product-list" class="table table-bordered table-striped" >
-                                                <tbody class="text-center">
-                                                    <tr style="background-color: #F5AB1E !important; color: #F5F5F5 !important;">
-                                                        <th>ID</th>
-                                                        <th>Tên người dùng</th>
-                                                        <th>Tên khách hàng</th>
-                                                        <th>Thành phố</th>
-                                                        <th>SĐT</th>
-                                                        <th>Email</th>
-                                                        <th>Trạng thái</th>
-                                                        <th>Chi tiết</th>
+                                                <c:forEach items="${mapSuppliers.keySet()}" var="key" >
+                                                    <tr>
+                                                        <td>#${key.supplierId}</td>
+                                                        <td>${key.supplierName}</td>
+                                                        <td>${key.shopName}</td>
+                                                        <td>${mapSupplierCity.get(key).cityName}</td>
+                                                        <td>${key.phone}</td>
+                                                        <td>${key.email}</td>
+                                                        <td>
+                                                            <c:choose>
+                                                                <c:when test="${mapSupplierStatus.get(key)==1}">Chờ phê duyệt</c:when>
+                                                                <c:when test="${mapSupplierStatus.get(key)==2}">Đã chấp thuận</c:when>
+                                                                <c:when test="${mapSupplierStatus.get(key)==3}">Tài khoản bị từ chối</c:when>
+                                                            </c:choose>
+                                                        </td>
+                                                        <td><a style="color: #F5AB1E !important; text-decoration-line: underline;" href="DetailSuppilerController?id=${key.supplierId}">Xem chi tiết</a></td>
                                                     </tr>
-                                                    <c:forEach items="${mapCustomers.keySet()}" var="key" >
-                                                        <tr>
-                                                            <td>#${key.customerId}</td>
-                                                            <td>${key.customerName}</td>
-                                                            <td>${key.shopName}</td>
-                                                            <td>${mapCustomerCity.get(key).cityName}</td>
-                                                            <td>${key.phone}</td>
-                                                            <td>${key.email}</td>
-                                                            <td>
-                                                                <c:choose>
-                                                                    <c:when test="${mapCustomerStatus.get(key)==1}">Chờ phê duyệt</c:when>
-                                                                    <c:when test="${mapCustomerStatus.get(key)==2}">Đã chấp thuận</c:when>
-                                                                    <c:when test="${mapCustomerStatus.get(key)==3}">Tài khoản bị từ chối</c:when>
-                                                                </c:choose>
-                                                            </td>
-                                                            <td><a style="color: #F5AB1E !important" href="DetailCustomerController?id=${key.customerId}">Xem chi tiết</a></td>
-                                                        </tr>
-                                                    </c:forEach>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </c:if>
-                                    <c:if test="${mapCustomers.keySet().size()==0}">
-                                        <div class="mb-5">
-                                            <h5 style="color: #F5AB1E;" class="col-12">Không có dữ liệu!</h5>
-                                        </div>
-                                    </c:if>
+                                                </c:forEach>
+                                            </tbody>
+                                        </table>
+                                        <c:if test="${mapSuppliers.keySet().size()==0}">
+                                            <div class="mb-5">
+                                                <h5 style="color: #F5AB1E;" class="col-12">Không có dữ liệu!</h5>
+                                            </div>
+                                        </c:if>
+                                    </div>
+
+                                    <h4>Minimart</h4>
+                                    <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;"> 
+                                        <table id="ecommerce-product-list" class="table table-bordered table-striped" >
+                                            <tbody class="text-center">
+                                                <tr style="background-color: #F5AB1E !important; color: #F5F5F5 !important;">
+                                                    <th>ID</th>
+                                                    <th>Tên người dùng</th>
+                                                    <th>Tên khách hàng</th>
+                                                    <th>Thành phố</th>
+                                                    <th>SĐT</th>
+                                                    <th>Email</th>
+                                                    <th>Trạng thái</th>
+                                                    <th>Chi tiết</th>
+                                                </tr>
+                                                <c:forEach items="${mapCustomers.keySet()}" var="key" >
+                                                    <tr>
+                                                        <td>#${key.customerId}</td>
+                                                        <td>${key.customerName}</td>
+                                                        <td>${key.shopName}</td>
+                                                        <td>${mapCustomerCity.get(key).cityName}</td>
+                                                        <td>${key.phone}</td>
+                                                        <td>${key.email}</td>
+                                                        <td>
+                                                            <c:choose>
+                                                                <c:when test="${mapCustomerStatus.get(key)==1}">Chờ phê duyệt</c:when>
+                                                                <c:when test="${mapCustomerStatus.get(key)==2}">Đã chấp thuận</c:when>
+                                                                <c:when test="${mapCustomerStatus.get(key)==3}">Tài khoản bị từ chối</c:when>
+                                                            </c:choose>
+                                                        </td>
+                                                        <td><a style="color: #F5AB1E !important;text-decoration-line: underline;" href="DetailCustomerController?id=${key.customerId}">Xem chi tiết</a></td>
+                                                    </tr>
+                                                </c:forEach>
+                                            </tbody>
+                                        </table>
+                                        <c:if test="${mapCustomers.keySet().size()==0}">
+                                            <div class="mb-5">
+                                                <h5 style="color: #F5AB1E;" class="col-12">Không có dữ liệu!</h5>
+                                            </div>
+                                        </c:if>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

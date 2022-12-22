@@ -145,7 +145,7 @@
                                             <input type="hidden" name="barCode" value="${barCode}"/>
                                             <input type="hidden" name="action" value="search"/>
                                         </c:if>
-                                            <select style="min-width: 198px" name="filter" id="selectstatus" onchange="this.form.submit();" class="form-control">
+                                        <select style="min-width: 198px" name="filter" id="selectstatus" onchange="this.form.submit();" class="form-control">
                                             <option <c:if test="${statusFilter==0}">selected</c:if> value="0">Tất cả trạng thái</option>
                                             <option <c:if test="${statusFilter==1}">selected</c:if> value="1">Chờ phê duyệt</option>
                                             <option <c:if test="${statusFilter==2}">selected</c:if> value="2">Đã phê duyệt</option>
@@ -158,14 +158,15 @@
                                             <table class="table table-bordered table-striped">
                                                 <tbody class="text-center">
                                                     <tr style="background-color: #F5AB1E !important; color: #F5F5F5 !important;">
-                                                    <th>Mã yêu cầu duyệt</th>
-                                                    <th>Thời gian gửi yêu cầu</th>
-                                                    <th>Nhà cung cấp</th>
-                                                    <th>Tên sản phẩm</th>
-                                                    <th>Mã Barcode/SKU</th>
-                                                    <th>Trạng thái</th>
-                                                    <th>Chi tiết</th>
-                                                </tr>
+                                                        <th>Mã yêu cầu duyệt</th>
+                                                        <th>Thời gian gửi yêu cầu</th>
+                                                        <th>Nhà cung cấp</th>
+                                                        <th>Tên sản phẩm</th>
+                                                        <th>Mã Barcode/SKU</th>
+                                                        <th>Trạng thái</th>
+                                                        <th>Chi tiết</th>
+                                                    </tr>
+
                                                 <c:forEach items="${resultProducts}" var="product" >
                                                     <tr style="text-align: left;">
                                                         <td style="text-align: center;">#${product.productId}</td>
@@ -181,11 +182,14 @@
                                                                 <c:when test="${product.statusId==4}">Đã ẩn</c:when>
                                                             </c:choose>
                                                         </td>
-                                                        <td style="text-align: center;"><a style="color: #F5AB1E !important" href="ModeratorDetailProductController?id=${product.productId}">Xem chi tiết</a></td>
+                                                        <td style="text-align: center;"><a style="color: #F5AB1E !important; text-decoration-line:underline;" href="ModeratorDetailProductController?id=${product.productId}">Xem chi tiết</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
                                         </table>
+                                        <c:if test="${resultProducts.size()==0||resultProducts==null}">
+                                            <h5 style="color: #F5AB1E;" class="col-12">Không có dữ liệu!</h5>
+                                        </c:if>
                                     </div>
 
                                 </div>
