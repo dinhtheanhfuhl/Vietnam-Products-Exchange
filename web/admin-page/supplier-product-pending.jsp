@@ -133,8 +133,8 @@
                                         </div>
                                         <div class="table-responsive new-products" style="background-color: white;">
                                             <a href="SupplierAddController"><button type="button" style="background-color: #F5AB1E;color: #F5F5F5 !important;" class="btn">Thêm sản phẩm</button></a>
-                                            <select style="float: right;width: 160px;" onchange="location = this.value;" class="form-control">
-                                                <option <c:if test="${status!=null&&status==0}">selected</c:if> value="SupplierController?filter=filter&status=0<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Tất cả sản phẩm</option>
+                                            <select style="float: right;width: 190px;" onchange="location = this.value;" class="form-control">
+                                                <option <c:if test="${status!=null&&status==0}">selected</c:if> value="SupplierController?filter=filter&status=0<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Tất cả trạng thái</option>
                                             <option <c:if test="${status!=null&&status==1}">selected</c:if> value="SupplierController?filter=filter&status=1<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Chờ phê duyệt</option>
                                             <option <c:if test="${status!=null&&status==2}">selected</c:if> value="SupplierController?filter=filter&status=2<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Đã phê duyệt</option>
                                             <option <c:if test="${status!=null&&status==3}">selected</c:if> value="SupplierController?filter=filter&status=3<c:if test="${action!=null}">&action=${action}&idSr=${idSr}&nameSr=${nameSr}&barcodeSr=${barcodeSr}</c:if>">Từ chối phê duyệt</option>
@@ -169,7 +169,7 @@
                                                         </c:choose>
                                                         <td>
                                                             <div class="dropdown dropdown-user">
-                                                                <a style="color: #F5AB1E !important" href="SupplierDetailPController?id=${p.productId}" target="_blank">
+                                                                <a style="color: #F5AB1E !important;text-decoration-line:underline;" href="SupplierDetailPController?id=${p.productId}" >
                                                                     Xem chi tiết
                                                                 </a>
                                                             </div>
@@ -181,10 +181,11 @@
                                                         </td>
                                                     </tr>
                                                 </c:forEach>
-
                                             </tbody>
                                         </table>
-
+                                            <c:if test="${resultP.size()==0||resultP==null}">
+                                                <h5 style="color: #F5AB1E;" class="col-12">Không có dữ liệu!</h5>
+                                            </c:if>
                                     </div>
                                     <div class="pagination-section">
                                         <ul

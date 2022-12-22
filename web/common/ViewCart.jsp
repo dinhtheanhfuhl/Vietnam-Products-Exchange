@@ -100,7 +100,7 @@
                                                                       pattern = "" value = "${mapProHie.get(key).price}" /><sup>vnđ/kg</sup></td>
                                                     <td><fmt:formatNumber type = "number"
                                                                       pattern = "" value = "${mapProHie.get(key).price*key.amount}" /><sup>vnđ</sup></td>
-                                                    <td><a style="float: right;" href="DeleteCartController?pid=${mapProduct.get(key).get(0).getProductId()}&&cid=${key.cartId}"><i class="icon-delete1 fas fa-trash-alt"></i></a></td>
+                                                    <td><a style="margin-left: 10px;" href="DeleteCartController?pid=${mapProduct.get(key).get(0).getProductId()}&&cid=${key.cartId}"><i class="icon-delete1 fas fa-trash-alt"></i></a></td>
                                                 </tr>
                                             </tbody>
                                         </c:forEach>

@@ -88,7 +88,7 @@
                     <div class=" personal-infor ">
 
                         <div class="col-md-8 col-sm-6 pt-3">
-                            <table class="table">
+                            <table class="table table-borderless">
                                 <tbody>
                                     <tr>
                                         <th>Họ tên</th>

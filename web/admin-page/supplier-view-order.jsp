@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
@@ -86,36 +87,37 @@
                 <div style="margin-left: 30px;" class="view-order">
                     <c:if test="${status.orderStatusID!=4 && status.orderStatusID!=3 && status.orderStatusID!=5}">
                         <h5>Hành động</h5>
-                        <c:if test="${status.orderStatusID==1}">
-                            <form action="SupplierDetailOrderController" method="POST">
-                                <input type="hidden" name="action" value="accept"/>
-                                <input type="hidden" name="id" value="${order.orderId}"/>
-                                <input type="submit" class="btn btn-success status mb-2" value="Xác nhận đơn hàng"/>
-                            </form>
-                            <form action="SupplierDetailOrderController" method="POST">
-                                <input type="hidden" name="action" value="reject"/>
-                                <input type="hidden" name="id" value="${order.orderId}"/>
-                                <input type="submit" class="btn btn-danger status mb-2" value="Từ chối đơn hàng"/>
-                            </form>
-                        </c:if>
-                        <c:if test="${status.orderStatusID==2}">
-                            <form action="SupplierDetailOrderController" method="POST">
-                                <input type="hidden" name="action" value="success"/>
-                                <input type="hidden" name="id" value="${order.orderId}"/>
-                                <input type="submit" class="btn btn-secondary status mb-2" value="Đang giao hàng"/>
-                            </form>
-                        </c:if>
+                            <c:if test="${status.orderStatusID==1}">
+                                <form action="SupplierDetailOrderController" method="POST">
+                                    <input type="hidden" name="action" value="accept"/>
+                                    <input type="hidden" name="id" value="${order.orderId}"/>
+                                    <input type="submit" class="btn btn-success status mb-2" value="Xác nhận đơn hàng"/>
+                                </form>
+                                <form action="SupplierDetailOrderController" method="POST">
+                                    <input type="hidden" name="action" value="reject"/>
+                                    <input type="hidden" name="id" value="${order.orderId}"/>
+                                    <input type="submit" class="btn btn-danger status mb-2" value="Từ chối đơn hàng"/>
+                                </form>
+                            </c:if>
+                            <c:if test="${status.orderStatusID==2}">
+                                <form action="SupplierDetailOrderController" method="POST">
+                                    <input type="hidden" name="action" value="success"/>
+                                    <input type="hidden" name="id" value="${order.orderId}"/>
+                                    <input type="submit" class="btn btn-secondary status mb-2" value="Đang giao hàng"/>
+                                </form>
+                            </c:if>
+                        </span>
                     </c:if>
                 </div>
                 <div style="margin-left: 30px;" class="view-order">
                     <div class="summary-order">
-                        <table >
+                        <table class="table table-striped table-bordered" >
                             <tr>
-                                <th>Mã đơn hàng</th>
-                                <td>${order.orderId}</td>
+                                <th>Mã đơn hàng:</th>
+                                <td>#${order.orderId}</td>
                             </tr>
                             <tr>
-                                <th>Ngày đặt hàng</th>
+                                <th>Ngày đặt hàng:</th>
                                 <td>${details.get(0).orderDate}</td>
                             </tr>
                             <tr>
@@ -132,7 +134,8 @@
                             </tr>
                             <tr>
                                 <th>Tổng Tiền Hóa Đơn: </th>
-                                <td>${order.totalPrice}</td>
+                                <td><span><fmt:formatNumber type = "number" 
+                                                  pattern = "" value = "${order.totalPrice}" /><sup>vnđ</sup>&nbsp;&nbsp;</span></td>
                             </tr>
                             <tr>
                                 <th>Ghi Chú:</th>
@@ -146,16 +149,16 @@
 
                 <h3 style="margin-top: 20px;margin-left: 30px;"  class="h3-order">Danh sách sản phẩm đơn hàng</h3>
                 <div style="margin-left: 30px;" class="widget-content widget-content-area view-order-detail">
-                    <div class="table-responsive mb-4">
-                        <table id="ecommerce-product-list" class="table  table-bordered">
+                    <div class="table-responsive mb-4 ">
+                        <table id="ecommerce-product-list" class="table table-bordered">
                             <thead>
-                                <tr class="text-center">
-                                    <th>ID</th>
-                                    <th>Ảnh</th>
-                                    <th>Tên</th>
-                                    <th>Danh mục</th>
-                                    <th>Giá bán</th>
-                                    <th>Số lượng</th>
+                                <tr style="background-color: #F5AB1E;" class="text-center">
+                                    <th style="color: white !important;">ID</th>
+                                    <th style="color: white !important;">Ảnh</th>
+                                    <th style="color: white !important;">Tên</th>
+                                    <th style="color: white !important;">Danh mục</th>
+                                    <th style="color: white !important;">Giá bán</th>
+                                    <th style="color: white !important;">Số lượng</th>
 
                                 </tr>
                             </thead>
@@ -163,12 +166,13 @@
                                 <tbody >
 
                                     <tr  class="text-center">
-                                        <td>${d.orderDetailId}</td>
+                                        <td>#${d.orderDetailId}</td>
                                         <td class="text-center"><img class="product-list-img" src="uploads/${mapOrderDetailAndImagePath.get(d)}"></td>
                                         <td>${mapOrderDetailAndProductName.get(d)}</td>
                                         <td>${mapOrderDetailAndCateName.get(d)} -- ${mapOrderDetailAndSubCateName.get(d)}</td>
-                                        <td>${mapOrderDetailAndCost.get(d)}</td>
-                                        <td>${d.amount}</td>
+                                        <td><span><fmt:formatNumber type = "number" 
+                                                          pattern = "" value = "${mapOrderDetailAndCost.get(d)}" /><sup>vnđ</sup>&nbsp;&nbsp;</span></td>
+                                        <td>${d.amount}Kg</td>
                                     </tr>
                                 </tbody>
 
