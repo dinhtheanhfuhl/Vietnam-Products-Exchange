@@ -82,7 +82,7 @@ public class SupplierOrderController extends HttpServlet {
 
         Map<Order, Integer> MapOrderAndNumberProduct = new LinkedHashMap<>();
         for (Order order : resultOrders) {
-            int number = orderDAO.sumAmount(order.getOrderId());
+            int number = orderDAO.countDetailOrder(order.getOrderId());
             MapOrderAndNumberProduct.put(order, number);
         }
         request.setAttribute("MapOrderAndNumberProduct", MapOrderAndNumberProduct);

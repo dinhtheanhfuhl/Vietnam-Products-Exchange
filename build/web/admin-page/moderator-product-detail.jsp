@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -105,9 +106,9 @@
 
                 <div class="view-order">
                     <div class="summary-order">
-                        <table class="table table-borderless">
+                        <table class="table table-bordered table-striped">
                             <tr>
-                                <th style="min-width: 300px">Ảnh</th>
+                                <th style="min-width: 300px;padding-top: 50px;">Ảnh</th>
                                 <td>
                                     <c:forEach var="img" items="${proImgs}">
                                         <img style="width: 100px; height: 100px; object-fit: cover;" class="product-list-img" src="uploads/${img.imgPath}"> 
@@ -117,21 +118,22 @@
                             <tr>
                                 <th>Tên</th>
                                 <td>${product.productName}
-                                ${product.trademark}
-                                ${product.smell},
-                                ${product.color}
+                                    ${product.trademark}
+                                    ${product.smell},
+                                    ${product.color}
                                 </td>
                             </tr> 
                             <tr>
-                                <th>Khoảng giá</th>
+                                <th style="padding-top: 30px;">Khoảng giá</th>
                                 <td>
                                     <c:forEach var="lp" items="${proHies}">
-                                        > ${lp.quantity} kg: ${lp.price} vnd<br>
-                                    </c:forEach>
+                                        > ${lp.quantity} kg: <span><fmt:formatNumber type = "number" 
+                                                                                   pattern = "" value = "${lp.price}" /><sup>vnđ</sup>&nbsp;&nbsp;</span><br>
+                                        </c:forEach>
                                 </td>
                             </tr> 
                             <tr>
-                                <th>Khu vực giao hàng</th>
+                                <th style="padding-top: 20px;">Khu vực giao hàng</th>
                                 <td>
                                     <c:forEach var="c" begin="0" end="${cities.size()-2}">
                                         ${cities.get(c).cityName} , 
@@ -164,8 +166,9 @@
                                 <td>${product.color}</td>
                             </tr>
                             <tr>
-                                <th>Trọng lượng</th>
-                                <td>${product.weight}</td>
+                                <th>Số lượng</th>
+                                <td><span><fmt:formatNumber type = "number" 
+                                                  pattern = "" value = "${product.weight}" />Kg</span></td>
                             </tr>
                             <tr>
                                 <th>Kiểu đóng gói</th>
@@ -176,7 +179,7 @@
                                 <td>${product.element}</td>
                             </tr>
                             <tr>
-                                <th>Mô tả sản phẩm</th>
+                                <th style="padding-top: 20px;">Mô tả sản phẩm</th>
                                 <td>${product.description}</td>
                             </tr>
                             <tr>
@@ -193,10 +196,10 @@
                                 <th>Trạng thái</th>
                                 <td>
                                     <c:choose>
-                                        <c:when test="${product.statusId == 1}"><span class="badge rounded-pill bg-info">Chờ phê duyệt</span></c:when>
-                                        <c:when test="${product.statusId == 2}"><span class="badge rounded-pill bg-success">Đã phê duyệt</span></c:when>
-                                        <c:when test="${product.statusId == 3}"><span class="badge rounded-pill bg-danger">Bị từ chối</span></c:when>
-                                        <c:when test="${product.statusId == 4}"><span class="badge rounded-pill bg-secondary">Đã ẩn</span></c:when>
+                                        <c:when test="${product.statusId == 1}"><span class="badge rounded-pill red">CHỜ PHÊ DUYỆT</span></c:when>
+                                        <c:when test="${product.statusId == 2}"><span class="badge rounded-pill red">ĐÃ PHÊ DUYỆT</span></c:when>
+                                        <c:when test="${product.statusId == 3}"><span class="badge rounded-pill red">BỊ TỪ CHỐI</span></c:when>
+                                        <c:when test="${product.statusId == 4}"><span class="badge rounded-pill red">ĐÃ ẨN</span></c:when>
                                     </c:choose>
                                 </td>
                             </tr>

@@ -61,8 +61,9 @@ public class SupplierDetailOrderController extends HttpServlet {
             for (OrderDetail detail : details) {
                 ProductImage proImg = proImgDAO.getFirstProductImgByProId(detail.getProductId());
                 mapOrderDetailAndImagePath.put(detail, proImg.getImgPath());
+                System.out.println(mapOrderDetailAndImagePath.size());
             }
-            request.setAttribute("mapOrderAndImagePath", mapOrderDetailAndImagePath);
+            request.setAttribute("mapOrderDetailAndImagePath", mapOrderDetailAndImagePath);
             Map<OrderDetail, String> mapOrderDetailAndProductName = new LinkedHashMap<>();
             for (OrderDetail detail : details) {
                 Product product = productDAO.getProductById(detail.getProductId());

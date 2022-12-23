@@ -3,19 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/header.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/login.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/home.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HomeController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/LogginController.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/header.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/home.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/productdetail.jsp</file>
-        </group>
-        <group>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/home.jsp</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/footer.jsp</file>
         </group>
@@ -127,6 +114,15 @@
             <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/admin-page/moderator-list-product.jsp</file>
             <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/src/java/entity/Product.java</file>
             <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/admin-page/moderator-view-order.jsp</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/common/header.jsp</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/common/header.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/common/ViewCart.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/common/changepass.jsp</file>
         </group>
     </open-files>
 </project-private>

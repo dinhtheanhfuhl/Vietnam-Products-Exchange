@@ -5,6 +5,7 @@
 package controller;
 
 import dao.CategoryDAO;
+import dao.DeliveryAreaDAO;
 import dao.ProductDAO;
 import dao.ProductHierarchyDAO;
 import dao.ProductImageDAO;
@@ -12,6 +13,7 @@ import dao.SubCategoryDAO;
 import dao.SupplierDAO;
 import dbconnect.DBConnect;
 import entity.Category;
+import entity.DeliveryArea;
 import entity.Product;
 import entity.ProductHierarchy;
 import entity.ProductImage;
@@ -52,57 +54,63 @@ public class MinimartDetailProductController extends HttpServlet {
         SupplierDAO supplierDAO = new SupplierDAO(connection);
         ProductImageDAO productImageDAO = new ProductImageDAO(connection);
         ProductHierarchyDAO proHieDAO = new ProductHierarchyDAO(connection);
-        
+        DeliveryAreaDAO deliveryAreaDAO = new DeliveryAreaDAO(connection);
+
         String id = request.getParameter("pid");
         int productId = Integer.parseInt(id);
-        
+
         Product product = productDAO.getProductByProductId(id);
         request.setAttribute("product", product);
-        
+
         List<Product> listProduct = productDAO.getListProductByProductId(id);
         request.setAttribute("listProduct", listProduct);
 
         Supplier supplier = supplierDAO.getSupplierByProId(id);
         request.setAttribute("supplier", supplier);
-        
+
         SubCategory subcate = subCateDAO.getSubCategoryNameByProductId(id);
         request.setAttribute("subcate", subcate);
 
-        List<Product> listProBySubCateId = productDAO.getAllProductBySubCateID(subcate.getSubCateId());
-        request.setAttribute("listProBySubCateId", listProBySubCateId);
-        
+        Category cate = categoryDAO.getCategoryByProId(productId);
+        request.setAttribute("cate", cate);
+
+        List<Product> listProByCateId = productDAO.getAllProductByCateID(cate.getCateId());
+
         Map<Product, List<ProductImage>> mapImages = new LinkedHashMap<Product, List<ProductImage>>();
-        for (Product p : listProBySubCateId) {
+        for (Product p : listProByCateId) {
             List<ProductImage> images = productImageDAO.getAllProductsImageByProId(p.getProductId());
             mapImages.put(p, images);
         }
         request.setAttribute("mapImages", mapImages);
-        
+
+        List<String> delivery = deliveryAreaDAO.getDeliverysNameByProductId(productId);
+        request.setAttribute("delivery", delivery);
+
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
-        int viewNumber = product.getViewNumber()+1;
-        productDAO.updateViewProduct(viewNumber,id);
-        
+        int viewNumber = product.getViewNumber() + 1;
+        productDAO.updateViewProduct(viewNumber, id);
+
         int cateId = subcate.getCateId();
         Category cateName = categoryDAO.getCateNameById(cateId);
         request.setAttribute("cateName", cateName.getCateName());
-        
+
         List<ProductHierarchy> listHierarchyByProId = proHieDAO.getHierarchyByProId(productId);
         for (int i = 0; i < listHierarchyByProId.size(); i++) {
-                int min = listHierarchyByProId.get(0).getQuantity();
-                request.setAttribute("min", min);
-                int medium = listHierarchyByProId.get(1).getQuantity();
-                request.setAttribute("medium", medium);
-                int max = listHierarchyByProId.get(2).getQuantity();
-                request.setAttribute("max", max);
-                int priceMin = listHierarchyByProId.get(2).getPrice();
-                request.setAttribute("priceMin", priceMin);
-                int priceMedium = listHierarchyByProId.get(1).getPrice();
-                request.setAttribute("priceMedium", priceMedium);
-                int priceMax = listHierarchyByProId.get(0).getPrice();
-                request.setAttribute("priceMax", priceMax);
-            }
-        
+            int min = listHierarchyByProId.get(0).getQuantity();
+            request.setAttribute("min", min);
+            int medium = listHierarchyByProId.get(1).getQuantity();
+            request.setAttribute("medium", medium);
+            int max = listHierarchyByProId.get(2).getQuantity();
+            request.setAttribute("max", max);
+            int priceMin = listHierarchyByProId.get(2).getPrice();
+            request.setAttribute("priceMin", priceMin);
+            int priceMedium = listHierarchyByProId.get(1).getPrice();
+            request.setAttribute("priceMedium", priceMedium);
+            int priceMax = listHierarchyByProId.get(0).getPrice();
+            request.setAttribute("priceMax", priceMax);
+        }
+
         request.getRequestDispatcher("./common/productdetail.jsp").forward(request, response);
     }
 

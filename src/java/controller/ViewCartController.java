@@ -54,7 +54,7 @@ public class ViewCartController extends HttpServlet {
         ProductHierarchyDAO proHieDAO = new ProductHierarchyDAO(connection);
         ProductDAO productDAO = new ProductDAO(connection);
         ProductImageDAO productImageDAO = new ProductImageDAO(connection);
-
+        
         HttpSession session = request.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
         int customerid = customer.getCustomerId();
@@ -65,26 +65,27 @@ public class ViewCartController extends HttpServlet {
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
 
-        Map<CartItem, List<ProductImage>> mapImages = new LinkedHashMap<CartItem, List<ProductImage>>();
+        Map<CartItem, List<ProductImage>> mapImages = new LinkedHashMap<>();
         for (CartItem cart : allCart) {
             List<ProductImage> images = productImageDAO.getAllProductsImageByProId(cart.getProductId());
             mapImages.put(cart, images);
         }
         request.setAttribute("mapImages", mapImages);
 
-        Map<CartItem, List<Product>> mapProduct = new LinkedHashMap<CartItem, List<Product>>();
+        Map<CartItem, List<Product>> mapProduct = new LinkedHashMap<>();
         for (CartItem cart : allCart) {
             List<Product> products = productDAO.getAllProductsProductID(cart.getProductId());
             mapProduct.put(cart, products);
         }
         request.setAttribute("mapProduct", mapProduct);
 
-        Map<CartItem, List<Supplier>> mapSupplier = new LinkedHashMap<CartItem, List<Supplier>>();
+        Map<CartItem, List<Supplier>> mapSupplier = new LinkedHashMap<>();
         for (CartItem cart : allCart) {
             List<Supplier> supplier = supplierDAO.getSupplierByProId(cart.getProductId());
             mapSupplier.put(cart, supplier);
         }
         request.setAttribute("mapSupplier", mapSupplier);
+        
         Map<CartItem, Boolean> mapCartItemStatus = new LinkedHashMap<>();
         Map<CartItem, ProductHierarchy> mapProHie = new LinkedHashMap<>();
         long totalCart = 0;

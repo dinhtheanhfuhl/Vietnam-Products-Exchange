@@ -130,11 +130,11 @@
                                 <p>${product.shopName}</p>
                                 <form action="AddToCartController?pid=${product.productId}" method="post">
                                     <c:if test="${sessionScope.roleIdLoggin==4}">
-                                    <div class="shop-buttons d-block d-sm-flex align-items-center">
-                                        <input id="inputweight" class="form-control" required="" type="number" placeholder="Nhập Kilogram" min="${min}" max="2000000000" name="amount" style="width: 150px;" />
-                                        <input class="main-btn ml-10" type="submit" value="Thêm vào giỏ">
-                                        <input type="hidden" name="proId" value="${product.productId}">
-                                    </div>
+                                        <div class="shop-buttons d-block d-sm-flex align-items-center">
+                                            <input id="inputweight" class="form-control" required="" type="number" placeholder="Nhập Kilogram" min="${min}" max="2000000000" name="amount" style="width: 150px;" />
+                                            <input class="main-btn ml-10" type="submit" value="Thêm vào giỏ">
+                                            <input type="hidden" name="proId" value="${product.productId}">
+                                        </div>
                                     </c:if>
                                 </form>
                             </div>
@@ -157,6 +157,14 @@
                         </hp>
                         <hp>
                             <p>Kiểu đóng gói: ${product.packing}</p>
+                        </hp>
+                        <hp>
+                            <p>Khu vực giao hàng:
+                                <c:forEach var="o" begin="0" end="${delivery.size()-2}" >
+                                    ${delivery.get(o)},
+                                </c:forEach>
+                                ${delivery.get(delivery.size()-1)}
+                            </p>
                         </hp>
                         <hp>
                             <p>Mô tả: ${product.description}</p>

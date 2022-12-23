@@ -164,7 +164,10 @@
                                         <td>${mapOrderDetailAndCate.get(od)}</td>
                                         <td><span><fmt:formatNumber type = "number" 
                                                           pattern = "" value = "${mapOrderDetailAndPrice.get(od)}" /><sup>vnđ</sup>&nbsp;&nbsp;</span></td>
-                                        <td>${od.amount}</td>
+                                        <td>
+                                            <span><fmt:formatNumber type = "number" 
+                                                          pattern = "" value = "${od.amount}" />Kg</span>
+                                            </td>
                                     </tr>
                                 </tbody>
                             </c:forEach>
