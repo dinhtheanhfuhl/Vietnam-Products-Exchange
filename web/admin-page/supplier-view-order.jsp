@@ -88,12 +88,12 @@
                     <c:if test="${status.orderStatusID!=4 && status.orderStatusID!=3 && status.orderStatusID!=5}">
                         <h5>Hành động</h5>
                             <c:if test="${status.orderStatusID==1}">
-                                <form action="SupplierDetailOrderController" method="POST">
+                                <form style="display: inline" action="SupplierDetailOrderController" method="POST">
                                     <input type="hidden" name="action" value="accept"/>
                                     <input type="hidden" name="id" value="${order.orderId}"/>
                                     <input type="submit" class="btn btn-success status mb-2" value="Xác nhận đơn hàng"/>
                                 </form>
-                                <form action="SupplierDetailOrderController" method="POST">
+                                <form style="display: inline" action="SupplierDetailOrderController" method="POST">
                                     <input type="hidden" name="action" value="reject"/>
                                     <input type="hidden" name="id" value="${order.orderId}"/>
                                     <input type="submit" class="btn btn-danger status mb-2" value="Từ chối đơn hàng"/>
@@ -164,18 +164,21 @@
                             </thead>
                             <c:forEach var="d" items="${details}">
                                 <tbody >
-
-                                    <tr  class="text-center">
+                                    <tr class="text-center">
                                         <td>#${d.orderDetailId}</td>
-                                        <td class="text-center"><img class="product-list-img" src="uploads/${mapOrderDetailAndImagePath.get(d)}"></td>
+                                        <td class="text-center">
+                                            <img style="object-fit: cover;" class="product-list-img" src="uploads/${mapOrderDetailAndImagePath.get(d)}"/>
+                                        </td>
                                         <td>${mapOrderDetailAndProductName.get(d)}</td>
-                                        <td>${mapOrderDetailAndCateName.get(d)} -- ${mapOrderDetailAndSubCateName.get(d)}</td>
+                                        <td>${mapOrderDetailAndCateName.get(d)} <b>/</b> ${mapOrderDetailAndSubCateName.get(d)}</td>
                                         <td><span><fmt:formatNumber type = "number" 
                                                           pattern = "" value = "${mapOrderDetailAndCost.get(d)}" /><sup>vnđ</sup>&nbsp;&nbsp;</span></td>
-                                        <td>${d.amount}Kg</td>
+                                        <td>
+                                        <span><fmt:formatNumber type = "number" 
+                                                          pattern = "" value = "${d.amount}" />Kg</span>
+                                        </td>
                                     </tr>
                                 </tbody>
-
                             </c:forEach>
                         </table>
                     </div>

@@ -360,9 +360,9 @@ public class ProductDAO {
         return products;
     }
 
-    public List<Product> getAllProductBySubCateID(int id) {
+    public List<Product> getAllProductByCateID(int id) {
         List<Product> products = new ArrayList<>();
-        String strSelectAll = "select * from Product where subCateId=?";
+        String strSelectAll = "select * from Product inner join SubCategory on Product.SubCateID = SubCategory.SubCateID where SubCategory.CateID=?";
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);
             ps.setInt(1, id);

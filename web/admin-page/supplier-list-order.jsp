@@ -155,9 +155,16 @@
                                                         <td>${mapOrderAndCreateTime.get(o)}</td>
                                                         <td>#${o.orderId}</td>
                                                         <td>${mapOrderAndCustomerName.get(o)}</td>
-                                                        <td>${MapOrderAndNumberProduct.get(o)}</td>
-                                                        <td> <span><fmt:formatNumber type = "number" 
-                                                                          pattern = "" value = "${o.totalPrice}" /><sup>vnđ</sup>&nbsp;&nbsp;</span></td>
+                                                        <td>
+                                                            <span>
+                                                                <fmt:formatNumber type = "number" pattern = "" value = "${MapOrderAndNumberProduct.get(o)}" />
+                                                            </span>
+                                                        </td>
+                                                        <td> 
+                                                            <span>
+                                                                <fmt:formatNumber type = "number" pattern = "" value = "${o.totalPrice}" /><sup>vnđ</sup>&nbsp;&nbsp;
+                                                            </span>
+                                                        </td>
                                                         <td style="text-align: left">${o.recieverAddress}</td>
                                                         <td>${MapOrderAndStatus.get(o)}</td>
                                                         <td><a style="color: #F5AB1E !important;text-decoration-line:underline;" href="SupplierDetailOrderController?id=${o.orderId}">Xem chi tiết</a></td>

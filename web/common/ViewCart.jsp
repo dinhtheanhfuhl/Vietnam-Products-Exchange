@@ -53,7 +53,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 mt-10 mb-50">
-                            <h3>Giỏ hàng</h3>
+                        <h3>Giỏ hàng</h3>
                         <div class="displayProduct">
                             <c:if test="${not empty message}">
                                 <div class="alert alert-${alert}" role="alert">
@@ -94,7 +94,7 @@
                                                         </form>
                                                         <c:if test="${mapCartItemStatus.get(key)==false}">
                                                             <p style="color: red;">Số lượng sản phẩm<br>trong kho không đủ</p>
-                                                            </c:if>
+                                                        </c:if>
                                                     </td>
                                                     <td><fmt:formatNumber type = "number"
                                                                       pattern = "" value = "${mapProHie.get(key).price}" /><sup>vnđ/kg</sup></td>

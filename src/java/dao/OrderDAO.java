@@ -279,6 +279,21 @@ public class OrderDAO {
         }
         return 0;
     }
+    
+    public int countDetailOrder(int orderId) {
+        String query = "SELECT COUNT (*) FROM OrderDetail WHERE OrderID = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, orderId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return 0;
+    }
 
     public List<Order> searchOrderBySupplierID(int supplierId, String orderID, String filter) {
         List<Order> orders = new ArrayList<>();

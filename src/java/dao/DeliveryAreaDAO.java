@@ -17,12 +17,13 @@ import java.util.List;
  * @author DEKUPAC
  */
 public class DeliveryAreaDAO {
+
     private final Connection connection;
 
     public DeliveryAreaDAO(Connection connection) {
         this.connection = connection;
     }
-    
+
     public int saveDeliveryArea(DeliveryArea deliveryArea) {
         int status = 0;
         String strInsert = "insert into DeliveryArea(ProductID,CityID) values(?,?)";
@@ -53,7 +54,7 @@ public class DeliveryAreaDAO {
     }
 
     public List<DeliveryArea> getAllDeliveryArea() {
-        
+
         String strSelectAll = "select * from DeliveryArea";
         List<DeliveryArea> deliveryAreas = new ArrayList<>();
         try {
@@ -72,7 +73,7 @@ public class DeliveryAreaDAO {
     }
 
     public List<DeliveryArea> getDeliverysAreaById(int id) {
-        
+
         String strSelectById = "select * from DeliveryArea where ProductID=?";
         List<DeliveryArea> deliveryAreas = new ArrayList<>();
         try {
@@ -90,8 +91,9 @@ public class DeliveryAreaDAO {
         }
         return deliveryAreas;
     }
+
     public List<DeliveryArea> getDeliverysAreaByProductId(int productId) {
-                
+
         String strSelectAll = "select * from DeliveryArea where ProductID=?";
         List<DeliveryArea> deliveryAreas = new ArrayList<>();
         try {
@@ -121,5 +123,23 @@ public class DeliveryAreaDAO {
             System.out.println(e.getMessage());
         }
         return status;
+    }
+
+    public List<String> getDeliverysNameByProductId(int productId) {
+
+        String strSelectAll = "select CityName from DeliveryArea inner join Product on DeliveryArea.ProductID = Product.ProductID \n"
+                + "inner join City on DeliveryArea.CityID = City.CityID where Product.ProductID=?";
+        List<String> deliveryAreas = new ArrayList<>();
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectAll);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                deliveryAreas.add(rs.getString("CityName"));
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+        return deliveryAreas;
     }
 }
