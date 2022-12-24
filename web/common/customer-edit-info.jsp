@@ -93,25 +93,25 @@
                                     <tr>
                                         <th>Họ tên</th>
                                         <td>
-                                            <input class="form-control" value="${customerDetail.customerName}">
+                                            <input disabled class="form-control" value="${customerDetail.customerName}">
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Giới tính</th>
                                         <td>
-                                            <input class="form-control" value="${customerDetail.gender}">
+                                            <input disabled class="form-control" value="${customerDetail.gender}">
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Ngày sinh</th>
                                         <td>
-                                            <input class="form-control" value="${customerDetail.dateBirth}">
+                                            <input disabled class="form-control" value="${customerDetail.dateBirth}">
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Email</th>
                                         <td>
-                                            <input class="form-control" value="${customerDetail.email}">
+                                            <input disabled class="form-control" value="${customerDetail.email}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -135,7 +135,7 @@
                                     <tr>
                                         <th>Giấy phép</th>
                                         <td>
-                                            <input class="form-control" disabled="" value="${customerDetail.businessLicense}">
+                                            <input type="file"/> file name
                                         </td>
                                     </tr>
                                     <tr>
