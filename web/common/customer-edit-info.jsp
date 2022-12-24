@@ -75,11 +75,7 @@
                                  class="img-responsive">
                         </div>
                         <div class="profile-usertitle">
-                            <div class="profile-usertitle-name"> ${customerDetail.customerName}</div>
-                            <form action="InforController" method="POST" enctype="multipart/form-data">
-                                <input type="hidden" name="action" value="changeImg"/>
-                                <input name="img" class="p-2 bg-white" onchange="this.form.submit()" type="file"/>
-                            </form>
+                            <div class="profile-usertitle-name"> ${sessionScope.customer.customerName}</div>
                         </div>
 
                     </div>
@@ -88,71 +84,74 @@
                     <div class=" personal-infor ">
 
                         <div class="col-md-8 col-sm-6 pt-3">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <th>Họ tên</th>
-                                        <td>
-                                            <input disabled class="form-control" value="${customerDetail.customerName}">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Giới tính</th>
-                                        <td>
-                                            <input disabled class="form-control" value="${customerDetail.gender}">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Ngày sinh</th>
-                                        <td>
-                                            <input disabled class="form-control" value="${customerDetail.dateBirth}">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Email</th>
-                                        <td>
-                                            <input disabled class="form-control" value="${customerDetail.email}">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>SĐT</th>
-                                        <td>
-                                            <input class="form-control" value="${customerDetail.phone}">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Tên cửa hàng</th>
-                                        <td>
-                                            <input class="form-control" value="${customerDetail.shopName}">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Địa chỉ chính</th>
-                                        <td>
-                                            <input class="form-control" value="${customerDetail.mainAddress}">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Giấy phép</th>
-                                        <td>
-                                            <input type="file"/> file name
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Trạng thái</th>
-                                        <td>
-                                            <input class="form-control" disabled="" value="Chấp thuận tài khoản">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th></th>
-                                        <td>
-                                            <a href="#"><button class="btn btn-success">Lưu</button></a>
-                                            <a href="#"><button class="btn btn-danger">Huỷ</button></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <form action="MiniMartChangeInfoController" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="action" value="edit"/>
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th>Họ tên</th>
+                                            <td>
+                                                <input disabled class="form-control" value="${sessionScope.customer.customerName}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Giới tính</th>
+                                            <td>
+                                                <input disabled class="form-control" value="${sessionScope.customer.gender}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Ngày sinh</th>
+                                            <td>
+                                                <input disabled class="form-control" value="${sessionScope.customer.dateBirth}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Email</th>
+                                            <td>
+                                                <input disabled class="form-control" value="${sessionScope.customer.email}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>SĐT</th>
+                                            <td>
+                                                <input name="phone" class="form-control" value="${sessionScope.customer.phone}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tên cửa hàng</th>
+                                            <td>
+                                                <input name="shopName" class="form-control" value="${sessionScope.customer.shopName}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Địa chỉ chính</th>
+                                            <td>
+                                                <input name="address" class="form-control" value="${sessionScope.customer.mainAddress}">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Giấy phép</th>
+                                            <td>
+                                                <input name="file" type="file"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Trạng thái</th>
+                                            <td>
+                                                <span style="color: red">Tài khoản đang hoạt động</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <td>
+                                                <button type="submit" class="btn btn-success">Lưu</button>
+                                                <a class="btn btn-danger" href="CustomerInfoDetail">Huỷ</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -204,14 +203,14 @@
 <script src="assets/js/main.js"></script>
 <script src="./cart.js"></script>
 <script language='javascript' type='text/javascript'>
-                                    function check(input) {
-                                        if (input.value != document.getElementById('password').value) {
-                                            input.setCustomValidity('Password Must be Matching.');
-                                        } else {
-                                            // input is valid -- reset the error message
-                                            input.setCustomValidity('');
-                                        }
-                                    }
+            function check(input) {
+                if (input.value != document.getElementById('password').value) {
+                    input.setCustomValidity('Password Must be Matching.');
+                } else {
+                    // input is valid -- reset the error message
+                    input.setCustomValidity('');
+                }
+            }
 </script>
 <script>
 

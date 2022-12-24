@@ -129,9 +129,9 @@
                         <c:if test="${sessionScope.roleIdLoggin==4}">
                             <sql:setDataSource var="datas" 
                                                driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-                                               url="jdbc:sqlserver://34.101.193.64:1433;
+                                               url="jdbc:sqlserver://LAPTOP-AFFRQ6U2\\SQLEXPRESS:1433;
                                                databaseName=vnprox;encrypt=false"
-                                               user="sqlserver" password="admin"/>
+                                               user="sa" password="123456"/>
                             <li class="nav-item ">
                                 <a href="CartController"  class="nav-link cart-btn amm-shopping-cart-open pr-3">
                                     <i class="fas fa-shopping-cart">

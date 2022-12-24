@@ -3,11 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/assets/scss/style.css</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/information.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/assets/scss/_orfarm-about.scss</file>
-        </group>
-        <group>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/admin-page/supplier-product-pending.jsp</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/SupplierOrderController.java</file>
             <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/admin-page/supplier-list-order.jsp</file>
@@ -129,6 +124,17 @@
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/web/common/customer-personal-info.jsp</file>
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/entity/Supplier.java</file>
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/web/admin-page/admin-view-detail-customer.jsp</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/InforController.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/CustomerInfoDetail.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/web/common/header.jsp</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/dao/CustomerDAO.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/AdminController.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/ModeratorController.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/dao/ProductDAO.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/web/common/customer-personal-info.jsp</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/dao/SupplierDAO.java</file>
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/InforController.java</file>
         </group>
     </open-files>
