@@ -1,7 +1,9 @@
 package controller;
 
+import dao.CustomerDAO;
 import dao.SupplierDAO;
 import dao.SystemManagerDAO;
+import entity.Customer;
 import entity.Supplier;
 import entity.SystemManager;
 import java.io.IOException;
@@ -33,6 +35,7 @@ public class InforController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         Connection conn = dbconnect.DBConnect.getConnection();
         SystemManagerDAO sysDAO = new SystemManagerDAO(conn);
+        CustomerDAO cusDAO = new CustomerDAO(conn);
         SupplierDAO supDAO = new SupplierDAO(conn);
         HttpSession session = request.getSession();
         int roleId = (int) session.getAttribute("roleIdLoggin");
@@ -121,6 +124,26 @@ public class InforController extends HttpServlet {
                         session.setAttribute("supplier", sup);
                     }
                     request.getRequestDispatcher("admin-page/personal-infor-supplier.jsp").forward(request, response);
+                    break;
+                case 4:
+                    Customer cus = (Customer) session.getAttribute("customer");
+                    if (cus.getAvartarImg() != null && !cus.getAvartarImg().trim().equals("")) {
+                        if (Files.exists(Paths.get(realPath + "/" + cus.getAvartarImg()))) {
+                            Files.delete(Paths.get(realPath + "/" + cus.getAvartarImg()));
+                        }
+                    }
+                    part = request.getPart("img");
+                    fileName = part.getSubmittedFileName();
+                    if (!fileName.equals("")) {
+                        int indexDot = fileName.indexOf(".");
+                        fileName = new SimpleDateFormat("ddMMyyyyHHmmss").format(new Date()) + fileName.substring(indexDot, fileName.length());
+                        part.write(realPath + "/" + fileName);
+                        cus.setAvartarImg(fileName);
+                        cusDAO.updateCustomer(cus);
+                        session.removeAttribute("customer");
+                        session.setAttribute("customer", cus);
+                    }
+                    request.getRequestDispatcher("common/customer-personal-info.jsp").forward(request, response);
                     break;
             }
         }

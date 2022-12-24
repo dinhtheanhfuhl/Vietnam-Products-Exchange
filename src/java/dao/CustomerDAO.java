@@ -53,7 +53,7 @@ public class CustomerDAO {
         String strUpdate
                 = "update Customer set "
                 + "CustomerName=?, AccID=?, DateBirth=?, Gender=?, Email=?, Phone=?, "
-                + "ShopName=?, MainAddress=?, City=?, BusinessLicense=?, AvartarImg=? where CustomerID=?";
+                + "ShopName=?, MainAddress=?, CityID=?, BusinessLicense=?, AvartarImg=? where CustomerID=?";
         try {
             PreparedStatement ps = connection.prepareStatement(strUpdate);
             ps.setString(1, customer.getCustomerName());
@@ -68,7 +68,6 @@ public class CustomerDAO {
             ps.setString(10, customer.getBusinessLicense());
             ps.setString(11, customer.getAvartarImg());
             ps.setInt(12, customer.getCustomerId());
-
             status = ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
