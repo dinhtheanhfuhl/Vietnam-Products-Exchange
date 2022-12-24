@@ -80,7 +80,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <c:if test="${strSearch==null}">
+                                <c:if test="${txtSearch==null}">
                                     <div class="shop-category-widget">
                                         <h4 class="title">Danh mục sản phẩm</h4>
                                         <ul>
