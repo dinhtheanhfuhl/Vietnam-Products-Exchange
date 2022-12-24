@@ -9,9 +9,17 @@ import dao.CustomerDAO;
 import dbconnect.DBConnect;
 import entity.Category;
 import entity.Customer;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.util.List;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,13 +48,40 @@ public class CustomerInfoDetail extends HttpServlet {
         CustomerDAO customerDAO = new CustomerDAO(connection);
         CategoryDAO categoryDAO = new CategoryDAO(connection);
         List<Category> allCate = categoryDAO.getAllCategory();
-        request.setAttribute("listCate", allCate);
-        HttpSession session = request.getSession();
-        Customer customer = (Customer) session.getAttribute("customer");
-        int customerid = customer.getCustomerId();
-        Customer customerDetail = customerDAO.getCustomerById(customerid);
-        request.setAttribute("customerDetail", customerDetail);
-        request.getRequestDispatcher("./common/customer-personal-info.jsp").forward(request, response);
+
+        String action = request.getParameter("action");
+        if (action == null) {
+            request.setAttribute("listCate", allCate);
+            HttpSession session = request.getSession();
+            Customer customer = (Customer) session.getAttribute("customer");
+            int customerid = customer.getCustomerId();
+            Customer customerDetail = customerDAO.getCustomerById(customerid);
+            request.setAttribute("customerDetail", customerDetail);
+            request.getRequestDispatcher("./common/customer-personal-info.jsp").forward(request, response);
+        } else if (action.equals("downloadFile")) {
+            int id = Integer.parseInt(request.getParameter("cusId"));
+            Customer cus = customerDAO.getCustomerById(id);
+            ServletContext context = request.getServletContext();
+            String fullPath = context.getRealPath("/uploads/" + cus.getBusinessLicense());
+
+            Path path = Paths.get(fullPath);
+            byte[] data = Files.readAllBytes(path);
+
+            response.setContentType("application/octet-stream");
+            response.setHeader("Content-disposition", "attachment; filename=" + cus.getBusinessLicense());
+            response.setContentLength(data.length);
+
+            InputStream inputStream = new BufferedInputStream(new ByteArrayInputStream(data));
+
+            OutputStream outStream = response.getOutputStream();
+            byte[] buffer = new byte[4096];
+            int byteRead = -1;
+            while ((byteRead = inputStream.read(buffer)) != -1) {
+                outStream.write(buffer, 0, byteRead);
+            }
+            inputStream.close();
+            outStream.close();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

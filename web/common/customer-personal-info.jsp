@@ -61,18 +61,18 @@
                     <div class="profile-sidebar">
                         <div style="margin-top: 50px;" class="profile-userpic"> 
                             <img style="object-fit: cover; width: 150px; height: 150px;"
-                                  <c:choose>
-                                      <c:when test='${sessionScope.systemManager!=null && sessionScope.systemManager.avartarImg!=null && sessionScope.systemManager.avartarImg!=""}'>
-                                          src="uploads/${sessionScope.systemManager.avartarImg}"
-                                      </c:when>
-                                      <c:when test='${sessionScope.supplier!=null && sessionScope.supplier.avartarImg!=null && sessionScope.supplier.avartarImg!=""}'>
-                                          src="uploads/${sessionScope.supplier.avartarImg}"
-                                      </c:when>
-                                      <c:otherwise>
-                                          src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
-                                      </c:otherwise>
-                                  </c:choose>
-                                  class="img-responsive">
+                                 <c:choose>
+                                     <c:when test='${sessionScope.systemManager!=null && sessionScope.systemManager.avartarImg!=null && sessionScope.systemManager.avartarImg!=""}'>
+                                         src="uploads/${sessionScope.systemManager.avartarImg}"
+                                     </c:when>
+                                     <c:when test='${sessionScope.supplier!=null && sessionScope.supplier.avartarImg!=null && sessionScope.supplier.avartarImg!=""}'>
+                                         src="uploads/${sessionScope.supplier.avartarImg}"
+                                     </c:when>
+                                     <c:otherwise>
+                                         src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
+                                     </c:otherwise>
+                                 </c:choose>
+                                 class="img-responsive">
                         </div>
                         <div class="profile-usertitle">
                             <div class="profile-usertitle-name"> ${customerDetail.customerName}</div>
@@ -120,7 +120,14 @@
                                     </tr>
                                     <tr>
                                         <th>Giấy phép</th>
-                                        <td>${customerDetail.businessLicense}</td>
+                                        <td>
+                                            <form action="DownLoadFileController" method="POST">
+                                                <input type="hidden" name="action" value="downloadFile"/>
+                                                <input type="hidden" name="file" value="${customerDetail.businessLicense}"/>
+                                                <input type="hidden" name="cusId" value="${customerDetail.customerId}"/>
+                                                <button type="submit" class="btn btn-info">Tải xuống giấy phép <i class="fa fa-download"></i></button>
+                                            </form>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Trạng thái</th>

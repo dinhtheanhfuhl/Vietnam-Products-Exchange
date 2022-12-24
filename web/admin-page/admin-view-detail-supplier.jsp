@@ -33,6 +33,7 @@
         <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
         <link href="${pageContext.request.contextPath}/assets/css/ecommerce/addedit_product.css" rel="stylesheet" type="text/css" />
         <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <body>
@@ -134,7 +135,14 @@
                                             <td>${sup.mainAddress}</td>
                                         </tr><tr>
                                             <td>Giấy phép</td>
-                                            <td><a href="#">Tải xuống giấy phép</a></td>
+                                            <td>
+                                                <form action="DownLoadFileController" method="POST">
+                                                    <input type="hidden" name="action" value="downloadFile"/>
+                                                    <input type="hidden" name="file" value="${sup.businessLicense}"/>
+                                                    <input type="hidden" name="supId" value="${sup.supplierId}"/>
+                                                    <button type="submit" class="btn btn-info">Tải xuống giấy phép <i class="fa fa-download"></i></button>
+                                                </form>
+                                            </td>
                                         </tr><tr>
                                             <td>Trạng thái</td>
                                             <td>

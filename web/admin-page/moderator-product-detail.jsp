@@ -29,6 +29,7 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/ecommerce/order.css" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ecommerce/addedit_product.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     </head>
 
@@ -184,7 +185,13 @@
                             </tr>
                             <tr>
                                 <th>Giấy tờ chứng nhận</th>
-                                <td>${product.productCertificate}</td>
+                                <td>
+                                    <form action="DownLoadFileController" method="POST">
+                                        <input type="hidden" name="action" value="downloadFile"/>
+                                        <input type="hidden" name="file" value="${product.productCertificate}"/>
+                                        <button type="submit" class="btn btn-info">Tải xuống giấy phép <i class="fa fa-download"></i></button>
+                                    </form>
+                                </td>
                             </tr>
                             <c:if test="${mess != null&& product.statusId == 3}">
                                 <tr>
