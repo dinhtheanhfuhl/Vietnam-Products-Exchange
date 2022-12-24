@@ -27,6 +27,7 @@
         <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/style.css" rel="stylesheet" type="text/css" />
         <link href="${pageContext.request.contextPath}/assets/css/ecommerce/addedit_product.css" rel="stylesheet" type="text/css" />
         <link href="${pageContext.request.contextPath}/assets/css/ecommerce-dashboard/timeline.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <body>
@@ -245,7 +246,11 @@
                                                 <td style="text-align: left; vertical-align: top;"><label for="inputName" class="form-label pass-infor">Giấy phép kinh doanh</label>
                                                 </td>
                                                 <td style="text-align: left; vertical-align: top;" class="display-userName-3">
-                                                    <a id="click-d  own-load" href="#" style="color: #F5AB1E;">Tải về giấy phép</a>
+                                                    <form action="DownLoadFileController" method="POST">
+                                                        <input type="hidden" name="action" value="downloadFile"/>
+                                                        <input type="hidden" name="file" value="${sessionScope.supplier.businessLicense}"/>
+                                                        <button type="submit" class="btn btn-info">Tải xuống giấy phép <i class="fa fa-download"></i></button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         </tbody>
