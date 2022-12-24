@@ -63,7 +63,9 @@ public class MiniMartChangeInfoController extends HttpServlet {
             cus.setPhone(phone);
             cus.setShopName(shopName);
             cus.setMainAddress(address);
-            if (cusDAO.updateCustomer(cus) > 1) {
+            if (cusDAO.updateCustomer(cus) > 0) {
+                session.removeAttribute("customer");
+                session.setAttribute("customer", cus);
                 response.sendRedirect("CustomerInfoDetail");
             } else {
                 request.getRequestDispatcher("common/error.jsp").forward(request, response);
