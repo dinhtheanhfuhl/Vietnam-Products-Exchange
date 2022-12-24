@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dao;
 
 import entity.Customer;
@@ -53,7 +49,7 @@ public class CustomerDAO {
         String strUpdate
                 = "update Customer set "
                 + "CustomerName=?, AccID=?, DateBirth=?, Gender=?, Email=?, Phone=?, "
-                + "ShopName=?, MainAddress=?, City=?, BusinessLicense=?, AvartarImg=? where CustomerID=?";
+                + "ShopName=?, MainAddress=?, CityID=?, BusinessLicense=?, AvartarImg=? where CustomerID=?";
         try {
             PreparedStatement ps = connection.prepareStatement(strUpdate);
             ps.setString(1, customer.getCustomerName());
@@ -68,7 +64,6 @@ public class CustomerDAO {
             ps.setString(10, customer.getBusinessLicense());
             ps.setString(11, customer.getAvartarImg());
             ps.setInt(12, customer.getCustomerId());
-
             status = ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -196,6 +191,7 @@ public class CustomerDAO {
             int status = Integer.parseInt(filter);
             strSearch += " and AccID in (select AccID from Account where statusID = " + status + ")";
         }
+        strSearch+=" order by customerID desc";
         try {
             PreparedStatement ps = connection.prepareStatement(strSearch);
             ResultSet rs = ps.executeQuery();

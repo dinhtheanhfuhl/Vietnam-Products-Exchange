@@ -132,6 +132,7 @@
                                                url="jdbc:sqlserver://DESKTOP-A0E4T1K\\MAYAO:1433;
                                                databaseName=vnproxfinal;encrypt=false"
                                                user="sa" password="Trandinhduc137"/>
+
                             <li class="nav-item ">
                                 <a href="CartController"  class="nav-link cart-btn amm-shopping-cart-open pr-3">
                                     <i class="fas fa-shopping-cart">
@@ -154,7 +155,7 @@
                                     <div class="dropdown">
                                         <c:if test="${sessionScope.roleIdLoggin==4}">
                                             <button  style="background-color: white !important;color: black;"  class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <img style="height: 30px;width: 30px;border-radius: 500px; display: inline" src="image/giàu.jpg">
+                                                <img style="height: 30px;width: 30px;border-radius: 500px; display: inline" src="uploads/${sessionScope.customer.avartarImg}">
                                                 &nbsp;<span style="vertical-align: baseline; display: inline;"> ${sessionScope.nameUser}</span>
                                             </button>
                                         </c:if>

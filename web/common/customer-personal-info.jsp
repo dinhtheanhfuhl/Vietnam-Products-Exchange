@@ -62,11 +62,8 @@
                         <div style="margin-top: 50px;" class="profile-userpic"> 
                             <img style="object-fit: cover; width: 150px; height: 150px;"
                                  <c:choose>
-                                     <c:when test='${sessionScope.systemManager!=null && sessionScope.systemManager.avartarImg!=null && sessionScope.systemManager.avartarImg!=""}'>
-                                         src="uploads/${sessionScope.systemManager.avartarImg}"
-                                     </c:when>
-                                     <c:when test='${sessionScope.supplier!=null && sessionScope.supplier.avartarImg!=null && sessionScope.supplier.avartarImg!=""}'>
-                                         src="uploads/${sessionScope.supplier.avartarImg}"
+                                     <c:when test='${sessionScope.customer!=null && sessionScope.customer.avartarImg!=null && sessionScope.customer.avartarImg!=""}'>
+                                         src="uploads/${sessionScope.customer.avartarImg}"
                                      </c:when>
                                      <c:otherwise>
                                          src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
@@ -75,7 +72,7 @@
                                  class="img-responsive">
                         </div>
                         <div class="profile-usertitle">
-                            <div class="profile-usertitle-name"> ${customerDetail.customerName}</div>
+                            <div class="profile-usertitle-name"> ${sessionScope.customer.customerName}</div>
                             <form action="InforController" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="action" value="changeImg"/>
                                 <input name="img" class="p-2 bg-white" onchange="this.form.submit()" type="file"/>
@@ -92,39 +89,39 @@
                                 <tbody>
                                     <tr>
                                         <th>Họ tên</th>
-                                        <td>${customerDetail.customerName}</td>
+                                        <td>${sessionScope.customer.customerName}</td>
                                     </tr>
                                     <tr>
                                         <th>Giới tính</th>
-                                        <td>${customerDetail.gender}</td>
+                                        <td>${sessionScope.customer.gender}</td>
                                     </tr>
                                     <tr>
                                         <th>Ngày sinh</th>
-                                        <td>${customerDetail.dateBirth}</td>
+                                        <td>${sessionScope.customer.dateBirth}</td>
                                     </tr>
                                     <tr>
                                         <th>Email</th>
-                                        <td>${customerDetail.email}</td>
+                                        <td>${sessionScope.customer.email}</td>
                                     </tr>
                                     <tr>
                                         <th>SĐT</th>
-                                        <td>${customerDetail.phone}</td>
+                                        <td>${sessionScope.customer.phone}</td>
                                     </tr>
                                     <tr>
                                         <th>Tên cửa hàng</th>
-                                        <td>${customerDetail.shopName}</td>
+                                        <td>${sessionScope.customer.shopName}</td>
                                     </tr>
                                     <tr>
                                         <th>Địa chỉ chính</th>
-                                        <td>${customerDetail.mainAddress}</td>
+                                        <td>${sessionScope.customer.mainAddress}</td>
                                     </tr>
                                     <tr>
                                         <th>Giấy phép</th>
                                         <td>
                                             <form action="DownLoadFileController" method="POST">
                                                 <input type="hidden" name="action" value="downloadFile"/>
-                                                <input type="hidden" name="file" value="${customerDetail.businessLicense}"/>
-                                                <input type="hidden" name="cusId" value="${customerDetail.customerId}"/>
+                                                <input type="hidden" name="file" value="${sessionScope.customer.businessLicense}"/>
+                                                <input type="hidden" name="cusId" value="${sessionScope.customer.customerId}"/>
                                                 <button type="submit" class="btn btn-info">Tải xuống giấy phép <i class="fa fa-download"></i></button>
                                             </form>
                                         </td>
@@ -132,13 +129,13 @@
                                     <tr>
                                         <th>Trạng thái</th>
                                         <td>
-                                            <a>Chấp thuận tài khoản</a>
+                                            <a class="text-danger">Tài khoản đang hoạt động</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>&nbsp;</th>
                                         <td>
-                                            <a href="#"><button class="btn btn-success">Chỉnh sửa thông tin</button></a>
+                                            <a href="MiniMartChangeInfoController"><button class="btn btn-success">Chỉnh sửa thông tin</button></a>
                                         </td>
                                     </tr>
                                 </tbody>
