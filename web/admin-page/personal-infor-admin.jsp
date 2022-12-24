@@ -75,7 +75,7 @@
                                                  src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
                                              </c:otherwise>
                                          </c:choose>
-                                         class="img-responsive " alt="ThÃ´ng tin cÃ¡ nhÃ¢n">
+                                         class="img-responsive " alt="avatar">
 
                                 </div>
                                 <div class="profile-usertitle">

@@ -7,8 +7,16 @@ import dbconnect.DBConnect;
 import entity.Account;
 import entity.MessageRejectAccount;
 import entity.Supplier;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -68,6 +76,29 @@ public class DetailSuppilerController extends HttpServlet {
             security.SendMail.SendToDeMail(acc.getEmail(), "Từ chối tài khoản", reason);
 
             response.sendRedirect("DetailSuppilerController?id=" + supId);
+        } else if(action.equals("downloadFile")){
+            int id = Integer.parseInt(request.getParameter("supId"));
+            Supplier sup = supplierDAO.getSupplierById(id);
+            ServletContext context = request.getServletContext();
+            String fullPath = context.getRealPath("/uploads/"+sup.getBusinessLicense());
+            
+            Path path = Paths.get(fullPath);
+            byte[] data = Files.readAllBytes(path);
+            
+            response.setContentType("application/octet-stream");
+            response.setHeader("Content-disposition", "attachment; filename="+sup.getBusinessLicense());
+            response.setContentLength(data.length);
+            
+            InputStream inputStream = new BufferedInputStream(new ByteArrayInputStream(data));
+            
+            OutputStream outStream = response.getOutputStream();
+            byte[] buffer = new byte[4096];
+            int byteRead = -1;
+            while ((byteRead = inputStream.read(buffer)) != -1) {                
+                outStream.write(buffer, 0, byteRead);
+            }
+            inputStream.close();
+            outStream.close();
         }
     }
 

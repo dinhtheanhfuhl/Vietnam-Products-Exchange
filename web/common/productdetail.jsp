@@ -40,7 +40,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
 
             .side_view{
@@ -148,7 +148,7 @@
                     <div class="tab">
                         <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'des')">Mô tả sản phẩm</button>
                         <button class="tablinks" onclick="openCity(event, 'overview')">Tổng quan cửa hàng</button>
-                        <button class="tablinks" onclick="openCity(event, 'licence')">Giấy phép chứng nhận</button>
+                        <%-- <button class="tablinks" onclick="openCity(event, 'licence')">Giấy phép chứng nhận</button> --%>
                     </div>
 
                     <div id="des" class="tabcontent">
@@ -175,12 +175,18 @@
                         <p>Tên nhà cung cấp: ${supplier.supplierName}</p>
                         <p>Số điện thoại liên hệ: ${supplier.phone}</p>
                         <p>Địa chỉ cơ sở chính: ${supplier.mainAddress}</p>
-                        <p>Giấy phép kinh doanh: <a href="#">${supplier.businessLicense}</a></p>
+                        <p>Giấy phép kinh doanh: 
+                        <form action="DownLoadFileController" method="POST">
+                            <input type="hidden" name="action" value="downloadFile"/>
+                            <input type="hidden" name="file" value="${product.productCertificate}"/>
+                            <button type="submit" class="btn btn-info">Tải xuống giấy phép <i class="fa fa-download"></i></button>
+                        </form>
+                        </p>
                     </div>
+                    <%-- <div id="licence" class="tabcontent">
 
-                    <div id="licence" class="tabcontent">
-                        <p><a href="#">${product.productCertificate}</a></p>
-                    </div>
+                    </div> --%>
+
 
                 </div>
             </div>                      
