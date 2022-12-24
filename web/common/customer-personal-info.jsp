@@ -129,13 +129,13 @@
                                     <tr>
                                         <th>Trạng thái</th>
                                         <td>
-                                            <a>Chấp thuận tài khoản</a>
+                                            <a class="text-danger">Tài khoản đang hoạt động</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>&nbsp;</th>
                                         <td>
-                                            <a href="#"><button class="btn btn-success">Chỉnh sửa thông tin</button></a>
+                                            <a href="MiniMartChangeInfoController"><button class="btn btn-success">Chỉnh sửa thông tin</button></a>
                                         </td>
                                     </tr>
                                 </tbody>
