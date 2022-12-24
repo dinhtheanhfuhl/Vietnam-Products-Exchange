@@ -362,7 +362,7 @@ public class ProductDAO {
 
     public List<Product> getAllProductByCateID(int id) {
         List<Product> products = new ArrayList<>();
-        String strSelectAll = "select * from Product inner join SubCategory on Product.SubCateID = SubCategory.SubCateID where SubCategory.CateID=?";
+        String strSelectAll = "select top 5 * from Product inner join SubCategory on Product.SubCateID = SubCategory.SubCateID where SubCategory.CateID=? and Product.StatusID = 2 order by ViewNumber desc ";
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);
             ps.setInt(1, id);
@@ -636,11 +636,11 @@ public class ProductDAO {
         }
         return products;
     }
-    
+
     public List<Integer> searchProductForMart(String begin, String end, String cityId, String cateId, String[] subCateIds, String sequenSearch) {
         List<Integer> productIds = new ArrayList<>();
         String strSearch = "select DISTINCT p.ProductID from Product as p\n";
-        
+
         if (begin != null && !begin.equals("") && end != null && !end.equals("")) {
             strSearch += "join ProductHierarchy as ph on (ph.ProductID=p.ProductID and \n"
                     + "(select MIN(phh.Price) from ProductHierarchy as phh where phh.ProductID = p.ProductID) BETWEEN " + begin + " and " + end + ")\n";

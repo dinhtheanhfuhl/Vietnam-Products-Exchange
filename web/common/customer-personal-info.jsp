@@ -48,8 +48,8 @@
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb container">
-                    <li class="breadcrumb-item"><a href="Home">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Thông tin cá nhân</li>
+                    <li class="breadcrumb-item"><a>Trang chủ</a></li>
+                    <li class="breadcrumb-item" aria-current="page">Thông tin cá nhân</li>
                 </ol>
             </nav>
         </section>

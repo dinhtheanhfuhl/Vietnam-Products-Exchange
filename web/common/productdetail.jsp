@@ -122,7 +122,7 @@
                                     <div class="discount-price mr-15"><span>Số lượng</span> </div>
                                 </div>
                                 <p><fmt:formatNumber type = "number" 
-                                                  pattern = "" value = "${product.weight}" /> Kg</p>
+                                                  pattern = "" value = "${product.weight}" />Kg</p>
 
                                 <div class="pricing">
                                     <div class="discount-price mr-15"><span>Nhà cung cấp</span> </div>
@@ -153,13 +153,13 @@
 
                     <div id="des" class="tabcontent">
                         <hp>
-                            <p>Thành phần: ${product.element}</p>
+                            <p><b>Thành phần:</b> ${product.element}</p>
                         </hp>
                         <hp>
-                            <p>Kiểu đóng gói: ${product.packing}</p>
+                            <p><b>Kiểu đóng gói:</b> ${product.packing}</p>
                         </hp>
                         <hp>
-                            <p>Khu vực giao hàng:
+                            <p><b>Khu vực giao hàng:</b>
                                 <c:forEach var="o" begin="0" end="${delivery.size()-2}" >
                                     ${delivery.get(o)},
                                 </c:forEach>
@@ -167,15 +167,15 @@
                             </p>
                         </hp>
                         <hp>
-                            <p>Mô tả: ${product.description}</p>
+                            <p><b>Mô tả:</b> ${product.description}</p>
                         </hp>
                     </div>
 
                     <div id="overview" class="tabcontent">
-                        <p>Tên nhà cung cấp: ${supplier.supplierName}</p>
-                        <p>Số điện thoại liên hệ: ${supplier.phone}</p>
-                        <p>Địa chỉ cơ sở chính: ${supplier.mainAddress}</p>
-                        <p>Giấy phép kinh doanh: 
+                        <p><b>Tên nhà cung cấp:</b> ${supplier.supplierName}</p>
+                        <p><b>Số điện thoại liên hệ:</b> ${supplier.phone}</p>
+                        <p><b>Địa chỉ cơ sở chính:</b> ${supplier.mainAddress}</p>
+                        <p><b>Giấy phép kinh doanh:</b> 
                         <form action="DownLoadFileController" method="POST">
                             <input type="hidden" name="action" value="downloadFile"/>
                             <input type="hidden" name="file" value="${product.productCertificate}"/>
@@ -221,8 +221,8 @@
                                                 ${key.color}
                                             </h5>
                                         </a>
-                                        <p>Khối lượng: ${key.weight} Kg</p>
-
+                                        <p>Số lượng: <span><fmt:formatNumber type = "number" 
+                                                      pattern = "" value = "${key.weight}" />Kg</span></p>
                                     </div>
                                 </div>
                             </div>
