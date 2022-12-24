@@ -230,7 +230,9 @@ public class SupplierDetailPController extends HttpServlet {
                     filename = proImgsOld.get(i).getImgPath();
                     Path path = Paths.get(filename);
                     File pathFile = new File(realPath + "/" + path.getFileName());
-                    pathFile.delete();
+                    if (pathFile.exists()) {
+                        pathFile.delete();
+                    }
                     proImgDAO.deleteProductImage(proImgsOld.get(i));
                 }
             }

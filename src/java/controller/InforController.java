@@ -85,7 +85,9 @@ public class InforController extends HttpServlet {
                 case 2:
                     SystemManager sys = (SystemManager) session.getAttribute("systemManager");
                     if (sys.getAvartarImg() != null && !sys.getAvartarImg().equals("")) {
-                        Files.delete(Paths.get(realPath + "/" + sys.getAvartarImg()));
+                        if (Files.exists(Paths.get(realPath + "/" + sys.getAvartarImg()))) {
+                            Files.delete(Paths.get(realPath + "/" + sys.getAvartarImg()));
+                        }
                     }
                     Part part = request.getPart("img");
                     String fileName = part.getSubmittedFileName();
@@ -103,7 +105,9 @@ public class InforController extends HttpServlet {
                 case 3:
                     Supplier sup = (Supplier) session.getAttribute("supplier");
                     if (sup.getAvartarImg() != null && !sup.getAvartarImg().trim().equals("")) {
-                        Files.delete(Paths.get(realPath + "/" + sup.getAvartarImg()));
+                        if (Files.exists(Paths.get(realPath + "/" + sup.getAvartarImg()))) {
+                            Files.delete(Paths.get(realPath + "/" + sup.getAvartarImg()));
+                        }
                     }
                     part = request.getPart("img");
                     fileName = part.getSubmittedFileName();
