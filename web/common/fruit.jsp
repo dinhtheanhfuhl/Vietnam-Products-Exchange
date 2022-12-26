@@ -179,7 +179,7 @@
                                                         <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                                                         </svg>
                                                         ${mapCity.get(key).get(0).getCityName()}</p>
-                                                    <p>Số lượng : <fmt:formatNumber type="number" groupingUsed="true" value="${key.weight}" />Kg</p>
+                                                    <p>Số lượng: <fmt:formatNumber type="number" groupingUsed="true" value="${key.weight}" />Kg</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -239,13 +239,13 @@
                                     </div>
                                 </div>
                                 <c:if test="${mapImages.size()!=0}">
-<!--                                    <div class="col-lg-12">
+                                    <div class="col-lg-12">
                                         <div class="bisylms-pagination">
-                                                <a href="#">1</a>
-                                                <a href="#">2</a>
-                                                <a href="#">3</a>
+                                            <a href="#">1</a>
+                                            <a href="#">2</a>
+                                            <a href="#">3</a>
                                         </div>
-                                    </div>-->
+                                    </div>
                                 </c:if>
                             </c:if>
                             <c:if test="${resultProducts.size()==0||resultProducts==null}">

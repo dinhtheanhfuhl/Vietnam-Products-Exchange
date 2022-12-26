@@ -53,7 +53,7 @@
 
             <div class="modernSidebar-nav header header navbar">
                 <div class="">
-                     <nav id="modernSidebar">
+                    <nav id="modernSidebar">
                         <ul class="menu-categories pl-0 m-0" id="topAccordion">
 
                             <li class="menu">
@@ -95,7 +95,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
                             <div class="statbox widget box">
                                 <div style="margin-top: 80px" class="widget-content-area">
-                                    <h3>Danh sách đơn hàng</h3>
+                                    <h3>Danh sách đơn hàng(MODERATOR)</h3>
                                     <div class="widget-header mt-4">
 
                                         <div class="row">
@@ -141,7 +141,7 @@
                                             <input type="hidden" name="action" value="search"/>
                                             <input type="hidden" name="id" value="${id}"/>
                                         </c:if>
-                                            <select name="filter" id="selectstatus" onchange="this.form.submit();" style="width: 190px;" class="form-control">
+                                        <select name="filter" id="selectstatus" onchange="this.form.submit();" style="width: 190px;" class="form-control">
                                             <option value="0">Tất cả trạng thái</option>
                                             <c:forEach var="ods" items="${orderStatuses}">
                                                 <option <c:if test="${filter==ods.orderStatusID}">selected</c:if> value="${ods.orderStatusID}">${ods.statusName}</option>
@@ -172,13 +172,35 @@
                                                         </td>
                                                         <td style="text-align: center;">${mapOrderAndTotalWeight.get(o)} kg</td>
                                                         <td><span><fmt:formatNumber type = "number" 
-                                                                                  pattern = "" value = "${o.totalPrice}" /><sup>vnđ</sup>&nbsp;&nbsp;</span> </td>
+                                                                          pattern = "" value = "${o.totalPrice}" /><sup>vnđ</sup>&nbsp;&nbsp;</span> </td>
                                                         <td>${mapOrderAndOrderStatus.get(o).statusName}</td>
                                                         <td style="text-align: center;"><a style="color: #F5AB1E !important;text-decoration-line:underline;" href="ModeratorDetailOrderController?id=${o.orderId}">Xem chi tiết</a></td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
                                         </table>
+                                        <div class="pagination-section" style="padding-left:1230px;">
+                                            <ul class="pagination" >
+                                                <li class="paginate_button page-item previous disabled" id="ecommerce-product-list_previous">
+                                                    <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="0" tabindex="0" class="page-link">
+                                                        <i class="flaticon-arrow-left-1"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="paginate_button page-item active">
+                                                    <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="1" tabindex="0" class="page-link">1
+                                                    </a>
+                                                </li>
+                                                <li class="paginate_button page-item ">
+                                                    <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="2" tabindex="0" class="page-link">2
+                                                    </a>
+                                                </li>
+                                                <li class="paginate_button page-item next" id="ecommerce-product-list_next">
+                                                    <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="3" tabindex="0" class="page-link">
+                                                        <i class="flaticon-arrow-right"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -242,9 +264,9 @@
     <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
     <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
     <script>
-                                            $(document).ready(function () {
-                                                App.init();
-                                            });
+                                                $(document).ready(function () {
+                                                    App.init();
+                                                });
     </script>
     <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->

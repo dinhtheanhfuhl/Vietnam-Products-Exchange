@@ -85,7 +85,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
                             <div class="statbox widget box">
                                 <div style="margin-top: 80px" class="widget-content-area">
-                                    <h3>Danh sách đơn hàng</h3>
+                                    <h3>Danh sách đơn hàng(SUPPLIER)</h3>
                                     <div class="widget-header m-3">
                                         <div class="row">
                                             <div class="col-lg-12">
@@ -176,24 +176,37 @@
                                             <h5 style="color: #F5AB1E;" class="col-12">Không có dữ liệu!</h5>
                                         </c:if>
                                     </div>
+                                    <div class="pagination-section" style="padding-left:1230px;">
+                                        <ul class="pagination" >
+                                            <li class="paginate_button page-item previous disabled" id="ecommerce-product-list_previous">
+                                                <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="0" tabindex="0" class="page-link">
+                                                    <i class="flaticon-arrow-left-1"></i>
+                                                </a>
+                                            </li>
+                                            <li class="paginate_button page-item active">
+                                                <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="1" tabindex="0" class="page-link">1
+                                                </a>
+                                            </li>
+                                            <li class="paginate_button page-item ">
+                                                <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="2" tabindex="0" class="page-link">2
+                                                </a>
+                                            </li>
+                                            <li class="paginate_button page-item next" id="ecommerce-product-list_next">
+                                                <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="3" tabindex="0" class="page-link">
+                                                    <i class="flaticon-arrow-right"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
 
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
-            <!--  END CONTENT PART  -->
 
         </div>
-        <!-- END MAIN CONTAINER -->
-        <!-- END MAIN CONTAINER -->
-
-        <!--  BEGIN FOOTER  -->
-
         <footer class="footer-section theme-footer">
 
             <div class="footer-section-1  sidebar-theme">

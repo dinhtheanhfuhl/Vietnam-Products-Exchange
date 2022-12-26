@@ -5,12 +5,16 @@
 package controller;
 
 import dao.CategoryDAO;
+import dao.CityDAO;
 import dao.ProductDAO;
+import dao.ProductHierarchyDAO;
 import dao.ProductImageDAO;
 import dao.SupplierDAO;
 import dbconnect.DBConnect;
 import entity.Category;
+import entity.City;
 import entity.Product;
+import entity.ProductHierarchy;
 import entity.ProductImage;
 import entity.Supplier;
 import java.io.IOException;
@@ -46,6 +50,8 @@ public class HomeController extends HttpServlet {
         ProductImageDAO productImageDAO = new ProductImageDAO(connection);
         ProductDAO productDAO = new ProductDAO(connection);
         SupplierDAO supplierDAO = new SupplierDAO(connection);
+        ProductHierarchyDAO productHierarchyDAO = new ProductHierarchyDAO(connection);
+        CityDAO cityDAO = new CityDAO(connection);
         List<Product> getTop4 = productDAO.getTop4ProductOrderByView();
         
         Map<Product, List<ProductImage>> mapImages = new LinkedHashMap<>();
@@ -58,7 +64,20 @@ public class HomeController extends HttpServlet {
             List<Supplier> supplier = supplierDAO.getSupplierByProId(product.getProductId());
             mapSuppliers.put(product, supplier);
         }
+        Map<Product, List<ProductHierarchy>> mapHierarchy = new LinkedHashMap<>();
+        for (Product product : getTop4) {
+            List<ProductHierarchy> hierarchy = productHierarchyDAO.getAllHieByProId(product.getProductId());
+            mapHierarchy.put(product, hierarchy);
+        }
+        
+        Map<Product, List<City>> mapCity = new LinkedHashMap<>();
+        for (Product product : getTop4) {
+            List<City> city = cityDAO.getCitiesByProductId(product.getProductId());
+            mapCity.put(product, city);
+        }
+        
         List<Product> getTop4Newest = productDAO.getTop4ProductNewest();
+        
         Map<Product, List<ProductImage>> mapImages2 = new LinkedHashMap<>();
         for (Product product : getTop4Newest) {
             List<ProductImage> images = productImageDAO.getAllProductsImageByProId(product.getProductId());
@@ -69,10 +88,26 @@ public class HomeController extends HttpServlet {
             List<Supplier> supplier = supplierDAO.getSupplierByProId(product.getProductId());
             mapSuppliers2.put(product, supplier);
         }
+        Map<Product, List<ProductHierarchy>> mapHierarchy2 = new LinkedHashMap<>();
+        for (Product product : getTop4Newest) {
+            List<ProductHierarchy> hierarchy = productHierarchyDAO.getAllHieByProId(product.getProductId());
+            mapHierarchy2.put(product, hierarchy);
+        }
+        
+        Map<Product, List<City>> mapCity2 = new LinkedHashMap<>();
+        for (Product product : getTop4Newest) {
+            List<City> city = cityDAO.getCitiesByProductId(product.getProductId());
+            mapCity2.put(product, city);
+        }
+        
         request.setAttribute("mapImages", mapImages);
         request.setAttribute("mapSuppliers", mapSuppliers);
+        request.setAttribute("mapHierarchy", mapHierarchy);
+        request.setAttribute("mapCity", mapCity);
         request.setAttribute("mapImages2", mapImages2);
         request.setAttribute("mapSupplier2", mapSuppliers2);
+        request.setAttribute("mapHierarchy2", mapHierarchy2);
+        request.setAttribute("mapCity2", mapCity2);
         List<Category> allCate = categoryDAO.getAllCategory();
         request.setAttribute("listCate", allCate);
         request.getRequestDispatcher("./common/home.jsp").forward(request, response);
