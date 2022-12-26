@@ -159,7 +159,7 @@
                                                         <h5>
                                                             ${key.productName}
                                                             ${key.trademark}
-                                                            ${key.smell},
+                                                            ${key.smell}
                                                             ${key.color}
                                                         </h5>
                                                     </a>
@@ -202,7 +202,7 @@
                                                         <h5>
                                                             ${key.productName}
                                                             ${key.trademark}
-                                                            ${key.smell},
+                                                            ${key.smell}
                                                             ${key.color}
                                                         </h5>
                                                     </a>
