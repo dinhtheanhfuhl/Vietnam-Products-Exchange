@@ -175,17 +175,19 @@
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <a href="SupplierDetailPController?action=re-request&id=${p.productId}">
-                                                                <i class="flaticon-edit"></i>
-                                                            </a>
+                                                            <c:if test="${p.statusId!=3}">
+                                                                <a href="SupplierDetailPController?action=re-request&id=${p.productId}">
+                                                                    <i class="flaticon-edit"></i>
+                                                                </a>
+                                                            </c:if>
                                                         </td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>
                                         </table>
-                                            <c:if test="${resultP.size()==0||resultP==null}">
-                                                <h5 style="color: #F5AB1E;" class="col-12">Không có dữ liệu!</h5>
-                                            </c:if>
+                                        <c:if test="${resultP.size()==0||resultP==null}">
+                                            <h5 style="color: #F5AB1E;" class="col-12">Không có dữ liệu!</h5>
+                                        </c:if>
                                     </div>
                                     <div class="pagination-section">
                                         <ul

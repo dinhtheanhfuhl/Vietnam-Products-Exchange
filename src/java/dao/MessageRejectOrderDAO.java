@@ -5,6 +5,8 @@
 package dao;
 
 import entity.MessageRejectAccount;
+import entity.MessageRejectOrder;
+import entity.MessageRejectProduct;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,5 +31,23 @@ public class MessageRejectOrderDAO {
         } catch (SQLException e) {
             e.getMessage();
         }
+    }
+    public MessageRejectOrder getMessageRejectOrderById(int id) {
+        MessageRejectOrder messageRejectOrder = null;
+        String strSelectById = "select * from MessageRejectOrder where MessageOrderID=?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(strSelectById);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                messageRejectOrder = new MessageRejectOrder();
+                messageRejectOrder.setMessageOrderId(rs.getInt("MessageOrderID"));
+                messageRejectOrder.setOrderId(rs.getInt("OrderID"));
+                messageRejectOrder.setMessageDescribe(rs.getString("MessageDescribe"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return messageRejectOrder;
     }
 }

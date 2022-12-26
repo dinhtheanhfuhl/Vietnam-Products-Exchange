@@ -646,7 +646,7 @@ public class ProductDAO {
                     + "(select MIN(phh.Price) from ProductHierarchy as phh where phh.ProductID = p.ProductID) BETWEEN " + begin + " and " + end + ")\n";
         }
         if (cityId != null && !cityId.equals("") && !cityId.equals("0")) {
-            strSearch += "join DeliveryArea as d on (d.ProductID=p.ProductID and d.CityID=" + cityId + ")\n";
+            strSearch += "join Supplier as sp on (sp.SupplierID=p.SupplierID and sp.CityID=" + cityId + ")\n";
         }
         strSearch += "where 1=1\n";
         if (cateId != null && !cateId.equals("")) {
