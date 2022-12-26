@@ -3,20 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/MinimartDetailProductController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/HistoryOrderDetailController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/MinimartProductController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/AdminController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/LogginController.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/dao/OrderStatusDAO.java</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/productdetail.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/web/common/customer-detail-order.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/project/Vietnam-Products-Exchange/src/java/controller/SupplierDetailOrderController.java</file>
-        </group>
-        <group/>
-        <group/>
-        <group>
             <file>file:/C:/Users/ductd/Desktop/new%20code/Vietnam-Products-Exchange/web/common/createAccount.jsp</file>
         </group>
         <group>
@@ -122,14 +108,6 @@
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/InforController.java</file>
         </group>
         <group>
-            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/common/productdetail.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/common/header.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/common/customer-personal-info.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/common/ViewCart.jsp</file>
-            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/src/java/dbconnect/DBConnect.java</file>
-        </group>
-        <group/>
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/CustomerInfoDetail.java</file>
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/web/common/header.jsp</file>
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/dao/CustomerDAO.java</file>
@@ -148,6 +126,30 @@
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/web/common/customer-personal-info.jsp</file>
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/MiniMartChangeInfoController.java</file>
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/MinimartProductController.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/web/admin-page/supplier-view-order.jsp</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/web/admin-page/moderator-view-order.jsp</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/ModeratorOrderController.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/dao/OrderDAO.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/ModeratorDetailOrderController.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/SupplierDetailOrderController.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/ContactController.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/web/common/header.jsp</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/dbconnect/DBConnect.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/LogginController.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/SupplierAddController.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/web/common/header.jsp</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/dbconnect/DBConnect.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/LogginController.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/validate/Validation.java</file>
+            <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/SupplierAddController.java</file>
         </group>
     </open-files>
 </project-private>
