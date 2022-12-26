@@ -126,29 +126,7 @@
                                 </li>
                         </c:if>
 
-                        <c:if test="${sessionScope.roleIdLoggin==4}">
-                            <sql:setDataSource var="datas" 
-                                               driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-                                               url="jdbc:sqlserver://DESKTOP-A0E4T1K\\MAYAO:1433;
-                                               databaseName=vnproxfinal;encrypt=false"
-                                               user="sa" password="Trandinhduc137"/>
-
-                            <li class="nav-item ">
-                                <a href="CartController"  class="nav-link cart-btn amm-shopping-cart-open pr-3">
-                                    <i class="fas fa-shopping-cart">
-                                        <c:if test="${sessionScope.roleIdLoggin==4}">
-                                            <sql:query dataSource="${datas}" var="result">
-                                                select COUNT(*) as sumCart from CartItem where CartID = 
-                                                (select CartID from cart where CartID = ${sessionScope.customer.customerId})
-                                            </sql:query>
-                                            <c:forEach var = "row" items = "${result.rows}">
-                                                <span class="quantity-amm-shopping-cart-open">${row.sumCart}</span>
-                                            </c:forEach>
-                                        </c:if>
-                                    </i>
-                                </a>
-                            </li>
-                        </c:if>
+                        
                         <li class="nav-item">
                             <div  class="dropdown dropdown-user">
                                 <c:if test="${sessionScope.roleIdLoggin!=null}">

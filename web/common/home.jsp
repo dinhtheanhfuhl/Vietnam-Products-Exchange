@@ -51,7 +51,7 @@
                             <div class="row">
                                 <div class="col-sm-4 text-title-diff">
                                     <h2 style="color: white;">100% của người Việt</h2>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -132,10 +132,21 @@
                                 </div>
                             </c:forEach>
                         </div>
+
                     </div>
                 </c:if>
+
             </div>
         </section>
+        <div class="pricing">
+            <c:forEach var="hierarchy" items="${mapHierarchy.get(key)}">
+
+                <c:if test="${mapHierarchy.get(key).get(1)!=hierarchy}">
+                    <div style="color: #009900" class="discount-price"> <span><fmt:formatNumber type = "number" 
+                                      pattern = "" value = "${hierarchy.price}" /><sup>vnđ</sup>&nbsp;&nbsp;</span> </div> 
+                        </c:if>
+                    </c:forEach>
+        </div>
         <div class="gallery">
             <div class="container">
                 <div class="row">
@@ -146,7 +157,7 @@
                     </div>
                 </div>
                 <c:if test="${sessionScope.roleIdLoggin==null}">
-                   
+
                     <div class="row">
                         <div class="product-slider">
                             <c:forEach var="key" items="${mapImages2.keySet()}">
