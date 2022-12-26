@@ -108,6 +108,15 @@
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/InforController.java</file>
         </group>
         <group>
+            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/common/productdetail.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/common/header.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/common/customer-personal-info.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/common/fruit.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/web/common/ViewCart.jsp</file>
+            <file>file:/C:/Users/ductd/Desktop/code/Vietnam-Products-Exchange/src/java/dbconnect/DBConnect.java</file>
+        </group>
+        <group/>
+        <group/>
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/controller/CustomerInfoDetail.java</file>
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/web/common/header.jsp</file>
             <file>file:/C:/Users/DEKUPAC/Desktop/capstone/Vietnam-Products-Exchange/src/java/dao/CustomerDAO.java</file>
