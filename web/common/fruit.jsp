@@ -92,7 +92,7 @@
                                     </div>
                                 </c:if>
                                 <div class="shop-category-widget">
-                                    <h4 class="title">Khu vực giao hàng</h4>
+                                    <h4 class="title">Nơi bán</h4>
                                     <ul>
                                         <div class="row">
                                             <select class="form-control col-md-8 ml-2" name="cityId" id="city">

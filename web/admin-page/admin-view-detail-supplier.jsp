@@ -87,7 +87,7 @@
                         <div class="col-md-3 mt-50 mb-50">
 
                             <div class="profile-sidebars">
-                                <div class="profile-userpic"> <img
+                                <div class="profile-userpic"> <img style="object-fit: cover; width: 150px; height: 150px;"
                                         <c:choose>
                                             <c:when test='${sup.avartarImg!=null && sup.avartarImg!=""}'>
                                                 src="uploads/${sup.avartarImg}"

@@ -2,6 +2,7 @@ package controller;
 
 import dao.CategoryDAO;
 import dao.CustomerDAO;
+import dao.MessageRejectOrderDAO;
 import dao.OrderDAO;
 import dao.OrderDetailDAO;
 import dao.OrderStatusDAO;
@@ -9,6 +10,7 @@ import dao.ProductDAO;
 import dao.ProductHierarchyDAO;
 import dao.ProductImageDAO;
 import entity.Category;
+import entity.MessageRejectOrder;
 import entity.Order;
 import entity.OrderDetail;
 import entity.OrderStatus;
@@ -52,6 +54,7 @@ public class ModeratorDetailOrderController extends HttpServlet {
         ProductImageDAO proImgDAO = new ProductImageDAO(conn);
         CategoryDAO cateDAO = new CategoryDAO(conn);
         ProductHierarchyDAO proHieDAO = new ProductHierarchyDAO(conn);
+        MessageRejectOrderDAO messDAO = new MessageRejectOrderDAO(conn);
 
         List<OrderStatus> allOrderStatuses = orderStatusDAO.getAllOrderStatus();
         request.setAttribute("allOrderStatuses", allOrderStatuses);
@@ -61,6 +64,9 @@ public class ModeratorDetailOrderController extends HttpServlet {
         request.setAttribute("order", order);
         List<OrderDetail> orderDetails = orderDetailDAO.getAllOrderDetailsByOrderId(id);
         request.setAttribute("orderDetails", orderDetails);
+
+        MessageRejectOrder messReject = messDAO.getMessageRejectOrderById(id);
+        request.setAttribute("messReject", messReject);
 
         Map<OrderDetail, String> mapOrderDetailAndProduct = new LinkedHashMap<>();
         Map<OrderDetail, String> mapOrderDetailAndImg = new LinkedHashMap<>();
