@@ -200,10 +200,30 @@
                         </table>
                     </div>
                 </div>
-            </div>
 
-            <!--  END CONTENT PART  -->
-            <!--  END MODERN  -->
+            </div>
+            <div class="pagination-section" >
+                <ul class="pagination" >
+                    <li class="paginate_button page-item previous disabled" id="ecommerce-product-list_previous">
+                        <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="0" tabindex="0" class="page-link">
+                            <i class="flaticon-arrow-left-1"></i>
+                        </a>
+                    </li>
+                    <li class="paginate_button page-item active">
+                        <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="1" tabindex="0" class="page-link">1
+                        </a>
+                    </li>
+                    <li class="paginate_button page-item ">
+                        <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="2" tabindex="0" class="page-link">2
+                        </a>
+                    </li>
+                    <li class="paginate_button page-item next" id="ecommerce-product-list_next">
+                        <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="3" tabindex="0" class="page-link">
+                            <i class="flaticon-arrow-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <footer class="footer-section theme-footer">
 
                 <div class="footer-section-1  sidebar-theme">

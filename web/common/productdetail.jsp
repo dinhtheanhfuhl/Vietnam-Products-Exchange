@@ -222,7 +222,7 @@
                                             </h5>
                                         </a>
                                         <p>Số lượng: <span><fmt:formatNumber type = "number" 
-                                                      pattern = "" value = "${key.weight}" />Kg</span></p>
+                                                          pattern = "" value = "${key.weight}" />Kg</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -232,6 +232,7 @@
                     </div>
                 </div>
             </div>
+            
         </main>
         <%@include file="footer.jsp"%> 
     </body>

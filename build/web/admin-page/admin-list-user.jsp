@@ -83,7 +83,7 @@
 
                                 <div style="margin-top: 116px;" class="widget-header">
                                     <div class="page-header ">
-                                        <h3>Quản lý người dùng hệ thống</h3>
+                                        <h3>Quản lý người dùng hệ thống(ADMIN)</h3>
                                         <div class="page-title col-xl-12 col-md-12 col-sm-12 col-12 mb-3">
                                         </div>
                                     </div>
@@ -182,7 +182,28 @@
                                             </div>
                                         </c:if>
                                     </div>
-
+                                    <div class="pagination-section" style="padding-left:1230px;">
+                                        <ul class="pagination" >
+                                            <li class="paginate_button page-item previous disabled" id="ecommerce-product-list_previous">
+                                                <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="0" tabindex="0" class="page-link">
+                                                    <i class="flaticon-arrow-left-1"></i>
+                                                </a>
+                                            </li>
+                                            <li class="paginate_button page-item active">
+                                                <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="1" tabindex="0" class="page-link">1
+                                                </a>
+                                            </li>
+                                            <li class="paginate_button page-item ">
+                                                <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="2" tabindex="0" class="page-link">2
+                                                </a>
+                                            </li>
+                                            <li class="paginate_button page-item next" id="ecommerce-product-list_next">
+                                                <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="3" tabindex="0" class="page-link">
+                                                    <i class="flaticon-arrow-right"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                     <h4>Minimart</h4>
                                     <div class="table-responsive mb-4" style="overflow: scroll;height: 20em;"> 
                                         <table id="ecommerce-product-list" class="table table-bordered table-striped" >
@@ -223,7 +244,28 @@
                                             </div>
                                         </c:if>
                                     </div>
-
+                                    <div class="pagination-section" style="padding-left:1230px;">
+                                        <ul class="pagination" >
+                                            <li class="paginate_button page-item previous disabled" id="ecommerce-product-list_previous">
+                                                <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="0" tabindex="0" class="page-link">
+                                                    <i class="flaticon-arrow-left-1"></i>
+                                                </a>
+                                            </li>
+                                            <li class="paginate_button page-item active">
+                                                <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="1" tabindex="0" class="page-link">1
+                                                </a>
+                                            </li>
+                                            <li class="paginate_button page-item ">
+                                                <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="2" tabindex="0" class="page-link">2
+                                                </a>
+                                            </li>
+                                            <li class="paginate_button page-item next" id="ecommerce-product-list_next">
+                                                <a href="#" aria-controls="ecommerce-product-list" data-dt-idx="3" tabindex="0" class="page-link">
+                                                    <i class="flaticon-arrow-right"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
