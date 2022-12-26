@@ -6,11 +6,13 @@ package controller;
 
 import dao.CategoryDAO;
 import dao.ProductDAO;
+import dao.ProductHierarchyDAO;
 import dao.ProductImageDAO;
 import dao.SupplierDAO;
 import dbconnect.DBConnect;
 import entity.Category;
 import entity.Product;
+import entity.ProductHierarchy;
 import entity.ProductImage;
 import entity.Supplier;
 import java.io.IOException;
