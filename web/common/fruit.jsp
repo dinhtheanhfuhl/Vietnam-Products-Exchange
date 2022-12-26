@@ -239,15 +239,13 @@
                                     </div>
                                 </div>
                                 <c:if test="${mapImages.size()!=0}">
-                                    <div class="col-lg-12">
+<!--                                    <div class="col-lg-12">
                                         <div class="bisylms-pagination">
-                                            <c:forEach begin="1" end="4" var="i">
-                                                <!-- <span class="current">1</span> -->
-                                                <a href="#">${i}</a>
-                                                <!-- <a class="next" href="#">next<i class="fal fa-arrow-right"></i></a> -->
-                                            </c:forEach>
+                                                <a href="#">1</a>
+                                                <a href="#">2</a>
+                                                <a href="#">3</a>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </c:if>
                             </c:if>
                             <c:if test="${resultProducts.size()==0||resultProducts==null}">
