@@ -101,7 +101,7 @@
                                 <h2 class="title">
                                     ${product.productName}
                                     ${product.trademark}
-                                    ${product.smell},
+                                    ${product.smell}
                                     ${product.color}
                                 </h2>
                                 <span>${min} - ${medium-1} kg<br>
@@ -216,8 +216,8 @@
                                     <div class="content">
                                         <a style="text-decoration: none;" href="MimartDetailProduct?pid=${key.productId}">
                                             <h5>${key.productName}
-                                                ${key.trademark},
-                                                ${key.smell},
+                                                ${key.trademark}
+                                                ${key.smell}
                                                 ${key.color}
                                             </h5>
                                         </a>

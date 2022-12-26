@@ -126,7 +126,7 @@ public class ProductDAO {
 
     public List<Product> getTop4ProductOrderByView() {
         List<Product> products = new ArrayList<>();
-        String strSelectAll = "select top 4 * from Product order by ViewNumber desc";
+        String strSelectAll = "select top 4 * from Product where Product.StatusID=2 order by ViewNumber desc";
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);
             ResultSet rs = ps.executeQuery();
@@ -158,7 +158,7 @@ public class ProductDAO {
 
     public List<Product> getTop4ProductNewest() {
         List<Product> products = new ArrayList<>();
-        String strSelectAll = "select top 4 * from Product order by CreatedDate desc";
+        String strSelectAll = "select top 4 * from Product where Product.StatusID=2 order by CreatedDate desc";
         try {
             PreparedStatement ps = connection.prepareStatement(strSelectAll);
             ResultSet rs = ps.executeQuery();
