@@ -87,29 +87,29 @@
                 <div style="margin-left: 30px;" class="view-order">
                     <c:if test="${status.orderStatusID!=4 && status.orderStatusID!=3 && status.orderStatusID!=5}">
                         <h5>Hành động</h5>
-                            <c:if test="${status.orderStatusID==1}">
-                                <form style="display: inline" action="SupplierDetailOrderController" method="POST">
-                                    <input type="hidden" name="action" value="accept"/>
-                                    <input type="hidden" name="id" value="${order.orderId}"/>
-                                    <input type="submit" class="btn btn-success status mb-2" value="Xác nhận đơn hàng"/>
-                                </form>
-                                <form style="display: inline" action="SupplierDetailOrderController" method="POST">
-                                    <input type="hidden" name="action" value="reject"/>
-                                    <input type="hidden" name="id" value="${order.orderId}"/>
-                                    <input type="submit" class="btn btn-danger status mb-2" value="Từ chối đơn hàng"/>
-                                </form>
-                            </c:if>
-                            <c:if test="${status.orderStatusID==2}">
-                                <form action="SupplierDetailOrderController" method="POST">
-                                    <input type="hidden" name="action" value="success"/>
-                                    <input type="hidden" name="id" value="${order.orderId}"/>
-                                    <input type="submit" class="btn btn-secondary status mb-2" value="Đang giao hàng"/>
-                                </form>
-                            </c:if>
+                        <c:if test="${status.orderStatusID==1}">
+                            <form style="display: inline" action="SupplierDetailOrderController" method="POST">
+                                <input type="hidden" name="action" value="accept"/>
+                                <input type="hidden" name="id" value="${order.orderId}"/>
+                                <input type="submit" class="btn btn-success status mb-2" value="Xác nhận đơn hàng"/>
+                            </form>
+                            <form style="display: inline" action="SupplierDetailOrderController" method="POST">
+                                <input type="hidden" name="action" value="reject"/>
+                                <input type="hidden" name="id" value="${order.orderId}"/>
+                                <input type="submit" class="btn btn-danger status mb-2" value="Từ chối đơn hàng"/>
+                            </form>
+                        </c:if>
+                        <c:if test="${status.orderStatusID==2}">
+                            <form action="SupplierDetailOrderController" method="POST">
+                                <input type="hidden" name="action" value="success"/>
+                                <input type="hidden" name="id" value="${order.orderId}"/>
+                                <input type="submit" class="btn btn-secondary status mb-2" value="Đang giao hàng"/>
+                            </form>
+                        </c:if>
                         </span>
                     </c:if>
                 </div>
-                <div style="margin-left: 30px;" class="view-order">
+                <div style="margin-left: 30px; margin-top: 42px;" class="view-order">
                     <div class="summary-order">
                         <table class="table table-striped table-bordered" >
                             <tr>
@@ -141,6 +141,23 @@
                                 <th>Ghi Chú:</th>
                                 <td>${order.note}</td>
                             </tr>
+                            <tr>
+                                <th>Trạng thái:</th>
+                                <td class="text-warning">
+                                    <c:if test="${order.orderStatusId==1}">Chờ xác nhận</c:if>
+                                    <c:if test="${order.orderStatusId==2}">Đã xác nhận</c:if>
+                                    <c:if test="${order.orderStatusId==3}">Bị từ chối</c:if>
+                                    <c:if test="${order.orderStatusId==4}">Đang giao</c:if>
+                                    <c:if test="${order.orderStatusId==5}">Khách hàng đã huỷ</c:if>
+                                    <c:if test="${order.orderStatusId==6}">Khách hàng đã nhận hàng</c:if>
+                                    </td>
+                                </tr>
+                            <c:if test="${order.orderStatusId==5 && messReject!=null}">
+                                <tr>
+                                    <th>Lý do huỷ:</th>
+                                    <td class="text-warning">${messReject.messageDescribe}</td>
+                                </tr>
+                            </c:if>
                         </table>
                     </div>
 
@@ -174,8 +191,8 @@
                                         <td><span><fmt:formatNumber type = "number" 
                                                           pattern = "" value = "${mapOrderDetailAndCost.get(d)}" /><sup>vnđ</sup>&nbsp;&nbsp;</span></td>
                                         <td>
-                                        <span><fmt:formatNumber type = "number" 
-                                                          pattern = "" value = "${d.amount}" />Kg</span>
+                                            <span><fmt:formatNumber type = "number" 
+                                                              pattern = "" value = "${d.amount}" />Kg</span>
                                         </td>
                                     </tr>
                                 </tbody>

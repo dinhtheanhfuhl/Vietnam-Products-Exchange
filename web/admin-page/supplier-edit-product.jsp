@@ -28,6 +28,7 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/ecommerce/order.css" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ecommerce/addedit_product.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
 
@@ -86,11 +87,11 @@
                 <div class="container " style="margin-top: 50px;">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
-                            <div class="statbox widget box box-shadow" >
+                            <div class="statbox widget box box-shadow" style="margin-top: 65px;" >
                                 <div class="widget-header">
                                     <div class="row">
                                         <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                            <h4>Thêm sản phẩm </h4>
+                                            <h4>Sửa sản phẩm</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -120,7 +121,7 @@
                                                                                         <a>Định dạng ảnh chấp nhận: .JPG, .JPEG, .PNG</a>
                                                                                     </p>
                                                                                 </label>
-                                                                                <img src="uploads/${proImgs.get(i).getImgPath()}"  class="d-block col-md-2" style="object-fit: cover; min-height: 50px;min-width: 50px"/>
+                                                                                <img src="uploads/${proImgs.get(i).getImgPath()}"  class="d-block col-md-2" style="object-fit: cover; height: 50px;width: 50px"/>
                                                                                 <div class="col-md-6">
                                                                                     <div class="mb-3">
                                                                                         <div class="custom-file">
@@ -185,8 +186,12 @@
                                                                                     </svg>
                                                                                     <a>Định dạng file: .DOCS, .PDF, .JPG, .JPEG, .PNG</a>
                                                                                 </p></label>
-                                                                            <label class="col-md-3"><a href="">Tải xuống</a></label>
-                                                                            <div class="col-md-5">
+                                                                            <label class="col-md-2">
+                                                                                <a class="btn btn-warning" href="DownLoadFileController?action=downloadFile&file=${pro.productCertificate}">
+                                                                                    <i class="fa fa-download"></i>
+                                                                                </a>
+                                                                            </label>
+                                                                            <div class="col-md-6">
                                                                                 <div class="mb-3">
                                                                                     <div class="custom-file">
                                                                                         <input type="file" class="form-control-file" name="lincse" id="file-input">
@@ -202,7 +207,6 @@
                                                                         <div class="col-md-8">
                                                                             <select class="form-control form-custom mb-4"
                                                                                     name="category">
-
                                                                                 <c:forEach var="cate" items="${mapCateAndSupCate.keySet()}">
                                                                                     <optgroup label="${cate.cateName}">
                                                                                         <c:forEach var="subCate" items="${mapCateAndSupCate.get(cate)}">

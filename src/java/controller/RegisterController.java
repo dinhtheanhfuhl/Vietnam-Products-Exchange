@@ -79,10 +79,10 @@ public class RegisterController extends HttpServlet {
             filename = formatter.format(date) + filename.substring(indexDot);
 
             Account acc = accDAO.getAccountByEmail(email);
-            if (acc != null) {
+            if (acc != null ) {
                 request.setAttribute("messDupMail", "Email đã tồn tại!");
                 request.getRequestDispatcher("common/createAccount.jsp").forward(request, response);
-            } else if (acc == null) {
+            } else if (acc == null || acc.getStatus() == 3) {
                 lincsePart.write(realpath + "/" + filename);
                 if (role.equals("3")) {
                     acc = new Account(0, email, security.SecurityPassword.encrypt(password), 3, 1);

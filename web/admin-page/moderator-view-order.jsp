@@ -136,6 +136,12 @@
                                 <th>Ghi Chú:</th>
                                 <td>${order.note}</td>
                             </tr>
+                            <c:if test="${order.orderStatusId==5 && messReject!=null}">
+                                <tr>
+                                    <th>Lý do huỷ:</th>
+                                    <td class="text-warning">${messReject.messageDescribe}</td>
+                                </tr>
+                            </c:if>
                         </table>
                     </div>
 
@@ -166,8 +172,8 @@
                                                           pattern = "" value = "${mapOrderDetailAndPrice.get(od)}" /><sup>vnđ</sup>&nbsp;&nbsp;</span></td>
                                         <td>
                                             <span><fmt:formatNumber type = "number" 
-                                                          pattern = "" value = "${od.amount}" />Kg</span>
-                                            </td>
+                                                              pattern = "" value = "${od.amount}" />Kg</span>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </c:forEach>
