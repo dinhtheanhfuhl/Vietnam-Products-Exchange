@@ -51,8 +51,13 @@ public class LogginController extends HttpServlet {
                 request.getRequestDispatcher("common/login.jsp").forward(request, response);
                 return;
             }
-            if (account.getStatus() != 2) {
+            if (account.getStatus() == 1) {
                 request.setAttribute("error", "Tài khoản của bạn chưa được phê duyệt!");
+                request.getRequestDispatcher("common/login.jsp").forward(request, response);
+                return;
+            }
+            if (account.getStatus() == 3) {
+                request.setAttribute("error", "Tài khoản của bạn bị không có quyền truy cập!");
                 request.getRequestDispatcher("common/login.jsp").forward(request, response);
                 return;
             }
