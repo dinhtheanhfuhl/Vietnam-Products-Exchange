@@ -167,8 +167,7 @@
                                                         <c:forEach var="hierarchy" items="${mapHierarchy.get(key)}">
 
                                                             <c:if test="${mapHierarchy.get(key).get(1)!=hierarchy}">
-                                                                <div style="color: #009900" class="discount-price"> <span><fmt:formatNumber type = "number" 
-                                                                                  pattern = "" value = "${hierarchy.price}" /><sup>vnđ</sup>&nbsp;&nbsp;</span> </div> 
+                                                                
                                                                     </c:if>
                                                                 </c:forEach>
                                                     </div>
