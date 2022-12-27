@@ -115,7 +115,9 @@
                                                                    <input type="text" name="nameSr" placeholder="Tên sản phẩm"
                                                                    <c:if test="${requestScope.nameSr!=null}"> value="${requestScope.nameSr}"</c:if>
                                                                        class="form-control">
-                                                                   <input type="text" name="barcodeSr" placeholder="Mã Barcode/SKU"
+                                                                   <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                                          type = "number"
+                                                                          maxlength = "13"  name="barcodeSr" placeholder="Mã Barcode/SKU"
                                                                    <c:if test="${requestScope.barcodeSr!=null}"> value="${requestScope.barcodeSr}"</c:if>
                                                                        class="form-control"> 
                                                                    <button 

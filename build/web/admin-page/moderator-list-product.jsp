@@ -123,7 +123,9 @@
                                                                class="form-control">
                                                         <input type="text" name="name" placeholder="Tên sản phẩm" value="${name}"
                                                                class="form-control">
-                                                        <input type="number" name="barCode" placeholder="Mã Barcode/SKU" value="${barCode}"
+                                                        <input name="barCode" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                               type = "number"
+                                                               maxlength = "13" placeholder="Mã Barcode/SKU" value="${barCode}"
                                                                class="form-control"> 
                                                         <button type="submit" class="btn btn-info"
                                                                 style="padding: 0 10px; background: none; border: none;"
