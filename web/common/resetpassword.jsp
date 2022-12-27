@@ -71,14 +71,14 @@
                                                 <label for="exampleInputEmail">Mật khẩu mới</label>
                                                 <br>
                                                 <input name="pass" type="password" class="form-control" id="exampleInputEmail" placeholder="nhập mật khẩu mới">
-
                                             </li>
                                             <li class="log-resetEmail input-group ">
-
                                                 <label for="exampleInputEmail">Nhập lại mật khẩu mới</label>
                                                 <br>
                                                 <input name="rePass" type="password" class="form-control" id="exampleInputEmail" placeholder="nhập lại mật khẩu mới">
-
+                                            </li>
+                                            <li class="log-resetEmail input-group ">
+                                                <span class="text-warning">${error}</span>
                                             </li>
                                             <li class="form-btn" >
                                                 <div class="form-action-btn">
