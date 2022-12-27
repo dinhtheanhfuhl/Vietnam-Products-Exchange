@@ -53,8 +53,8 @@ public class EditPassController extends HttpServlet {
             if (cus != null) {
                 acc = accDAO.getAccountById(cus.getAccId());
             }
-            if(sup!=null){
-               acc = accDAO.getAccountById(sup.getAccId());
+            if (sup != null) {
+                acc = accDAO.getAccountById(sup.getAccId());
             }
             if (!acc.getPassWord().equals(oldPassEnr)) {
                 request.setAttribute("errorOldPass", "Mật khẩu không chính xác!");
@@ -110,9 +110,17 @@ public class EditPassController extends HttpServlet {
         } else if (action.equals("editpass")) {
             String pass = request.getParameter("pass");
             String rePass = request.getParameter("rePass");
+            if (!pass.equals(rePass)) {
+                request.setAttribute("error", "Mật khẩu nhập lại không trùng khớp");
+                String accId = request.getParameter("accId");
+                request.setAttribute("accId", accId);
+                request.getRequestDispatcher("common/resetpassword.jsp").forward(request, response);
+                return;
+            }
             if (pass != null && rePass != null) {
                 if (pass.equals(rePass)) {
                     String accId = request.getParameter("accId");
+                    request.setAttribute("accId", accId);
                     Account acc = accDAO.getAccountById(Integer.parseInt(accId));
                     acc.setPassWord(security.SecurityPassword.encrypt(pass));
                     accDAO.updateAccount(acc);

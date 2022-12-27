@@ -98,11 +98,10 @@
                     <h2>Sản phẩm nổi bật</h2>
                 </div>
                 <c:if test="${sessionScope.roleIdLoggin==null}">
-                    <div class="row">
-                        <div class="product-slider">
+                        <div class=" d-flex align-items-stretch">
                             <c:forEach var="key" items="${mapImages.keySet()}">
                                 <div class="col-md-3">
-                                    <div class="card">
+                                    <div class="card" style="height: 100%">
                                         <a style="text-decoration: none;" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo"><img class="card-img-top" style="object-fit: cover;height: 200px;" src="uploads/${mapImages.get(key).get(0).getImgPath()}" alt="Card image cap"></a>
                                         <div class="card-body">
                                             <a style="text-decoration: none;" data-toggle="modal" href="" data-target="#exampleModal" data-whatever="@mdo">
@@ -113,7 +112,6 @@
                                 </div>
                             </c:forEach>
                         </div>
-                    </div>
                 </c:if>
                 <c:if test="${sessionScope.roleIdLoggin!=null}">
                     <div class="row">

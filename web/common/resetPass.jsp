@@ -66,6 +66,7 @@
                                                 <label for="exampleInputEmail">Email</label>
                                                 <br>
                                                 <input name="email" type="email" class="form-control" id="exampleInputEmail" placeholder="nhập email">
+                                                <span class="text-warning mt-3">${mess}</span>
                                             </li>
                                             <li class="form-btn" >
                                                 <div class="form-action-btn">
