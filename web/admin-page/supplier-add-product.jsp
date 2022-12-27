@@ -235,7 +235,10 @@
                                                                     <div class="row">
                                                                         <label class="col-md-4">Mã Barcode/SKU*</label>
                                                                         <div class="col-md-8">
-                                                                            <input class="form-control" type="tel" required="" name="barcode" minlength="8" maxlength="13">
+                                                                            <input class="form-control" required="" name="barcode" 
+                                                                                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                                                   type = "number"
+                                                                                   maxlength = "13" >
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -471,7 +474,13 @@
 
         <!--  BEGIN PROFILE SIDEBAR  -->
         <%@include file="aside.jsp" %>
-
+        <script>
+            document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.oninput = () => {
+            if (input.value.length > input.maxLength) input.value = input.value.slice(0, input.maxLength)
+            };
+                    ;
+        </script>
         <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
         <script src="${pageContext.request.contextPath}/assets/js/libs/jquery-3.1.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/loader.js"></script>
@@ -481,8 +490,8 @@
         <script src="${pageContext.request.contextPath}/plugins/blockui/jquery.blockUI.min.js"></script>
         <script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
         <script>
-            $(document).ready(function () {
-                App.init();
+                    $(document).ready(function () {
+            App.init();
             });
         </script>
         <script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
